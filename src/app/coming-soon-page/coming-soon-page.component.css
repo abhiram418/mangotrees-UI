@@ -1,0 +1,15 @@
+.ComingSoonPage{
+    margin-top: 7%;
+    margin-inline: 15%;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-inline: 15%;
+    text-align: center;
+}
+.ComingSoonPage:hover .roboto-bold{
+    /* transition: color 2s; */
+    color:goldenrod;
+}
+.ComingSoonPage:not(:focus) .roboto-bold{
+    transition: color 2s;
+}
