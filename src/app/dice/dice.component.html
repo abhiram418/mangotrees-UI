@@ -1,0 +1,15 @@
+<div class="page">
+    <div class="dice-select">
+        <button (click)="changeDiceList(1)">1</button>
+        <button (click)="changeDiceList(2)">2</button>
+        <button (click)="changeDiceList(3)">3</button>
+    </div>
+    <div class="dice-view">
+        <div class="dice" *ngFor="let item of DiceList" >
+            <img src="../../assets/Dice/{{item}}.png">
+        </div>
+    </div>
+    <div class="roll">
+        <button class="roll-button" (click)="random()">{{roll}}</button>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-.ComingSoonPage{
+/* .ComingSoonPage{
     margin-top: 7%;
     margin-inline: 15%;
     padding-top: 8%;
@@ -7,7 +7,26 @@
     text-align: center;
 }
 .ComingSoonPage:hover .roboto-bold{
-    /* transition: color 2s; */
+    color:goldenrod;
+}
+.ComingSoonPage:not(:focus) .roboto-bold{
+    transition: color 2s;
+} */
+.ComingSoonPage{
+    background-color: white;
+    margin-top: 7%;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-inline: 15%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ComingSoonPage h5{
+    margin-top: 1px;
+}
+.ComingSoonPage:hover .roboto-bold{
     color:goldenrod;
 }
 .ComingSoonPage:not(:focus) .roboto-bold{
