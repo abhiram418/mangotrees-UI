@@ -3,11 +3,13 @@
     flex-direction: column;
     align-items: center;
 }
+
+
 .dice-select{
     /* background-color: bisque; */
+    height: 10%;
     display: flex;
     justify-content: center;
-    height: 10%;
 }
 .dice-select button{
     height: 25px;
@@ -30,25 +32,34 @@
 
 
 .dice-view{
-    /* background-color: beige; */
-    width: 35%;
+    width: fit-content;
     height: 25%;
     margin-top: 6%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+.dice{
+    background-color: #0fd2e4;
+    max-height: 125px;
+    max-width: 125px;
+    margin-inline: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 1s; 
+}
+.dice:hover{
+    transform: scale(1.2);
+    margin-inline: 12px;
+    transition: 1s; 
+}
+.rotate {
+    animation: rotateAnimation 2s; 
 }
 .dice img{
-    width: 120px;
-    margin-inline: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 1s;
-}
-.dice img:hover{
-    transform: scale(1.2);
-    transition: 1s;
+    height: 100%;
+    width: 100%;
+    display: block;
 }
 
 
@@ -68,4 +79,25 @@
     border-radius: 3px;
     font-weight: bolder;
     transition: 1s;
+}
+
+
+
+@media (max-width: 800px) {
+    .dice-select{
+        margin-bottom: 25px;
+    }
+    .dice-select button{
+        height: 25px;
+        width: 99px;
+    }
+}
+
+@keyframes rotateAnimation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg); 
+    }
 }
