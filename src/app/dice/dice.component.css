@@ -1,3 +1,8 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .dice-select{
     /* background-color: bisque; */
     display: flex;
