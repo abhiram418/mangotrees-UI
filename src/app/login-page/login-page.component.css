@@ -1,0 +1,213 @@
+.full{
+    height: 540px;
+    background-image: url('../../assets/Pictures/loginPage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.login-page{
+    height: 488px;
+    width: 100%;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.map{
+    height: 100%;
+    width: 100%;
+    margin-top: 5%;
+    margin-left: 10%;
+    overflow: hidden;
+}
+.ts-map{
+    z-index: 2;
+    position: absolute;
+    top: 6%;
+    left: 12%;
+    overflow: hidden;
+    transition: 1s;
+    
+}
+.ts-map img{
+    height: 260px;
+    width: 100%; 
+} 
+.ts-map:hover{
+    transform: scale(1.05);
+    transition: 1s;
+}
+.ap-map{
+    z-index: 1;
+    top: 16%;
+    left: 10%;
+    position: absolute;
+    overflow: hidden;
+    transition: 1s;
+}
+.ap-map img{
+    height: 100%;
+    width: 90%;
+}
+.ap-map:hover{
+    transform: scale(1.05);
+    transition: 1s;
+}
+
+
+
+.login {
+    height: fit-content;
+    width: fit-content;
+    z-index: 2;
+    margin-top: 60px;
+    margin-right: 10%; 
+    border-radius: 10px; 
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(239, 181, 36);
+    background-image: url('../../assets/Pictures/login.jpg');
+    background-repeat: repeat;
+    background-size: contain;  
+    background-position: right;
+    
+}
+.login input{
+    margin-bottom: 5%;
+    width: 18em;
+    height: 3em;
+    padding-inline: 11px;
+    border-radius: 5px;
+    border: 0;
+}
+.code{
+    width: 100%;
+}
+.code a{
+    font-size: x-small;
+    padding-inline: 3%;
+    cursor: pointer;
+}
+.login button{
+    width: 10em;
+    height: 2.8em;
+    margin-top: 3%;
+    border-radius: 20px;
+    border-color: transparent;
+    background-color: rgba(240, 248, 255, 0.612);
+    transition: 1s;
+}
+.login button:hover{
+    background-color: rgba(240, 248, 255, 0.897);
+    transition: 1s;
+}
+.other{
+    width: 100%;
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: center;
+}
+.other p{
+    width: fit-content;
+    margin: 0;
+}
+.other a:hover{
+    cursor: pointer;
+    color: rgb(185, 47, 47);
+}
+
+
+@media (max-width: 600px) {
+    .ts-map{
+        top: 4.5%;
+        left: 4.5%;
+        left: 11%;
+    }
+    .ts-map img{
+        width: 55px;
+        height: 50px;
+    }
+    .ap-map img{
+        width: 100px;
+    }
+    .ap-map{
+        top: 6%;
+        left: 10%;
+        transition: 1s;
+    }
+    
+    .login{
+        margin-top: 25%;
+        margin-right: 20%;
+        padding: 0;
+        padding: 10%;
+        background-repeat: no-repeat;
+    }
+    .login input{
+        width: 9em;
+        padding-inline: 10px;
+        border: 0;
+    }
+    .login button{
+        width: 6em;
+        height: 2.5em;
+    }
+
+    .other a,p{
+        font-size: x-small;
+    }
+
+}
+
+@media (max-width: 418px){
+    .ts-map{
+        display: none;
+    }
+    .ap-map{
+        display: none;
+    }
+    .other a,p{
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 680px) and (min-width: 600px){
+    .ts-map{
+        display: none;
+    }
+    .ap-map{
+        display: none;
+    }
+
+
+    .login{
+        margin-right: 15%;
+    }
+}
+
+@media (max-width: 1100px) and (min-width: 680px){
+    .ts-map{
+        left: 10%;
+        transition: 1s;
+    }
+    .ts-map img{
+        width: 55px;
+        height: 50px;
+        transition: 1s;
+    }
+    .ap-map img{
+        width: 100px;
+        transition: 1s;
+    }
+    .ap-map{
+        top: 7.5%;
+        margin-left: -7px;
+        transition: 1s;
+    }
+    
+}

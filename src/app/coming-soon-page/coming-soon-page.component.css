@@ -1,20 +1,5 @@
-/* .ComingSoonPage{
-    margin-top: 7%;
-    margin-inline: 15%;
-    padding-top: 8%;
-    padding-bottom: 8%;
-    padding-inline: 15%;
-    text-align: center;
-}
-.ComingSoonPage:hover .roboto-bold{
-    color:goldenrod;
-}
-.ComingSoonPage:not(:focus) .roboto-bold{
-    transition: color 2s;
-} */
 .ComingSoonPage{
-    background-color: white;
-    margin-top: 7%;
+    height: 350px;
     padding-top: 8%;
     padding-bottom: 8%;
     padding-inline: 15%;
@@ -22,13 +7,45 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/Pictures/CommingSoon.jpg');
+}
+.blur{
+    background-color: rgba(240, 248, 255, 0.858);
+    width: 75%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .ComingSoonPage h5{
     margin-top: 1px;
 }
-.ComingSoonPage:hover .roboto-bold{
+.blur:hover .roboto-bold{
     color:goldenrod;
+    transition: color 1s;
 }
-.ComingSoonPage:not(:focus) .roboto-bold{
+.blur:not(:focus) .roboto-bold{
     transition: color 2s;
+}
+
+
+
+@media (max-width: 500px) {
+    .ComingSoonPage{
+        transition: 1s;
+        height: 640px;
+    }
+    .blur{
+        height: 25%;
+        width: 100%;
+    }
+    .ComingSoonPage h1{
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    .ComingSoonPage h5{
+        font-size: xx-small;
+    }
 }

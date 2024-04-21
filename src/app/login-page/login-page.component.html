@@ -1,1 +1,28 @@
-<P>DDDDDDD</P>
+<div class="full">
+    <div class="login-page roboto-regular">
+        <div class="map">
+            <div class="ts-map">
+                <img src="../../assets/Pictures/TsMap.png" alt="">
+            </div>
+            <div class="ap-map">
+                <img src="../../assets/Pictures/ApMap.png" alt="">
+            </div>
+        </div>
+        <div class="login">
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <input type="text" *ngIf="ShowCode" placeholder="*Enter you Code">
+            <div class="code">
+                <a (click)="code()" style="float: right;" *ngIf="!ShowCode">---</a>
+            </div>
+            <button type="submit" class="roboto-light">Login</button>
+            <div class="other">
+                <a>Reset-Password</a>
+                <a style="color: black;"> / </a>
+                <a (click)="SignUp()">Sign-Up</a>
+                <a style="color: black;"> / </a>
+                <a>Enter-as-Guest</a>
+            </div>
+        </div>
+    </div>
+</div>
