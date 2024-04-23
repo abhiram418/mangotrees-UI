@@ -5,7 +5,7 @@
         <button (click)="changeDiceList(3)">3</button>
     </div>
     <div class="dice-view">
-        <div class="dice rotate" *ngFor="let item of DiceList">
+        <div class="dice rotate" *ngFor="let item of DiceList" (click)="random()">
             <img src="../../assets/Pictures/{{item}}.png" alt="Loading ...">
         </div>
     </div>

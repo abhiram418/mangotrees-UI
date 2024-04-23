@@ -13,16 +13,16 @@
 
 
 .dice-select{
-    height: 10%;
+    height: fit-content;
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-top: 5%;
 }
 .dice-select button{
-    height: 25%;
-    width: 125px;
-    margin-top: 25%;
-    margin-inline: 3px;
+    height: 200%;
+    width: 12%;
+    margin-inline: 3%;
     border-width: 0px;
     border-radius: 3px;
     color: white;
@@ -30,7 +30,7 @@
     transition: 1s;
 }
 .dice-select button:hover{
-    margin-inline: 18px;
+    margin-inline: 5%;
     transform: scale(1.2);
     color: brown;
     background-color: lightskyblue;
@@ -42,10 +42,11 @@
 .dice-view{
     width: fit-content;
     height: 25%;
-    margin-top: 76px;
+    width: 100%;
+    margin-top: 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
 }
 .dice{
     /* background-color: #0fd2e4; */
@@ -56,6 +57,10 @@
     border-radius: 10px;
     overflow: hidden;
     transition: 1s; 
+}
+.dice img{
+    height: 100%;
+    width: 100%;
 }
 .dice:hover{
     transform: scale(1.2);
@@ -73,13 +78,15 @@
 
 
 .roll{
+    height: fit-content;
+    width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 10%;
 }
 .roll-button{
-    height: 55%;
-    width: 125px;
-    margin-top: 45%;
+    height: 200%;
+    width: 10%;
     align-items: center;
     background-color: rgb(7, 174, 135);
     color: white;
@@ -95,13 +102,18 @@
 
 
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .dice-select{
-        margin-bottom: 25px;
+        margin-top: 20%;
     }
     .dice-select button{
-        height: 25px;
-        width: 99px;
+        width: 25%;
+    }
+    .dice-view{
+        margin-top: 25%;
+    }
+    .roll-button{
+        width: 35%;
     }
 }
 
