@@ -1,17 +1,9 @@
 <div class="full">
     <div class="login-page roboto-regular">
-        <div class="map">
-            <div class="ts-map">
-                <img src="../../assets/Pictures/TsMap.png" alt="">
-            </div>
-            <div class="ap-map">
-                <img src="../../assets/Pictures/ApMap.png" alt="">
-            </div>
-        </div>
         <div class="login">
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <input type="text" *ngIf="ShowCode" placeholder="*Enter you Code">
+            <input type="text" placeholder="Username"  class="roboto-regular">
+            <input type="password" placeholder="Password" class="roboto-regular">
+            <input type="text" *ngIf="ShowCode" placeholder="*Enter you Code" class="roboto-regular">
             <div class="code">
                 <a (click)="code()" style="float: right;" *ngIf="!ShowCode">---</a>
             </div>
