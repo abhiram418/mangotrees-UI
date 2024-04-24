@@ -1,0 +1,125 @@
+h1{
+    display: none;
+    padding: 25%;
+    text-align: center;
+    font-size: small;
+}
+.page{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    background-color: white;
+}
+p{
+    margin: 0;
+}
+.address{
+    display: flex;
+    flex-direction: column;
+}
+.row,.name,.password{
+    display: flex;
+}
+
+.signup-page{
+    height: 100%;
+    width: 100%;
+    background-image: url("../../assets/Pictures/file.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name,.password,.address,.terms{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.blur{
+    height: fit-content;
+    width: fit-content;
+    float: left;
+    padding: 5%;
+    border-radius: 10px;
+    background-color: rgba(255, 192, 203, 0.516);
+}
+.blur input:not(.terms input), .name input, .password input, .address input{
+    height: 3em;
+    width: 16em;
+    margin-bottom: 2%;
+    padding-inline: 11px;
+    margin-inline: 3px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: rgba(231, 187, 202, 0.849);
+}
+.blur input::-webkit-inner-spin-button, 
+.money input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+button{
+    width: 10em;
+    height: 2.8em;
+    border-radius: 20px;
+    border-color: transparent;
+    background-color: pink;
+    transition: 1s;
+}
+button:hover{
+    background-color: rgb(254, 171, 188);
+    transition: 1s;
+}
+button:active {
+    background-color: rgb(237, 55, 116);
+}
+
+
+@media (max-width: 600px){
+    .blur input:not(.terms input), .name input, .password input, .address input{
+        height: 2em;
+        width: 8em;
+    }
+
+    .terms p{
+        padding: 10px;
+        padding-inline: 0px;
+        font-size: 12px;
+    }
+    button{
+        height: 2.4em;
+        width: 6em;
+        background-color: plum;
+    }
+    button:hover{
+        background-color: plum;
+    }
+    button:active {
+        background-color: palevioletred;
+    }
+}
+
+
+@media (min-width: 1200px){
+    .blur{
+        margin-left: -35%;
+    }
+}
+
+@media (max-width: 314px){
+    h1{
+        display: flex;
+    }
+    .page{
+        display: none;
+    }
+}
