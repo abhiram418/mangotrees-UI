@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { delay } from 'rxjs';
 
 
 
