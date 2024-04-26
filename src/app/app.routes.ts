@@ -3,11 +3,14 @@ import { ComingSoonPageComponent } from './coming-soon-page/coming-soon-page.com
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SigninUpPageComponent } from './signin-up-page/signin-up-page.component';
 import { DiceComponent } from './dice/dice.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'comingSoon', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
     {path:'login', component:LoginPageComponent},
     {path:'signup', component:SigninUpPageComponent},
+    
+    {path:'loader', component: LoaderComponent},
     {path:'dice', component:DiceComponent},
 ];
