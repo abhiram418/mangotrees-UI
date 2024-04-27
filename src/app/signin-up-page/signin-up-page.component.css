@@ -12,7 +12,11 @@ h1{
     bottom: 0;
     left: 0;
     right: 0;
-    overflow-y: auto;
+    background-image: url("../../assets/Pictures/signupPage.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    background-position-x: right;
     background-color: white;
 }
 p{
@@ -29,14 +33,11 @@ p{
 .signup-page{
     height: 100%;
     width: 100%;
-    background-image: url("../../assets/Pictures/file.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
 .name,.password,.address,.terms{
@@ -50,7 +51,8 @@ p{
     float: left;
     padding: 5%;
     border-radius: 10px;
-    background-color: rgba(255, 192, 203, 0.516);
+    border: 2px solid rgb(237, 237, 237);
+    /* background-color: #ffc0cb84; */
 }
 .blur input:not(.terms input), .name input, .password input, .address input{
     height: 3em;
@@ -60,7 +62,8 @@ p{
     margin-inline: 3px;
     border-radius: 5px;
     border: 0px;
-    background-color: rgba(231, 187, 202, 0.849);
+    /* background-color: #e7bbcad8; */
+    background-color: rgba(255, 192, 203, 0.781);
 }
 .blur input::-webkit-inner-spin-button, 
 .money input[type=number]::-webkit-outer-spin-button { 
@@ -72,7 +75,7 @@ button{
     height: 2.8em;
     border-radius: 20px;
     border-color: transparent;
-    background-color: pink;
+    background-color: rgb(254, 171, 188);
     transition: 1s;
 }
 button:hover{
@@ -92,7 +95,33 @@ button:active {
 }
 
 
+
+@media (min-width: 1200px){
+    .blur{
+        margin-left: -35%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .page{
+        background-image: url('../../assets/Pictures/signupPage-mobile.png');
+        background-size: 50%;
+        transition: 1s;
+    }
+    /* .blur{
+        background-color: transparent;
+    }
+    .blur input:not(.terms input), .name input, .password input, .address input{
+        background-color: rgba(255, 192, 203, 0.781);
+    } */
+}
+
 @media (max-width: 600px){
+    .page{
+        background-image: url('../../assets/Pictures/signupPage-mobile.png');
+        background-size: 75%;
+        transition: 1s;
+    }
     .blur input:not(.terms input), .name input, .password input, .address input{
         height: 2em;
         width: 8em;
@@ -106,20 +135,13 @@ button:active {
     button{
         height: 2.4em;
         width: 6em;
-        background-color: plum;
+        /* background-color: plum; */
     }
     button:hover{
-        background-color: plum;
+        /* background-color: plum; */
     }
     button:active {
-        background-color: palevioletred;
-    }
-}
-
-
-@media (min-width: 1200px){
-    .blur{
-        margin-left: -35%;
+        /* background-color: palevioletred; */
     }
 }
 

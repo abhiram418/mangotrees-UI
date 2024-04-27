@@ -103,8 +103,6 @@ h1{
     .full{
         left: 0;
         background-image: url('../../assets/Pictures/loginPage-Mobile.jpg');
-        background-repeat: repeat;
-        background-size: contain;  
         background-position: center;
     }
     .login{
