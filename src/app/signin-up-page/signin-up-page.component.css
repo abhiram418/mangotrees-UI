@@ -114,6 +114,9 @@ button:active {
         background-size: 50%;
         transition: 1s;
     }
+    .terms input:hover{
+        transform: none;
+    }
     /* .blur{
         background-color: transparent;
     }
