@@ -51,7 +51,7 @@ p{
     float: left;
     padding: 5%;
     border-radius: 10px;
-    border: 1px solid rgb(237, 237, 237);
+    border: 2px solid rgb(237, 237, 237);
     /* background-color: #ffc0cb84; */
 }
 .blur input:not(.terms input), .name input, .password input, .address input{
@@ -75,12 +75,15 @@ button{
     height: 2.8em;
     border-radius: 20px;
     border-color: transparent;
-    background-color: rgb(254, 171, 188);
-    transition: 1s;
+    color: white;
+    /* background-color: rgb(254, 171, 188); */
+    background-color: rgb(241, 130, 167);
+    transition: 0.5s;
 }
 button:hover{
-    background-color: rgb(254, 171, 188);
-    transition: 1s;
+    /* background-color: rgb(241, 130, 167); */
+    transition: 0.5s;
+    transform: scale(1.1);
 }
 button:active {
     background-color: rgb(237, 55, 116);
@@ -92,6 +95,9 @@ button:active {
     margin-top: 0px;
     margin-bottom: 0px;
     transition: 1s;
+}
+.terms input:hover{
+    transform: scale(1.1);
 }
 
 
@@ -107,9 +113,6 @@ button:active {
         background-image: url('../../assets/Pictures/signupPage-mobile.png');
         background-size: 50%;
         transition: 1s;
-    }
-    .blur{
-        border: 2px solid rgb(237, 237, 237);
     }
     /* .blur{
         background-color: transparent;
@@ -138,14 +141,14 @@ button:active {
     button{
         height: 2.4em;
         width: 6em;
-        background-color: plum;
+        /* background-color: plum; */
     }
-    button:hover{
+    /* button:hover{
         background-color: plum;
     }
     button:active {
         background-color: palevioletred;
-    }
+    } */
 }
 
 @media (max-width: 314px){
