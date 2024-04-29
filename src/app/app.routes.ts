@@ -4,7 +4,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SigninUpPageComponent } from './signin-up-page/signin-up-page.component';
 import { DiceComponent } from './dice/dice.component';
 import { LoaderComponent } from './components/loader/loader.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'comingSoon', pathMatch:'full'},

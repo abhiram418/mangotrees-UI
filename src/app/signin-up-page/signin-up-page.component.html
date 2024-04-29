@@ -1,4 +1,4 @@
-<div class="page" *ngIf="!(loader)">
+<div class="page" [class.hide]="loader">
     <div class="signup-page">
         <div class="blur">
             <div class="name">
@@ -32,7 +32,8 @@
         </div>
     </div>
 </div>
-<div *ngIf="loader">
+
+<div [class.hide]="!(loader)">
     <app-loader></app-loader>
 </div>
 

@@ -100,7 +100,9 @@ button:active {
     transform: scale(1.1);
 }
 
-
+.hide{
+    display: none;
+}
 
 @media (min-width: 1200px){
     .blur{

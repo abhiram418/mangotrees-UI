@@ -98,6 +98,10 @@ h1{
     color: rgb(185, 47, 47);
 }
 
+.hide{
+    display: none;
+}
+
 
 @media (max-width: 600px) {
     .full{
