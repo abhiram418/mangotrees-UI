@@ -1,0 +1,12 @@
+.test{
+    margin-top: 60px;
+    justify-content: safe;
+}
+
+
+
+@media (max-width: 874px){
+    .test{
+        margin-top: 120px;
+    }
+}

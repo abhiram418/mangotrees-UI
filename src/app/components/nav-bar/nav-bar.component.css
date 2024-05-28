@@ -1,7 +1,8 @@
 .nav-bar{
     width: 100%;
     height: fit-content;
-    background-color: black;
+    position: fixed;
+    top: 0;
     align-items: center;
 }
 
@@ -9,16 +10,34 @@
     height: 60px;
     width: 100%;
     display: flex;
-    /* justify-content: space-around; */
-    color: #0f1111;
-    background-color: aquamarine;
+    justify-content: space-around;
+    color: #fff;
+    background-color: #1d2a26;
 }
 
 
 
 
+
+.logo{
+    max-width: 130px;
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 100%;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: #1d2a26;
+}
+.logo img:hover{
+    border-style: solid;
+    border-color: white;
+}
+
+
 .location{
-    min-width: 120px;
+    min-width: 125px;
     width: fit-content;
     height: 50px;
     display: flex;
@@ -27,11 +46,11 @@
     margin-top: 3px;
     border-style: solid;
     border-radius: 3px;
-    border-color: aquamarine;
+    border-color: #1d2a26;
 }
 .location:hover{
     border-style: solid;
-    border-color: black;
+    border-color: white;
 }
 .location span{
     margin: 0px;
@@ -47,6 +66,7 @@
 .deliver-to-top{
     font-size: 12px;
     font-weight: 400;
+    color: #DDD;
 }
 .deliver-to-bottom{
     font-size: 14px;
@@ -84,7 +104,8 @@
     justify-content: space-around;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    background-color: beige;
+    color: black;
+    background-color: #F4BB44;
 }
 .search-icon span{
     font-size: 30px;
@@ -109,15 +130,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-inline: 9px;
+    padding-left: 9px;
     margin-top: 3px;
     border-style: solid;
     border-radius: 3px;
-    border-color: aquamarine;
+    border-color: #1d2a26;
 }
 .account:hover{
     border-style: solid;
-    border-color: black;
+    border-color: white;
 }
 .account p{
     margin: 0px;
@@ -153,11 +174,11 @@
     margin-top: 3px;
     border-style: solid;
     border-radius: 3px;
-    border-color: aquamarine;
+    border-color: #1d2a26;
 }
 .orders:hover{
     border-style: solid;
-    border-color: black;
+    border-color: white;
 }
 .orders p{
     margin: 0px;
@@ -184,13 +205,133 @@
     border-top: 2px;
     border-style: solid;
     border-radius: 3px;
-    border-color: aquamarine;
+    border-color: #1d2a26;
 }
 .cart:hover{
     border-style: solid;
-    border-color: black;
+    border-color: white;
 }
 .cart p{
     margin: 0px;
     margin-top: 5px;
+}
+
+
+
+
+
+.nav-belt-mobile{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1d2a26;
+    display: none;
+}
+
+
+.search-bar-mobile{
+    display: flex;
+    width: fit-content;
+    min-width: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-inline: 4px;
+}
+.search-bar-mobile input{
+    width: 100%;
+    min-width: 250px;
+    padding-top: 7px;
+    padding-inline-start: 10px;
+    padding-inline-end: 5px;
+    padding-bottom: 10px;
+    border: 0px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    outline: 0px;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 875px){
+    .search-bar{
+        display: none;
+    }
+    .nav-belt-mobile{
+        display: flex;
+    }
+
+    .cart{
+        font-size: 14px;
+    }
+}
+@media (max-width: 575px){
+    .location{
+        display: none;
+    }
+}
+@media (max-width: 424px){
+    .account{
+        min-width: 0px;
+        width: fit-conten
+    }
+    .account-top{
+        font-size: 10px;
+    }
+    .account-bottom p{
+        font-size: 12px;
+    }
+    .account-bottom svg{
+        margin-left: -4px;
+        margin-top: -2px;
+    }
+
+
+    .orders{
+        min-width: 0px;
+        width: fit-conten
+    }
+    .orders-top{
+        font-size: 10px;
+    }
+    .orders-bottom{
+        font-size: 12px;
+    }
+
+
+    .cart{
+        min-width: 0px;
+        width: fit-content;
+    }
+    .cart p{
+        font-size: 12px;
+    }
+}
+@media (max-width: 382px){
+    .nav-belt{
+        justify-content:space-between !important;
+    }
+
+    .account{
+        display: none;
+    }
+
+    .search-bar-mobile input{
+        min-width: 200px;
+    }
+
+    .orders{
+        display: none;
+    }
+
+    .cart p{
+        font-size: 14px;
+    }
 }

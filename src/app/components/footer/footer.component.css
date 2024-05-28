@@ -105,6 +105,12 @@
 .bottom-middle-footer{
     text-align: center;
 }
+.bottom-middle-footer p{
+    margin: 0px;
+}
+.bottom-middle-footer img{
+    height: 45px;
+}
 
 
 
@@ -162,6 +168,9 @@
     .bottom-middle-footer{
         font-size: small;
     }
+    .bottom-middle-footer img{
+        height: 40px;
+    }
 }
 
 @media (max-width: 750px){
@@ -192,6 +201,9 @@
 
     .bottom-middle-footer{
         font-size: x-small;
+    }
+    .bottom-middle-footer img{
+        height: 30px;
     }
 }
 
@@ -246,5 +258,8 @@
 
     .bottom-footer{
         font-size: xx-small;
+    }
+    .bottom-middle-footer img{
+        height: 25px;
     }
 }
