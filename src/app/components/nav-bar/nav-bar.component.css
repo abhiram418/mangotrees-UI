@@ -29,6 +29,7 @@
     border-style: solid;
     border-radius: 3px;
     border-color: #1d2a26;
+    cursor: pointer;
 }
 .logo img:hover{
     border-style: solid;
@@ -47,6 +48,7 @@
     border-style: solid;
     border-radius: 3px;
     border-color: #1d2a26;
+    cursor: pointer;
 }
 .location:hover{
     border-style: solid;
@@ -86,7 +88,7 @@
 .search-bar input{
     width: 100%;
     min-width: 250px;
-    padding-top: 7px;
+    padding-top: 10px;
     padding-inline-start: 10px;
     padding-inline-end: 5px;
     padding-bottom: 10px;
@@ -95,6 +97,8 @@
     border-bottom-left-radius: 4px;
     outline: 0px;
     font-size: 15px;
+    color: rgb(1, 86, 1);
+    font-weight: 500;
 }
 .search-icon{
     height: 40px;
@@ -102,10 +106,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    cursor: pointer;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     color: black;
     background-color: #F4BB44;
+}
+.search-icon:active{
+    transform: scale(0.99);
+}
+.search-icon:hover{
+    background-color: #f3a90a;
 }
 .search-icon span{
     font-size: 30px;
@@ -135,6 +146,7 @@
     border-style: solid;
     border-radius: 3px;
     border-color: #1d2a26;
+    cursor: pointer;
 }
 .account:hover{
     border-style: solid;
@@ -157,7 +169,7 @@
 .account-bottom svg{
     height: 20px;
     width: 20px;
-    margin-left: -5px;
+    margin-left: -3px;
     margin-bottom: -6px;
 }
 
@@ -175,6 +187,7 @@
     border-style: solid;
     border-radius: 3px;
     border-color: #1d2a26;
+    cursor: pointer;
 }
 .orders:hover{
     border-style: solid;
@@ -206,6 +219,7 @@
     border-style: solid;
     border-radius: 3px;
     border-color: #1d2a26;
+    cursor: pointer;
 }
 .cart:hover{
     border-style: solid;

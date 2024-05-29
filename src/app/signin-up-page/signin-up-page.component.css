@@ -163,4 +163,7 @@ button:active {
     .page{
         display: none;
     }
+    button:hover{
+        transform: scale(1.1);
+    }
 }
