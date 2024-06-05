@@ -16,22 +16,11 @@
                 <span class="material-symbols-outlined">search</span>
             </div>
         </div>
-        <div class="account" (mouseenter)="show_account()" (mouseleave)="hide_account()">
+        <div class="account">
             <p class="account-top">Hello,&nbsp;&nbsp;{{UserName}}</p>
             <div class="account-bottom">
                 <p>Account & Lists</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#5f6368"><path d="M480-384 288-576h384L480-384Z"/></svg>
-            </div>
-            <div class="back">
-
-            </div>
-            <div class="account-list" style="float: right;" *ngIf="account_list_show">
-                <h4>Your Account</h4>
-                <ul>
-                    <li *ngFor="let item of account_list" (click)="hide_account1()">{{ item }}</li>
-                </ul>   
-                <hr>
-                <a>Sign Out 🚀</a>
             </div>
         </div>
         <div class="orders">
