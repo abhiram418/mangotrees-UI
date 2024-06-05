@@ -37,6 +37,8 @@
 }
 
 
+
+
 .location{
     min-width: 125px;
     width: fit-content;
@@ -74,6 +76,7 @@
     font-size: 14px;
     font-weight: 700;
 }
+
 
 
 
@@ -174,6 +177,91 @@
 }
 
 
+.back{
+    width: 125px;
+    height: 12px;
+    z-index: 2;
+    top: 57px;
+    position: absolute;
+    background-color: transparent;
+}
+
+
+.account-list{
+    width: fit-content;
+    height: fit-content;
+    position: absolute; 
+    top: 68px;
+    right: 14%;
+    padding-inline: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+    border: 2px solid #F4BB44;
+    z-index: 3;
+    color: black;
+    /* background-color: antiquewhite; */
+    /* background-color: #f0d8a5; */
+    background-color: #385c51;
+    /* background-color: rgb(238, 201, 201); */
+}
+.account-list:before {
+    content: "";
+    position: absolute;
+    bottom: 99%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    /* border-color: transparent transparent antiquewhite transparent; */
+    border-color: transparent transparent #385c51 transparent;
+}
+
+.account-list ul{
+    width: fit-content;
+    padding-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+}
+.account-list h4{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #f3a90a;
+    font-size: 16px;
+    font-weight: 700;
+}
+.account-list ul li{
+    margin-bottom: 4px;
+    color: #b48b34;
+    font-size: 13px;
+    font-weight: 500;
+}
+.account-list li:hover,a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.account-list hr{
+    width: 105%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    /* border-color: #91aba358; */
+    /* border-color: rgba(203, 197, 197, 0.447); */
+    border-color: #f1f5f358;
+    box-shadow: transparent;
+}
+.account-list a{
+    padding-left: 5px;
+    color: #b48b34;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+
+
+
+
 
 .orders{
     min-width: 60px;
@@ -207,6 +295,8 @@
 
 
 
+
+
 .cart{
     min-width: 55px;
     width: fit-content;
@@ -229,6 +319,19 @@
     margin: 0px;
     margin-top: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -273,7 +376,11 @@
 
 
 
-
+@media (max-width: 1050px){
+    .account-list{
+        right:12%;
+    }
+}
 @media (max-width: 875px){
     .search-bar{
         display: none;
@@ -285,16 +392,63 @@
     .cart{
         font-size: 14px;
     }
+
+
+    .account-list{
+        right:29.5%;
+    }
+}
+@media (max-width: 775px){
+    .account-list{
+        right:26%;
+    }
+}
+@media (max-width: 700px){
+    .account-list{
+        right:23%;
+    }
 }
 @media (max-width: 575px){
     .location{
         display: none;
+    }
+
+    .account-list{
+        right:33%;
+    }
+}
+@media (max-width: 500px){
+    .account-list{
+        right:33%;
+    }
+
+    .account-list{
+        padding-inline: 35px;
+    }
+    .account-list h4{
+        font-size: 13px;
+        font-weight: 700;
+    }
+    .account-list ul{
+        margin-bottom: 8px;
+    }
+    .account-list ul li{
+        font-size: 11px;
+    }
+    .account-list hr{
+        margin-bottom: 0px;
+    }
+    .account-list a{
+        font-size: 11px;
     }
 }
 @media (max-width: 424px){
     .account{
         min-width: 0px;
         width: fit-conten
+    }
+    .back{
+        width: 90px;
     }
     .account-top{
         font-size: 10px;
@@ -327,6 +481,30 @@
     .cart p{
         font-size: 12px;
     }
+
+
+    .account-list{
+        right:32%;
+    }
+    .account-list{
+        padding-inline: 25px;
+    }
+    .account-list h4{
+        font-size: 12px;
+    }
+    .account-list ul{
+        margin-bottom: 7px;
+    }
+    .account-list ul li{
+        font-size: 10px;
+    }
+    .account-list hr{
+        margin-bottom: 0px;
+    }
+    .account-list a{
+        font-size: 10px;
+    }
+
 }
 @media (max-width: 382px){
     .nav-belt{
@@ -347,5 +525,9 @@
 
     .cart p{
         font-size: 14px;
+    }
+
+    .account-list{
+        display: none;
     }
 }
