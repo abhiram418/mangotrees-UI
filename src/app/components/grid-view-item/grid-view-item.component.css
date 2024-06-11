@@ -1,0 +1,254 @@
+:host{
+    width: fit-content;
+}
+
+.view{
+    width: 275px;
+    height: 450px;
+    margin-inline: 5px;
+    border: 0.1px solid rgb(240, 239, 239);
+    border-radius: 10px;
+}
+
+.view-item{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+
+
+
+
+.view-item-image{
+    width: 75%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: black;
+}
+.view-item-image img{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+.view-item-desc-title{
+    height: fit-content;  
+    width: 205px;                    
+    padding-top: 5px;
+    /* padding-bottom: 5px; */
+    margin: auto;
+}
+
+.single-line-ellipsis {
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis;
+}
+
+.multi-line-ellipsis{
+    overflow: hidden;                
+    display: -webkit-box;           
+    -webkit-box-orient: vertical;    
+    -webkit-line-clamp: 2;           
+    text-overflow: ellipsis;       
+}
+
+
+
+
+
+
+.view-item-desc-rating{
+    height: 20px;
+    max-height: 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+    padding-inline: 10px;
+    overflow: hidden;
+}
+.view-item-desc-rating p{
+    color: gray;
+    font-size: small;
+    align-self: baseline;
+}
+.view-item-desc-rating .stars{
+    display: flex;
+    margin-right: 5px;
+    align-self: baseline;
+}
+.view-item-desc-rating .stars p{
+    height: 20px;
+    color: goldenrod;
+    font-size: large;
+    margin: 0px;
+}
+  
+
+
+
+.view-item-desc-price{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.view-item-desc-price .deal{
+    height: 18px;
+    width: fit-content; 
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-inline: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: #cc0c39;
+}
+.view-item-desc-price .price{
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 8px;
+    align-items: baseline;
+}
+.view-item-desc-price .price div{
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    padding-right: 5px;
+}
+.view-item-desc-price .price div .discount{
+    padding-right: 10px;
+    color: #cc0c39;
+}
+.view-item-desc-price .price .old-price{
+    font-size: 13px;
+    text-decoration: line-through;
+}
+
+
+
+
+
+
+
+.view-item-button{
+    height: 8%;
+    width: 75%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+.view-item-button:active{
+    transform: scale(0.98);
+}
+
+
+
+
+
+
+@media (max-width: 1100px){
+    .view{
+        width: 255px;
+        height: 420px;
+    }
+    
+    .view-item-desc-title{
+        width: 195px;
+    }
+
+}
+@media (max-width: 1000px){
+    .view{
+        width: 240px;
+        height: 410px;
+    }
+
+    .view-item-desc-title{
+        width: 180px;
+    }
+}
+@media (max-width: 900px){
+    .view{
+        width: 225px;
+        height: 400px;
+    }
+
+    .view-item-desc-title{
+        width: 170px;
+    }
+}
+@media (max-width: 800px){
+    .view{
+        width: 210px;
+        height: 390px;
+    }
+
+    .view-item-desc-title{
+        width: 160px;
+    }
+}
+@media (max-width: 700px){
+    .view{
+        width: 195px;
+        height: 380px;
+    }
+
+    .view-item-desc-title{
+        width: 145px;
+    }
+}
+@media (max-width: 600px){
+    .view{
+        width: 180px;
+        height: 370px;
+    }
+
+    .view-item-desc-title{
+        width: 135px;
+    }
+}
+@media (max-width: 500px){
+    .view{
+        width: 165px;
+        height: 360px;
+    }
+
+    .view-item-desc-title{
+        width: 125px;
+    }
+}
+@media (max-width: 400px){
+    .view{
+        width: 150px;
+        height: 350px;
+    }
+
+    .view-item-desc-title{
+        width: 110px;
+    }
+}

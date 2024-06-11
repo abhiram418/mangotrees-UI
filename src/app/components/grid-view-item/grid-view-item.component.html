@@ -1,0 +1,32 @@
+<div class="view roboto-regular">
+    <div class="view-item">
+        <div class="view-item-image">
+            <img src="https://www.paperboatfoods.com/cdn/shop/products/1_1_150x.jpg" alt="">
+        </div>
+        <div class="view-item-desc">
+            <div class="view-item-desc-title">
+                <div style="height: fit-content;" class="roboto-bold multi-line-ellipsis">{{title}}</div>
+                <div class="single-line-ellipsis roboto-light">{{desc}}</div>
+            </div>
+            <div class="view-item-desc-rating" >
+                <div class="stars">
+                    <p *ngFor="let item of items">&#9733;</p>
+                </div>
+                <p style="margin: 0px;">2398</p>
+            </div>
+            <div class="view-item-desc-price">
+                <div class="deal">{{deal_title}}</div>
+                <div class="price">
+                    <div>
+                        <a class="discount">{{discount}}%</a>
+                        <div><p style="margin: 0px;font-size: small;">₹</p>{{sale_price}}</div>
+                    </div>
+                    <a class="old-price">₹{{old_price}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="view-item-button">
+            <p style="margin: 0px;">Add to Cart</p>
+        </div>
+    </div>
+</div>
