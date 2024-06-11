@@ -50,17 +50,20 @@
 .view-item-desc-title{
     height: fit-content;  
     width: 205px;                    
-    padding-top: 5px;
-    /* padding-bottom: 5px; */
     margin: auto;
 }
-
+.title{
+    font-size: 16px;
+    text-align: center;
+}
+.desc{
+    font-size: 16px;
+}
 .single-line-ellipsis {
     white-space: nowrap;      
     overflow: hidden;         
     text-overflow: ellipsis;
 }
-
 .multi-line-ellipsis{
     overflow: hidden;                
     display: -webkit-box;           
@@ -85,7 +88,7 @@
 }
 .view-item-desc-rating p{
     color: gray;
-    font-size: small;
+    font-size: 13px;
     align-self: baseline;
 }
 .view-item-desc-rating .stars{
@@ -110,12 +113,14 @@
 }
 
 .view-item-desc-price .deal{
-    height: 18px;
-    width: fit-content; 
+    height: 10%;
+    width: fit-content;
+    max-width: 60%; 
     padding-top: 4px;
     padding-bottom: 4px;
     padding-inline: 10px;
     border-radius: 5px;
+    font-size: 16px;
     color: white;
     background-color: #cc0c39;
 }
@@ -153,6 +158,7 @@
     height: 8%;
     width: 75%;
     text-align: center;
+    font-size: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -174,81 +180,376 @@
 @media (max-width: 1100px){
     .view{
         width: 255px;
-        height: 420px;
+        height: 410px;
     }
     
     .view-item-desc-title{
         width: 195px;
+    }
+    .title{
+        font-size: 15px;
+    }
+    .desc{
+        font-size: 15px;
+    }
+
+
+    .view-item-desc-rating{
+        margin-bottom: 7px;
+    }
+    .view-item-desc-rating p{
+        font-size: 12.5px;
+    }
+    .view-item-desc-rating .stars p{
+        font-size: 17px;
+    }
+
+
+
+    .view-item-desc-price .deal{
+        font-size: 15px;
+    }
+    .view-item-desc-price .price div{
+        font-size: 22.5px;
+    }
+    .view-item-desc-price .price .old-price{
+        font-size: 12px;
+    }
+
+
+    .view-item-button{
+        font-size: 16px;
     }
 
 }
 @media (max-width: 1000px){
     .view{
         width: 240px;
-        height: 410px;
+        height: 390px;
     }
 
     .view-item-desc-title{
         width: 180px;
+    }
+    .title{
+        font-size: 14.5px;
+    }
+    .desc{
+        font-size: 14.5px;
+    }
+
+
+    .view-item-desc-rating{
+        margin-bottom: 6px;
+    }
+    .view-item-desc-rating p{
+        font-size: 12px;
+    }
+    .view-item-desc-rating .stars p{
+        font-size: 16px;
+    }
+
+    .view-item-desc-price .deal{
+        font-size: 14px;
+    }
+
+
+    .view-item-desc-price .price{
+        margin-top: 7px;
+    }
+    .view-item-desc-price .price div{
+        font-size: 21px;
+    }    
+    .view-item-desc-price .price .old-price{
+        font-size: 11px;
+    }
+
+    .view-item-button{
+        font-size: 15px;
     }
 }
 @media (max-width: 900px){
     .view{
         width: 225px;
-        height: 400px;
+        height: 370px;
     }
 
     .view-item-desc-title{
         width: 170px;
     }
+    .title{
+        font-size: 14px;
+    }
+    .desc{
+        font-size: 14px;
+    }
+
+
+    .view-item-desc-rating{
+        margin-bottom: 5px;
+    }
+    .view-item-desc-rating .stars p{
+        font-size: 15px;
+    }
+    .view-item-desc-rating p{
+        font-size: 11.5px;
+    }
+
+
+
+    .view-item-desc-price .price{
+        margin-top: 6px;
+    }
+    .view-item-desc-price .deal{
+        font-size: 13px;
+    }
+    .view-item-desc-price .price div .discount{
+        padding-right: 8px;
+    }
+    .view-item-desc-price .price div{
+        font-size: 19.5px;
+        padding-right: 4px;
+    }
+    .view-item-desc-price .price .old-price{
+        font-size: 10px;
+    }
+
+    .view-item-button{
+        font-size: 14px;
+    }
 }
 @media (max-width: 800px){
     .view{
         width: 210px;
-        height: 390px;
+        height: 350px;
     }
 
     .view-item-desc-title{
         width: 160px;
     }
+    .title{
+        font-size: 13.5px;
+    }
+    .desc{
+        font-size: 13.5px;
+    }
+
+
+    .view-item-desc-rating{
+        margin-bottom: 4px;
+    }
+    .view-item-desc-rating p{
+        font-size: 11px;
+    }
+    .view-item-desc-rating .stars p{
+        font-size: 14px;
+    }
+
+
+
+    .view-item-desc-price .price{
+        margin-top: 5px;
+    }
+    .view-item-desc-price .deal{
+        font-size: 12px;
+    }
+
+    .view-item-desc-price .price div{
+        font-size: 18px;
+    }
+    .view-item-desc-price .price .old-price{
+        font-size: 9px;
+    }
+
+
+    .view-item-button{
+        font-size: 13px;
+    }
 }
 @media (max-width: 700px){
     .view{
         width: 195px;
-        height: 380px;
+        height: 320px;
     }
 
     .view-item-desc-title{
         width: 145px;
     }
+    .title{
+        font-size: 13px;
+    }
+    .desc{
+        font-size: 13px;
+    }
+
+
+    .view-item-desc-rating{
+        margin-bottom: 3px;
+    }
+    .view-item-desc-rating p{
+        font-size: 10.5px;
+    }
+    .view-item-desc-rating .stars p{
+        font-size: 13px;
+    }
+
+
+
+    .view-item-desc-price .price{
+        margin-top: 4px;
+    }
+    .view-item-desc-price .deal{
+        font-size: 11px;
+    }
+
+    .view-item-desc-price .price div{
+        font-size: 16.5px;
+    }
+    .view-item-desc-price .price .old-price{
+        font-size: 8px;
+    }
+
+
+    .view-item-button{
+        font-size: 12px;
+    }
 }
 @media (max-width: 600px){
     .view{
         width: 180px;
-        height: 370px;
+        height: 300px;
     }
 
     .view-item-desc-title{
         width: 135px;
     }
+    .title{
+        font-size: 12.5px;
+    }
+    .desc{
+        font-size: 12.5px;
+    }
+
+
+    .view-item-desc-rating{
+        margin-bottom: 2px;
+    }
+    .view-item-desc-rating p{
+        font-size: 10px;
+    }
+    .view-item-desc-rating .stars p{
+        font-size: 12px;
+    }
+
+
+    .view-item-desc-price .price{
+        margin-top: 3px;
+    }
+    .view-item-desc-price .deal{
+        font-size: 10px;
+    }
+    .view-item-desc-price .price div{
+        font-size: 15px;
+    }
+    .view-item-desc-price .price .old-price{
+        font-size: 7px;
+    }
+
+
+    .view-item-button{
+        font-size: 11px;
+    }
 }
 @media (max-width: 500px){
     .view{
         width: 165px;
-        height: 360px;
+        height: 280px;
     }
 
     .view-item-desc-title{
         width: 125px;
     }
+    .title{
+        font-size: 12px;
+    }
+    .desc{
+        font-size: 12px;
+    }
+
+
+    .view-item-desc-price .price{
+        margin-top: 2px;
+    }
+    .view-item-desc-rating{
+        margin-bottom: 1px;
+    }
+    .view-item-desc-rating p{
+        font-size: 9.5px ;
+    }
+    .view-item-desc-rating .stars p{
+        font-size: 11px;
+    }
+
+    .view-item-desc-price .deal{
+        font-size: 9px;
+    }
+
+    .view-item-desc-price .price div{
+        font-size: 13.5px;
+    }
+    .view-item-desc-price .price .old-price{
+        font-size: 6px;
+    }
+
+
+    .view-item-button{
+        font-size: 10px;
+    }
 }
 @media (max-width: 400px){
     .view{
         width: 150px;
-        height: 350px;
+        height: 260px;
     }
 
     .view-item-desc-title{
         width: 110px;
+    }
+    .title{
+        font-size: 11.5px;
+    }
+    .desc{
+        font-size: 11.5px;
+    }
+
+
+    .view-item-desc-rating{
+        margin-bottom: 0px;
+    }
+    .view-item-desc-rating p{
+        font-size: 9px;
+    }
+    .view-item-desc-rating .stars p{
+        font-size: 10px;
+    }
+
+
+    .view-item-desc-price .price{
+        margin-top: 2px;
+    }
+    .view-item-desc-price .deal{
+        font-size: 8px;
+    }
+
+    .view-item-desc-price .price div{
+        font-size: 12px;
+    }
+    .view-item-desc-price .price .old-price{
+        font-size: 5px;
+    }
+
+
+    .view-item-button{
+        font-size: 9px;
     }
 }

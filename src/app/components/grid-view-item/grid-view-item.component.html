@@ -5,12 +5,12 @@
         </div>
         <div class="view-item-desc">
             <div class="view-item-desc-title">
-                <div style="height: fit-content;" class="roboto-bold multi-line-ellipsis">{{title}}</div>
-                <div class="single-line-ellipsis roboto-light">{{desc}}</div>
+                <div style="height: fit-content;" class="roboto-bold title multi-line-ellipsis">{{title}}</div>
+                <div class="single-line-ellipsis desc roboto-light">{{desc}}</div>
             </div>
             <div class="view-item-desc-rating" >
                 <div class="stars">
-                    <p *ngFor="let item of items">&#9733;</p>
+                    <p class="star" *ngFor="let item of items">&#9733;</p>
                 </div>
                 <p style="margin: 0px;">2398</p>
             </div>
@@ -27,6 +27,6 @@
         </div>
         <div class="view-item-button">
             <p style="margin: 0px;">Add to Cart</p>
-        </div>
+        </div>  
     </div>
 </div>
