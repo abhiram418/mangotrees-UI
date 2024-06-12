@@ -58,6 +58,7 @@
 }
 .desc{
     font-size: 16px;
+    text-align: center;
 }
 .single-line-ellipsis {
     white-space: nowrap;      
@@ -143,6 +144,10 @@
     padding-right: 10px;
     color: #cc0c39;
 }
+.Symbol{
+    font-size: 13px;
+    padding-top: 2px;
+}
 .view-item-desc-price .price .old-price{
     font-size: 13px;
     text-decoration: line-through;
@@ -169,7 +174,7 @@
     background-color: black;
 }
 .view-item-button:active{
-    transform: scale(0.98);
+    transform: scale(0.97);
 }
 
 
@@ -211,6 +216,10 @@
     }
     .view-item-desc-price .price div{
         font-size: 22.5px;
+    }
+    .Symbol{
+        font-size: 12.5px;
+        padding-top: 2.5px;
     }
     .view-item-desc-price .price .old-price{
         font-size: 12px;
@@ -260,6 +269,9 @@
     .view-item-desc-price .price div{
         font-size: 21px;
     }    
+    .Symbol{
+        font-size: 12px;
+    }
     .view-item-desc-price .price .old-price{
         font-size: 11px;
     }
@@ -310,6 +322,10 @@
         font-size: 19.5px;
         padding-right: 4px;
     }
+    .Symbol{
+        font-size: 11.5px;
+        padding-top: 2.642px;
+    }
     .view-item-desc-price .price .old-price{
         font-size: 10px;
     }
@@ -356,6 +372,10 @@
 
     .view-item-desc-price .price div{
         font-size: 18px;
+    }
+    .Symbol{
+        font-size: 10.5px;
+        padding-top: 2.7px;
     }
     .view-item-desc-price .price .old-price{
         font-size: 9px;
@@ -405,6 +425,10 @@
     .view-item-desc-price .price div{
         font-size: 16.5px;
     }
+    .Symbol{
+        font-size: 10px;
+        padding-top: 2.8px;
+    }
     .view-item-desc-price .price .old-price{
         font-size: 8px;
     }
@@ -450,6 +474,10 @@
     }
     .view-item-desc-price .price div{
         font-size: 15px;
+    }
+    .Symbol{
+        font-size: 9px;
+        padding-top: 1.7px;
     }
     .view-item-desc-price .price .old-price{
         font-size: 7px;
@@ -497,6 +525,10 @@
     .view-item-desc-price .price div{
         font-size: 13.5px;
     }
+    .Symbol{
+        font-size: 8.4px;
+        padding-top: 1.83px;
+    }
     .view-item-desc-price .price .old-price{
         font-size: 6px;
     }
@@ -543,6 +575,10 @@
 
     .view-item-desc-price .price div{
         font-size: 12px;
+    }
+    .Symbol{
+        font-size: 7.8px;
+        padding-top: 1.7px;
     }
     .view-item-desc-price .price .old-price{
         font-size: 5px;
