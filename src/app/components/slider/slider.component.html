@@ -1,0 +1,11 @@
+<div class="slider-container">
+    <div class="slider-track" #carouselTrack>
+        <div class="slider">
+            <img [src]="image" alt="">
+            <div class="arrow" style="position: absolute;">
+                <span (click)="left()" class="material-symbols-outlined" style="transform: rotate(180deg);">arrow_forward_ios</span>
+                <span (click)="right()" class="material-symbols-outlined">arrow_forward_ios</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,9 +9,10 @@ import { TestComponent } from './test/test.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { GridViewItemComponent } from './components/grid-view-item/grid-view-item.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'item', pathMatch:'full'},
+    {path:'', redirectTo:'home', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},
@@ -23,6 +24,7 @@ export const routes: Routes = [
     {path:'nav-bar', component:NavBarComponent},    
     {path:'footer', component:FooterComponent},
     {path:'item', component:GridViewItemComponent},
+    {path:'slider', component:SliderComponent},
     {path:'loader', component: LoaderComponent},
 
     
