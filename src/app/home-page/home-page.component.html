@@ -1,8 +1,6 @@
 <div class="home-page">
 
-    <div>
-        <app-nav-bar></app-nav-bar>
-    </div>
+    <app-nav-bar></app-nav-bar>
 
     <div class="main-image-view roboto-regular">
         <div class="view-all-button-section">
@@ -12,21 +10,26 @@
             </div>
         </div>
     </div>
+
     <app-slider></app-slider>
+
+
     <div class="new-pinch roboto-regular">
         <h3 style="text-align: center;">New Pinch!</h3>
         <div style="display: flex;justify-content: space-evenly;">
-            <app-grid-view-item></app-grid-view-item> 
-            <app-grid-view-item></app-grid-view-item> 
+            <app-grid-view-item (AddtoCart)="AddedtoCart($event)"></app-grid-view-item> 
+            <app-grid-view-item (AddtoCart)="AddedtoCart($event)"></app-grid-view-item>
             <!-- <app-grid-view-item></app-grid-view-item> 
             <app-grid-view-item></app-grid-view-item>  
             <app-grid-view-item></app-grid-view-item>  -->
         </div>
     </div>
 
-    <!-- <div>
+    <app-slider></app-slider>
+
+    <div>
         <app-footer></app-footer>
-    </div> -->
+    </div>
 
 </div>
 

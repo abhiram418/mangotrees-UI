@@ -10,4 +10,9 @@ import { LoaderComponent } from "../loader/loader.component";
     imports: [RouterLink, LoaderComponent]
 })
 export class FooterComponent {
+
+    scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      
 }

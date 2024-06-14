@@ -14,4 +14,10 @@ import { SliderComponent } from '../components/slider/slider.component';
 })
 export class HomePageComponent {
 
+  AddedtoCart(IteamId:any){
+    alert(IteamId);
+  }
+  RemovedFromCart(){
+
+  }
 }
