@@ -83,7 +83,7 @@
 
     .view-all-button p{
         font-size: small;
-        transform: translateX(24%) translateY(0%);
+        transform: translateX(21%) translateY(0%);
     }
     .view-all-button span{
         font-size: 18px;
@@ -94,7 +94,7 @@
         transform: translateX(1000%) translateY(0%);
     }
     .view-all-button:hover p{
-        transform: translateX(24%) translateY(0%);
+        transform: translateX(21%) translateY(0%);
     }
 }
 @media (max-width: 418px){
