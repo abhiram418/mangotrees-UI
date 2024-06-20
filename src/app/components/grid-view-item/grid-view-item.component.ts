@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgForOf } from '@angular/common';
-import { Component,EventEmitter, Input, Output, input } from '@angular/core';
+import { Component,EventEmitter, Output } from '@angular/core';
 
 
 @Component({
