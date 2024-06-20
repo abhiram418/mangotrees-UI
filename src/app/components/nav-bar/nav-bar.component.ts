@@ -1,5 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NavBarData } from './navBarData';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,9 +11,19 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-  UserName:string="Abhiram";
-  CityName:string="Nuzivid";
-  Pincode:string="521201";
 
+  @Input() navBarData: NavBarData = new NavBarData();
+  @Output() redirectTo = new EventEmitter<any>();
+  @Output() search = new EventEmitter<any>();
+
+
+
+  RedirectTo(to:string){
+    this.redirectTo.emit(to);
+  }
+
+  Search(){
+    this.search.emit('search');
+  }
   
 }

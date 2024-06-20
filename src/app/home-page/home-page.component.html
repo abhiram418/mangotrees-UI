@@ -1,6 +1,6 @@
 <div class="home-page">
 
-    <app-nav-bar></app-nav-bar>
+    <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
 
     <div class="main-image-view roboto-regular">
         <div class="view-all-button-section">
@@ -17,8 +17,8 @@
     <div class="new-pinch roboto-regular">
         <h3 style="text-align: center;">New Pinch!</h3>
         <div style="display: flex;justify-content: space-evenly;">
-            <app-grid-view-item (AddtoCart)="AddedtoCart($event)"></app-grid-view-item> 
-            <app-grid-view-item (AddtoCart)="AddedtoCart($event)"></app-grid-view-item>
+            <app-grid-view-item [product]="productData" (ViewProduct)="ViewProduct($event)" (AddtoCart)="AddedtoCart($event)"></app-grid-view-item> 
+            <app-grid-view-item [product]="productData1" (ViewProduct)="ViewProduct($event)" (AddtoCart)="AddedtoCart($event)"></app-grid-view-item>
             <!-- <app-grid-view-item></app-grid-view-item> 
             <app-grid-view-item></app-grid-view-item>  
             <app-grid-view-item></app-grid-view-item>  -->

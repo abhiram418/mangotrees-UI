@@ -1,31 +1,31 @@
-<div class="view roboto-regular">
+<div class="view roboto-regular" (click)="ViewProductClicked('Some ID')">
     <div class="view-item">
         <div class="view-item-image">
             <img src="https://www.paperboatfoods.com/cdn/shop/products/1_1_150x.jpg" alt="">
         </div>
         <div class="view-item-desc">
             <div class="view-item-desc-title">
-                <div style="height: fit-content;" class="roboto-bold title multi-line-ellipsis">{{title}}</div>
-                <div class="single-line-ellipsis desc roboto-light">{{desc}}</div>
+                <div style="height: fit-content;" class="roboto-bold title multi-line-ellipsis">{{product.Title}}</div>
+                <div class="single-line-ellipsis desc roboto-light">{{product.Desc}}</div>
             </div>
             <div class="view-item-desc-rating" >
                 <div class="stars">
-                    <p class="star" *ngFor="let item of items">&#9733;</p>
+                    <p class="star" *ngFor="let item of product.Stars">&#9733;</p>
                 </div>
-                <p style="margin: 0px;">2398</p>
+                <p style="margin: 0px;">{{product.NumberOfRating}}</p>
             </div>
             <div class="view-item-desc-price">
-                <div class="deal">{{deal_title}}</div>
+                <div *ngIf="product.DealTitle" class="deal">{{product.DealTitle}}</div>
                 <div class="price">
                     <div>
-                        <a class="discount">{{discount}}%</a>
-                        <div><p class="Symbol" style="margin: 0px;">₹</p>{{sale_price}}</div>
+                        <a *ngIf="product.Discount" class="discount">{{product.Discount}}%</a>
+                        <div><p class="Symbol" style="margin: 0px;">₹</p>{{product.SalePrice}}<p *ngIf="!product.SalePrice" style="margin: 0px;">{{product.price}}</p></div>
                     </div>
-                    <a class="old-price">₹{{old_price}}</a>
+                    <a *ngIf="product.OldPrice" class="old-price">₹{{product.OldPrice}}</a>
                 </div>
             </div>
         </div>
-        <div class="view-item-button"  (click)="AddtoCartClicked('Some ID')">
+        <div class="view-item-button"  (click)="AddtoCartClicked('Some ID', $event)">
             <p style="margin: 0px;">Add to Cart</p>
         </div>  
     </div>

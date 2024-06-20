@@ -3,31 +3,31 @@
         <div class="logo">
             <img src="../../../assets/Pictures/MangoTrees-logo.png" alt="MangoTrees">
         </div>
-        <div class="location">
+        <div class="location" (click)="RedirectTo('location')">
             <span class="material-symbols-outlined">location_on</span>
-            <div class="deliver-to">
-                <p class="deliver-to-top gray font-size-12">Deliver to {{UserName}}</p>
-                <p class="deliver-to-bottom">{{CityName}} {{Pincode}}</p>
+            <div class="deliver-to single-line-ellipsis">
+                <p class="deliver-to-top gray font-size-12 single-line-ellipsis" style="max-width: 150px;">Deliver to {{navBarData.UserName == "Sign in"? "Gest":navBarData.UserName}}</p>
+                <p class="deliver-to-bottom">{{navBarData.CityName}} {{navBarData.Pincode}}</p>
             </div>
         </div>
         <div class="search-bar">
             <input type="search"  placeholder="Search Mangoes">
             <div class="search-icon">
-                <span class="material-symbols-outlined">search</span>
+                <span class="material-symbols-outlined" (click)="Search()">search</span>
             </div>
         </div>
-        <div class="account">
-            <p class="account-top">Hello,&nbsp;&nbsp;{{UserName}}</p>
+        <div class="account" (click)="RedirectTo('account')">
+            <p class="account-top single-line-ellipsis" style="max-width: 150px;">Hello,&nbsp;&nbsp;{{navBarData.UserName}}</p>
             <div class="account-bottom">
                 <p>Account & Lists</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#5f6368"><path d="M480-384 288-576h384L480-384Z"/></svg>
             </div>
         </div>
-        <div class="orders">
+        <div class="orders" (click)="RedirectTo('orders')">
             <p class="orders-top">Returns</p>
             <p class="orders-bottom">& Orders</p>
         </div>
-        <div class="cart">
+        <div class="cart" (click)="RedirectTo('cart')">
             <span class="material-symbols-outlined">
                 shopping_bag
             </span>
@@ -38,7 +38,7 @@
         <div class="search-bar-mobile">
             <input type="search" placeholder="Search Mangoes">
             <div class="search-icon">
-                <span class="material-symbols-outlined">search</span>
+                <span class="material-symbols-outlined" (click)="Search()">search</span>
             </div>
         </div>
     </div>

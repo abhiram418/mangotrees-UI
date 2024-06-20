@@ -20,7 +20,11 @@
     background-color: #1d2a26;
 }
 
-
+.single-line-ellipsis {
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis;
+}
 
 
 
