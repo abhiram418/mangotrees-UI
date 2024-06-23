@@ -19,14 +19,15 @@
                 <div class="price">
                     <div>
                         <a *ngIf="product.Discount" class="discount">{{product.Discount}}%</a>
-                        <div><p class="Symbol" style="margin: 0px;">₹</p>{{product.SalePrice}}<p *ngIf="!product.SalePrice" style="margin: 0px;">{{product.price}}</p></div>
+                        <div><p class="Symbol" style="margin: 0px;">₹</p>{{product.SalePrice}}<p *ngIf="!product.SalePrice" style="margin: 0px;">{{product.Price}}</p></div>
                     </div>
                     <a *ngIf="product.OldPrice" class="old-price">₹{{product.OldPrice}}</a>
                 </div>
             </div>
         </div>
-        <div class="view-item-button"  (click)="AddtoCartClicked('Some ID', $event)">
-            <p style="margin: 0px;">Add to Cart</p>
+        <div class="view-item-button" [class.disabled]="product.Availability" [attr.aria-disabled]="product.Availability" (click)="AddtoCartClicked('Some ID', $event)">
+            <p *ngIf="!product.Availability" style="margin: 0px;">Add to Cart</p>
+            <p *ngIf="product.Availability" style="margin: 0px;">Unavailable</p>
         </div>  
     </div>
 </div>

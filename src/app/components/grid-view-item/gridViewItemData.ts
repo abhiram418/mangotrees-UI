@@ -1,7 +1,8 @@
 export class gridViewItemData{
     Title:string='Title Title Title TitleTitleTitleTitle Titlend ';
     Desc:string='dmasjndflsnflksdmdmasjndflsnflksdmdmasjndflsnflksdm';
-    price:number | null = 1000;
+    Price:number | null = 1000;
+    Availability:boolean | null = false;
     Stars: string[] = ['star', 'star', 'star'];
     NumberOfRating:number = 2398;
     DealTitle?:string | null='Limited time deal';

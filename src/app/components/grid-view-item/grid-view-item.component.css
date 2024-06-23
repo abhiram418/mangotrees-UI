@@ -1,6 +1,11 @@
 :host{
     width: fit-content;
 }
+.disabled {
+    pointer-events: none;
+    opacity: 0.5; 
+}
+
 
 .view{
     width: 275px;

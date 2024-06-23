@@ -24,12 +24,14 @@ export class HomePageComponent {
     this.productData.Discount=null;
     this.productData.SalePrice=null; 
     this.productData.OldPrice=null;
-    // this.productData.price=null;
+    this.productData.Availability = true;
+    // this.productData.Price=null;
   }
   
 
   AddedtoCart(IteamId:any){
     alert(IteamId);
+    this.navBarData.CartCount++;
   }
   ViewProduct(IteamId:string){
     alert("View: "+IteamId);

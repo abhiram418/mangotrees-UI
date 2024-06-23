@@ -293,4 +293,11 @@
     .bottom-middle-footer img{
         height: 25px;
     }
+
+    @media (max-width: 370px){
+
+        .address-block{
+            display: none;
+        }
+    }
 }

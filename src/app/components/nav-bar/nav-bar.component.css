@@ -247,6 +247,25 @@
     margin-top: 5px;
 }
 
+.cart-count{
+    top: 5px;
+    min-height: 12px;
+    min-width: 20px;
+    height: fit-content;
+    width: fit-content;
+    position: absolute;
+    z-index: 6;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin: 0px;
+    font-size: 10px !important;
+    border-radius: 100px;
+    background-color: #cc0c39;
+}
+
 
 
 
@@ -317,7 +336,11 @@
     .cart{
         font-size: 14px;
     }
-
+    .cart-count{
+        min-height: 10px;
+        min-width: 17px;
+        font-size: 9px !important;
+    }
 
     
 }
@@ -375,6 +398,9 @@
     }
     .cart p{
         font-size: 12px;
+    }
+    .cart-count{
+        font-size: 8px !important;
     }
 
 

@@ -31,6 +31,7 @@
             <span class="material-symbols-outlined">
                 shopping_bag
             </span>
+            <p *ngIf="navBarData.CartCount>0" class="cart-count roboto-bold" style="margin-left: 36px;">{{navBarData.CartCount>10? "10+" : navBarData.CartCount}}</p>
             <p>Cart</p>
         </div>
     </div>
