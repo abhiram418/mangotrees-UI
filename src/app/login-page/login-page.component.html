@@ -1,13 +1,13 @@
 <div class="full" [class.hide]="loader">
-    <div class="login-page roboto-regular">
+    <form class="login-page roboto-regular" [formGroup]="LoginForm" (ngSubmit)="LogIn()">
         <div class="login">
-            <input type="text" placeholder="Username"  class="roboto-regular">
-            <input type="password" placeholder="Password" class="roboto-regular">
-            <input type="text" *ngIf="ShowCode" placeholder="*Enter you Code" class="roboto-regular">
+            <input type="text" placeholder="Username" class="roboto-regular" formControlName="UserName">
+            <input type="password" placeholder="Password" class="roboto-regular" formControlName="Password">
+            <input type="text" *ngIf="ShowCode" placeholder="*Enter you Code" class="roboto-regular" formControlName="SecretKey">
             <div class="code">
-                <a (click)="code()" style="float: right;" *ngIf="!ShowCode">---</a>
+                <a (click)="SecretCode()" style="float: right;" *ngIf="!ShowCode">---</a>
             </div>
-            <button type="submit" (click)="LogIn()" class="roboto-light">Login</button>
+            <button type="submit" class="roboto-light">Login</button>
             <div class="other">
                 <a>Reset-Password</a>
                 <a style="color: black;"> / </a>
@@ -16,7 +16,7 @@
                 <a routerLink="/home">Enter-as-Guest</a>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 <div [class.hide]="!(loader)">
     <app-loader></app-loader>
