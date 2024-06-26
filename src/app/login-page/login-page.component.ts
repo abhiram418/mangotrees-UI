@@ -23,8 +23,8 @@ export class LoginPageComponent {
   
   CreateForms(){
     this.LoginForm = new FormGroup({
-      UserName: new FormControl('', [Validators.required,Validators.minLength(4)]),
-      Password: new FormControl('', [Validators.required,Validators.minLength(3)]),
+      UserName: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      Password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       SecretKey: new FormControl('')
     });
   }

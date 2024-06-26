@@ -1,8 +1,8 @@
 <div class="full" [class.hide]="loader">
     <form class="login-page roboto-regular" [formGroup]="LoginForm" (ngSubmit)="LogIn()">
         <div class="login">
-            <input type="text" placeholder="Username" class="roboto-regular" formControlName="UserName">
-            <input type="password" placeholder="Password" class="roboto-regular" formControlName="Password">
+            <input type="text" placeholder="Username" class="roboto-regular" [class.red]="LoginForm.get('UserName')?.errors && LoginForm.get('UserName')?.touched" formControlName="UserName">
+            <input type="password" placeholder="Password" class="roboto-regular" [class.red]="LoginForm.get('Password')?.errors && LoginForm.get('Password')?.touched" formControlName="Password">
             <input type="text" *ngIf="ShowCode" placeholder="*Enter you Code" class="roboto-regular" formControlName="SecretKey">
             <div class="code">
                 <a (click)="SecretCode()" style="float: right;" *ngIf="!ShowCode">---</a>

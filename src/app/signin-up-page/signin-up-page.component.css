@@ -74,7 +74,7 @@ button{
     width: 10em;
     height: 2.8em;
     border-radius: 20px;
-    border-color: transparent;
+    border-width: 0px;
     color: white;
     /* background-color: rgb(254, 171, 188); */
     background-color: rgb(241, 130, 167);
@@ -89,7 +89,9 @@ button:active {
     background-color: rgb(237, 55, 116);
 }
 .terms{
+    width: fit-content;
     font-size: small;
+    cursor: pointer;
 }
 .terms input{
     margin-top: 0px;
@@ -102,6 +104,9 @@ button:active {
 
 .hide{
     display: none;
+}
+.red{
+    color: orangered;
 }
 
 @media (min-width: 1200px){
@@ -135,7 +140,7 @@ button:active {
     }
     .blur input:not(.terms input), .name input, .password input, .address input{
         height: 2em;
-        width: 8em;
+        width: 8.9em;
     }
 
     .terms p{
@@ -145,8 +150,8 @@ button:active {
     }
     button{
         height: 2.4em;
-        width: 6em;
-        /* background-color: plum; */
+        width: 7em;
+        text-align: center;
     }
     /* button:hover{
         background-color: plum;
