@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from "../components/footer/footer.component";
-import { NavBarComponent } from "../components/nav-bar/nav-bar.component";
-import { GridViewItemComponent } from "../components/grid-view-item/grid-view-item.component";
-import { SliderComponent } from '../components/slider/slider.component';
-import { NavBarData } from '../components/nav-bar/navBarData';
-import { gridViewItemData } from '../components/grid-view-item/gridViewItemData';
+import { NavBarData } from '../../components/nav-bar/navBarData';
+import { gridViewItemData } from '../../components/grid-view-item/gridViewItemData';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
+import { GridViewItemComponent } from '../../components/grid-view-item/grid-view-item.component';
+import { SliderComponent } from '../../components/slider/slider.component';
 
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { LoaderComponent } from "../components/loader/loader.component";
-import { FooterComponent } from "../components/footer/footer.component";
+import { LoaderComponent } from "../../components/loader/loader.component";
+import { FooterComponent } from "../../components/footer/footer.component";
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 

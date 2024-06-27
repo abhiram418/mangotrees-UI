@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { Router} from '@angular/router';
 import { RouterLink } from '@angular/router';
-import { LoaderComponent } from "../components/loader/loader.component";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { LoaderComponent } from '../../components/loader/loader.component';
 
 @Component({
     selector: 'app-login-page',

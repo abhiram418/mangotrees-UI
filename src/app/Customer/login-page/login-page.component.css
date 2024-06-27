@@ -13,7 +13,7 @@ h1{
     right: 0px;
     bottom: 0px;
     top: 0px;
-    background-image: url('../../assets/Pictures/loginPage.jpg');
+    background-image: url('../../../assets/Pictures/loginPage.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -41,7 +41,7 @@ h1{
     justify-content: center;
     align-items: center;
     background-color: rgb(239, 181, 36);
-    background-image: url('../../assets/Pictures/login.jpg');
+    background-image: url('../../../assets/Pictures/login.jpg');
     background-repeat: repeat;
     background-size: contain;  
     background-position: right;
@@ -108,7 +108,7 @@ h1{
 @media (max-width: 600px) {
     .full{
         left: 0;
-        background-image: url('../../assets/Pictures/loginPage-Mobile.jpg');
+        background-image: url('../../../assets/Pictures/loginPage-Mobile.jpg');
         background-position: center;
     }
     .login{
