@@ -6,5 +6,5 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { CustomerSigninService } from './Services/customer-signin.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), CustomerSigninService]
+  providers: [provideRouter(routes), provideClientHydration()]
 };

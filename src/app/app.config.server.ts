@@ -5,8 +5,7 @@ import { CustomerSigninService } from './Services/customer-signin.service';
 
 const serverConfig: ApplicationConfig = {
   providers: [
-    provideServerRendering(),
-    CustomerSigninService 
+    provideServerRendering()
   ]
 };
 
