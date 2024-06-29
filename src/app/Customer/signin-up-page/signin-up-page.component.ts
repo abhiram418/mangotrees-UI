@@ -32,20 +32,20 @@ export class SigninUpPageComponent {
 
   CreateForms(){
     this.SignInForm = new FormGroup({
-      FirstName: new FormControl('', [Validators.required,Validators.minLength(4)]),
-      LastName: new FormControl('', [Validators.required,Validators.minLength(3)]),
-      PhoneNumber: new FormControl('', [Validators.required,Validators.minLength(10),NumberValidator]),
+      FirstName: new FormControl('aaaaaaaaaaaa', [Validators.required,Validators.minLength(4)]),
+      LastName: new FormControl('aaaaaaaaaaaa', [Validators.required,Validators.minLength(3)]),
+      PhoneNumber: new FormControl('1111111111', [Validators.required,Validators.minLength(10),NumberValidator]),
       Email: new FormControl(null, [Validators.email]),
-      UserName: new FormControl('', [Validators.required,Validators.minLength(6)]),
-      Password: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      UserName: new FormControl('aaaaaaaaaaaa', [Validators.required,Validators.minLength(6)]),
+      Password: new FormControl('aaaaaaaaaaaa', [Validators.required,Validators.minLength(5)]),
       AddressDesc: new FormGroup({
-        Address: new FormControl('', [Validators.required,Validators.minLength(6)]),
-        Pincode: new FormControl('', [Validators.required,Validators.minLength(6),NumberValidator]),
-        City: new FormControl('', [Validators.required,Validators.minLength(4)]),
-        State: new FormControl('', [Validators.required,Validators.minLength(3)]),
+        Address: new FormControl('aaaaaaaaaaaa', [Validators.required,Validators.minLength(6)]),
+        Pincode: new FormControl('212123', [Validators.required,Validators.minLength(6),NumberValidator]),
+        City: new FormControl('aaaaaaaaaaaa', [Validators.required,Validators.minLength(4)]),
+        State: new FormControl('aaaaaaaaaaaa', [Validators.required,Validators.minLength(3)]),
       }),
-      Occupation: new FormControl('', [Validators.required,Validators.minLength(5)]),
-      Conditions: new FormControl(false, Validators.required)
+      Occupation: new FormControl('aaaaaaaaaaaa', [Validators.required,Validators.minLength(5)]),
+      Conditions: new FormControl(true, Validators.required)
     });
   }
 
