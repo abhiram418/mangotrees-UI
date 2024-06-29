@@ -60,12 +60,18 @@ h1{
   margin: 0; 
 }
 
+.otp-input{
+    text-align: center;
+    outline: 0px;
+}
+
 .check{
     height: 42px;
     width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 0px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     text-align: center;
@@ -74,10 +80,16 @@ h1{
 }
 
 .check p{
-    padding-inline: 7px;
+    padding-inline: 9px;
 }
 .check:active{
     transform: scale(0.95);
+}
+
+
+
+.hide{
+    display: none;
 }
 
 

@@ -1,12 +1,16 @@
-<div class="page roboto-regular">
+<div class="page roboto-regular" [class.hide]="loader">
     <div class="otp-page">
-        <form class="blur" >
-            <input type="text" placeholder="Enter the OTP">
-            <div class="check">
+        <form class="blur" [formGroup]="OTPForm" (ngSubmit)="verifyOTP()">
+            <input type="text" maxlength="6" placeholder="Enter the OTP" class="otp-input roboto-bold" formControlName="otp">
+            <div class="check" (click)="verifyOTP()">
                 <p style="margin: 0px;">🔑</p>
             </div>
         </form>
     </div>
+</div>
+
+<div [class.hide]="!(loader)">
+    <app-loader></app-loader>
 </div>
 
 <h1 class="roboto-regular">Please Use a Bigger Screen 🙏</h1>

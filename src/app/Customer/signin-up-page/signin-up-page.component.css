@@ -92,11 +92,12 @@ button:active {
     width: fit-content;
     font-size: small;
     cursor: pointer;
+    user-select: none;
 }
 .terms input{
     margin-top: 0px;
     margin-bottom: 0px;
-    transition: 1s;
+    transition: 0.5s;
 }
 .terms input:hover{
     transform: scale(1.1);
@@ -107,6 +108,11 @@ button:active {
 }
 .red{
     color: orangered;
+}
+.disabled {
+    pointer-events: none;
+    opacity: 0.5; 
+    user-select: none;
 }
 
 @media (min-width: 1200px){

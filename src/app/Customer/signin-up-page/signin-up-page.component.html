@@ -23,10 +23,10 @@
             </div>
             <input type="text" placeholder="Occupation" class="roboto-bold" [class.red]="SignInForm.get('Occupation')?.errors && SignInForm.get('Occupation')?.touched" formControlName="Occupation">
             <div class="terms roboto-regular-italic " style="display: flex;">
-                <input type="checkbox">
+                <input type="checkbox" formControlName="Conditions">
                 <p>terms & conditions</p>
             </div>
-            <div style="text-align: center;">
+            <div style="text-align: center;" [class.disabled]="!SignInForm.get('Conditions')?.value" [attr.aria-disabled]="SignInForm.get('Conditions')?.value">
                 <button type="submit" class="roboto-bold"><p style="margin: 0px;">Sign up</p></button>
             </div>
         </form>

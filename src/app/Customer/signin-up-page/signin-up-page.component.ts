@@ -4,6 +4,7 @@ import { LoaderComponent } from "../../components/loader/loader.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { CustomerSigninService } from '../../Services/customer-signin.service';
 
 
 export function NumberValidator(control: AbstractControl): ValidationErrors | null {
@@ -25,7 +26,7 @@ export class SigninUpPageComponent {
   loader:boolean=false;
   SignInForm! : FormGroup;
 
-  constructor(private router:Router){
+  constructor(private router:Router, private customerSigninService:CustomerSigninService){
     this.CreateForms();
   }
 
@@ -34,8 +35,8 @@ export class SigninUpPageComponent {
       FirstName: new FormControl('', [Validators.required,Validators.minLength(4)]),
       LastName: new FormControl('', [Validators.required,Validators.minLength(3)]),
       PhoneNumber: new FormControl('', [Validators.required,Validators.minLength(10),NumberValidator]),
-      Email: new FormControl('', [Validators.email]),
-      UserName: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      Email: new FormControl(null, [Validators.email]),
+      UserName: new FormControl('', [Validators.required,Validators.minLength(6)]),
       Password: new FormControl('', [Validators.required,Validators.minLength(5)]),
       AddressDesc: new FormGroup({
         Address: new FormControl('', [Validators.required,Validators.minLength(6)]),
@@ -43,24 +44,39 @@ export class SigninUpPageComponent {
         City: new FormControl('', [Validators.required,Validators.minLength(4)]),
         State: new FormControl('', [Validators.required,Validators.minLength(3)]),
       }),
-      Occupation: new FormControl('', [Validators.required,Validators.minLength(5)])
+      Occupation: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      Conditions: new FormControl(false, Validators.required)
     });
   }
 
 
   SignUp(){
-    console.log(this.SignInForm.value);
-    console.log(this.SignInForm.get("AddressDesc.Address")?.errors)
 
     this.loader=true;
     if(this.SignInForm.invalid){
       this.loader = false;
       alert("Please Enter The Data Correctly");
     }
+    else if(this.SignInForm.get("Conditions")?.value == false){
+      this.loader = false;
+      alert("Please look into the Terms & Conditions");
+    }
     else{
-      //post the data
-      this.loader=false;
-      alert("data ");
+      if(this.customerSigninService.UserNameAvailability(this.SignInForm.get("UserName")?.value)){
+        if(this.customerSigninService.PhoneNumberAvailability(this.SignInForm.get("PhoneNumber")?.value)){
+          this.customerSigninService.StoreUserData(this.SignInForm.value);
+          
+          this.router.navigate(["/otp"]);
+        }
+        else{
+          this.loader = false;
+          alert("Phone Number is not valid or already registered");
+        }
+      }
+      else{
+        this.loader = false;
+        alert("User Name is already taken");
+      }
     }
   }
 }
