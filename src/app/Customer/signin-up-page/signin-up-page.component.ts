@@ -50,7 +50,7 @@ export class SigninUpPageComponent {
   }
 
 
-  SignUp(){
+  async SignUp(){
 
     this.loader=true;
     if(this.SignInForm.invalid){
@@ -62,11 +62,11 @@ export class SigninUpPageComponent {
       alert("Please look into the Terms & Conditions");
     }
     else{
-      if(this.customerSigninService.UserNameAvailability(this.SignInForm.get("UserName")?.value)){
-        if(this.customerSigninService.PhoneNumberAvailability(this.SignInForm.get("PhoneNumber")?.value)){
+      if(await this.customerSigninService.UserNameAvailability(this.SignInForm.get("UserName")?.value)){
+        if(await this.customerSigninService.PhoneNumberAvailability(this.SignInForm.get("PhoneNumber")?.value)){
           this.customerSigninService.StoreUserData(this.SignInForm.value);
-          
-          this.router.navigate(["/otp"]);
+          let PageName = "Signin"
+          this.router.navigate(["/otp", {PageName:PageName}]);
         }
         else{
           this.loader = false;

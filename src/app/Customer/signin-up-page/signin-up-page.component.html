@@ -26,7 +26,7 @@
                 <input type="checkbox" formControlName="Conditions">
                 <p>terms & conditions</p>
             </div>
-            <div style="text-align: center;" [class.disabled]="!SignInForm.get('Conditions')?.value" [attr.aria-disabled]="SignInForm.get('Conditions')?.value">
+            <div style="text-align: center;" [class.disabled]="!SignInForm.get('Conditions')?.value">
                 <button type="submit" class="roboto-bold"><p style="margin: 0px;">Sign up</p></button>
             </div>
         </form>

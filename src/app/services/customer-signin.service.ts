@@ -53,6 +53,7 @@ export class CustomerSigninService {
   PostUserData(){
     if(this.CustomerData != null){
       // post the Customer Data
+      console.log(this.CustomerData);
       return(true); // if sucessfuly posted
     }
     else{

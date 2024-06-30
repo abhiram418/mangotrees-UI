@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+
+# Steps
+
+npm install
+npm run build
+
+# Git case sensitive
+
+To change it for just one repo, from that folder run: git config core.ignorecase true
+To change it globally: git config --global core.ignorecase true

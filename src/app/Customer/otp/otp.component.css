@@ -80,7 +80,7 @@ h1{
 }
 
 .check p{
-    padding-inline: 9px;
+    padding-inline: 10px;
 }
 .check:active{
     transform: scale(0.95);
