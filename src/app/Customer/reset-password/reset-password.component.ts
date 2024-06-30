@@ -22,9 +22,9 @@ export class ResetPasswordComponent {
 
   CreateForms(){
     this.ResetPasswordForm = new FormGroup({
-      PhoneNumber: new FormControl('1111111111', [Validators.required,Validators.minLength(10),NumberValidator]),
-      Password: new FormControl('aaaaa', [Validators.required,Validators.minLength(5)]),
-      Re_Password: new FormControl('aaaaa', [Validators.required]),
+      PhoneNumber: new FormControl('', [Validators.required,Validators.minLength(10),NumberValidator]),
+      Password: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      Re_Password: new FormControl('', [Validators.required]),
     });
   }
 

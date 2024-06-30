@@ -41,7 +41,6 @@ export class ResetPasswordService {
   PostPasswordData(){
     if(this.PasswordData != null){
       // post the Customer's new Password Data
-      console.log(this.PasswordData);
       return(true); // if sucessfuly posted
     }
     else{
