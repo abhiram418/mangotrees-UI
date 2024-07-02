@@ -32,19 +32,19 @@ export class SigninUpPageComponent {
 
   CreateForms(){
     this.SignInForm = new FormGroup({
-      FirstName: new FormControl('', [Validators.required,Validators.minLength(4)]),
-      LastName: new FormControl('', [Validators.required,Validators.minLength(3)]),
-      PhoneNumber: new FormControl('', [Validators.required,Validators.minLength(10),NumberValidator]),
-      Email: new FormControl(null, [Validators.email]),
-      UserName: new FormControl('', [Validators.required,Validators.minLength(6)]),
-      Password: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      FirstName: new FormControl('', [Validators.required,Validators.minLength(4),Validators.maxLength(10)]),
+      LastName: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
+      PhoneNumber: new FormControl('', [Validators.required,Validators.minLength(10),Validators.maxLength(10),NumberValidator]),
+      Email: new FormControl(null, [Validators.email,Validators.maxLength(50)]),
+      UserName: new FormControl('', [Validators.required,Validators.minLength(6),Validators.maxLength(16)]),
+      Password: new FormControl('', [Validators.required,Validators.minLength(5),Validators.maxLength(16)]),
       AddressDesc: new FormGroup({
-        Address: new FormControl('', [Validators.required,Validators.minLength(6)]),
-        Pincode: new FormControl('', [Validators.required,Validators.minLength(6),NumberValidator]),
-        City: new FormControl('', [Validators.required,Validators.minLength(4)]),
-        State: new FormControl('', [Validators.required,Validators.minLength(3)]),
+        Address: new FormControl('', [Validators.required,Validators.minLength(6),Validators.maxLength(50)]),
+        Pincode: new FormControl('', [Validators.required,Validators.minLength(6),Validators.maxLength(6),NumberValidator]),
+        City: new FormControl('', [Validators.required,Validators.minLength(4),Validators.maxLength(30)]),
+        State: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(15)]),
       }),
-      Occupation: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      Occupation: new FormControl('', [Validators.required,Validators.minLength(5),Validators.maxLength(10)]),
       Conditions: new FormControl(false, Validators.required)
     });
   }

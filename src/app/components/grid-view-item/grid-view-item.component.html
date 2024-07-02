@@ -10,7 +10,9 @@
             </div>
             <div class="view-item-desc-rating" >
                 <div class="stars">
-                    <p class="star" *ngFor="let item of product.Stars">&#9733;</p>
+                    <p class="star" *ngFor="let item of product.Stars==1? ['star']: product.Stars==2? ['star','star']: product.Stars==3? ['star','star','star']: product.Stars==4? ['star','star','star','star']: product.Stars==5? ['star','star','star','star','star']: null">
+                        &#9733;
+                    </p>
                 </div>
                 <p style="margin: 0px;">{{product.NumberOfRating}}</p>
             </div>
@@ -25,9 +27,9 @@
                 </div>
             </div>
         </div>
-        <div class="view-item-button" [class.disabled]="product.Availability" [attr.aria-disabled]="product.Availability" (click)="AddtoCartClicked('Some ID', $event)">
-            <p *ngIf="!product.Availability" style="margin: 0px;">Add to Cart</p>
-            <p *ngIf="product.Availability" style="margin: 0px;">Sold Out</p>
+        <div class="view-item-button" [class.disabled]="!product.Availability" [attr.aria-disabled]="!product.Availability" (click)="AddtoCartClicked('Some ID', $event)">
+            <p *ngIf="product.Availability" style="margin: 0px;">Add to Cart</p>
+            <p *ngIf="!product.Availability" style="margin: 0px;">Sold Out</p>
         </div>  
     </div>
 </div>

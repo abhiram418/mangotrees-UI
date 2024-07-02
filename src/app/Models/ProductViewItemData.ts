@@ -1,9 +1,9 @@
-export class gridViewItemData{
+export class ProductViewItemData{
     Title:string='Title Title Title TitleTitleTitleTitle Titlend ';
     Desc:string='dmasjndflsnflksdmdmasjndflsnflksdmdmasjndflsnflksdm';
     Price:number | null = 1000;
-    Availability:boolean | null = false;
-    Stars: string[] = ['star', 'star', 'star'];
+    Availability:boolean | null = true;
+    Stars: number = 3;
     NumberOfRating:number = 2398;
     DealTitle?:string | null='Limited time deal';
     Discount?:number | null=-10;

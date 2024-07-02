@@ -12,12 +12,14 @@ import { LoginPageComponent } from './Customer/login-page/login-page.component';
 import { HomePageComponent } from './Product/home-page/home-page.component';
 import { OTPComponent } from './Customer/otp/otp.component';
 import { ResetPasswordComponent } from './Customer/reset-password/reset-password.component';
+import { ProductViewComponent } from './Product/product-view/product-view.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path:'', redirectTo:'product/1', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},
+    {path:'product/:ProductID', component:ProductViewComponent},
 
     {path:'signup', component:SigninUpPageComponent},
     {path:'login', component:LoginPageComponent},

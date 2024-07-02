@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavBarData } from '../../components/nav-bar/navBarData';
-import { gridViewItemData } from '../../components/grid-view-item/gridViewItemData';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { GridViewItemComponent } from '../../components/grid-view-item/grid-view-item.component';
 import { SliderComponent } from '../../components/slider/slider.component';
 import { HomePageDataService } from '../../Services/home-page-data.service';
 import { NgFor, NgIf } from '@angular/common';
+import { ProductViewItemData } from '../../Models/ProductViewItemData';
 
 
 @Component({
@@ -18,7 +18,7 @@ import { NgFor, NgIf } from '@angular/common';
 })
 export class HomePageComponent {
   navBarData = new NavBarData();
-  PinchData:gridViewItemData[]= null!;
+  PinchData:ProductViewItemData[]= null!;
 
   constructor(private homePageDataService:HomePageDataService){
     this.PinchData = homePageDataService.GetNewPinchData()!;

@@ -1,6 +1,6 @@
 import { NgClass, NgFor, NgForOf, NgIf } from '@angular/common';
 import { Component,EventEmitter, Input, Output } from '@angular/core';
-import { gridViewItemData } from './gridViewItemData';
+import { ProductViewItemData } from '../../Models/ProductViewItemData';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { gridViewItemData } from './gridViewItemData';
 })
 export class GridViewItemComponent {
 
-  @Input() product: gridViewItemData = new gridViewItemData();  
+  @Input() product: ProductViewItemData = new ProductViewItemData();  
   @Output() AddtoCart = new EventEmitter<any>();
   @Output() ViewProduct = new EventEmitter<string>();
 

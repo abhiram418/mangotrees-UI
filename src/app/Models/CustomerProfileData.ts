@@ -13,7 +13,7 @@ export class CustomerProfileData{
 export class AddressDesc{
     AddressTitle?:string='Default';
     Address:string='';
-    Pincode:number=123456;
-    City:string='';
+    Pincode:number=521201;
+    City:string='Nuzivid';
     State:string='';
 }

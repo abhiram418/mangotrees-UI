@@ -1,0 +1,67 @@
+<div class="product-page">
+
+    <div class="product-view-top">
+        <div>
+            <p class="title">{{data.Title}}</p>
+            <div>
+                <div class="stars">
+                    <p class="star" *ngFor="let item of data.Stars==1? ['star']: data.Stars==2? ['star','star']: data.Stars==3? ['star','star','star']: data.Stars==4? ['star','star','star','star']: data.Stars==5? ['star','star','star','star','star']: null">
+                        &#9733;
+                    </p>
+                </div>
+                <p style="margin: 0px;">{{data.NumberOfRating}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="product-view-middle">
+        <div class="image">images1</div>
+
+        <div class="blur product-payment-view">
+            <div class="product-payment-view-top">
+                <div class="price-desc">
+                    <div *ngIf="data.DealTitle" class="deal">{{data.DealTitle}}</div>
+                    <div class="price">
+                        <div>
+                            <a *ngIf="data.Discount" class="discount">{{data.Discount}}%</a>
+                            <div><p class="Symbol">₹</p>{{data.SalePrice}}<p *ngIf="!data.SalePrice" style="margin: 0px;">{{data.Price}}</p></div>
+                        </div>
+                        <a *ngIf="data.OldPrice" class="old-price">M.R.P:&nbsp;₹{{data.OldPrice}}</a>
+                    </div>
+                </div>
+                <div class="delivery-location">
+                    <span class="material-symbols-outlined">where_to_vote</span>
+                    <p>Deliver to {{customerData.FirstName? customerData.FirstName:"Guest"}} - {{customerData.AddressList!=null? customerData.AddressList[0].City:"Nuzivid"}} {{customerData.AddressList!=null? customerData.AddressList[0].Pincode:"521201"}}</p>
+                </div>
+                <div class="use-by">
+                    <p>We usually deliver the mangoes within 1-7 working days,</p>
+                    <p>and within 1-3 working days if the delivery is within Andhra Pradesh.</p>
+                </div>
+                <div class="in-stock">
+                    <a *ngIf="data.Availability"> In stock </a>
+                </div>
+                <div class="quantity">
+                    <select [(ngModel)]="selectedOption">
+                        <option *ngFor="let option of options" [value]="option.id" [disabled]="option.disabled">
+                          {{ option.value }}
+                        </option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <div class="top-button">
+                        <p>Add to Cart</p>
+                    </div>
+                    <div class="bottom-button">
+                        <p>Buy Now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <app-footer></app-footer>
+    </div>
+    
+</div>
