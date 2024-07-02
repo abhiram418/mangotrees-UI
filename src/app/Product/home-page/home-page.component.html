@@ -14,14 +14,12 @@
     <app-slider></app-slider>
 
 
-    <div class="new-pinch roboto-regular">
-        <h3 style="text-align: center;">New Pinch!</h3>
-        <div style="display: flex;justify-content: space-evenly;">
-            <app-grid-view-item [product]="productData" (ViewProduct)="ViewProduct($event)" (AddtoCart)="AddedtoCart($event)"></app-grid-view-item> 
-            <app-grid-view-item [product]="productData1" (ViewProduct)="ViewProduct($event)" (AddtoCart)="AddedtoCart($event)"></app-grid-view-item>
-            <!-- <app-grid-view-item></app-grid-view-item> 
-            <app-grid-view-item></app-grid-view-item>  
-            <app-grid-view-item></app-grid-view-item>  -->
+    <div class="new-pinch roboto-regular" *ngIf="PinchData">
+        <h2>New Pinch!</h2>
+        <div>
+            <ng-container *ngFor="let item of PinchData; let ind = index">
+                <app-grid-view-item class="item" [product]="item" (ViewProduct)="ViewProduct($event)" (AddtoCart)="AddedtoCart($event)"></app-grid-view-item> 
+            </ng-container>            
         </div>
     </div>
 

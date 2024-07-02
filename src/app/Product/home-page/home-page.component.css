@@ -69,6 +69,20 @@
 
 
 
+.new-pinch h2{
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.new-pinch div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.item{
+    margin-bottom: 10px;
+}
+
 @media (max-width: 874px){
     .main-image-view{
         height: calc(100% - 130px);
@@ -88,6 +102,10 @@
     .view-all-button span{
         font-size: 18px;
     }
+
+    .new-pinch h2{
+        font-size: 21px;
+    }
 }
 @media (max-width: 500px){
     .view-all-button:hover span{
@@ -95,6 +113,10 @@
     }
     .view-all-button:hover p{
         transform: translateX(21%) translateY(0%);
+    }
+
+    .new-pinch h2{
+        font-size: 18px;
     }
 }
 @media (max-width: 418px){

@@ -14,7 +14,7 @@ import { OTPComponent } from './Customer/otp/otp.component';
 import { ResetPasswordComponent } from './Customer/reset-password/reset-password.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'repassword', pathMatch:'full'},
+    {path:'', redirectTo:'home', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},
