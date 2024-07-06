@@ -18,8 +18,11 @@
     <div class="product-view-middle">
         <div class="image">images1</div>
 
-        <div class="blur product-payment-view">
+        <div class="blur product-payment-view roboto-regular">
             <div class="product-payment-view-top">
+                <div class="select-product-payment">
+                    <input type="radio">
+                </div>
                 <div class="price-desc">
                     <div *ngIf="data.DealTitle" class="deal">{{data.DealTitle}}</div>
                     <div class="price">
@@ -34,12 +37,11 @@
                     <span class="material-symbols-outlined">where_to_vote</span>
                     <p>Deliver to {{customerData.FirstName? customerData.FirstName:"Guest"}} - {{customerData.AddressList!=null? customerData.AddressList[0].City:"Nuzivid"}} {{customerData.AddressList!=null? customerData.AddressList[0].Pincode:"521201"}}</p>
                 </div>
-                <div class="use-by">
-                    <p>We usually deliver the mangoes within 1-7 working days,</p>
-                    <p>and within 1-3 working days if the delivery is within Andhra Pradesh.</p>
+                <div class="use-by roboto-light">
+                    <p>We usually deliver mangoes within 1-7 working days. For deliveries within Andhra Pradesh, the delivery time is 1-3 working days.</p>
                 </div>
                 <div class="in-stock">
-                    <a *ngIf="data.Availability"> In stock </a>
+                    <a *ngIf="data.Availability">{{data.Available}}</a>
                 </div>
                 <div class="quantity">
                     <select [(ngModel)]="selectedOption">
@@ -57,6 +59,20 @@
                     </div>
                 </div>
             </div>
+
+            <div class="product-payment-view-bottom">
+                <div class="select-product-payment">
+                    <input type="radio">
+                </div>
+                <div class="delivery-title">
+                    <h5 style="margin: 0px;">You may choose the pick-up option:</h5>
+                </div>
+                <div class="delivery-location">
+                    <span class="material-symbols-outlined">where_to_vote</span>
+                    <p>Pick-up from {{customerData.AddressList!=null? customerData.AddressList[0].City:"Nuzivid"}} {{customerData.AddressList!=null? customerData.AddressList[0].Pincode:"521201"}}</p>
+                </div>
+            </div>
+
         </div>
     </div>
 

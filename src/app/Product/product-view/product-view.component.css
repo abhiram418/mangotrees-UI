@@ -37,7 +37,7 @@
 
 
 .product-view-middle{
-    height: 100%;
+    height: fit-content;
     padding-inline: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -45,20 +45,24 @@
     /* background-color: blueviolet; */
 }
 .image{
-    height: 100%;
-    width: 70%;
+    height: 575px;
+    width: calc(100% - 350px);
     margin-right: 10px;
     background-color: aquamarine;
+    background-image: url("../../../assets/Pictures/Screenshot\ 2024-07-02\ 223503.jpg");
+    background-size:contain; /* Keeps the image at its original size */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: right;
 }
 
 
 
 
 .product-payment-view{
-    width: 30%;
+    height: 575px;
+    width: 333px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background-color: #f3f3f3;
 }
 
@@ -67,6 +71,34 @@
     height: fit-content;
     padding: 17px;
     background-color: white;
+}
+
+.select-product-payment{
+    float: right;
+}
+.select-product-payment input{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid green;
+    border-radius: 50%;
+    outline: none;
+}
+.select-product-payment input:checked{
+    box-shadow: 0 0 5px green;
+    transition: box-shadow 0.3s ease;
+}
+.select-product-payment input::before{
+    width: 60%;
+    height: 60%;
+    content: '';
+    display: block;
+    text-align: center;
+    margin: 20% auto;
+    border-radius: 50%;
+}
+.select-product-payment input:checked::before{
+    background: green;
 }
 
 .price-desc{
@@ -86,6 +118,7 @@
     margin-bottom: 5px;
     border-radius: 5px;
     font-size: 16px;
+    font-weight: 500;
     color: white;
     background-color: #cc0c39;
 }
@@ -100,7 +133,7 @@
 .price-desc .price div{
     display: flex;
     flex-direction: row;
-    font-size: 38px;
+    font-size: 36px;
     padding-right: 5px;
     padding-bottom: 5px;
 }
@@ -113,7 +146,7 @@
 .Symbol{
     font-size: 13px;
     margin: 0px;
-    margin-top: 6px;
+    margin-top: 5.5px;
     padding-top: 2px;
 }
 .price-desc .price .old-price{
@@ -130,12 +163,16 @@
     margin-top: 20px;
 }
 .delivery-location span{
+    font-size: 18px;
+    font-weight: 750;
     margin-left: -3.6px;
+    margin-right: 5px;
 }
 .delivery-location P{
     max-width: 100%;
     width: 100%;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 420;
     margin: 0px;
     overflow: hidden;
     color: #007185;
@@ -146,7 +183,8 @@
 .use-by{
     margin-top: 7px;
     line-break: 3px;
-    font-size: 12px;
+    font-size: 12.5px;
+    /* font-weight: 360; */
 }
 .use-by p{
     margin: 0px;
@@ -156,8 +194,9 @@
 
 
 .in-stock{
-    margin-top: 16px;
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 418;
     color: #007600 !important;
 }
 
@@ -169,12 +208,13 @@
     box-shadow: black;
 }
 select {
-    height: 32px; 
-    width: 91px; 
+    height: 26px; 
+    width: 70px; 
     padding-inline: 6px; 
     border: 1px solid #ccc; 
     border-radius: 4px; 
     font-size: 12px;
+    text-align: center;
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease; 
     background-color: #f3f3f3; 
@@ -195,20 +235,22 @@ option:disabled {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    font-size: 13px;
+    font-weight: 400;
     color: white;
 }
 .top-button{
-    height: 47px;
-    width: 100%;
+    height: 40px;
+    width: 99%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 26px;
+    margin-top: 18px;
     border-radius: 24px;
     outline: 0px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease; 
+    transition: 1s; 
     background-color: #617953;
 }
 .top-button:active{
@@ -221,17 +263,18 @@ option:disabled {
     text-align: center;
 }
 .bottom-button{
-    height: 47px;
+    height: 40px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 12px;
+    margin-bottom: 10px;
     border-radius: 24px;
     outline: 0px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease; 
+    transition: 1s; 
     background-color: #263121;
 }
 .bottom-button:active{
@@ -248,27 +291,28 @@ option:disabled {
 
 .product-payment-view-bottom{
     height: fit-content;
+    padding: 17px;
 }
 
-
+.delivery-title{
+    margin-top: 5px;
+    color: #1119;
+}
 
 @media (max-width: 750px){
-    .product-view-middle{
-        height: 120%;
-    }
-
     .product-view-middle{
         display: flex;
         flex-direction: column;
     }
+
+
     .image{
-        height: 60%;
+        height: 600px;
         width: 100%;
         margin-bottom: 15px;
     }
     .product-payment-view{
-        height: 75%;
-        width: 100%;
+        align-self: center;
     }
 }
 

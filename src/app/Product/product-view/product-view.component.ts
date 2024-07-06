@@ -19,7 +19,7 @@ export class ProductViewComponent {
   selectedOption: number;
 
   options = [
-    { id: 0, value: "Quantity", disabled: true },
+    { id: 0, value: "QTY", disabled: true },
     { id: 1, value: 1 },
     { id: 2, value: 2 },
     { id: 3, value: 3 }
@@ -33,6 +33,8 @@ export class ProductViewComponent {
     // this.customerData.AddressList[0].Pincode = 521201;
 
     this.selectedOption = this.options[0].id;
+
+    // this.data.Available = "Only one left";
 
     // this.data.DealTitle=null;
     // this.data.Discount=null;

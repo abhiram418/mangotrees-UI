@@ -3,6 +3,7 @@ export class ProductViewItemData{
     Desc:string='dmasjndflsnflksdmdmasjndflsnflksdmdmasjndflsnflksdm';
     Price:number | null = 1000;
     Availability:boolean | null = true;
+    Available:string = "In stock"
     Stars: number = 3;
     NumberOfRating:number = 2398;
     DealTitle?:string | null='Limited time deal';
