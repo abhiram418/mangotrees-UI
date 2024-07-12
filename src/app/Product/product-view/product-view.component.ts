@@ -20,7 +20,8 @@ export class ProductViewComponent {
 
   data:ProductViewItemData= new ProductViewItemData();
   customerData:CustomerData = new CustomerData();
-  selectedOption: number;
+  selectedDeliveryOption: string = "delivery";
+  temp:number | undefined;
 
   options = [
     { id: 0, value: "QTY", disabled: true },
@@ -45,7 +46,7 @@ export class ProductViewComponent {
     // this.customerData.AddressList[0].City = "abhi";
     // this.customerData.AddressList[0].Pincode = 521201;
 
-    this.selectedOption = this.options[0].id;
+    this.temp = this.options[0].id;
 
     // this.data.Available = "Only one left";
 
