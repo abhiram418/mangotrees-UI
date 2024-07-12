@@ -337,6 +337,7 @@ option:disabled {
 }
 
 .delivery-title{
+    user-select: none;
     margin-top: 5px;
     color: #1119;
 }
@@ -347,6 +348,7 @@ option:disabled {
     margin-left: 10px;
 }
 .delivery-location-bottom span{
+    user-select: none;
     font-size: 16px;
     font-weight: 750;
     margin-left: -3.6px;
@@ -377,13 +379,11 @@ option:disabled {
         font-size: 12px;
     }
 }
-
 @media (max-width: 450px){
     .title{
         font-size: 10px;
     }
     .stars{
-        margin-top: 2.6px;
         padding-bottom: 4px;
     }
     .star{
