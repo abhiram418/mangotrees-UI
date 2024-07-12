@@ -5,15 +5,19 @@ import { FooterComponent } from "../../components/footer/footer.component";
 import { CustomerData } from '../../Models/CustomerData';
 import { AddressDesc } from '../../Models/CustomerProfileData';
 import { FormsModule } from '@angular/forms';
+import { NavBarData } from '../../components/nav-bar/navBarData';
+import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 
 @Component({
     selector: 'app-product-view',
     standalone: true,
     templateUrl: './product-view.component.html',
     styleUrl: './product-view.component.css',
-    imports: [NgFor, NgIf, FormsModule, FooterComponent]
+    imports: [NgFor, NgIf, FormsModule, FooterComponent, NavBarComponent]
 })
 export class ProductViewComponent {
+  navBarData = new NavBarData();
+
   data:ProductViewItemData= new ProductViewItemData();
   customerData:CustomerData = new CustomerData();
   selectedOption: number;
@@ -22,7 +26,16 @@ export class ProductViewComponent {
     { id: 0, value: "QTY", disabled: true },
     { id: 1, value: 1 },
     { id: 2, value: 2 },
-    { id: 3, value: 3 }
+    { id: 3, value: 3 },
+    { id: 4, value: 4 },
+    { id: 5, value: 5 },
+    { id: 6, value: 6 },
+    { id: 7, value: 7 },
+    { id: 8, value: 8 },
+    { id: 9, value: 9 },
+    { id: 10, value: 10 },
+    { id: 11, value: 11 },
+    { id: 12, value: 12 }
   ];
 
   constructor(){
@@ -42,5 +55,17 @@ export class ProductViewComponent {
     // this.data.OldPrice=null;
     // this.data.Availability = false;
     // this.data.Stars = 5;
+  }
+
+
+  RedirectTo(to:string){
+    alert("to: "+to);
+  }
+  Search(word:string){
+    this.data.DealTitle=null;
+    this.data.Discount=null;
+    this.data.SalePrice=null; 
+    this.data.OldPrice=null;
+    alert("search: "+ word);
   }
 }

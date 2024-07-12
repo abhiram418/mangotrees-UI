@@ -1,8 +1,10 @@
 <div class="product-page">
 
+    <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
+
     <div class="product-view-top">
-        <div>
-            <p class="title">{{data.Title}}</p>
+        <div style="padding-top: 0px;">
+            <p class="title">Product&nbsp;&nbsp;>&nbsp;&nbsp;{{data.Title}}</p>
             <div>
                 <div class="stars">
                     <p class="star" *ngFor="let item of data.Stars==1? ['star']: data.Stars==2? ['star','star']: data.Stars==3? ['star','star','star']: data.Stars==4? ['star','star','star','star']: data.Stars==5? ['star','star','star','star','star']: null">
@@ -15,16 +17,18 @@
     </div>
 
 
-    <div class="product-view-middle">
-        <div class="image">images1</div>
+    <div class="product-view-middle roboto-regular">
+        <div class="image">.</div>
 
-        <div class="blur product-payment-view roboto-regular">
+        <div class="blur product-payment-view">
             <div class="product-payment-view-top">
                 <div class="select-product-payment">
                     <input type="radio">
                 </div>
+                
                 <div class="price-desc">
                     <div *ngIf="data.DealTitle" class="deal">{{data.DealTitle}}</div>
+                    <div *ngIf="!data.DealTitle" class="default-deal-title">MangoTrees's&nbsp;&nbsp;<p style="margin: 0px;color: goldenrod;">Original</p></div>
                     <div class="price">
                         <div>
                             <a *ngIf="data.Discount" class="discount">{{data.Discount}}%</a>
@@ -67,9 +71,9 @@
                 <div class="delivery-title">
                     <h5 style="margin: 0px;">You may choose the pick-up option:</h5>
                 </div>
-                <div class="delivery-location">
+                <div class="delivery-location-bottom">
                     <span class="material-symbols-outlined">where_to_vote</span>
-                    <p>Pick-up from {{customerData.AddressList!=null? customerData.AddressList[0].City:"Nuzivid"}} {{customerData.AddressList!=null? customerData.AddressList[0].Pincode:"521201"}}</p>
+                    <p onclick="window.location.href='https://maps.app.goo.gl/fyG3wCJ7ME2nkpty7'">Pick-up from {{customerData.AddressList!=null? customerData.AddressList[0].City:"Nuzivid"}} {{customerData.AddressList!=null? customerData.AddressList[0].Pincode:"521201"}}</p>
                 </div>
             </div>
 
