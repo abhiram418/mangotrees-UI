@@ -18,7 +18,18 @@
 
 
     <div class="product-view-middle roboto-regular">
-        <div class="image">.</div>
+        <div class="product-image-view">
+            <div class="product-image-list">
+                <div class="product-images" *ngFor="let i of options">
+                    <a>{{i.value}}</a>
+                </div>
+            </div>
+            <div class="product-image-large-view">
+                <div>
+                    
+                </div>
+            </div>
+        </div>
 
         <div class="blur product-payment-view">
 
