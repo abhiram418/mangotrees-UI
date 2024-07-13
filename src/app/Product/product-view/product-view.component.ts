@@ -1,24 +1,26 @@
 import { Component, NgModule } from '@angular/core';
 import { ProductViewItemData } from '../../Models/ProductViewItemData';
-import { NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { CustomerData } from '../../Models/CustomerData';
 import { AddressDesc } from '../../Models/CustomerProfileData';
 import { FormsModule } from '@angular/forms';
 import { NavBarData } from '../../components/nav-bar/navBarData';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
+import { ProductReviewData } from '../../Models/ProductReviewData';
 
 @Component({
     selector: 'app-product-view',
     standalone: true,
     templateUrl: './product-view.component.html',
     styleUrl: './product-view.component.css',
-    imports: [NgFor, NgIf, FormsModule, FooterComponent, NavBarComponent]
+    imports: [NgFor, NgIf, DatePipe, FormsModule, FooterComponent, NavBarComponent]
 })
 export class ProductViewComponent {
   navBarData = new NavBarData();
 
-  data:ProductViewItemData= new ProductViewItemData();
+  data:ProductViewItemData = new ProductViewItemData();
+  reviews:ProductReviewData = new ProductReviewData();
   customerData:CustomerData = new CustomerData();
   selectedDeliveryOption: string = "delivery";
   temp:number | undefined;

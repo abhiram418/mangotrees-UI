@@ -56,6 +56,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
+    justify-content: space-between;
 }
 .product-image-view{
     height: 575px;
@@ -397,6 +398,50 @@ option:disabled {
     overflow: hidden;
     color: #007185;
 }
+
+
+
+
+
+.product-review-view{
+    min-height: 450px;
+    width: calc(100%-20px);
+    margin-inline: 10px;
+    margin-bottom: 10px;
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: antiquewhite; */
+}
+.product-review-view h3{
+    text-align: center;
+}
+.product-review-list{
+    min-height: 308px;
+    height: fit-content;
+    width: 100%;
+    max-width: 600px;
+    padding-top: 16px;
+    padding-bottom: 6px;
+    /* background-color: aquamarine; */
+}
+.product-review{
+    margin-bottom: 10px;
+    background-color: beige;
+}
+.reviews-stars{
+    padding-top: 0px !important;
+    padding-bottom: 4px;
+    padding-inline: 5px;
+    display: flex;
+    color: goldenrod;
+}
+
+
+
+
+
 
 @media (max-width: 550px){
     .title{

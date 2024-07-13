@@ -94,6 +94,25 @@
         </div>
     </div>
 
+    <div class="product-review-view">
+        <div>
+            <h3>Product Review</h3>
+        </div>
+        <div class="product-review-list">
+            <div class="product-review" *ngFor="let review of options">
+                <h5 style="margin-top: 0px;">{{reviews.ReviewerName}}</h5>
+                <div class="reviews-stars">
+                    <p class="star" style="margin-top: -4px;" *ngFor="let item of reviews.Rating==1? ['star']: reviews.Rating==2? ['star','star']: reviews.Rating==3? ['star','star','star']: reviews.Rating==4? ['star','star','star','star']: reviews.Rating==5? ['star','star','star','star','star']: null">
+                        &#9733;
+                    </p>
+                    <h5 style="color: black;margin: 0px;margin-left: 10px;">{{reviews.Title}}</h5>
+                </div>
+                <p style="margin: 0px;">Reviewed on {{reviews.Date | date: 'fullDate' }}</p>
+                <p style="margin-bottom: 0px;">{{reviews.Review}}</p>
+            </div>
+        </div>
+    </div>
+
     <div>
         <app-footer></app-footer>
     </div>
