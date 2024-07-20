@@ -1,10 +1,10 @@
 <div class="product-page">
 
-    <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
+    <!-- <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar> -->
 
     <div class="product-view-top">
         <div style="padding-top: 0px;">
-            <p class="title">Product&nbsp;&nbsp;>&nbsp;&nbsp;{{data.Title}}</p>
+            <p class="title">Products&nbsp;&nbsp;>&nbsp;&nbsp;{{data.Title}}</p>
             <div>
                 <div class="stars">
                     <p class="star" *ngFor="let item of data.Stars==1? ['star']: data.Stars==2? ['star','star']: data.Stars==3? ['star','star','star']: data.Stars==4? ['star','star','star','star']: data.Stars==5? ['star','star','star','star','star']: null">
@@ -94,21 +94,24 @@
         </div>
     </div>
 
-    <div class="product-review-view">
+    <div class="product-review-view roboto-regular">
         <div>
             <h3>Product Review</h3>
         </div>
         <div class="product-review-list">
             <div class="product-review" *ngFor="let review of options">
-                <h5 style="margin-top: 0px;">{{reviews.ReviewerName}}</h5>
+                <div style="display: flex;align-items: center;">
+                    <span style="margin-right: 5px;user-select: none;" class="material-symbols-outlined">account_circle</span>
+                    <h5>{{reviews.ReviewerName}}</h5>
+                </div>
                 <div class="reviews-stars">
-                    <p class="star" style="margin-top: -4px;" *ngFor="let item of reviews.Rating==1? ['star']: reviews.Rating==2? ['star','star']: reviews.Rating==3? ['star','star','star']: reviews.Rating==4? ['star','star','star','star']: reviews.Rating==5? ['star','star','star','star','star']: null">
+                    <p class="star" *ngFor="let item of reviews.Rating==1? ['star']: reviews.Rating==2? ['star','star']: reviews.Rating==3? ['star','star','star']: reviews.Rating==4? ['star','star','star','star']: reviews.Rating==5? ['star','star','star','star','star']: null">
                         &#9733;
                     </p>
-                    <h5 style="color: black;margin: 0px;margin-left: 10px;">{{reviews.Title}}</h5>
+                    <h6 class="single-line-ellipsis">{{reviews.Title}}</h6>
                 </div>
-                <p style="margin: 0px;">Reviewed on {{reviews.Date | date: 'fullDate' }}</p>
-                <p style="margin-bottom: 0px;">{{reviews.Review}}</p>
+                <p class="product-review-date" style="margin: 0px;">Reviewed on {{reviews.Date | date: 'fullDate' }}</p>
+                <p class="product-review-content multi-line-ellipsis">{{reviews.Review}}</p>
             </div>
         </div>
     </div>
