@@ -38,12 +38,13 @@
 }
 .stars{
     padding-top: 0px !important;
-    padding-bottom: 4px;
+    padding-bottom: 2px !important;
     padding-inline: 5px;
     color: goldenrod;
 }
 .star{
     margin: 0px;
+    margin-bottom: -3px;
     font-size: 16px;
     border-width: 10px;
     border-color: red;
