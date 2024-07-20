@@ -417,7 +417,7 @@ option:disabled {
 }
 .product-review-view h3{
     text-align: center;
-    font-size: 21px;
+    font-size: 21px !important;
 }
 .product-review-list{
     height: fit-content;
@@ -438,7 +438,7 @@ option:disabled {
 }
 .product-review h5{
     width: fit-content;
-    font-size: 14px;
+    font-size: 14px !important;
     padding-top: 8px;
     padding-bottom: 8px;
     margin: 0px;
@@ -463,13 +463,14 @@ option:disabled {
     color: black;
 }
 .product-review-date{
-    font-size: 12px;
+    margin: 0px;
+    font-size: 12px !important;
     font-weight: 300;
 }
 .product-review-content{
     margin-top: 12px;
     margin-bottom: 0px;
-    font-size: 14px;
+    font-size: 14px !important;
     font-weight: 400;
 }
 
