@@ -92,12 +92,19 @@
     padding-top: 0px;
 }
 .location{
+    width: 100% !important;
     display: flex;
     color: #DDD;
+}
+.location span{
+    user-select: none;
 }
 .address p{
     width: 250px;
     font-size: x-small;
+}
+.address p span{
+    font-size: 16px !important;
 }
 .material-symbols-outlined {
     font-variation-settings:
@@ -126,6 +133,7 @@
 .bottom-footer{
     text-align: center;
     font-size: small;
+    user-select: none;
     color: #DDD;
     background-color: #1d2a26;
 }
@@ -177,6 +185,7 @@
     iframe{
         height: 100px;
         width: 200px;
+        user-select: none;
     }
     .map{
         height: fit-content;
@@ -192,12 +201,15 @@
     }
     .address p{
         width: 100%;
-        padding-top: 3%;
         font-size: 7.5px;
+    }
+    .address p span{
+        font-size: 12px !important;
     }
 
     .bottom-middle-footer{
         font-size: small;
+        user-select: none;
     }
     .bottom-middle-footer img{
         height: 40px;
@@ -229,7 +241,9 @@
     .address p{
         font-size: 6px;
     }
-
+    .address p span{
+        font-size: 10px !important;
+    }
     .bottom-middle-footer{
         font-size: x-small;
     }
@@ -261,14 +275,12 @@
     iframe{
         height: 60px;
         width: 100px;
+        align-items: center;
+        align-content: center;
     }
     .map{
         height: fit-content;
         width: fit-content;
-    }
-    iframe{
-        align-items: center;
-        align-content: center;
     }
     .address-block{
         width: 30%;
@@ -280,7 +292,10 @@
     }
     .address p{
         width: 100%;
-        font-size: 4.5px;
+        font-size: 4px;
+    }
+    .address p span{
+        font-size: 8px !important;
     }
     
     .bottom-middle-footer p{
@@ -298,6 +313,9 @@
 
         .address-block{
             display: none;
+        }
+        .top-middle-footer div ul li{
+            margin-top: -1px;
         }
     }
 }
