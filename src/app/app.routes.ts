@@ -13,13 +13,15 @@ import { HomePageComponent } from './Product/home-page/home-page.component';
 import { OTPComponent } from './Customer/otp/otp.component';
 import { ResetPasswordComponent } from './Customer/reset-password/reset-password.component';
 import { ProductViewComponent } from './Product/product-view/product-view.component';
+import { CheckOutPageComponent } from './Product/check-out-page/check-out-page.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'product/1', pathMatch:'full'},
+    {path:'', redirectTo:'checkout', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},
     {path:'product/:ProductID', component:ProductViewComponent},
+    {path:'checkout', component:CheckOutPageComponent},
 
     {path:'signup', component:SigninUpPageComponent},
     {path:'login', component:LoginPageComponent},
