@@ -1,7 +1,6 @@
 .check-out-page{
     height: 100% !important;
     width: 100%;
-    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -20,7 +19,7 @@
 
 .check-out-all-items{
     height: 1000px;
-    width: 100%;
+    width: calc(100% - 333px);
     background-color: aqua;
 }
 
@@ -28,6 +27,8 @@
 .proceed-to-check-out{
     height: fit-content;
     width: 300px;
+    position: fixed;
+    right: 17px;
     /* background-color: lightcoral; */
 }
 
@@ -124,8 +125,9 @@ td{
     background-color: #f0f2f2;
 }
 .delivery-cost p{
+    width: fit-content;
     margin: 0px;
-    padding-inline: 18px;
+    margin-inline: 18px;
     font-size: 12px;
 }
 
@@ -134,7 +136,11 @@ td{
 
 
 
-@media (max-width: 750px){
+@media (max-width: 850px){
+    .check-out-all-items{
+        /* height: fit-content; */
+        width: 100%;
+    }
     .check-out-component{
         flex-direction: column;
         justify-content: center;
@@ -143,5 +149,7 @@ td{
 
     .proceed-to-check-out{
         margin-top: 25px;
+        position: relative;
+        right: 0;
     }
 }
