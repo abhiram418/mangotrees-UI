@@ -11,13 +11,5 @@ import { NavBarData } from '../../components/nav-bar/navBarData';
   styleUrl: './check-out-page.component.css'
 })
 export class CheckOutPageComponent {
-  navBarData = new NavBarData();
-
-
-  RedirectTo(to:string){
-    alert("to: "+to);
-  }
-  Search(word:string){
-    alert("search: "+ word);
-  }
+  
 }

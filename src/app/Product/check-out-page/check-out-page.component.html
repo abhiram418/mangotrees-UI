@@ -1,22 +1,25 @@
 <div class="check-out-page roboto-regular">
-    <!-- <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar> -->
     
+    <div class="check-out-title">
+        <h2 style="margin: auto;">Purchase Summary</h2>
+    </div>
+
     <div class="check-out-component">
         <div class="check-out-all-items">
             <div class="check-out-delivery-address">
                 <div class="check-out-delivery-address-title">
-                    <a>❁</a>
                     <h3>Delivery address</h3>
                 </div>
-                <p class="roboto-light multi-line-ellipsis">Abhiram <br>House no :- 7/263/1 banginapalli thota <br> NUZVID, ANDHRA PRADESH 521201</p>
-                <div class="change-button">
-                    <a>Change</a>
+                <div class="check-out-delivery-address-content blur">
+                    <p class="roboto-regular multi-line-ellipsis">Abhiram <br>House no :- 7/263/1 banginapalli thota <br> NUZVID, ANDHRA PRADESH 521201</p>
+                    <div class="change-button">
+                        <a>Change</a>
+                    </div>
                 </div>
             </div>
             <hr>
             <div class="check-out-review-items">
                 <div class="check-out-review-items-title">
-                    <a>❁</a>
                     <h3>Review items</h3>
                 </div>
                 <div class="review-items-list">
@@ -49,6 +52,10 @@
                                 <td class="order-summary-value">₹37,998.00</td>
                             </tr>
                             <tr>
+                                <td>Packing:</td>
+                                <td class="order-summary-value">₹0.00</td>
+                            </tr>
+                            <tr>
                                 <td>Delivery:</td>
                                 <td class="order-summary-value">₹0.00</td>
                             </tr>
@@ -72,5 +79,13 @@
             </div>
         </div>
     </div>
-    
+
+    <hr>
+
+    <div class="check-out-info">
+        <p>Need help? Check our <a>help</a> page or <a>contact us</a></p>
+        <p>Upon placing your order, you will receive an email confirmation acknowledging receipt of your order. If you select an electronic payment method (credit card, debit card, or net banking), you will be redirected to your bank’s website to complete the transaction. Your purchase contract will be finalized once we have received your electronic payment and dispatched your item.</p>
+        <p>Need to add more items to your order? Continue shopping on the <a>MangoTrees.in homepage.</a></p>
+    </div>
+    <br>
 </div>
