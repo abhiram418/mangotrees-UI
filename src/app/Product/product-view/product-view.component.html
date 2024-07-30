@@ -48,7 +48,7 @@
                             <a *ngIf="data.Discount" class="discount">{{data.Discount}}%</a>
                             <div><p class="Symbol">₹</p>{{data.SalePrice}}<p *ngIf="!data.SalePrice" style="margin: 0px;">{{data.Price}}</p></div>
                         </div>
-                        <a *ngIf="data.OldPrice" class="old-price">M.R.P:&nbsp;₹{{data.OldPrice}}</a>
+                        <a *ngIf="data.Discount" class="old-price">M.R.P:&nbsp;₹{{data.Price}}</a>
                     </div>
                 </div>
                 <div class="delivery-location">
@@ -108,10 +108,10 @@
                     <p class="star" *ngFor="let item of reviews.Rating==1? ['star']: reviews.Rating==2? ['star','star']: reviews.Rating==3? ['star','star','star']: reviews.Rating==4? ['star','star','star','star']: reviews.Rating==5? ['star','star','star','star','star']: null">
                         &#9733;
                     </p>
-                    <h6 class="single-line-ellipsis">{{reviews.Title}}</h6>
+                    <h6 class="single-line">{{reviews.Title}}</h6>
                 </div>
                 <p class="product-review-date">Reviewed on {{reviews.Date | date: 'fullDate' }}</p>
-                <p class="product-review-content multi-line-ellipsis">{{reviews.Review}}</p>
+                <p class="product-review-content multi-line-3">{{reviews.Review}}</p>
             </div>
         </div>
     </div>

@@ -22,7 +22,6 @@ export class HomePageDataService {
     this.PinchData[0].DealTitle=null;
     this.PinchData[0].Discount=null;
     this.PinchData[0].SalePrice=null; 
-    this.PinchData[0].OldPrice=null;
     this.PinchData[0].Availability = false;
     this.PinchData[0].Stars = 5;
     // this.PinchData[0].Price=null;

@@ -9,5 +9,4 @@ export class ProductViewItemData{
     DealTitle?:string | null='Limited time deal';
     Discount?:number | null=-35;
     SalePrice?:number | null=650;
-    OldPrice?:number | null=1000;
 }

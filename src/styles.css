@@ -69,3 +69,41 @@
   font-weight: 900;
   font-style: italic;
 }
+
+
+
+
+
+.single-line {
+  white-space: nowrap;      
+  overflow: hidden;         
+  text-overflow: ellipsis;
+}
+.multi-line-2{
+  overflow: hidden;                
+  display: -webkit-box;           
+  -webkit-box-orient: vertical;    
+  -webkit-line-clamp: 2;           
+  text-overflow: ellipsis;       
+} 
+.multi-line-3{
+  overflow: hidden;                
+  display: -webkit-box;           
+  -webkit-box-orient: vertical;    
+  -webkit-line-clamp: 3;           
+  text-overflow: ellipsis;       
+} 
+.multi-line-4{
+  overflow: hidden;                
+  display: -webkit-box;           
+  -webkit-box-orient: vertical;    
+  -webkit-line-clamp: 4;           
+  text-overflow: ellipsis;       
+} 
+.multi-line-5{
+  overflow: hidden;                
+  display: -webkit-box;           
+  -webkit-box-orient: vertical;    
+  -webkit-line-clamp: 5;           
+  text-overflow: ellipsis;       
+} 

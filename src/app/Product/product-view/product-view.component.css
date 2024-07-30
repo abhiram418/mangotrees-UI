@@ -479,18 +479,7 @@ option:disabled {
 
 
 
-.single-line-ellipsis {
-    white-space: nowrap;      
-    overflow: hidden;         
-    text-overflow: ellipsis;
-}
-.multi-line-ellipsis{
-    overflow: hidden;                
-    display: -webkit-box;           
-    -webkit-box-orient: vertical;    
-    -webkit-line-clamp: 3;           
-    text-overflow: ellipsis;       
-}   
+
 @media (max-width: 550px){
     .title{
         font-size: 12px;

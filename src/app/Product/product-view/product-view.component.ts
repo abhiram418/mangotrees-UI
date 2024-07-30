@@ -18,6 +18,7 @@ import { ProductReviewData } from '../../Models/ProductReviewData';
 })
 export class ProductViewComponent {
   navBarData = new NavBarData();
+  test = true;
 
   data:ProductViewItemData = new ProductViewItemData();
   reviews:ProductReviewData = new ProductReviewData();
@@ -68,7 +69,6 @@ export class ProductViewComponent {
     this.data.DealTitle=null;
     this.data.Discount=null;
     this.data.SalePrice=null; 
-    this.data.OldPrice=null;
     alert("search: "+ word);
   }
 }

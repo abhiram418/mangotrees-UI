@@ -23,7 +23,7 @@
                         <a *ngIf="product.Discount" class="discount">{{product.Discount}}%</a>
                         <div><p class="Symbol" style="margin: 0px;">₹</p>{{product.SalePrice}}<p *ngIf="!product.SalePrice" style="margin: 0px;">{{product.Price}}</p></div>
                     </div>
-                    <a *ngIf="product.OldPrice" class="old-price">₹{{product.OldPrice}}</a>
+                    <a *ngIf="product.Discount" class="old-price">₹{{product.Price}}</a>
                 </div>
             </div>
         </div>

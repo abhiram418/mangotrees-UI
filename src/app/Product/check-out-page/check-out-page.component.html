@@ -11,7 +11,7 @@
                     <h3>Delivery address</h3>
                 </div>
                 <div class="check-out-delivery-address-content blur">
-                    <p class="roboto-regular multi-line-ellipsis">Abhiram <br>House no :- 7/263/1 banginapalli thota <br> NUZVID, ANDHRA PRADESH 521201</p>
+                    <p class="roboto-regular multi-line-5">Abhiram <br>House no :- 7/263/1 banginapalli thota <br> NUZVID, ANDHRA PRADESH 521201</p>
                     <div class="change-button">
                         <a>Change</a>
                     </div>
@@ -23,7 +23,29 @@
                     <h3>Review items</h3>
                 </div>
                 <div class="review-items-list">
-                    <div class="review-item">
+                    <div class="review-item blur" *ngFor="let items of options">
+                        <div class="item">
+                            <div class="review-item-image">
+                                <img src="https://www.paperboatfoods.com/cdn/shop/products/1_1_150x.jpg" alt="">
+                            </div>
+                            <div class="review-item-top">
+                                <p class="single-line review-item-top-title">{{data.Title}}</p>
+                                <p class="multi-line-3 review-item-top-desc">{{data.Desc}}</p>
+                            </div>
+                            <div class="review-item-bottom">
+                                <a class="price">₹{{data.Discount? data.SalePrice:data.Price}}</a>
+                                <div class="quantity">
+                                    <select [(ngModel)]="temp">
+                                        <option *ngFor="let option of options" [value]="option.id" [disabled]="option.disabled">
+                                          {{ option.value }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="change-button" style="margin-left: 10px;">
+                                    <a>Delete</a>
+                                </div>
+                            </div>
+                        </div>
                         
                     </div>
                 </div>
@@ -53,6 +75,10 @@
                             </tr>
                             <tr>
                                 <td>Packing:</td>
+                                <td class="order-summary-value">₹0.00</td>
+                            </tr>
+                            <tr>
+                                <td>Discount:</td>
                                 <td class="order-summary-value">₹0.00</td>
                             </tr>
                             <tr>
