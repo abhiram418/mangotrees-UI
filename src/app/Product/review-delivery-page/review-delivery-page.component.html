@@ -1,0 +1,83 @@
+<div class="review-delivery-page roboto-regular">
+    
+    <div class="review-delivery-title">
+        <h2 style="margin: auto;">Review Delivery</h2>
+    </div>
+
+    <div *ngIf="popUp" style="z-index: 500;position: absolute;">
+        <app-pop-up [text]="popUpText" (close)="closePopUp($event)"></app-pop-up>
+    </div>
+
+    <div class="review-delivery-component">
+        <div class="review-delivery-type">
+            <div class="review-delivery-type-title">
+                <h3>Delivery Options</h3>
+            </div>
+            <div class="review-delivery-type-context blur">
+                <div class="review-delivery-type-options">
+                    <input type="radio" name="delivery-option">
+                    <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
+                    <p>APSRTC Cargo Services</p>
+                    <span style="user-select: none;">&nbsp;&nbsp;</span>
+                    <div style="display: grid; place-items: center; user-select: none;">
+                        <img style="max-width: 28px;" src="../../../assets/Pictures/APSRTC.ico">
+                    </div>
+                    <span style="user-select: none;">&nbsp;&nbsp;</span>
+                    <a (click)="showPopUp('APSRTC')">?</a>
+                </div>
+                <div class="review-delivery-type-options">
+                    <input type="radio" name="delivery-option">
+                    <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
+                    <p>Third-Party Delivery Services</p>
+                    <span style="user-select: none;">&nbsp;&nbsp;</span>
+                    <a (click)="showPopUp('Third-Party')">?</a>
+                </div>
+                <div class="review-delivery-type-options">
+                    <input type="radio" name="delivery-option">
+                    <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
+                    <p>Dedicated Truck Delivery</p>
+                    <span style="user-select: none;">&nbsp;&nbsp;</span>
+                    <a (click)="showPopUp('Dedicated')">?</a>
+                </div>
+            </div>
+        </div>
+        <hr style="display: none;">
+        <div class="review-package-type">
+            <div class="review-package-type-title">
+                <h3>Packaging Options</h3>
+            </div>
+            <div class="review-package-type-context blur">
+                <div class="review-package-type-options">
+                    <input type="radio" name="package-option">
+                    <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
+                    <p>Premium Packaging</p>
+                    <span style="user-select: none;">&nbsp;&nbsp;</span>
+                    <a (click)="showPopUp('Premium')">?</a>
+                </div>
+                <div class="review-package-type-options">
+                    <input type="radio" name="package-option">
+                    <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
+                    <p>Pocket-Friendly Packaging</p>
+                    <span style="user-select: none;">&nbsp;&nbsp;</span>
+                    <a (click)="showPopUp('Pocket-Friendly')">?</a>
+                </div>
+                <div class="review-package-type-options">
+                    <input type="radio" name="package-option">
+                    <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
+                    <p>Basic Packaging</p>
+                    <span style="user-select: none;">&nbsp;&nbsp;</span>
+                    <a (click)="showPopUp('Basic')">?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr style="max-width: 1333px;">
+
+    <div class="review-delivery-info">
+        <p>Need help? Check our <a href="../help">help</a> page or <a href="../contact-us">contact us</a></p>
+        <p>Upon placing your order, you will receive an email confirmation acknowledging receipt of your order. If you select an electronic payment method (credit card, debit card, or net banking), you will be redirected to your bank’s website to complete the transaction. Your purchase contract will be finalized once we have received your electronic payment and dispatched your item.</p>
+        <p>Need to add more items to your order? Continue shopping on the <a href="../home">MangoTrees.in homepage.</a></p>
+    </div>
+    <br>
+</div>

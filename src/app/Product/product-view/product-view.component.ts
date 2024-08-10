@@ -23,7 +23,6 @@ export class ProductViewComponent {
   data:ProductViewItemData = new ProductViewItemData();
   reviews:ProductReviewData = new ProductReviewData();
   customerData:CustomerData = new CustomerData();
-  selectedDeliveryOption: string = "delivery";
   temp:number | undefined;
 
   options = [

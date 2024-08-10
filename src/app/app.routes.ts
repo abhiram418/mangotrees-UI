@@ -14,13 +14,16 @@ import { OTPComponent } from './Customer/otp/otp.component';
 import { ResetPasswordComponent } from './Customer/reset-password/reset-password.component';
 import { ProductViewComponent } from './Product/product-view/product-view.component';
 import { CheckOutPageComponent } from './Product/check-out-page/check-out-page.component';
+import { ReviewDeliveryPageComponent } from './Product/review-delivery-page/review-delivery-page.component';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'checkout', pathMatch:'full'},
+    {path:'', redirectTo:'review', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},
     {path:'product/:ProductID', component:ProductViewComponent},
+    {path:'review', component:ReviewDeliveryPageComponent},
     {path:'checkout', component:CheckOutPageComponent},
 
     {path:'signup', component:SigninUpPageComponent},
@@ -34,7 +37,8 @@ export const routes: Routes = [
     {path:'footer', component:FooterComponent},
     {path:'item', component:GridViewItemComponent},
     {path:'slider', component:SliderComponent},
-    {path:'loader', component: LoaderComponent},
+    {path:'loader', component:LoaderComponent},
+    {path:'pop-up', component:PopUpComponent},
 
     
     {path:'dice', component:DiceComponent},

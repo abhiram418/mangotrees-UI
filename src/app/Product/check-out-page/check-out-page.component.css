@@ -6,7 +6,7 @@
     top: 0;
 }
 .check-out-component{
-    width: calc(100%-34px);
+    width: calc(100% - 34px);
     max-width: 1333px;
     margin: auto;
     margin-top: 0px;
@@ -197,6 +197,7 @@
 }
 .review-item-bottom-with{
     width: 75%;
+    max-width: 360px;
     margin: auto;
     display: flex;
     justify-content: space-around;
@@ -384,7 +385,10 @@ td{
         font-size: 10px;
     }
 
-    
+    .review-item-top-title,
+    .review-item-top-desc {
+        font-size: 12px;
+    }
 }
 @media (max-width: 850px){
     .check-out-all-items{

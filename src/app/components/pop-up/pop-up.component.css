@@ -1,0 +1,71 @@
+.back-page{
+    z-index: 500;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.258);
+}
+
+.pop-up-component{
+    height: fit-content;
+    min-height: 100px;
+    width: 450px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.x{
+    height: 20px;
+    padding: 17px;
+    background-color: green;
+}
+.x p{
+    margin-top: -5px !important;
+    font-size: 21px;
+    cursor: pointer;
+}
+.x p:active{
+    color: rgb(115, 29, 29);
+}
+
+.pop-up-context{
+    height: fit-content;
+    padding: 17px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.pop-up-close{
+    height: fit-content;
+    padding: 17px;
+    text-align: center;
+    background-color: #f0f2f2;
+}
+.pop-up-close button{
+    height: 36px;
+    width: 66px;
+    border-radius: 5px;
+    border: none;
+    background-color: #F4BB53;
+}
+.pop-up-close button:active{
+    background-color: #f3a90a;
+}
+
+@media (max-width: 500px){
+    .pop-up-component{
+        width: 300px;
+    }
+
+    .pop-up-context{
+        font-size: 13px;
+    }
+}
