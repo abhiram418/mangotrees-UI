@@ -16,9 +16,10 @@ import { ProductViewComponent } from './Product/product-view/product-view.compon
 import { CheckOutPageComponent } from './Product/check-out-page/check-out-page.component';
 import { ReviewDeliveryPageComponent } from './Product/review-delivery-page/review-delivery-page.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { CustomerProfileComponent } from './Customer/customer-profile/customer-profile.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'review', pathMatch:'full'},
+    {path:'', redirectTo:'profile', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},
@@ -28,9 +29,10 @@ export const routes: Routes = [
 
     {path:'signup', component:SigninUpPageComponent},
     {path:'login', component:LoginPageComponent},
-
     {path:'otp', component:OTPComponent},
     {path:'repassword', component:ResetPasswordComponent},
+
+    {path:'profile', component:CustomerProfileComponent},
     
 
     {path:'nav-bar', component:NavBarComponent},    

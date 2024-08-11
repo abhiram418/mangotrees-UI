@@ -1,0 +1,46 @@
+<div class="customer-profile-page">
+    
+    <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
+
+    <div class="customer-profile roboto-regular">
+        <div class="customer-profile-context">
+            <div class="orders blur">
+                <div class="orders-image">
+                    <img src="../../../assets/Pictures/delivery.png">
+                </div>
+                <div class="order-context">
+                    <p>Your Orders</p>
+                </div>
+            </div>
+            <div class="security blur">
+                <div class="security-image">
+                    <img src="../../../assets/Pictures/profile.png">
+                </div>
+                <div class="security-context">
+                    <p>Profile</p>
+                </div>
+            </div>
+            <div class="address blur">
+                <div class="address-image">
+                    <img src="../../../assets/Pictures/location.png">
+                </div>
+                <div class="address-context" style="display: flex;flex-direction: column;">
+                    <p style="padding-top: 0px;padding-bottom: 10px;">Your addresses</p>
+                    <p style="font-size: 14px;font-weight: 300;color: gray;padding: 0px;padding-left: 21px;" >Edit addresses</p>
+                </div>
+            </div>
+            <div class="contact-us blur">
+                <div class="contact-us-image">
+                    <img src="../../../assets/Pictures/chat.png">
+                </div>
+                <div class="contact-us-context">
+                    <p>Contact Us</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <app-footer></app-footer>
+    </div>
+</div>

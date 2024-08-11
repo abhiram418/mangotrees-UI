@@ -1,0 +1,66 @@
+.customer-profile-page{
+    height: 100% !important;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.blur{
+    border-radius: 12px;
+    border: 1px solid rgb(211, 210, 210);
+}
+
+
+.customer-profile{
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    margin-top: 120px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.customer-profile-context{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.orders,.security,.address,.contact-us{
+    height: fit-content;
+    width: 300px;
+    min-height: 100px;
+    margin: 17px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+.orders:hover,.security:hover,.address:hover,.contact-us:hover{
+    background-color: #eee;
+}
+.orders div,.security div,.address div,.contact-us div{
+    display: flex;
+}
+.orders p,.security p,.address p,.contact-us p{
+    padding: 17px;
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.orders img,.security img,.address img,.contact-us img{
+    max-width: 60px;
+    padding: 17px;
+    align-self: center;
+}
+
+
+
+@media (max-width: 874px){
+    .customer-profile{
+        margin-top: 165px;
+        margin-bottom: 50px;
+    }
+}
