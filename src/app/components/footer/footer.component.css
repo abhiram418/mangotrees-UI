@@ -80,6 +80,7 @@
     justify-content: space-around;
 }
 .address-block{
+    width: fit-content;
     display: flex;
 }
 .address p{
@@ -172,7 +173,7 @@
         width: fit-content;
     }
     .address-block{
-        width: 30%;
+        width: fit-content;
     }
     .address{
         max-width: min-content;

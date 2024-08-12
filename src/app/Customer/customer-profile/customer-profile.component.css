@@ -37,6 +37,7 @@
     align-items: center;
     cursor: pointer;
     overflow: hidden;
+    background-color: #eeeeee81;
 }
 .orders:hover,.security:hover,.address:hover,.contact-us:hover{
     background-color: #eee;
@@ -45,17 +46,28 @@
     display: flex;
 }
 .orders p,.security p,.address p,.contact-us p{
-    padding: 17px;
+    padding-inline: 17px;
+    padding-bottom: 10px;
     margin: 0px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
+}
+.desc{
+    padding: 0px !important;
+    padding-left: 18px !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    color: gray !important;
 }
 .orders img,.security img,.address img,.contact-us img{
     max-width: 60px;
     padding: 17px;
     align-self: center;
 }
-
+.order-context, .security-context, .address-context, .contact-us-context{
+    display: flex;
+    flex-direction: column;
+}
 
 
 @media (max-width: 874px){
