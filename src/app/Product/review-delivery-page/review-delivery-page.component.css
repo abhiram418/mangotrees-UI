@@ -81,6 +81,7 @@ input:checked::before{
 .review-delivery-type{
     height: fit-content;
     width: calc(100% - 34px);
+    max-width: 400px;
     padding-inline: 17px;
     display: flex;
     flex-direction: column;
@@ -115,6 +116,7 @@ input:checked::before{
 .review-package-type{
     height: fit-content;
     width: calc(100% - 34px);
+    max-width: 400px;
     padding-inline: 17px;
     display: flex;
     flex-direction: column;
@@ -186,6 +188,9 @@ input:checked::before{
     }
     .review-delivery-component hr{
         display: block !important;
+    }
+    .review-delivery-type, .review-package-type{
+        max-width: none;
     }
 }
 @media (max-width: 1085px){}

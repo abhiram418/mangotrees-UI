@@ -7,6 +7,7 @@ import { SliderComponent } from '../../components/slider/slider.component';
 import { HomePageDataService } from '../../Services/home-page-data.service';
 import { NgFor, NgIf } from '@angular/common';
 import { ProductViewItemData } from '../../Models/ProductViewItemData';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class HomePageComponent {
   navBarData = new NavBarData();
   PinchData:ProductViewItemData[]= null!;
 
-  constructor(private homePageDataService:HomePageDataService){
+  constructor(private router: Router, private homePageDataService:HomePageDataService){
     this.PinchData = homePageDataService.GetNewPinchData()!;
   }
   
@@ -35,6 +36,7 @@ export class HomePageComponent {
 
   RedirectTo(to:string){
     alert("to: "+to);
+    this.router.navigate(['/'+to]);
   }
   Search(word:string){
     alert("search: "+ word);

@@ -17,6 +17,10 @@ import { CheckOutPageComponent } from './Product/check-out-page/check-out-page.c
 import { ReviewDeliveryPageComponent } from './Product/review-delivery-page/review-delivery-page.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { CustomerProfileComponent } from './Customer/customer-profile/customer-profile.component';
+import { CustomerPersonalDetailsComponent } from './Customer/customer-personal-details/customer-personal-details.component';
+import { CustomerAddressComponent } from './Customer/customer-address/customer-address.component';
+import { PopPageComponent } from './components/pop-page/pop-page.component';
+import { AddressUpdateComponent } from './Customer/address-update/address-update.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'profile', pathMatch:'full'},
@@ -33,6 +37,9 @@ export const routes: Routes = [
     {path:'repassword', component:ResetPasswordComponent},
 
     {path:'profile', component:CustomerProfileComponent},
+    {path:'details', component:CustomerPersonalDetailsComponent},
+    {path:'address', component:CustomerAddressComponent},
+    {path:'address-update', component:AddressUpdateComponent},
     
 
     {path:'nav-bar', component:NavBarComponent},    
@@ -41,6 +48,7 @@ export const routes: Routes = [
     {path:'slider', component:SliderComponent},
     {path:'loader', component:LoaderComponent},
     {path:'pop-up', component:PopUpComponent},
+    {path:'pop-page', component:PopPageComponent},
 
     
     {path:'dice', component:DiceComponent},

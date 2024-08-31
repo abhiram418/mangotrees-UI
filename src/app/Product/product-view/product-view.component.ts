@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { NavBarData } from '../../components/nav-bar/navBarData';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { ProductReviewData } from '../../Models/ProductReviewData';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-product-view',
@@ -41,7 +42,7 @@ export class ProductViewComponent {
     { id: 12, value: 12 }
   ];
 
-  constructor(){
+  constructor(private router: Router){
     // this.customerData.AddressList = [];
     // this.customerData.AddressList.push(new AddressDesc());
     // this.customerData.FirstName = "abhi";
@@ -63,6 +64,7 @@ export class ProductViewComponent {
 
   RedirectTo(to:string){
     alert("to: "+to);
+    this.router.navigate(['/'+to]);
   }
   Search(word:string){
     this.data.DealTitle=null;

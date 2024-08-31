@@ -1,0 +1,26 @@
+.pop-page{
+    height: 100%;
+    width: 100%;
+    padding-top: 5px;
+    z-index: 500;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.258);
+}
+div{
+    text-align: center;
+}
+img{
+    max-width: 24px;
+}
+.image-wrapper {
+    max-height: 24px;
+    max-width: 24px;
+    padding: 2px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+}

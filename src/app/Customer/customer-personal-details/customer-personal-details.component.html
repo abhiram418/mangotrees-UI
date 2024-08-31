@@ -1,0 +1,54 @@
+<div class="customer-personal-details-page">
+
+    <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
+
+    <div class="customer-details roboto-regular"> 
+        <div class="ordered-list">
+            <a routerLink="../profile">Your Account </a>
+            <a routerLink="../profile">></a>
+            &nbsp;
+            <a>Personal Details</a>
+        </div>
+        <div class="customer-details-title">
+            <p>Edit Details</p>
+        </div>
+        <div class="customer-details-context blur">
+            <div class="customer-details-values">
+                <p>Name : </p>
+                <input type="text" value="abhiram" [disabled]="!Editable">
+            </div>
+            <hr>
+            <div class="customer-details-values">
+                <p>Phone Number : </p>
+                <input type="number" value="7416898456" [disabled]="!Editable">
+            </div>
+            <hr>
+            <div class="customer-details-values">
+                <p>Email : </p>
+                <input type="email" value="abhiram.ch418@gmail.com" [disabled]="!Editable">
+            </div>
+            <hr>
+            <div class="customer-details-values">
+                <p>Password : </p>
+                <input type="password" value="abhiram" [disabled]="!Editable">
+            </div>
+        </div>
+        <div class="buttons-div">
+            <div [class.disabled_2]="Editable">
+                <div class="edit-button blur" (click)="editButtonClicked()" [class.disabled]="Editable">
+                    <p>Edit</p>
+                </div>
+            </div>
+            <div [class.disabled_2]="!Editable">
+                <div class="save-button" (click)="saveButtonClicked()" [class.disabled]="!Editable">
+                    <p>Save</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <app-footer></app-footer>
+    </div>
+
+</div>

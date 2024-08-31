@@ -63,6 +63,7 @@
     max-width: 60px;
     padding: 17px;
     align-self: center;
+    user-select: none;
 }
 .order-context, .security-context, .address-context, .contact-us-context{
     display: flex;

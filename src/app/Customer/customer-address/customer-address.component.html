@@ -1,0 +1,76 @@
+<div class="customer-address-page">
+
+    <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
+
+    <div class="customer-details roboto-regular"> 
+        <div class="ordered-list">
+            <a routerLink="../profile">Your Account </a>
+            <a routerLink="../profile">></a>
+            &nbsp;
+            <a>Addresses</a>
+        </div>
+        <div class="customer-address-title">
+            <p>Select Address</p>
+        </div>
+        <div class="customer-address-context ">
+            <div class="customer-address-values blur">
+                <p class="customer-address">Abhiram <br> House no :- 7/263/1 banginapalli thota, NUZVID, ANDHRA PRADESH 521201</p>
+                <hr>
+                <div class="buttons-div">
+                    <div class="edit-button blur" (click)="editButtonClicked(1)" [class.disabled]="Editable">
+                        <p>Edit</p>
+                    </div><div class="delete-button blur" (click)="deleteButtonClicked()" [class.disabled]="Editable">
+                        <p>Delete</p>
+                    </div>
+                    <div [class.disabled_2]="Editable">
+                        <div class="set-button blur" [class.disabled]="Editable" (click)="setPrimaryButtonClicked()">
+                            <p>Set as Primary</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="customer-address-values blur">
+                <p class="customer-address">Abhiram <br> House no :- 7/263/1 banginapalli thota, NUZVID, ANDHRA PRADESH 521201</p>
+                <hr>
+                <div class="buttons-div">
+                    <div class="edit-button blur" (click)="editButtonClicked(2)" [class.disabled]="Editable">
+                        <p>Edit</p>
+                    </div><div class="delete-button blur" (click)="deleteButtonClicked()" [class.disabled]="Editable">
+                        <p>Delete</p>
+                    </div>
+                    <div [class.disabled_2]="Editable">
+                        <div class="set-button blur" [class.disabled]="Editable" (click)="setPrimaryButtonClicked()">
+                            <p>Set as Primary</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="customer-address-values blur">
+                <p class="customer-address">Abhiram <br> House no :- 7/263/1 banginapalli thota, NUZVID, ANDHRA PRADESH 521201</p>
+                <hr>
+                <div class="buttons-div">
+                    <div class="edit-button blur" (click)="editButtonClicked(3)" [class.disabled]="Editable">
+                        <p>Edit</p>
+                    </div><div class="delete-button blur" (click)="deleteButtonClicked()" [class.disabled]="Editable">
+                        <p>Delete</p>
+                    </div>
+                    <div [class.disabled_2]="Editable">
+                        <div class="set-button blur" [class.disabled]="Editable" (click)="setPrimaryButtonClicked()">
+                            <p>Set as Primary</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <app-footer></app-footer>
+    </div>
+
+</div>
+
+<div *ngIf="popPage">
+    <app-pop-page [pageToDisplay]="'address-update'" (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
+</div>
+

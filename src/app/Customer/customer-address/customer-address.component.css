@@ -1,0 +1,170 @@
+.customer-address-page{
+    height: 100% !important;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.blur{
+    border-radius: 6px;
+    /* border: 1px solid #b3bcbc; */
+    border: 1px solid #6e726f;
+}
+.disabled{
+    pointer-events: none;
+    transform: none;
+    border: 1px solid #d9d9d9 !important;
+    color: #d9d9d9;
+}
+.disabled_2{
+    cursor: not-allowed;
+}
+
+.customer-details{
+    height: fit-content;
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    margin-top: 65px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ordered-list{
+    width: calc(100% - 39px);
+    max-width: 650px;
+    padding: 17px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    user-select: none;
+}
+.ordered-list a{
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.customer-address-title{
+    width: calc(100% - 39px);
+    max-width: 650px;
+    padding: 17px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.customer-address-title p{
+    margin: 0px;
+    float: left;
+}
+
+
+.customer-address-context{
+    width: calc(100% - 34px);
+    max-width: 650px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.customer-address-values {
+    margin-bottom: 10px;
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-between;
+    border-radius: 6px;
+}
+.customer-address-values hr{
+    width: 100%;
+    margin: 0px;
+    border: 1px dashed #eeeeee;
+}
+.customer-address-values p {
+    margin: 0px;
+    margin-inline: 10px;
+}
+.customer-address{
+    width: 75%;
+    padding-bottom: 17px;
+    font-size: 13px;
+    color: #444646;
+}
+
+
+
+.buttons-div{
+    width: 100%;
+    max-width: 650px;
+    margin-top: 17px;
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+.edit-button p, .delete-button p, .set-button p{
+    margin: 0px;
+    padding-inline: 16px;
+    font-size: 12px;
+    user-select: none;
+}
+.edit-button p, .delete-button p{
+    color: white;
+}
+.edit-button, .delete-button, .set-button{
+    height: 24px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 16px;
+    border: 1px solid #6e7272;
+    transition: transform 0.3s ease;
+}
+
+.edit-button, .delete-button{
+    background-color: #3a4a32;
+}
+.edit-button:hover, .delete-button:hover{
+    background-color: #44563a;
+}
+.set-button:hover{
+    background-color: #f0f0f085;
+}
+.edit-button:active, .delete-button:active, .set-button:active{
+    transform: scale(0.93);
+}
+
+
+
+
+@media (max-width: 316px){
+    .set-button{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 333px){
+    .buttons-div{
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .delete-button{
+        margin-inline: 5px;
+    }
+}
+@media (max-width: 555px){
+    .customer-address{
+        font-size: 12px;
+    }
+    .edit-button p, .delete-button p, .set-button p{
+        font-size: 11px;
+    }
+}
+@media (max-width: 874px){
+    .customer-details{
+        margin-top: 121px;
+        margin-bottom: 50px;
+    }
+}

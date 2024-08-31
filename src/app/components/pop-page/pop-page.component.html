@@ -1,0 +1,8 @@
+<div class="pop-page">
+    <div *ngIf="ViewsList['address-update'].value">
+        <div class="image-wrapper" (click)="closePage()">
+            <img src="../../../assets/Pictures/cancel.png" alt="Cancel">
+        </div>
+        <app-address-update (data)="saveData($event)"></app-address-update>
+    </div>
+</div>
