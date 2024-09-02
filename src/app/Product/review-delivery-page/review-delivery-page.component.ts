@@ -2,18 +2,40 @@ import { Component } from '@angular/core';
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 import { NgIf } from '@angular/common';
 import { DeliveryType, PackagingType, PopUpData } from '../../Models/PopUpData';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-review-delivery-page',
   standalone: true,
-  imports: [PopUpComponent, NgIf],
+  imports: [PopUpComponent,ReactiveFormsModule , NgIf],
   templateUrl: './review-delivery-page.component.html',
   styleUrl: './review-delivery-page.component.css'
 })
 export class ReviewDeliveryPageComponent {
   popUp:boolean=false;
   popUpData:PopUpData = new PopUpData();
-  popUpText:string="jsjndk"
+  popUpText:string="";
+  ReviewForm!: FormGroup;
+
+  constructor(private router: Router){}
+  ngOnInit(): void {
+    this.ReviewForm = new FormGroup({
+      deliveryOption: new FormControl('', [Validators.required]),
+      packageOption: new FormControl('', [Validators.required])
+    });
+  }
+
+  proceedButtonClicked(){
+    if(this.ReviewForm.valid){
+      console.log(this.ReviewForm.value);
+      this.router.navigate(["../checkout"]);
+    }
+    else{
+      alert("Please Validate the Fields");
+    }
+  }
 
   showPopUp(service:string){
     switch(service){

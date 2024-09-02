@@ -9,14 +9,14 @@
         <app-pop-up [text]="popUpText" (close)="closePopUp($event)"></app-pop-up>
     </div>
 
-    <div class="review-delivery-component">
+    <form class="review-delivery-component" [formGroup]="ReviewForm">
         <div class="review-delivery-type">
             <div class="review-delivery-type-title">
                 <h3>Delivery Options</h3>
             </div>
             <div class="review-delivery-type-context blur">
                 <div class="review-delivery-type-options">
-                    <input type="radio" name="delivery-option">
+                    <input type="radio" value="APSRTC" formControlName="deliveryOption">
                     <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                     <p>APSRTC Cargo Services</p>
                     <span style="user-select: none;">&nbsp;&nbsp;</span>
@@ -27,14 +27,14 @@
                     <a (click)="showPopUp('APSRTC')">?</a>
                 </div>
                 <div class="review-delivery-type-options">
-                    <input type="radio" name="delivery-option">
+                    <input type="radio" value="Third-Party" formControlName="deliveryOption">
                     <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                     <p>Third-Party Delivery Services</p>
                     <span style="user-select: none;">&nbsp;&nbsp;</span>
                     <a (click)="showPopUp('Third-Party')">?</a>
                 </div>
                 <div class="review-delivery-type-options">
-                    <input type="radio" name="delivery-option">
+                    <input type="radio" value="Dedicated" formControlName="deliveryOption">
                     <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                     <p>Dedicated Truck Delivery</p>
                     <span style="user-select: none;">&nbsp;&nbsp;</span>
@@ -49,21 +49,21 @@
             </div>
             <div class="review-package-type-context blur">
                 <div class="review-package-type-options">
-                    <input type="radio" name="package-option">
+                    <input type="radio" value="Premium" formControlName="packageOption">
                     <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                     <p>Premium Packaging</p>
                     <span style="user-select: none;">&nbsp;&nbsp;</span>
                     <a (click)="showPopUp('Premium')">?</a>
                 </div>
                 <div class="review-package-type-options">
-                    <input type="radio" name="package-option">
+                    <input type="radio" value="Pocket-Friendly" formControlName="packageOption">
                     <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                     <p>Pocket-Friendly Packaging</p>
                     <span style="user-select: none;">&nbsp;&nbsp;</span>
                     <a (click)="showPopUp('Pocket-Friendly')">?</a>
                 </div>
                 <div class="review-package-type-options">
-                    <input type="radio" name="package-option">
+                    <input type="radio" value="Basic" formControlName="packageOption">
                     <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                     <p>Basic Packaging</p>
                     <span style="user-select: none;">&nbsp;&nbsp;</span>
@@ -71,6 +71,9 @@
                 </div>
             </div>
         </div>
+    </form>
+    <div class="proceed-forward-button" (click)="proceedButtonClicked()">
+        <p style="margin: 0px;">Proceed Forward</p>
     </div>
 
     <hr style="max-width: 1333px;">
