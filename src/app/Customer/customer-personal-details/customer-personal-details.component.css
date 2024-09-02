@@ -10,6 +10,9 @@
     border-radius: 6px;
     border: 1px solid #b3bcbc;
 }
+.red{
+    color: red;
+}
 .disabled{
     pointer-events: none !important;
     transform: none !important;
@@ -54,7 +57,10 @@
 }
 .customer-details-title p{
     margin: 0px;
+    font-size: 18px;
+    font-weight: 500;
     float: left;
+    color: #576d4a;
 }
 
 
@@ -159,6 +165,11 @@
 @media (max-width: 400px){
     .customer-details-values input{
         min-width: 160px;
+    }
+}
+@media (max-width: 555px){
+    .customer-details-title p{
+        font-size: 16px;
     }
 }
 @media (max-width: 874px){

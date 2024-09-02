@@ -1,10 +1,12 @@
-<div class="address-update roboto-regular">
-    <input type="text" placeholder="Your Name">
-    <textarea placeholder="Your Address"></textarea>
-    <input type="text" placeholder="City">
-    <input type="text" placeholder="State">
-    <input type="number" placeholder="Pincode">
-    <div class="save-button" (click)="saveData()">
-        <p>save</p>
+<form class="address-update roboto-regular" [formGroup]="addressForm" (ngSubmit)="saveData()">
+    <input type="text" placeholder="Your Name" [class.red]="addressForm.get('AddressTitle')?.errors" formControlName="AddressTitle">
+    <textarea placeholder="Your Address" [class.red]="addressForm.get('Address')?.errors" formControlName="Address"></textarea>
+    <input type="text" placeholder="City" [class.red]="addressForm.get('City')?.errors" formControlName="City">
+    <input type="text" placeholder="State" [class.red]="addressForm.get('State')?.errors" formControlName="State">
+    <input type="text" placeholder="Pincode" maxlength="6" [class.red]="addressForm.get('Pincode')?.errors" formControlName="Pincode">
+    <div class="save-button" type="submit" (click)="saveData()">
+        <p>Save</p>
     </div>
-</div>
+    <button type="submit" (click)="saveData()" style="display: none;"></button>
+</form>
+  

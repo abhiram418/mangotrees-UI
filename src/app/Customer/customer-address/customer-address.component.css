@@ -57,6 +57,9 @@
 }
 .customer-address-title p{
     margin: 0px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #576d4a;
     float: left;
 }
 
@@ -92,7 +95,15 @@
     font-size: 13px;
     color: #444646;
 }
-
+.add-address{
+    height: fit-content;
+    font-size: 75px;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+.add-address:active{
+    transform: scale(0.93);
+}
 
 
 .buttons-div{
@@ -155,6 +166,9 @@
     }
 }
 @media (max-width: 555px){
+    .customer-address-title p{
+        font-size: 16px;
+    }
     .customer-address{
         font-size: 12px;
     }

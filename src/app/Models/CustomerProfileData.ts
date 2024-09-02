@@ -16,4 +16,7 @@ export class AddressDesc{
     Pincode:number=521201;
     City:string='Nuzivid';
     State:string='';
+    IsEditable:boolean = true;
+    IsDeleteable:boolean = true;
+    isPrimary:boolean = false;
 }

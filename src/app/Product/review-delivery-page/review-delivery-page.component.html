@@ -3,8 +3,9 @@
     <div class="review-delivery-title">
         <h2 style="margin: auto;">Review Delivery</h2>
     </div>
-
-    <div *ngIf="popUp" style="z-index: 500;position: absolute;">
+    
+    <!-- style="z-index: 500;position: absolute;" -->
+    <div *ngIf="popUp">
         <app-pop-up [text]="popUpText" (close)="closePopUp($event)"></app-pop-up>
     </div>
 

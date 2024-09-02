@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AddressUpdateComponent } from "../../Customer/address-update/address-update.component";
 import { NgIf } from '@angular/common';
+import { AddressDesc } from '../../Models/CustomerProfileData';
 
 @Component({
   selector: 'app-pop-page',
@@ -11,9 +12,15 @@ import { NgIf } from '@angular/common';
 })
 export class PopPageComponent {
   @Input() pageToDisplay: string = '';
+  @Input() addressData: AddressDesc = new AddressDesc();
   @Output() close = new EventEmitter<any>();
   @Output() data = new EventEmitter<any>();
   ViewsList: { [key: string]: {value:boolean} } = { "address-update": { value: false }};
+
+  constructor(){
+    this.addressData.AddressTitle = "";
+    this.addressData.City = "";
+  }
 
   ngOnChanges() {
     if (this.pageToDisplay) {

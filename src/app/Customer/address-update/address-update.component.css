@@ -11,6 +11,9 @@
     border: 1px solid #b3bcbc;
     background-color: white;
 }
+.red{
+    color: orangered;
+}
 input {
     width: 100%;
     padding: 10px 15px;

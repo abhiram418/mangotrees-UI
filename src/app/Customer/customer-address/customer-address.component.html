@@ -12,50 +12,23 @@
         <div class="customer-address-title">
             <p>Select Address</p>
         </div>
-        <div class="customer-address-context ">
-            <div class="customer-address-values blur">
-                <p class="customer-address">Abhiram <br> House no :- 7/263/1 banginapalli thota, NUZVID, ANDHRA PRADESH 521201</p>
-                <hr>
-                <div class="buttons-div">
-                    <div class="edit-button blur" (click)="editButtonClicked(1)" [class.disabled]="Editable">
-                        <p>Edit</p>
-                    </div><div class="delete-button blur" (click)="deleteButtonClicked()" [class.disabled]="Editable">
-                        <p>Delete</p>
-                    </div>
-                    <div [class.disabled_2]="Editable">
-                        <div class="set-button blur" [class.disabled]="Editable" (click)="setPrimaryButtonClicked()">
-                            <p>Set as Primary</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="customer-address-context">
+            <div class="customer-address-values blur" style="cursor: pointer;background-color: #f0fff4;" (click)="addAddressClicked()">
+                <p class="add-address">
+                    +
+                </p>
             </div>
-            <div class="customer-address-values blur">
-                <p class="customer-address">Abhiram <br> House no :- 7/263/1 banginapalli thota, NUZVID, ANDHRA PRADESH 521201</p>
+            <div *ngFor="let address of addressesList; let i = index" class="customer-address-values blur">
+                <p class="customer-address"><a style="margin: 0px;">{{addressesList[i].AddressTitle}}</a> <br> {{addressesList[i].Address}}, {{addressesList[i].City}}, {{addressesList[i].State}} {{addressesList[i].Pincode}}</p>
                 <hr>
                 <div class="buttons-div">
-                    <div class="edit-button blur" (click)="editButtonClicked(2)" [class.disabled]="Editable">
+                    <div class="edit-button blur" (click)="editButtonClicked(i)" [class.disabled]="!addressesList[i].IsEditable">
                         <p>Edit</p>
-                    </div><div class="delete-button blur" (click)="deleteButtonClicked()" [class.disabled]="Editable">
+                    </div><div class="delete-button blur" (click)="deleteButtonClicked(i)" [class.disabled]="!addressesList[i].IsDeleteable">
                         <p>Delete</p>
                     </div>
-                    <div [class.disabled_2]="Editable">
-                        <div class="set-button blur" [class.disabled]="Editable" (click)="setPrimaryButtonClicked()">
-                            <p>Set as Primary</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="customer-address-values blur">
-                <p class="customer-address">Abhiram <br> House no :- 7/263/1 banginapalli thota, NUZVID, ANDHRA PRADESH 521201</p>
-                <hr>
-                <div class="buttons-div">
-                    <div class="edit-button blur" (click)="editButtonClicked(3)" [class.disabled]="Editable">
-                        <p>Edit</p>
-                    </div><div class="delete-button blur" (click)="deleteButtonClicked()" [class.disabled]="Editable">
-                        <p>Delete</p>
-                    </div>
-                    <div [class.disabled_2]="Editable">
-                        <div class="set-button blur" [class.disabled]="Editable" (click)="setPrimaryButtonClicked()">
+                    <div [class.disabled_2]="addressesList[i].isPrimary">
+                        <div class="set-button blur" [class.disabled]="addressesList[i].isPrimary" (click)="setPrimaryButtonClicked(i)">
                             <p>Set as Primary</p>
                         </div>
                     </div>
@@ -71,6 +44,9 @@
 </div>
 
 <div *ngIf="popPage">
-    <app-pop-page [pageToDisplay]="'address-update'" (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
+    <app-pop-page [addressData]="addressData" [pageToDisplay]="'address-update'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
+</div>
+<div *ngIf="loader">
+    <app-loader></app-loader>
 </div>
 

@@ -2,7 +2,7 @@
 
     <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
 
-    <div class="customer-details roboto-regular"> 
+    <form class="customer-details roboto-regular" [formGroup]="customerDetailsForm"> 
         <div class="ordered-list">
             <a routerLink="../profile">Your Account </a>
             <a routerLink="../profile">></a>
@@ -11,26 +11,27 @@
         </div>
         <div class="customer-details-title">
             <p>Edit Details</p>
+            <img *ngIf="Editable" style="max-height: 14px;float: right;" src="../../../assets/Pictures/edit.png">
         </div>
         <div class="customer-details-context blur">
             <div class="customer-details-values">
                 <p>Name : </p>
-                <input type="text" value="abhiram" [disabled]="!Editable">
+                <input type="text" [class.red]="customerDetailsForm.get('Name')?.errors" formControlName="Name">
             </div>
             <hr>
             <div class="customer-details-values">
                 <p>Phone Number : </p>
-                <input type="number" value="7416898456" [disabled]="!Editable">
+                <input type="number" [class.red]="customerDetailsForm.get('PhoneNumber')?.errors" formControlName="PhoneNumber">
             </div>
             <hr>
             <div class="customer-details-values">
                 <p>Email : </p>
-                <input type="email" value="abhiram.ch418@gmail.com" [disabled]="!Editable">
+                <input type="email" [class.red]="customerDetailsForm.get('Email')?.errors" formControlName="Email">
             </div>
             <hr>
             <div class="customer-details-values">
                 <p>Password : </p>
-                <input type="password" value="abhiram" [disabled]="!Editable">
+                <input type="password" [class.red]="customerDetailsForm.get('Password')?.errors" formControlName="Password">
             </div>
         </div>
         <div class="buttons-div">
@@ -45,7 +46,8 @@
                 </div>
             </div>
         </div>
-    </div>
+        <button type="submit" (click)="saveButtonClicked()" style="display: none;"></button>
+    </form>
 
     <div>
         <app-footer></app-footer>

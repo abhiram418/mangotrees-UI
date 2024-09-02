@@ -3,6 +3,6 @@
         <div class="image-wrapper" (click)="closePage()">
             <img src="../../../assets/Pictures/cancel.png" alt="Cancel">
         </div>
-        <app-address-update (data)="saveData($event)"></app-address-update>
+        <app-address-update [addressData]="addressData" (data)="saveData($event)"></app-address-update>
     </div>
 </div>
