@@ -21,6 +21,7 @@ import { CustomerPersonalDetailsComponent } from './Customer/customer-personal-d
 import { CustomerAddressComponent } from './Customer/customer-address/customer-address.component';
 import { PopPageComponent } from './components/pop-page/pop-page.component';
 import { AddressUpdateComponent } from './Customer/address-update/address-update.component';
+import { CartPageComponent } from './Product/cart-page/cart-page.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'profile', pathMatch:'full'},
@@ -28,6 +29,7 @@ export const routes: Routes = [
 
     {path:'home', component:HomePageComponent},
     {path:'product/:ProductID', component:ProductViewComponent},
+    {path:'cart', component:CartPageComponent},
     {path:'review', component:ReviewDeliveryPageComponent},
     {path:'checkout', component:CheckOutPageComponent},
 

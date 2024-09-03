@@ -1,4 +1,5 @@
 export class ProductViewItemData{
+    Images:any[] = [];
     Title:string='Whereas recognition of the inherent dignity';
     Desc:string='dmasjndflsnflksdmdmasjndflsnflksdmdmasjndflsnflksdm';
     Price:number | null = 1000;

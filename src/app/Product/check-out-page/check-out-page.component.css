@@ -89,14 +89,17 @@
     cursor: pointer;
     border-radius: 10px;
     border: 1.5px solid rgb(215, 213, 213);
-    transition: 0.33s;
+    transition: 0.3s;
     background-color: #e4f9e4;
 }
 .change-button:active{
     transition: 0.3s;
+    transform: scale(0.95);
     background-color: #d8f3d8;
 }
 .change-button a{
+    padding: 3px;
+    padding-inline: 5px;
     font-weight: 500;
     user-select: none;
     color: #335b1e;
@@ -224,6 +227,7 @@ select {
     transition: box-shadow 0.3s ease; 
     background-color: #f3f3f3; 
     user-select: none;
+    outline: none;
     color: #333;
 }
 option[value=""] {
@@ -279,14 +283,14 @@ option:disabled {
     cursor: pointer;
     user-select: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 1s; 
+    transition: 0.3s; 
     color: white;
     background-color: #617953;
 }
 .proceed-to-payment-button:active{
     background-color: #576d4a;
     transform: scale(0.95);
-    transition: 0.5s;
+    transition: 0.3s;
 }
 .proceed-to-payment-button p{
     margin: 0px;
