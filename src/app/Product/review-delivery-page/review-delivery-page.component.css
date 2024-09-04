@@ -149,6 +149,7 @@ input:checked::before{
 
 .proceed-forward-button{
     width: 80%;
+    max-width: 965px;
     margin: auto;
     margin-top: 55px;
     margin-bottom: 55px;
