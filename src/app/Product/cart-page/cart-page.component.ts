@@ -14,9 +14,9 @@ import { NavBarData } from '../../components/nav-bar/navBarData';
 export class CartPageComponent {
   navBarData:NavBarData = new NavBarData();
   count:number = 1;
-  templist0:any[] = [1,23,4,5,5,6,7,8,8,9,9,99,2,9,9];
+  templist:any[] = [1,23,4,5,5,6,7,8,8,9,9,99,2,9,9];
   templist1:any[] = [1,2,3];
-  templist:any[] = [];
+  templist0:any[] = [];
 
   constructor(private router:Router){
 
