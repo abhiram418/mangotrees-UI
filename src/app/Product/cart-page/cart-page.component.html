@@ -2,17 +2,17 @@
 
     <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
 
-    <div class="cart">
+    <div class="cart" *ngIf="templist.length!=0">
         <div class="cart-page-component">
             <div class="cart-title">
-                <p>Your Cart</p>
+                <p>Mango Collection</p>
             </div>
             <div class="cart-items">
                 <div class="cart-items-info">
-                    <p>2 items for delivery</p>
+                    <p>{{templist.length}} Items Ready for Delivery</p>
                     <div class="clear-cart">
                         <img src="../../../assets/Pictures/bin.png">
-                        <p>&nbsp;Clear cart</p>
+                        <p (click)="clearCart()">&nbsp;Clear cart</p>
                     </div>
                 </div>
                 <div *ngFor="let item of templist; let i = index" class="items">
@@ -53,16 +53,16 @@
         </div>
     </div>
 
-    <div class="empty-cart" style="display: none;">
+    <div class="empty-cart" *ngIf="templist.length==0">
         <div>
-            <img src="">
+            <img style="max-width: 100%;" src="../../../assets/Pictures/empty_cart.png">
         </div>
         <div>
-            <p>Your cart is waiting for fulfillment</p>
-            <p>Fill it up with all good things</p>
+            <p class="empty-cart-title">Your cart is waiting for fulfillment</p>
+            <p class="empty-cart-desc">Fill it up with all good things!</p>
         </div>
-        <div class="start-shopping">
-            <p>Add More</p>
+        <div routerLink="../home" class="start-shopping">
+            <p>Start Shopping</p>
         </div>
     </div>
 
