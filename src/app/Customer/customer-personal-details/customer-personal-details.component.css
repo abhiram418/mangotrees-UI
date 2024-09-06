@@ -173,11 +173,13 @@
     .customer-details-title p{
         font-size: 16px;
     }
+    .customer-details{
+        margin-bottom: 100px;
+    }
 }
 @media (max-width: 874px){
     .customer-details{
         margin-top: 121px;
-        margin-bottom: 50px;
     }
     .buttons-div{
         margin-top: 24px;
