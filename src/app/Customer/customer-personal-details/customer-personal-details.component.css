@@ -24,15 +24,13 @@
 }
 
 .customer-details{
+    min-height: 100%;
     height: fit-content;
     width: 100%;
     max-width: 1300px;
     margin: auto;
-    margin-top: 65px;
-    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .ordered-list{
@@ -40,7 +38,7 @@
     max-width: 650px;
     padding: 17px;
     margin: auto;
-    margin-top: 0px;
+    margin-top: 65px;
     margin-bottom: 0px;
     user-select: none;
 }
@@ -173,12 +171,12 @@
     .customer-details-title p{
         font-size: 16px;
     }
-    .customer-details{
-        margin-bottom: 100px;
-    }
 }
 @media (max-width: 874px){
-    .customer-details{
+    .buttons-div{
+        margin-bottom: 100px;
+    }
+    .ordered-list{
         margin-top: 121px;
     }
     .buttons-div{
