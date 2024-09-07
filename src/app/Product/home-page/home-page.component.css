@@ -43,6 +43,7 @@
     padding: 8px 25px;
     cursor: pointer;
     color: white;
+    transition: 0.3s;
     background-color: black;
     overflow: hidden;
 }

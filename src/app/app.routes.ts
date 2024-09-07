@@ -22,12 +22,14 @@ import { CustomerAddressComponent } from './Customer/customer-address/customer-a
 import { PopPageComponent } from './components/pop-page/pop-page.component';
 import { AddressUpdateComponent } from './Customer/address-update/address-update.component';
 import { CartPageComponent } from './Product/cart-page/cart-page.component';
+import { CollectionsPageComponent } from './Product/collections-page/collections-page.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'profile', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},
+    {path:'collections', component:CollectionsPageComponent},
     {path:'product/:ProductID', component:ProductViewComponent},
     {path:'cart', component:CartPageComponent},
     {path:'review', component:ReviewDeliveryPageComponent},

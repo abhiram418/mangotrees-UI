@@ -22,7 +22,7 @@ export class HomePageComponent {
   PinchData:ProductViewItemData[]= null!;
 
   constructor(private router: Router, private homePageDataService:HomePageDataService){
-    this.PinchData = homePageDataService.GetNewPinchData()!;
+    this.PinchData = homePageDataService.GetNewPinchData();
   }
   
 
