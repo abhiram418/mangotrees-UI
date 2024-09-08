@@ -9,8 +9,8 @@
         </div>
         <div class="collections-filter">
             <div class="filter-left">
-                <div class="availability">
-                    <p class="availability-title" (click)="showTheDiv('availability')">
+                <div class="availability" (click)="showTheDiv('availability')">
+                    <p class="availability-title">
                         Availability
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#5f6368"><path d="M480-384 288-576h384L480-384Z"/></svg>
                     </p>
@@ -33,22 +33,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="price">
-                    <p class="price-title" (click)="showTheDiv('price')">
+                <div class="price" (click)="showTheDiv('price')">
+                    <p class="price-title">
                         Price
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#5f6368"><path d="M480-384 288-576h384L480-384Z"/></svg>
                     </p>
                     <div class="price-content" *ngIf="price">
-                        <div class="price-content-info">
-                            <p>The highest price is Rs. 1,899</p>
-                        </div>
-                        <span>₹</span>
-                        <div class="price-content-from">
-                            <input type="number" placeholder="From" min="0" max="1899">
-                        </div>
-                        <span>₹</span>
-                        <div class="price-content-to">
-                            <input type="number" placeholder="To" min="0" max="1899">
+                        <div class="price-content-div">
+                            <div class="price-content-info">
+                                <p>The Highest Price is Rs. 1,899</p>
+                            </div>
+                            <div class="price-content-info-content">
+                                <div class="price-content-from">
+                                    <p>₹</p>
+                                    <input type="number" placeholder="From" min="0" max="1899">
+                                </div>
+                                <div class="price-content-to">
+                                    <p>₹</p>
+                                    <input type="number" placeholder="To" min="0" max="1899">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

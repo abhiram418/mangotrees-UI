@@ -7,13 +7,13 @@ import { SliderComponent } from '../../components/slider/slider.component';
 import { HomePageDataService } from '../../Services/home-page-data.service';
 import { NgFor, NgIf } from '@angular/common';
 import { ProductViewItemData } from '../../Models/ProductViewItemData';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [NgFor, NgIf, FooterComponent, NavBarComponent, GridViewItemComponent, SliderComponent],
+  imports: [NgFor, NgIf, RouterModule, FooterComponent, NavBarComponent, GridViewItemComponent, SliderComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })

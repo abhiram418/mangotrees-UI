@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { GridViewItemComponent } from "../../components/grid-view-item/grid-view-item.component";
 import { NavBarData } from '../../components/nav-bar/navBarData';
 import { NgFor, NgIf } from '@angular/common';
@@ -33,10 +33,13 @@ export class CollectionsPageComponent {
       this.availability = true;
     }
   }
-  hideTheDiv(){
-    alert("");
-    this.price = false;
-    this.availability = false;
+  hideTheDiv(hide:string){
+    if(hide == "availability"){
+      this.availability = false;
+    }
+    else{
+      this.price = false;
+    }
   }
 
   AddedtoCart(IteamId:any){
@@ -53,5 +56,19 @@ export class CollectionsPageComponent {
   }
   Search(word:string){
     alert("search: "+ word);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    var targetElement = event.target as HTMLElement;
+    var isPriceClicked = targetElement.closest('.price');
+    var isAvailabilityClicked = targetElement.closest('.availability');
+    
+    if (!isPriceClicked) {
+      this.hideTheDiv("price");
+    }
+    if(!isAvailabilityClicked){
+      this.hideTheDiv("availability");
+    }
   }
 }
