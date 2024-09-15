@@ -1,0 +1,222 @@
+.order-page{
+    height: 100% !important;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.blur{
+    border-radius: 6px;
+    /* border: 1px solid #b3bcbc; */
+    border: 1px solid #6e726f;
+}
+
+.order-page-context{
+    height: fit-content;
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    margin-top: 65px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ordered-list{
+    width: calc(100% - 39px);
+    max-width: 999px;
+    padding: 17px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    user-select: none;
+}
+.ordered-list a{
+    font-size: 12px;
+    text-decoration: none;  
+}
+
+.order-page-title{
+    width: calc(100% - 39px);
+    max-width: 999px;
+    padding: 17px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.order-page-title p{
+    margin: 0px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #576d4a;
+    float: left;
+}
+.orders-list-info{
+    width: calc(100% - 49px);
+    max-width: 980px;
+    padding: 17px;
+    padding-inline: 27px;
+    padding-top: 10px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.orders-list-info p{
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #6e726f;
+    color: grey;
+}
+.scroll{
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+}
+/* .scroll img{
+    max-width: 14px;
+}    */
+
+.orders-list{
+    width: calc(100% - 34px);
+    max-width: 999px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+.orders{
+    min-width:max-content;
+    display: flex;
+}
+.order{
+    width: 360px;
+    max-width: 360px;
+    margin-inline: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-inline: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-between;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #eeeeee;
+}
+.order hr{
+    width: 90%;
+    border: 1px solid #eeeeee;
+}
+.order-top{
+    width: 100%;
+    display: flex;
+}
+.order-top p{
+    padding-left: 12px;
+    float: left;
+    color: #605f5f;
+}
+.order-top a{
+    margin-top: 16px;
+}
+.order-context{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    border-radius: 6px;
+    background-color: white;
+}
+.order-middle{
+    width: calc(100% - 34px);
+    margin: auto;
+    padding-top: 17px;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.order-middle-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.order-image{
+    height: fit-content;
+    user-select: none;
+}
+.order-image img{
+    max-width: 50px;
+    border-radius: 4px;
+    aspect-ratio: 1 / 1;
+}
+.order-info{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.order-info a{
+    width: fit-content;
+    max-width: 160px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+.order-info p{
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #605f5f;
+}
+.order-status{
+    padding: 4px;
+    padding-inline: 12px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 500;
+    user-select: none;
+}
+
+.order-bottom{
+    width: calc(100% - 34px);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.order-bottom p{
+    max-width: 160px;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+
+
+
+
+
+@media (max-width: 555px){
+    .order-page-title p{
+        font-size: 16px;
+    }
+}
+@media (max-width: 874px){
+    .order-page-context{
+        margin-top: 121px;
+        margin-bottom: 50px;
+    }
+}

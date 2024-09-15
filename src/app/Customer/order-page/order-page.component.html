@@ -1,0 +1,70 @@
+<div class="order-page">
+
+    <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
+
+    <div class="order-page-context roboto-regular">
+        <div class="ordered-list">
+            <a routerLink="../profile">Your Account </a>
+            <a routerLink="../profile">></a>
+            &nbsp;
+            <a>Orders</a>
+        </div>
+        <div class="order-page-title">
+            <p>Harvested Orders</p>
+        </div>
+        <div class="orders-list-info rubik">
+            <p>{{ordersList.length}} Orders</p>
+            <div class="scroll" (click)="scrollDiv()">
+                <p>View More</p>
+                <!-- <img src="../../../assets/Pictures/arrow.png"> -->
+            </div>
+        </div>
+        <div class="orders-list" #orderScroll>
+            <div *ngFor="let order of ordersList; let ind = index" class="orders">
+                <div *ngFor="let item of order.OrderItems; let i = index" class="order rubik">
+                    <div class="order-top">
+                        <p>ID&nbsp;</p>
+                        <a>{{order.OrderId}}</a>
+                    </div>
+                    <div class="order-context">
+                        <div class="order-middle">
+                            <div class="order-middle-top" (click)="ViewProduct(item.ProductId!)">
+                                <div class="order-image">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Mangos_-_single_and_halved.jpg/1280px-Mangos_-_single_and_halved.jpg">
+                                </div>
+                                <div class="order-info">
+                                    <a class="single-line">{{item.ProductTitle}}</a>
+                                    <p>{{currentDate}}</p>
+                                </div>
+                            </div>
+                            <div class="order-middle-bottom">
+                                <div class="order-status" *ngIf="order.OrderStatus == 'Paid'" style="color:cornflowerblue;background-color: rgba(100, 148, 237, 0.235)">
+                                    PAID
+                                </div>
+                                <div class="order-status" *ngIf="order.OrderStatus == 'Pending'" style="color: orange;background-color: rgba(255, 166, 0, 0.235);">
+                                    PENDING
+                                </div>
+                                <div class="order-status" *ngIf="order.OrderStatus == 'Shipped'" style="color: purple;background-color: rgba(128, 0, 128, 0.235);">
+                                    SHIPPED
+                                </div>
+                                <div class="order-status" *ngIf="order.OrderStatus == 'Delivered'" style="color: green;background-color: rgba(3, 99, 3, 0.235);">
+                                    DELIVERED
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="order-bottom">
+                            <p class="single-line">{{order.ShippingAddress?.AddressTitle}}</p>
+                            <p>₹{{item.TotalPrice}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <app-footer></app-footer>
+    </div>
+
+</div>

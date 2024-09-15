@@ -259,7 +259,6 @@ option {
 .collections-content{
     padding: 10px;
     padding-inline: 5px;
-    margin-bottom: 44px;
     /* background-image: url(../../../assets/Pictures/background_green.png); */
     background-color: #eeeeee81;
 }
@@ -274,6 +273,15 @@ option {
     border-radius: 10px;
     border: 1px solid white;
     background-color: rgb(252, 254, 253);
+}
+.shade{
+    height: 22px;
+    background: linear-gradient(
+    to bottom, 
+    #eeeeee81,  /* Starting color at the top */
+    white       /* Ending color at the bottom */
+  );
+  margin-bottom: 22px;
 }
 
 

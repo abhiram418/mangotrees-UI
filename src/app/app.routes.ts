@@ -23,6 +23,7 @@ import { PopPageComponent } from './components/pop-page/pop-page.component';
 import { AddressUpdateComponent } from './Customer/address-update/address-update.component';
 import { CartPageComponent } from './Product/cart-page/cart-page.component';
 import { CollectionsPageComponent } from './Product/collections-page/collections-page.component';
+import { OrderPageComponent } from './Customer/order-page/order-page.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'home', pathMatch:'full'},
@@ -44,6 +45,7 @@ export const routes: Routes = [
     {path:'details', component:CustomerPersonalDetailsComponent},
     {path:'address', component:CustomerAddressComponent},
     {path:'address-update', component:AddressUpdateComponent},
+    {path:'orders', component:OrderPageComponent},
     
 
     {path:'nav-bar', component:NavBarComponent},    
