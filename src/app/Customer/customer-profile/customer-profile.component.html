@@ -4,7 +4,7 @@
 
     <div class="customer-profile roboto-regular">
         <div class="customer-profile-context">
-            <div class="orders blur">
+            <div class="orders blur" (click)="RedirectTo('orders')">
                 <div class="orders-image">
                     <img src="../../../assets/Pictures/orders.png">
                 </div>
@@ -31,7 +31,7 @@
                     <p class="desc" style="padding-left: 21px !important;">Edit addresses</p>
                 </div>
             </div>
-            <div class="contact-us blur">
+            <div class="contact-us blur" (click)="RedirectTo('contact-us')">
                 <div class="contact-us-image">
                     <img src="../../../assets/Pictures/chat.png">
                 </div>

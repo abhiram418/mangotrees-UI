@@ -45,13 +45,22 @@
     margin: auto;
     margin-top: 0px;
     margin-bottom: 0px;
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
 }
 .order-page-title p{
     margin: 0px;
     font-size: 18px;
     font-weight: 500;
     color: #576d4a;
-    float: left;
+}
+.order-page-title a{
+    height: fit-content;
+    padding-inline: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #576d4a;
 }
 .orders-list-info{
     width: calc(100% - 49px);
@@ -212,6 +221,10 @@
 @media (max-width: 555px){
     .order-page-title p{
         font-size: 16px;
+    }
+    .order-page-title a{
+        padding-left: 5px;
+        font-size: 10px;
     }
 }
 @media (max-width: 874px){

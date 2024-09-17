@@ -30,7 +30,7 @@
     width: 100%;
     max-width: 1300px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 97px;
     margin-bottom: 160px;
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@
 }
 
 
-.cart-title{
+/* .cart-title{
     width: calc(100% - 54px);
     max-width: 624px;
     padding: 17px;
@@ -53,7 +53,7 @@
     font-weight: 600;
     color: #FF5733;
     float: left;
-}
+} */
 
 .cart-page-component{
     width: 100%;
@@ -388,7 +388,7 @@
 }
 @media (max-width: 874px){
     .cart{
-        margin-top: 136px;
+        margin-top: 153px;
     }
     .empty-cart img{
         margin-top: 120px;
