@@ -19,9 +19,6 @@
     margin: auto;
     margin-top: 65px;
     margin-bottom: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .ordered-list{
@@ -54,19 +51,12 @@
     font-size: 18px;
     font-weight: 500;
     color: #576d4a;
-}
-.order-page-title a{
-    height: fit-content;
-    padding-inline: 10px;
-    font-size: 12px;
-    font-weight: 300;
-    color: #576d4a;
+    float: left;
 }
 .orders-list-info{
-    width: calc(100% - 49px);
-    max-width: 980px;
+    width: calc(100% - 40px);
+    max-width: 999px;
     padding: 17px;
-    padding-inline: 27px;
     padding-top: 10px;
     margin: auto;
     margin-top: 0px;
@@ -119,7 +109,8 @@
     justify-content: space-between;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: #eeeeee;
+    background-color: #e0f0e4;
+    background-color: #cce3d4;
 }
 .order hr{
     width: 90%;
@@ -221,10 +212,6 @@
 @media (max-width: 555px){
     .order-page-title p{
         font-size: 16px;
-    }
-    .order-page-title a{
-        padding-left: 5px;
-        font-size: 10px;
     }
 }
 @media (max-width: 874px){
