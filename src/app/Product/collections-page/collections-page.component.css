@@ -34,8 +34,7 @@
     margin: auto;
     margin-top: 24px;
     font-size: 14px;
-    font-weight: 300;
-    color: grey;
+    color: gray;
 }
 
 
@@ -228,6 +227,7 @@ input[type="checkbox"]:hover {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    font-family: "DM Serif Display", serif;
 }
 .sort-by select:hover {
     border-color: #888;
@@ -281,7 +281,7 @@ option {
     #eeeeee81,  /* Starting color at the top */
     white       /* Ending color at the bottom */
   );
-  margin-bottom: 22px;
+  margin-bottom: 40px;
 }
 
 

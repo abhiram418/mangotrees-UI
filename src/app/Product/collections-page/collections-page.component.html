@@ -3,14 +3,14 @@
     <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
 
     <div class="collections-page-content">
-        <div class="collections-title">
+        <div class="collections-title serif">
             <a>Product Collections</a>
-            <p>At Country Bean, we believe that we all need the perfect cup of coffee. Do you know what’s better than regular coffee? Flavoured coffee. So, we made coffee for all moods - there’s caramel coffee for the bright mornings, hazelnut coffee for coffee with friends and original coffee to hustle through the day.</p>
+            <p>" At MangoTrees, we believe that everyone deserves the perfect summer with mangoes. Do you know what’s better than regular mangoes? Nuzividu mangoes. So, we have mangoes for all economic backgrounds - there’s mangoes for nanis who want to see their grandchildren's happiness, mangoes to share with close friends and cousins, and mangoes for those who simply love them "</p>
         </div>
         <div class="collections-filter">
             <div class="filter-left">
                 <div class="availability" (click)="showTheDiv('availability')">
-                    <p class="availability-title">
+                    <p class="availability-title serif">
                         Availability
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#5f6368"><path d="M480-384 288-576h384L480-384Z"/></svg>
                     </p>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="price" (click)="showTheDiv('price')">
-                    <p class="price-title">
+                    <p class="price-title serif">
                         Price
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#5f6368"><path d="M480-384 288-576h384L480-384Z"/></svg>
                     </p>
@@ -67,7 +67,7 @@
                         <option value="Price, high to low">Price, high to low</option>
                     </select>
                 </div>
-                <div class="products-count">
+                <div class="products-count serif">
                     <p>24 products</p>
                 </div>
             </div>

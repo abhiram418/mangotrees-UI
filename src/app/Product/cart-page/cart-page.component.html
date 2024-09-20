@@ -8,7 +8,7 @@
                 <p>Mango Collection</p>
             </div> -->
             <div class="cart-items">
-                <div class="cart-items-info">
+                <div class="cart-items-info rubik">
                     <p>{{templist.length}} Items Ready for Delivery</p>
                     <div class="clear-cart">
                         <img src="../../../assets/Pictures/bin.png">
@@ -30,14 +30,14 @@
                                 <p (click)="countIncrease()">+</p>
                             </div>
                         </div>
-                        <div class="item-price">
+                        <div class="item-price rubik">
                             <p>₹299</p>
                         </div>
                     </div>
                 </div>
             </div>
     
-            <div class="to-add-more">
+            <div class="to-add-more rubik">
                 <p>Missed Something?</p> 
                 <p routerLink="../home" style="color: orangered;cursor: pointer;">Add more items</p> 
             </div>
@@ -45,8 +45,8 @@
 
         <div class="div-continue-button">
             <div class="continue-button-outer">
-                <p style="color: gray;">Need more info from you ⓘ</p>
-                <div class="continue-button" (click)="ContinueButtonClicked()">
+                <p class="rubik" style="color: gray;">Need more info from you ⓘ</p>
+                <div class="continue-button serif" (click)="ContinueButtonClicked()">
                     <p>Continue</p>
                 </div>
             </div>
