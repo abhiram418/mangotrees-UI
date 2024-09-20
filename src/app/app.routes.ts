@@ -24,6 +24,7 @@ import { AddressUpdateComponent } from './Customer/address-update/address-update
 import { CartPageComponent } from './Product/cart-page/cart-page.component';
 import { CollectionsPageComponent } from './Product/collections-page/collections-page.component';
 import { OrderPageComponent } from './Customer/order-page/order-page.component';
+import { InformationPageComponent } from './Customer/information-page/information-page.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'home', pathMatch:'full'},
@@ -40,6 +41,7 @@ export const routes: Routes = [
     {path:'login', component:LoginPageComponent},
     {path:'otp', component:OTPComponent},
     {path:'repassword', component:ResetPasswordComponent},
+    {path:'information', component:InformationPageComponent},
 
     {path:'profile', component:CustomerProfileComponent},
     {path:'details', component:CustomerPersonalDetailsComponent},

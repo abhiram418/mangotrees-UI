@@ -1,0 +1,26 @@
+<div class="information-page">
+
+    <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
+
+
+    <div class="information-context roboto-regular">
+        <div class="information-title rubik">
+            <p>{{DateList.PageTitle}}</p>
+        </div>
+        <div class="information">
+            <div *ngFor="let information of DateList.Information" class="div-information rubik">
+                <div class="div-information-title">
+                    <p>{{information.Title}}</p>
+                </div>
+                <div class="div-information-context">
+                    <p>{{information.Desc}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <app-footer></app-footer>
+    </div>
+
+</div>
