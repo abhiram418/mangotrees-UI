@@ -27,7 +27,7 @@ import { OrderPageComponent } from './Customer/order-page/order-page.component';
 import { InformationPageComponent } from './Customer/information-page/information-page.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path:'', redirectTo:'login', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},

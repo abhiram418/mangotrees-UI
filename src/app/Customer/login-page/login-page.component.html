@@ -1,24 +1,53 @@
-<div class="full" [class.hide]="loader">
-    <form class="login-page roboto-regular" [formGroup]="LoginForm" (ngSubmit)="LogIn()">
-        <div class="login">
-            <input type="text" placeholder="Username" class="roboto-regular" [class.red]="LoginForm.get('UserName')?.errors && LoginForm.get('UserName')?.touched" formControlName="UserName">
-            <input type="password" placeholder="Password" class="roboto-regular" [class.red]="LoginForm.get('Password')?.errors && LoginForm.get('Password')?.touched" formControlName="Password">
-            <input type="text" *ngIf="ShowCode" placeholder="*Enter you Code" class="roboto-regular" formControlName="SecretKey">
-            <div class="code">
-                <a (click)="SecretCode()" style="float: right;" *ngIf="!ShowCode">---</a>
+<div class="login-page">
+
+    <div class="login-page-context roboto-regular">
+        <div class="login-context">
+            <div class="login-context-left ">
+                <p>Nurturing the finest, for a future of flavor.</p>
+                <div class="home-div">
+                    <div routerLink="../home" class="home-div-button rubik">
+                        <a>Discover all our mangoes</a>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="roboto-light">Login</button>
-            <div class="other">
-                <a routerLink="/repassword">Reset-Password</a>
-                <a style="color: black;"> / </a>
-                <a routerLink="/signup">Sign-Up</a>
-                <a style="color: black;"> / </a>
-                <a routerLink="/home">Enter-as-Guest</a>
+            <div class="login-context-right">
+                <div class="signin">
+                    <h1 class="logo">
+                        <img src="../../../assets/Pictures/MangoTrees-logo.png">
+                    </h1>
+                    <form style="width: 80%;">
+                        <div class="login-text">
+                            <label class="login-text-input_label" for="Username">
+                                Email/ Phone-number
+                                <span>or Username</span> 
+                            </label>
+                            <input class="login-text-input" id="Username" type="text">
+                        </div>
+                        <div class="login-text">
+                            <label class="login-text-input_label" for="Password">
+                                <span>Password</span> 
+                            </label>
+                            <input class="login-text-input" id="Password" type="password">
+                        </div>
+                        <button class="login-button rubik" type="submit"><p>Sign in</p></button>
+                    </form>
+        
+                    <div class="links rubik">
+                        <a class="home" routerLink="/home">Enter as Guest</a>
+                        <a class="ForgotPassword" routerLink="/ForgotPassword">Forgot password?</a>
+                    </div>
+        
+                    <hr class="bar">
+        
+                    <div class="create-account rubik">
+                        <p>Create an account</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </form>
+        <div class="footer">
+            © 2024 MangoTrees. All rights reserved
+        </div>
+    </div>
+
 </div>
-<div [class.hide]="!(loader)">
-    <app-loader></app-loader>
-</div>
-<h1 class="roboto-regular">Please Use a Bigger Screen 🙏</h1>

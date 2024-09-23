@@ -9,7 +9,7 @@
 
 .information-context{
     height: fit-content;
-    min-height: 50vh;
+    min-height: 20vh;
     width: calc(100% - 34px);
     max-width: 1300px;
     padding: 17px;
@@ -60,6 +60,7 @@
 @media (max-width: 874px){
     .information-context{
         margin-top: 120px;
+        justify-content: start;
     }
     .information-title p{
         font-size: 22px;
