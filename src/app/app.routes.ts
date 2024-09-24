@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { ComingSoonPageComponent } from './coming-soon-page/coming-soon-page.component';
-import { SigninUpPageComponent } from './Customer/signin-up-page/signin-up-page.component';
 import { DiceComponent } from './personal/dice/dice.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -10,7 +9,6 @@ import { GridViewItemComponent } from './components/grid-view-item/grid-view-ite
 import { SliderComponent } from './components/slider/slider.component';
 import { LoginPageComponent } from './Customer/login-page/login-page.component';
 import { HomePageComponent } from './Product/home-page/home-page.component';
-import { OTPComponent } from './Customer/otp/otp.component';
 import { ResetPasswordComponent } from './Customer/reset-password/reset-password.component';
 import { ProductViewComponent } from './Product/product-view/product-view.component';
 import { CheckOutPageComponent } from './Product/check-out-page/check-out-page.component';
@@ -25,6 +23,7 @@ import { CartPageComponent } from './Product/cart-page/cart-page.component';
 import { CollectionsPageComponent } from './Product/collections-page/collections-page.component';
 import { OrderPageComponent } from './Customer/order-page/order-page.component';
 import { InformationPageComponent } from './Customer/information-page/information-page.component';
+import { SignupPageComponent } from './Customer/signup-page/signup-page.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'login', pathMatch:'full'},
@@ -37,9 +36,8 @@ export const routes: Routes = [
     {path:'review', component:ReviewDeliveryPageComponent},
     {path:'checkout', component:CheckOutPageComponent},
 
-    {path:'signup', component:SigninUpPageComponent},
+    {path:'signup', component:SignupPageComponent},
     {path:'login', component:LoginPageComponent},
-    {path:'otp', component:OTPComponent},
     {path:'repassword', component:ResetPasswordComponent},
     {path:'information', component:InformationPageComponent},
 
