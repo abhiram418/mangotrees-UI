@@ -5,4 +5,10 @@
         </div>
         <app-address-update [addressData]="addressData" (data)="saveData($event)"></app-address-update>
     </div>
+    <div *ngIf="ViewsList['otp'].value">
+        <div class="image-wrapper" (click)="closePage()">
+            <img src="../../../assets/Pictures/cancel.png" alt="Cancel">
+        </div>
+        <app-otp-page (data)="saveData($event)"></app-otp-page>
+    </div>
 </div>

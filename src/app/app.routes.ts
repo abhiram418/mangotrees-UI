@@ -9,7 +9,6 @@ import { GridViewItemComponent } from './components/grid-view-item/grid-view-ite
 import { SliderComponent } from './components/slider/slider.component';
 import { LoginPageComponent } from './Customer/login-page/login-page.component';
 import { HomePageComponent } from './Product/home-page/home-page.component';
-import { ResetPasswordComponent } from './Customer/reset-password/reset-password.component';
 import { ProductViewComponent } from './Product/product-view/product-view.component';
 import { CheckOutPageComponent } from './Product/check-out-page/check-out-page.component';
 import { ReviewDeliveryPageComponent } from './Product/review-delivery-page/review-delivery-page.component';
@@ -24,6 +23,8 @@ import { CollectionsPageComponent } from './Product/collections-page/collections
 import { OrderPageComponent } from './Customer/order-page/order-page.component';
 import { InformationPageComponent } from './Customer/information-page/information-page.component';
 import { SignupPageComponent } from './Customer/signup-page/signup-page.component';
+import { ForgotPasswordPageComponent } from './Customer/forgot-password-page/forgot-password-page.component';
+import { OTPPageComponent } from './Customer/otp-page/otp-page.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'login', pathMatch:'full'},
@@ -38,7 +39,8 @@ export const routes: Routes = [
 
     {path:'signup', component:SignupPageComponent},
     {path:'login', component:LoginPageComponent},
-    {path:'repassword', component:ResetPasswordComponent},
+    {path:'password', component:ForgotPasswordPageComponent},
+    {path:'otp', component:OTPPageComponent},
     {path:'information', component:InformationPageComponent},
 
     {path:'profile', component:CustomerProfileComponent},

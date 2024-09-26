@@ -80,8 +80,12 @@
                     <input class="signup-text-input" id="State" type="text">
                 </div>
             </div>
-            <button class="signup-button rubik" type="submit"><p>Sign up</p></button>
+            <button (click)="signup()" class="signup-button rubik" type="submit"><p>Sign up</p></button>
         </div>
     </div>
 
+</div>
+
+<div *ngIf="popPage">
+    <app-pop-page [pageToDisplay]="'otp'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
 </div>

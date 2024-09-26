@@ -3,19 +3,21 @@ import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-signup-page',
+  selector: 'app-forgot-password-page',
   standalone: true,
   imports: [NgIf, PopPageComponent],
-  templateUrl: './signup-page.component.html',
-  styleUrl: './signup-page.component.css'
+  templateUrl: './forgot-password-page.component.html',
+  styleUrl: './forgot-password-page.component.css'
 })
-export class SignupPageComponent {
+export class ForgotPasswordPageComponent {
   popPage:boolean = false;
 
-  signup(){
+
+  resetPassword(){
     this.popPage = true;
   }
 
+  
   popPageData(data:any){
     console.log(data);
   }
