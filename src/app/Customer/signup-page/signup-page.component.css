@@ -61,6 +61,18 @@
     color: #1D2A26;
     border: 1px solid hsla(0, 0%, 100%, .3);
 }
+.signup-text-select{
+    height: 40px;
+    width: 195px;
+    padding: 8px 14px;
+    margin-bottom: 28px;
+    display: flex;
+    font-weight: 400;
+    border-radius: 3px;
+    -webkit-box-align: center;
+    color: #1D2A26;
+    border: 1px solid hsla(0, 0%, 100%, .3);
+}
 .signup-textarea-input{
     min-width: 166px;
     padding: 8px 14px;
@@ -95,7 +107,7 @@
     margin: 0px;
     padding: 8px 16px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 
@@ -114,6 +126,9 @@
 
 
 @media (max-width: 555px){
+    .signup-text{
+        padding-inline: 2.5px;
+    }
     .signup-fields{
         margin-top: 5vh;
     }
