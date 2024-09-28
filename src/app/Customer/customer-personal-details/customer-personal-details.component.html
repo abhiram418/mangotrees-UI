@@ -20,9 +20,12 @@
             </div>
             <hr>
             <div class="customer-details-values">
-                <p>Phone Number : </p>
-                <input type="number" [class.red]="customerDetailsForm.get('PhoneNumber')?.errors" formControlName="PhoneNumber">
-            </div>
+                <p>Gender :</p>
+                <select formControlName="Gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>            
             <hr>
             <div class="customer-details-values">
                 <p>Email : </p>

@@ -23,7 +23,7 @@ export class CustomerPersonalDetailsComponent {
   ngOnInit(): void {
     this.customerDetailsForm = new FormGroup({
       Name: new FormControl('abhiram', [Validators.required, Validators.minLength(3)]),
-      PhoneNumber: new FormControl('7416898456', [Validators.required, Validators.pattern('^[0-9]{10}$')]),
+      Gender: new FormControl('Male', [Validators.required]),
       Email: new FormControl('abhiram.ch418@gmail.com', [Validators.required, Validators.email]),
       Password: new FormControl('abhiram', [Validators.required, Validators.minLength(6)])
     });

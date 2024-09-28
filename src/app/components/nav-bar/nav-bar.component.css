@@ -151,16 +151,47 @@
 
 
 
-
+.account-mobile{
+    width: fit-content;
+    min-width: 55px;
+    height: 50px;
+    margin-top: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: #1d2a26;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    display: none;
+}
+.account-mobile:hover{
+    border-style: solid;
+    border-color: white;
+}
+.account-mobile p{
+    margin: 0px;
+    margin-top: 5px;
+    padding-right: 4px;
+    font-size: 14px;
+}
+.account-mobile img{
+    max-width: 17px;
+    padding: 4px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+}
 .account{
     width: fit-content;
     min-width: 120px;
     height: 50px;
+    padding-left: 9px;
+    margin-top: 3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 9px;
-    margin-top: 3px;
     border-style: solid;
     border-radius: 3px;
     border-color: #1d2a26;
@@ -410,15 +441,10 @@
 
 
 }
-@media (max-width: 382px){
+@media (max-width: 399px){
     .nav-belt{
         justify-content:space-between !important;
     }
-
-    .account{
-        display: none;
-    }
-
     .search-bar-mobile input{
         min-width: 200px;
     }
@@ -430,6 +456,13 @@
     .cart p{
         font-size: 14px;
     }
+}
 
-
+@media (max-width: 333px){
+    .account{
+        display: none;
+    }
+    .account-mobile{
+        display: flex;
+    }
 }

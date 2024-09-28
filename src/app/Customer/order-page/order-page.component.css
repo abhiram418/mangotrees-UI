@@ -207,16 +207,44 @@
 
 
 
+.empty{
+    height: fit-content;
+    min-height: 75vh;
+    width: 80%;
+    max-width: 650px;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.empty img{
+    max-width: 100%;
+}
+.empty p{
+    font-size: 18px;
+    font-weight: 600;
+    color: #1D2A26;
+}
+
 
 
 @media (max-width: 555px){
     .order-page-title p{
         font-size: 16px;
     }
+    .empty p{
+        font-size: 14px;
+    }
 }
 @media (max-width: 874px){
     .order-page-context{
         margin-top: 121px;
         margin-bottom: 50px;
+    }
+    .empty{
+        margin-top: 121px;
     }
 }

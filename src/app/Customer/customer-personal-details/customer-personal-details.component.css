@@ -86,7 +86,7 @@
     margin-inline: 10px;
     font-size: 14px;
 }
-.customer-details-values input {
+.customer-details-values input, select {
     width: 35%;
     min-width: 180px;
     padding: 10px 15px;
@@ -98,7 +98,11 @@
     outline: none;
     background-color: rgba(239, 239, 239, 0.3);
 }
-
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 
 .buttons-div{
     width: calc(100% - 34px);

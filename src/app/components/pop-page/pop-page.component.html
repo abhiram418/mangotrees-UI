@@ -11,4 +11,10 @@
         </div>
         <app-otp-page (data)="saveData($event)"></app-otp-page>
     </div>
+    <div *ngIf="ViewsList['coupon'].value">
+        <div class="image-wrapper" (click)="closePage()">
+            <img src="../../../assets/Pictures/cancel.png" alt="Cancel">
+        </div>
+        <app-coupon-code-page (data)="saveData($event)"></app-coupon-code-page>
+    </div>
 </div>

@@ -66,7 +66,6 @@
 }
 .availability-title{
     color: #d38f02;
-    color: goldenrod;
 }
 .availability-title:hover{
     cursor: pointer;
@@ -129,8 +128,8 @@ input[type="checkbox"]:hover {
     box-shadow: 0 0 1px rgba(49, 37, 16, 0.5);
 }
 .price-title{
-    color: goldenrod;
     margin-left: 10px;
+    color: #d38f02;
 }
 .price-title:hover{
     cursor: pointer;
@@ -217,7 +216,7 @@ input[type="checkbox"]:hover {
     font-size: 14px;
     font-weight: 500;
     text-align: center;
-    color: goldenrod;
+    color: #d38f02;
     outline: none;
     cursor: pointer;
     transition: border-color 0.3s ease;
@@ -249,7 +248,7 @@ option {
 }
 .products-count p{
     padding-inline: 10px;
-    color: goldenrod;
+    color: #d38f02;
 }
 .products-count:active {
     box-shadow: 0 0 1px rgba(49, 37, 16, 0.5);

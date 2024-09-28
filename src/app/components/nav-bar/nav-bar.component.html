@@ -16,6 +16,10 @@
                 <span class="material-symbols-outlined" (click)="Search()">search</span>
             </div>
         </div>
+        <div class="account-mobile" (click)="RedirectTo('profile')">
+            <img src="../../../assets/Pictures/user.png">
+            <p>Account</p>
+        </div>
         <div class="account" (click)="RedirectTo('profile')">
             <p class="account-top single-line-ellipsis" style="max-width: 150px;">Hello,&nbsp;&nbsp;{{navBarData.UserName}}</p>
             <div class="account-bottom">

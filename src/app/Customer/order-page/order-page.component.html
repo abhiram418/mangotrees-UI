@@ -2,7 +2,7 @@
 
     <app-nav-bar [navBarData]="navBarData" (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
 
-    <div class="order-page-context roboto-regular">
+    <div *ngIf="ordersList.length" class="order-page-context roboto-regular">
         <div class="ordered-list">
             <a routerLink="../profile">Your Account </a>
             <a routerLink="../profile">></a>
@@ -61,6 +61,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div *ngIf="!ordersList.length" class="empty roboto-regular">
+        <img src="../../../assets/Pictures/MangoTrees's box.png">
+        <p>No orders have been placed. Begin your mango experience today. 🌟</p>
     </div>
 
     <div>
