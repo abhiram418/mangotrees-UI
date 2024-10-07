@@ -17,4 +17,10 @@
         </div>
         <app-coupon-code-page (data)="saveData($event)"></app-coupon-code-page>
     </div>
+    <div *ngIf="ViewsList['address-select'].value">
+        <div class="image-wrapper" (click)="closePage()">
+            <img src="../../../assets/Pictures/cancel.png" alt="Cancel">
+        </div>
+        <app-address-select [addressesList]="addressesList" (data)="saveData($event)"></app-address-select>
+    </div>
 </div>

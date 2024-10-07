@@ -6,6 +6,7 @@ import { ProductViewItemData } from '../../Models/ProductViewItemData';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PopPageComponent } from "../../components/pop-page/pop-page.component";
+import { AddressDesc } from '../../Models/CustomerProfileData';
 
 @Component({
   selector: 'app-check-out-page',
@@ -16,7 +17,11 @@ import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 })
 export class CheckOutPageComponent {
   popPage:boolean = false;
+  couponPage:boolean = false;
+  addressSelectPage:boolean = false;
   data = new ProductViewItemData();
+  addressesList:AddressDesc[] =[];
+
   temp:number | undefined;
   image = this.getImage();
 
@@ -26,6 +31,20 @@ export class CheckOutPageComponent {
     // this.data.DealTitle=null;
     // this.data.Discount=null;
     // this.data.SalePrice=null; 
+
+
+    var tempAddress1 = new AddressDesc();
+    tempAddress1.AddressTitle = "Abhiram";
+    tempAddress1.Address = "House no :- 7/263/1 banginapalli thota";
+    tempAddress1.City = "NUZVID";
+    tempAddress1.State = "ANDHRA PRADESH";
+    this.addressesList.push(tempAddress1);
+    var tempAddress2 = new AddressDesc();
+    tempAddress2.AddressTitle = "Abhiram1";
+    tempAddress2.Address = "House no :- 7/263/1 banginapalli thota";
+    tempAddress2.City = "NUZVID";
+    tempAddress2.State = "ANDHRA PRADESH";
+    this.addressesList.push(tempAddress2);
   }
 
   options = [
@@ -39,19 +58,33 @@ export class CheckOutPageComponent {
 
   GetCouponCodes(){
     this.popPage = true;
+    this.couponPage = true;
+  }
+
+  SelectAddress(){
+    this.popPage = true;
+    this.addressSelectPage = true;
   }
 
   popPageData(data:any){
     console.log(data);
-    if(data){
-      alert("Congratulations! Your coupon has been successfully applied.")
+    if(this.addressSelectPage){
+      alert("Address Selected");
+      console.log(data);
     }
     else{
-      alert("Unfortunately, the coupon is invalid or expired. Please check the code and try again.")
+      if(data){
+        alert("Congratulations! Your coupon has been successfully applied.");
+      }
+      else{
+        alert("Unfortunately, the coupon is invalid or expired. Please check the code and try again.");
+      }
     }
   }
   ClosePopPage(close:boolean){
     this.popPage = false;
+    this.couponPage = false;
+    this.addressSelectPage = false;
   }
 
   getImage(){

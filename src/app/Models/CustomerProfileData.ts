@@ -15,6 +15,7 @@ export class CustomerProfileData{
 }
 
 export class AddressDesc{
+    AddressID?:number;
     AddressTitle?:string='Default';
     Address:string='';
     Pincode:number=521201;

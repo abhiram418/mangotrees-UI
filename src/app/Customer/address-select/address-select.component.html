@@ -1,0 +1,10 @@
+<form class="address-select roboto-regular">
+    <div class="address-list">
+
+        <div *ngFor="let address of addressesList; let i = index" (click)="SelectedAddress(i)" class="address blur">
+            <p class="customer-address rubik"><a style="font-weight: 600;">{{addressesList[i].AddressTitle}}</a> <br> {{addressesList[i].Address}}, {{addressesList[i].City}}, {{addressesList[i].State}} {{addressesList[i].Pincode}}</p>
+        </div>
+
+    </div>
+</form>
+  

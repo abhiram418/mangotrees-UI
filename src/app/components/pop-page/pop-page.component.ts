@@ -4,20 +4,22 @@ import { NgIf } from '@angular/common';
 import { AddressDesc } from '../../Models/CustomerProfileData';
 import { OTPPageComponent } from "../../Customer/otp-page/otp-page.component";
 import { CouponCodePageComponent } from "../../Product/coupon-code-page/coupon-code-page.component";
+import { AddressSelectComponent } from "../../Customer/address-select/address-select.component";
 
 @Component({
   selector: 'app-pop-page',
   standalone: true,
-  imports: [NgIf, AddressUpdateComponent, OTPPageComponent, CouponCodePageComponent],
+  imports: [NgIf, AddressUpdateComponent, OTPPageComponent, CouponCodePageComponent, AddressSelectComponent],
   templateUrl: './pop-page.component.html',
   styleUrl: './pop-page.component.css'
 })
 export class PopPageComponent {
   @Input() pageToDisplay: string = '';
   @Input() addressData: AddressDesc = new AddressDesc();
+  @Input() addressesList: AddressDesc[] = [];
   @Output() close = new EventEmitter<any>();
   @Output() data = new EventEmitter<any>();
-  ViewsList: { [key: string]: {value:boolean} } = { "address-update": { value: false }, "otp": { value: false }, "coupon": { value: false}};
+  ViewsList: { [key: string]: {value:boolean} } = { "address-update": { value: false }, "otp": { value: false }, "coupon": { value: false}, "address-select": { value: false}};
 
   constructor(){
     this.addressData.AddressTitle = "";

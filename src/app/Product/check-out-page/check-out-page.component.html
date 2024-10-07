@@ -12,7 +12,7 @@
                 </div>
                 <div class="check-out-delivery-address-content blur">
                     <p class="roboto-regular multi-line-5">Abhiram <br>House no :- 7/263/1 banginapalli thota,<br> NUZVID, ANDHRA PRADESH 521201</p>
-                    <div class="change-button">
+                    <div class="change-button" (click)="SelectAddress()">
                         <a>Change</a>
                     </div>
                 </div>
@@ -121,5 +121,6 @@
 </div>
 
 <div *ngIf="popPage">
-    <app-pop-page [pageToDisplay]="'coupon'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
+    <app-pop-page *ngIf="addressSelectPage" [addressesList]="addressesList" [pageToDisplay]="'address-select'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
+    <app-pop-page *ngIf="couponPage" [pageToDisplay]="'coupon'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
 </div>

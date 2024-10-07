@@ -26,6 +26,7 @@ import { SignupPageComponent } from './Customer/signup-page/signup-page.componen
 import { ForgotPasswordPageComponent } from './Customer/forgot-password-page/forgot-password-page.component';
 import { OTPPageComponent } from './Customer/otp-page/otp-page.component';
 import { CouponCodePageComponent } from './Product/coupon-code-page/coupon-code-page.component';
+import { AddressSelectComponent } from './Customer/address-select/address-select.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'login', pathMatch:'full'},
@@ -49,6 +50,7 @@ export const routes: Routes = [
     {path:'details', component:CustomerPersonalDetailsComponent},
     {path:'address', component:CustomerAddressComponent},
     {path:'address-update', component:AddressUpdateComponent},
+    {path:'address-select', component:AddressSelectComponent},
     {path:'orders', component:OrderPageComponent},
     
 
