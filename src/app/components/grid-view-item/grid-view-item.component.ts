@@ -16,6 +16,10 @@ export class GridViewItemComponent {
   @Output() AddtoCart = new EventEmitter<any>();
   @Output() ViewProduct = new EventEmitter<string>();
 
+  constructor(){
+    this.product.Title = "Mangoes Banginapalli ";
+    this.product.Desc = "These are the Mangoes Banginapalli with very good taste and exelent quality These are the Mangoes Banginapalli with very good taste and quality";
+  }
 
   AddtoCartClicked(IteamId:string, event: Event){
     event.stopPropagation();

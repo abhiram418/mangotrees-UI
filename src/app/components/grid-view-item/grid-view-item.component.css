@@ -72,19 +72,6 @@
     font-size: 16px;
     text-align: center;
 }
-.single-line-ellipsis {
-    white-space: nowrap;      
-    overflow: hidden;         
-    text-overflow: ellipsis;
-}
-.multi-line-ellipsis{
-    overflow: hidden;                
-    display: -webkit-box;           
-    -webkit-box-orient: vertical;    
-    -webkit-line-clamp: 2;           
-    text-overflow: ellipsis;       
-}
-
 
 
 
