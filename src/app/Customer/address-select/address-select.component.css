@@ -1,6 +1,8 @@
 .address-select{
     height: fit-content;
-    width: 240px;
+    width: 70vw;
+    min-width: 240px;
+    max-width: 650px;
     padding: 17px;
     margin: auto;
     display: flex;

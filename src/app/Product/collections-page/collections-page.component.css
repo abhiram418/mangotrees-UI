@@ -299,12 +299,3 @@ option {
         display: none;
     }
 }
-
-@media (max-width: 555px){
-    .collections-title a{
-        color: #111816;
-    }
-    .collections-title p{
-        color: #1d2a26;
-    }
-}

@@ -31,7 +31,8 @@ export class CheckOutPageComponent {
     // this.data.DealTitle=null;
     // this.data.Discount=null;
     // this.data.SalePrice=null; 
-
+    this.data.Title = "Mangoes Banginapalli";
+    this.data.Desc = "These are the Mangoes Banginapalli with very good taste and exelent quality These are the Mangoes Banginapalli with very good taste and exelent quality";
 
     var tempAddress1 = new AddressDesc();
     tempAddress1.AddressTitle = "Abhiram";
@@ -70,7 +71,6 @@ export class CheckOutPageComponent {
     console.log(data);
     if(this.addressSelectPage){
       alert("Address Selected");
-      console.log(data);
     }
     else{
       if(data){

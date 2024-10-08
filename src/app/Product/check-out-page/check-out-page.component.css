@@ -31,6 +31,7 @@
 }
 .check-out-title h2{
     user-select: none;
+    -webkit-user-select: none;
     font-weight: 200;
 }
 
@@ -73,7 +74,7 @@
 }
 .check-out-delivery-address-content p{
     height: fit-content;
-    max-width: 50%;
+    max-width: 60%;
     margin-top: 24px;
     margin-bottom: 24px;
     font-size: 14px;
@@ -102,6 +103,7 @@
     padding-inline: 5px;
     font-weight: 500;
     user-select: none;
+    -webkit-user-select: none;
     color: #335b1e;
 }
 
@@ -142,6 +144,7 @@
 }
 
 .review-item{
+    width: calc(100% - 0px);
     max-width: 418px;
     margin-bottom: 10px;
     display: flex;
@@ -175,6 +178,7 @@
     height: 100%;
     width: 100%;
     user-select: none;
+    -webkit-user-select: none;
 }
 .review-item-text{
     max-width: calc(100% - 20px);    
@@ -228,10 +232,12 @@ select {
     border-radius: 4px; 
     font-size: 12px;
     text-align: center;
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1); */
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease; 
     background-color: #f3f3f3; 
     user-select: none;
+    -webkit-user-select: none;
     outline: none;
     color: #333;
 }
@@ -287,6 +293,7 @@ option:disabled {
     outline: 0px;
     cursor: pointer;
     user-select: none;
+    -webkit-user-select: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: 0.3s; 
     color: white;
@@ -335,6 +342,7 @@ td{
     padding-top: 21px;
     padding-bottom: 18px;
     user-select: none;
+    -webkit-user-select: none;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #f0f2f2;
