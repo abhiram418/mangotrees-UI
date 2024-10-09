@@ -6,7 +6,7 @@
     
     <!-- style="z-index: 500;position: absolute;" -->
     <div *ngIf="popUp">
-        <app-pop-up [text]="popUpText" (close)="closePopUp($event)"></app-pop-up>
+        <app-pop-up [heading]="popUpHeading" [text]="popUpText" (close)="closePopUp($event)"></app-pop-up>
     </div>
 
     <form class="review-delivery-component" [formGroup]="ReviewForm">

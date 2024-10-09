@@ -162,7 +162,7 @@ input:checked::before{
     -webkit-user-select: none;
     touch-action: manipulation;
     border-radius: 6px;
-    border: 1px solid #f8f9fa;
+    border: 1px solid #e9ebed;
     transition: box-shadow 0.3s ease; 
     background-color: #f0f2f2;
 }

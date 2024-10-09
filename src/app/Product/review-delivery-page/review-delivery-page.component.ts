@@ -16,6 +16,7 @@ import { routes } from '../../app.routes';
 export class ReviewDeliveryPageComponent {
   popUp:boolean=false;
   popUpData:PopUpData = new PopUpData();
+  popUpHeading:string="";
   popUpText:string="";
   ReviewForm!: FormGroup;
 
@@ -41,31 +42,37 @@ export class ReviewDeliveryPageComponent {
     switch(service){
       case DeliveryType.RTC:{
         this.popUp = true;
+        this.popUpHeading = DeliveryType.RTC_Title;
         this.popUpText = this.popUpData.APSRTC;
         break;
       }
       case DeliveryType.Third_Party:{
         this.popUp = true;
+        this.popUpHeading = DeliveryType.Third_Party_Title;
         this.popUpText = this.popUpData.Third_Party;
         break;
       }
       case DeliveryType.Dedicated:{
         this.popUp = true;
+        this.popUpHeading = DeliveryType.Dedicated_Title;
         this.popUpText = this.popUpData.Dedicated;
         break;
       }
       case PackagingType.Premium:{
         this.popUp = true;
+        this.popUpHeading = PackagingType.Premium_Title;
         this.popUpText = this.popUpData.Premium;
         break;
       }
       case PackagingType.Pocket_Friendly:{
         this.popUp = true;
+        this.popUpHeading = PackagingType.Pocket_Friendly_Title;
         this.popUpText = this.popUpData.Pocket_Friendly;
         break;
       }
       case PackagingType.Basic:{
         this.popUp = true;
+        this.popUpHeading = PackagingType.Basic_Title;
         this.popUpText = this.popUpData.Basic;
         break;
       }

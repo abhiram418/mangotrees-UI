@@ -9,6 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PopUpComponent {
   @Input() text: string = "";  
+  @Input() heading: string = "";
   @Output() close = new EventEmitter<any>();
 
   closePopUp(){

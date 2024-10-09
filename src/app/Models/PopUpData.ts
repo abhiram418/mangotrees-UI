@@ -11,12 +11,18 @@ export class PopUpData{
 
 export enum DeliveryType {
     RTC = "APSRTC",
+    RTC_Title = "APSRTC Delivery",
     Third_Party = "Third-Party",
-    Dedicated = "Dedicated"
+    Third_Party_Title = "Third Party Delivery",
+    Dedicated = "Dedicated",
+    Dedicated_Title = "Dedicated Truck Delivery"
 }
 
 export enum PackagingType {
     Premium = "Premium",
+    Premium_Title = "Premium Packaging",
+    Pocket_Friendly_Title = "Pocket Friendly Packaging",
     Pocket_Friendly = "Pocket-Friendly",
-    Basic = "Basic"
+    Basic = "Basic",
+    Basic_Title = "Basic Packaging"
 }

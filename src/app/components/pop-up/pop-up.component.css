@@ -24,12 +24,27 @@
 .x{
     height: 20px;
     padding: 17px;
+    display: flex;
+    justify-content: space-between;
     background-color: green;
 }
+.x a{
+    width: fit-content;
+    max-width: 75%;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    color: #F4BB44;
+    user-select: none;
+    -webkit-user-select: none;
+}
 .x p{
+    width: fit-content;
     margin-top: -5px !important;
     font-size: 21px;
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
 }
 .x p:active{
     color: rgb(115, 29, 29);
@@ -38,7 +53,7 @@
 .pop-up-context{
     height: fit-content;
     padding: 17px;
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     line-height: 1.4;
 }
@@ -54,7 +69,10 @@
     width: 66px;
     border-radius: 5px;
     border: none;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
     background-color: #F4BB53;
+    user-select: none;
+    -webkit-user-select: none;
 }
 .pop-up-close button:hover {
     background-color: #f3a90a;

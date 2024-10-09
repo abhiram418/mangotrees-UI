@@ -35,11 +35,29 @@
     color: #444646;
 }
 
+.address-status{
+    height: fit-content;
+    width: fit-content;
+    padding: 4px;
+    padding-inline: 12px;
+    border-radius: 4px;
+    float: right;
+    font-size: 12px;
+    font-weight: 500;
+    user-select: none;
+    -webkit-user-select: none;
+    color:cornflowerblue;
+    background-color: rgba(100, 148, 237, 0.235)
+}
+
 
 
 
 @media (max-width: 555px){
     .customer-address{
         font-size: 12px;
+    }
+    .address-status{
+        font-size: 10px;
     }
 }
