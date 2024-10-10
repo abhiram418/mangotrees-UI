@@ -21,12 +21,12 @@ export class GridViewItemComponent {
     this.product.Desc = "These are the Mangoes Banginapalli with very good taste and exelent quality These are the Mangoes Banginapalli with very good taste and quality";
   }
 
-  AddtoCartClicked(IteamId:string, event: Event){
+  AddtoCartClicked(IteamId:any, event: Event){
     event.stopPropagation();
     this.AddtoCart.emit(IteamId);
   }
 
-  ViewProductClicked(IteamId:string){
+  ViewProductClicked(IteamId:any){
     this.ViewProduct.emit(IteamId);
   }
 }

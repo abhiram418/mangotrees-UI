@@ -30,6 +30,7 @@ export class OrderPageComponent {
 
   ViewProduct(IteamId:string){
     alert("View: "+IteamId);
+    this.router.navigate(['/product/'+IteamId]);
   }
 
   RedirectTo(to:string){

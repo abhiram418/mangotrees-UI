@@ -32,6 +32,7 @@ export class HomePageComponent {
   }
   ViewProduct(IteamId:string){
     alert("View: "+IteamId);
+    this.router.navigate(['/product/'+IteamId]);
   }
 
   RedirectTo(to:string){
