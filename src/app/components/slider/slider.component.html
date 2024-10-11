@@ -1,10 +1,16 @@
 <div class="slider-container">
     <div class="slider-track" #carouselTrack>
         <div class="slider">
-            <img [src]="image" alt="">
-            <div class="arrow" style="position: absolute;">
-                <span (click)="left()" class="material-symbols-outlined" style="transform: rotate(180deg);">arrow_forward_ios</span>
-                <span (click)="right()" class="material-symbols-outlined">arrow_forward_ios</span>
+            <div class="scroll" #slider>
+                <img *ngFor="let image of images; let ind = index" [src]="image" class="slider-img">
+            </div>
+            <div class="arrow">
+                <div class="slider-arrow" (click)="left()">
+                    <img style="transform: rotate(90deg);" src="../../../assets/Pictures/down-arrow.png">
+                </div>
+                <div class="slider-arrow" (click)="right()">
+                    <img style="transform: rotate(270deg);" src="../../../assets/Pictures/down-arrow.png">
+                </div>
             </div>
         </div>
     </div>
