@@ -31,9 +31,12 @@
     background-color: black;
 }
 .slider-img{
+    height: -webkit-fill-available;
     max-height: max-content;
     width: 100%;
     min-width: 100%;
+    margin: auto;
+    object-fit:fill;
 }
 
 
