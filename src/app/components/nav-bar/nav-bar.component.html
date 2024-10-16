@@ -4,7 +4,9 @@
             <a href="https://www.mangotrees.in"><img src="../../../assets/Pictures/MangoTrees-logo.png"></a>
         </div>
         <div class="location" (click)="RedirectTo('address')">
-            <span class="material-symbols-outlined">location_on</span>
+            <div class="icon">
+                <span class="material-symbols-outlined">location_on</span>
+            </div>
             <div class="deliver-to single-line-ellipsis">
                 <p class="deliver-to-top gray font-size-12 single-line-ellipsis" style="max-width: 150px;">Deliver to {{navBarData.UserName == "Sign in"? "Gest":navBarData.UserName}}</p>
                 <p class="deliver-to-bottom">{{navBarData.CityName}} {{navBarData.Pincode}}</p>
@@ -32,9 +34,9 @@
             <p class="orders-bottom">& Orders</p>
         </div>
         <div class="cart" (click)="RedirectTo('cart')">
-            <span class="material-symbols-outlined">
-                shopping_bag
-            </span>
+            <div class="icon">
+                <span class="material-symbols-outlined">shopping_bag</span>
+            </div>
             <p *ngIf="navBarData.CartCount>0" class="cart-count roboto-bold" style="margin-left: 36px;">{{navBarData.CartCount>10? "10+" : navBarData.CartCount}}</p>
             <p>Cart</p>
         </div>

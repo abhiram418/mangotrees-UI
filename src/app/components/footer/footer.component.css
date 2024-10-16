@@ -101,6 +101,10 @@
 .location span{
     user-select: none;
 }
+.icon{
+    max-width: 25px;
+    overflow: hidden;
+}
 .address p{
     width: 250px;
     font-size: x-small;
