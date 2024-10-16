@@ -80,6 +80,14 @@ export class ProductViewComponent {
     // this.data.Stars = 5;
   }
 
+  BuyNow(){
+    this.router.navigate(["../review"]);
+  }
+  AddToCart(){
+    this.router.navigate(["../cart"]);
+  }
+
+
   showMoreOfDiv(what:string){
     if(what == "Product Review"){
       this.info.Product_Review = !this.info.Product_Review;

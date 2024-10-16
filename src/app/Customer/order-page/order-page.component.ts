@@ -28,6 +28,10 @@ export class OrderPageComponent {
     this.ordersList[1].OrderItems.push(new OrderItem("324353443"));
   }
 
+  ViewReceipt(id:any){
+    this.router.navigate(["../receipt",{id}]);
+  }
+
   ViewProduct(IteamId:string){
     alert("View: "+IteamId);
     this.router.navigate(['/product/'+IteamId]);

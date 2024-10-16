@@ -7,6 +7,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 import { AddressDesc } from '../../Models/CustomerProfileData';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-check-out-page',
@@ -25,7 +26,7 @@ export class CheckOutPageComponent {
   temp:number | undefined;
   image = this.getImage();
 
-  constructor(){
+  constructor(private router:Router){
     this.temp = this.options[0].id;
 
     // this.data.DealTitle=null;
@@ -57,6 +58,10 @@ export class CheckOutPageComponent {
     { id: 4, value: 4 },
     { id: 5, value: 5 }
   ];
+
+  PayAndPlaceOrder(){
+    this.router.navigate(["../receipt"]);
+  }
 
   GetCouponCodes(){
     this.popPage = true;

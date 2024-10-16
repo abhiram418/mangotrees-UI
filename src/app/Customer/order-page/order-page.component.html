@@ -21,7 +21,7 @@
         </div>
         <div class="orders-list" #orderScroll>
             <div *ngFor="let order of ordersList; let ind = index" class="orders">
-                <div *ngFor="let item of order.OrderItems; let i = index" class="order rubik">
+                <div *ngFor="let item of order.OrderItems; let i = index" (click)="ViewReceipt(order.OrderId)" class="order rubik">
                     <div class="order-top">
                         <p>ID&nbsp;</p>
                         <a>{{order.OrderId}}</a>

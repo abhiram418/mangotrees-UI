@@ -4,7 +4,6 @@ import { NgIf } from '@angular/common';
 import { DeliveryType, PackagingType, PopUpData } from '../../Models/PopUpData';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-review-delivery-page',

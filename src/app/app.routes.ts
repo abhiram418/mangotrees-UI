@@ -27,6 +27,7 @@ import { ForgotPasswordPageComponent } from './Customer/forgot-password-page/for
 import { OTPPageComponent } from './Customer/otp-page/otp-page.component';
 import { CouponCodePageComponent } from './Product/coupon-code-page/coupon-code-page.component';
 import { AddressSelectComponent } from './Customer/address-select/address-select.component';
+import { ReceiptPageComponent } from './Customer/receipt-page/receipt-page.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'login', pathMatch:'full'},
@@ -38,6 +39,7 @@ export const routes: Routes = [
     {path:'cart', component:CartPageComponent},
     {path:'review', component:ReviewDeliveryPageComponent},
     {path:'checkout', component:CheckOutPageComponent},
+    {path:'receipt', component:ReceiptPageComponent},
 
     {path:'signup', component:SignupPageComponent},
     {path:'login', component:LoginPageComponent},
