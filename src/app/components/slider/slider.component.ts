@@ -57,8 +57,14 @@ export class SliderComponent {
     var clientWidth = this.scrollableDiv.nativeElement.clientWidth;
     var scrollLeft = this.scrollableDiv.nativeElement.scrollLeft;
 
-    console.log(scrollWidth)
-    console.log(clientWidth + scrollLeft);
+    // console.log(scrollWidth)
+    // console.log(clientWidth);
+    // console.log(scrollLeft);
+    if (scrollLeft % 1 > 0){
+      this.onResize();
+      scrollLeft = this.scrollableDiv.nativeElement.scrollLeft;
+    }
+
     if (scrollLeft + clientWidth + 10 >= scrollWidth) {
       this.scrollableDiv.nativeElement.scrollTo({ left: 0, behavior: 'smooth' });
     } else {
