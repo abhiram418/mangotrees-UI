@@ -84,6 +84,7 @@
     position: absolute;
     margin-top: 10px;
     padding: 10px;
+    border: 1px solid rgba(29, 42, 38, 0.3);
     border-radius: 4px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     background-color: #ffffff;
@@ -150,6 +151,7 @@ input[type="checkbox"]:hover {
     position: absolute;
     margin-top: 10px;
     padding: 17px;
+    border: 1px solid rgba(29, 42, 38, 0.3);
     border-radius: 4px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     background-color: #ffffff;
@@ -260,7 +262,6 @@ option {
 .collections-content{
     padding: 10px;
     padding-inline: 5px;
-    /* background-image: url(../../../assets/Pictures/background_green.png); */
     background-color: #eeeeee81;
 }
 .collections-content-box{

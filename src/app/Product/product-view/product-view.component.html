@@ -5,14 +5,14 @@
     <div class="product-page-context">
         <div class="product-view-top">
             <div style="padding-top: 0px;">
-                <p class="title">Products&nbsp;&nbsp;>&nbsp;&nbsp;{{data.Title}}</p>
+                <p class="title">Products&nbsp;&nbsp;>&nbsp;&nbsp;{{productViewItemData.Title}}</p>
                 <div>
                     <div class="stars">
-                        <p class="star" *ngFor="let item of data.Stars==1? ['star']: data.Stars==2? ['star','star']: data.Stars==3? ['star','star','star']: data.Stars==4? ['star','star','star','star']: data.Stars==5? ['star','star','star','star','star']: null">
+                        <p class="star" *ngFor="let item of productViewItemData.Stars==1? ['star']: productViewItemData.Stars==2? ['star','star']: productViewItemData.Stars==3? ['star','star','star']: productViewItemData.Stars==4? ['star','star','star','star']: productViewItemData.Stars==5? ['star','star','star','star','star']: null">
                             &#9733;
                         </p>
                     </div>
-                    <p style="margin: 0px;">{{data.NumberOfRating}}</p>
+                    <p style="margin: 0px;">{{productViewItemData.NumberOfRating}}</p>
                 </div>
             </div>
         </div>
@@ -42,14 +42,14 @@
                         <h5 style="margin: 0px;margin-bottom: 16px;color: rgba(0, 0, 0, 0.888);">You may choose the delivery option:</h5>
                     </div>
                     <div class="price-desc">
-                        <div *ngIf="data.DealTitle" class="deal">{{data.DealTitle}}</div>
-                        <div *ngIf="!data.DealTitle" class="default-deal-title">MangoTrees's&nbsp;&nbsp;<p style="margin: 0px;color: goldenrod;">Quality</p></div>
+                        <div *ngIf="productViewItemData.DealTitle" class="deal">{{productViewItemData.DealTitle}}</div>
+                        <div *ngIf="!productViewItemData.DealTitle" class="default-deal-title">MangoTrees's&nbsp;&nbsp;<p style="margin: 0px;color: goldenrod;">Quality</p></div>
                         <div class="price">
                             <div>
-                                <a *ngIf="data.Discount" class="discount">{{data.Discount}}%</a>
-                                <div><p class="Symbol">₹</p>{{data.SalePrice}}<p *ngIf="!data.SalePrice" style="margin: 0px;">{{data.Price}}</p></div>
+                                <a *ngIf="productViewItemData.Discount" class="discount">{{productViewItemData.Discount}}%</a>
+                                <div><p class="Symbol">₹</p>{{productViewItemData.SalePrice}}<p *ngIf="!productViewItemData.SalePrice" style="margin: 0px;">{{productViewItemData.Price}}</p></div>
                             </div>
-                            <a *ngIf="data.Discount" class="old-price">M.R.P:&nbsp;₹{{data.Price}}</a>
+                            <a *ngIf="productViewItemData.Discount" class="old-price">M.R.P:&nbsp;₹{{productViewItemData.Price}}</a>
                         </div>
                     </div>
                     <div class="delivery-location" (click)="SelectAddress()">
@@ -60,7 +60,7 @@
                         <p>We usually deliver mangoes within 1-7 working days. For deliveries within Andhra Pradesh, the delivery time is 1-3 working days.</p>
                     </div>
                     <div class="in-stock">
-                        <a *ngIf="data.Availability">{{data.Available}}</a>
+                        <a *ngIf="productViewItemData.Availability">{{productViewItemData.Available}}</a>
                     </div>
                     <div class="quantity">
                         <select [(ngModel)]="temp">
@@ -97,7 +97,7 @@
 
         
         <div class="info">
-            <div class="product-div roboto-regular">
+            <div *ngIf="productViewItemData.ProductInfo" [class.border-bottom]="!(productViewItemData.ProductReviewData || productViewItemData.NutritionFacts)" class="product-div roboto-regular">
                 <div (click)="showMoreOfDiv('Product Info')" class="product-div-top">
                     <p class="product-div-top-title">Product Info</p>
                     <div class="arrow" [class.rotate]="info.Product_Info">
@@ -105,10 +105,36 @@
                     </div>
                 </div>
                 <div *ngIf="info.Product_Info" class="product-div-bottom">
-                    
+                    <div class="product-div-info-div">
+                        <div *ngIf="productViewItemData.ProductInfo.Variety" class="product-info-div">
+                            <p class="product-info-div-title">Variety :</p>
+                            <hr class="product-info-hr">
+                            <p class="product-info-div-desc">{{productViewItemData.ProductInfo.Variety}}</p>
+                        </div>
+                        <div *ngIf="productViewItemData.ProductInfo.NumberOfMangoes" class="product-info-div">
+                            <p class="product-info-div-title">Number :</p>
+                            <hr class="product-info-hr">
+                            <p class="product-info-div-desc">{{productViewItemData.ProductInfo.NumberOfMangoes}}</p>
+                        </div>
+                        <div *ngIf="productViewItemData.ProductInfo.Weight" class="product-info-div">
+                            <p class="product-info-div-title">Weight :</p>
+                            <hr class="product-info-hr">
+                            <p class="product-info-div-desc">{{productViewItemData.ProductInfo.Weight}} KG</p>
+                        </div>
+                        <div *ngIf="productViewItemData.ProductInfo.RipenessLevel" class="product-info-div">
+                            <p class="product-info-div-title">Ripeness Level :</p>
+                            <hr class="product-info-hr">
+                            <p class="product-info-div-desc">{{productViewItemData.ProductInfo.RipenessLevel}}</p>
+                        </div>
+                        <div *ngIf="productViewItemData.ProductInfo.StorageInstructions" class="product-info-div">
+                            <p class="product-info-div-title">Storage Instructions :</p>
+                            <hr class="product-info-hr">
+                            <p class="product-info-div-desc">{{productViewItemData.ProductInfo.StorageInstructions}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="product-div roboto-regular">
+            <div *ngIf="productViewItemData.NutritionFacts" [class.border-bottom]="!(productViewItemData.ProductReviewData)" class="product-div roboto-regular">
                 <div (click)="showMoreOfDiv('Nutrition Facts')" class="product-div-top">
                     <p class="product-div-top-title">Nutrition Facts</p>
                     <div class="arrow" [class.rotate]="info.Nutrition_Facts">
@@ -116,10 +142,21 @@
                     </div>
                 </div>
                 <div *ngIf="info.Nutrition_Facts" class="product-div-bottom">
-                    
+                    <div class="nutrition-facts">
+                        <div *ngIf="productViewItemData.NutritionFacts.length == 1" class="nutrition-facts-single">
+                            <p>{{productViewItemData.NutritionFacts}}</p>
+                        </div>
+                        <div *ngIf="productViewItemData.NutritionFacts.length != 1" class="nutrition-facts-multiple">
+                            <ul  class="nutrition-list">
+                                <li *ngFor="let fact of productViewItemData.NutritionFacts">
+                                    <p>{{fact}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="product-div roboto-regular" style="border-bottom: 1px solid #e3e5e6;">
+            <div *ngIf="productViewItemData.ProductReviewData" class="product-div border-bottom roboto-regular">
                 <div (click)="showMoreOfDiv('Product Review')" class="product-div-top">
                     <p class="product-div-top-title">Product Reviews</p>
                     <div class="arrow" [class.rotate]="info.Product_Review">
@@ -128,19 +165,19 @@
                 </div>
                 <div *ngIf="info.Product_Review" class="product-div-bottom">
                     <div class="product-review-list">
-                        <div class="product-review" *ngFor="let review of options">
+                        <div class="product-review" *ngFor="let review of productViewItemData.ProductReviewData || []">
                             <div style="display: flex;align-items: center;">
                                 <!-- <span style="margin-right: 5px;user-select: none;" class="material-symbols-outlined">account_circle</span> -->
-                                <h5>{{reviews.ReviewerName}}</h5>
+                                <h5>{{review.ReviewerName}}</h5>
                             </div>
                             <div class="reviews-stars">
-                                <p class="star" *ngFor="let item of reviews.Rating==1? ['star']: reviews.Rating==2? ['star','star']: reviews.Rating==3? ['star','star','star']: reviews.Rating==4? ['star','star','star','star']: reviews.Rating==5? ['star','star','star','star','star']: null">
+                                <p class="star" *ngFor="let item of review.Rating==1? ['star']: review.Rating==2? ['star','star']: review.Rating==3? ['star','star','star']: review.Rating==4? ['star','star','star','star']: review.Rating==5? ['star','star','star','star','star']: null">
                                     &#9733;
                                 </p>
-                                <h6 class="single-line">{{reviews.Title}}</h6>
+                                <h6 class="single-line">{{review.Title}}</h6>
                             </div>
-                            <p style="font-size: 12px" class="product-review-date">Reviewed on {{reviews.Date | date: 'fullDate' }}</p>
-                            <p style="font-size: 14px" class="product-review-content multi-line-5">{{reviews.Review}}</p>
+                            <p style="font-size: 12px" class="product-review-date">Reviewed on {{review.Date | date: 'fullDate' }}</p>
+                            <p style="font-size: 14px" class="product-review-content multi-line-5">{{review.Review}}</p>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { ProductViewItemData } from '../../Models/ProductViewItemData';
+import { ProductInfo, ProductReviewData, ProductViewItemData, RipenessLevel } from '../../Models/ProductViewItemData';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { CustomerData } from '../../Models/CustomerData';
@@ -7,7 +7,6 @@ import { AddressDesc } from '../../Models/CustomerProfileData';
 import { FormsModule } from '@angular/forms';
 import { NavBarData } from '../../components/nav-bar/navBarData';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
-import { ProductReviewData } from '../../Models/ProductReviewData';
 import { Router } from '@angular/router';
 import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 
@@ -23,9 +22,8 @@ export class ProductViewComponent {
   test = true;
   info:any = [{Product_Info:false},{Product_Review:false},{Nutrition_Facts:false}];
 
+  productViewItemData:ProductViewItemData = new ProductViewItemData();
   popPage:boolean = false;
-  data:ProductViewItemData = new ProductViewItemData();
-  reviews:ProductReviewData = new ProductReviewData();
   customerData:CustomerData = new CustomerData();
   addressesList:AddressDesc[] =[];
 
@@ -78,6 +76,20 @@ export class ProductViewComponent {
     // this.data.OldPrice=null;
     // this.data.Availability = false;
     // this.data.Stars = 5;
+
+
+    this.productViewItemData.ProductInfo = new ProductInfo();
+    this.productViewItemData.ProductInfo.NumberOfMangoes = 100;
+    this.productViewItemData.ProductInfo.RipenessLevel = RipenessLevel.Ripe;
+    this.productViewItemData.ProductInfo.StorageInstructions = "Nothing for now, store anywhere";
+    this.productViewItemData.ProductInfo.Variety = "Abhiram's Variety";
+    this.productViewItemData.ProductInfo.Weight = 100;
+    // this.productViewItemData.NutritionFacts = ['Nothing for now, store anywhere Nothing for now, store anywhere Nothing for now, store anywhere'];
+    // this.productViewItemData.NutritionFacts = ['Nothingfornow,storeanywhereNothingfornow,storeanywhereNothingfornow,storeanywhereNothingfornow,storeanywhere'];
+    this.productViewItemData.NutritionFacts = ['Nothing for now, store anywhereNothing for now, store anywhere Nothing for now, store anywhere','Nothing for now, store anywhere Nothing for now, store anywhere Nothing for now, store anywhere','Nothing for now, store anywhere Nothing for now, store anywhere Nothing for now, store anywhere'];
+    // this.productViewItemData.NutritionFacts = ['Nothingfornow,storeanywhereNothingfornow,storeanywhereNothingfornow,storeanywhere','Nothingfornow,storeanywhereNothingfornow,storeanywhereNothingfornow,storeanywhere','Nothingfornow,storeanywhereNothingfornow,storeanywhereNothingfornow,storeanywhere'];
+
+    this.productViewItemData.ProductReviewData = [new ProductReviewData()];
   }
 
   BuyNow(){
@@ -125,9 +137,9 @@ export class ProductViewComponent {
     this.router.navigate(['/'+to]);
   }
   Search(word:string){
-    this.data.DealTitle=null;
-    this.data.Discount=null;
-    this.data.SalePrice=null; 
+    this.productViewItemData.DealTitle=null;
+    this.productViewItemData.Discount=null;
+    this.productViewItemData.SalePrice=null; 
     alert("search: "+ word);
   }
 }

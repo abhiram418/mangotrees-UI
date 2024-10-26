@@ -418,6 +418,9 @@ option:disabled {
     margin-inline: 10px;
     border-top: 1px solid #e3e5e6;
 }
+.border-bottom{
+    border-bottom: 1px solid #e3e5e6;
+}
 .product-div-top{
     width: calc(100% - 20px);
     padding: 17px;
@@ -431,10 +434,56 @@ option:disabled {
     font-size: 18px;
     font-weight: 400;
 }
+.product-div-bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.product-div-info-div{
+    width: calc(100% - 20px);
+    padding: 10px;
+    padding-inline: 0px;
+    margin-inline: 10px;
+}
+.product-info-div{
+    width: 100%;
+    margin-bottom: 5px;
+    display: flex;
+}
+.product-info-div-title{
+    flex: 1;
+    max-width: calc(50% - 20px);
+    padding: 10px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #f3f3f385;
+}
+.product-info-hr{
+    margin: 0px;
+    border-color: #f3f3f34a;
+}
+.product-info-div-desc{
+    flex: 1;
+    max-width: calc(50% - 20px);
+    text-align: right;
+    padding: 10px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 300;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    hyphens: auto;
+    background-color: #ececec85;
+}
+
 .arrow{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
 }
 .arrow img{
     max-width: 18px;
@@ -446,14 +495,46 @@ option:disabled {
     transform: rotate(180deg);
 }
 
+.nutrition-facts{
+    height: fit-content;
+    width: calc(100% - 20px);
+    margin: 10px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f385;
+}
+.nutrition-facts p{
+    margin: 0px;
+    font-size: 14px;
+    font-weight: 300;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    hyphens: auto;
+}
+.nutrition-facts-single{
+    padding: 17px;
+}
+.nutrition-facts-multiple{
+    padding: 17px;
+    padding-left: 0px;  
+}
+.nutrition-list{
+    margin: 0px;
+}
+.nutrition-facts-multiple p{
+    margin-bottom: 5px;
+}
 
 
 .product-review-list{
     height: fit-content;
     max-height: 924px;
-    width: 100%;
+    width: calc(100% - 20px);
     padding-top: 16px;
     padding-bottom: 6px;
+    margin: 10px;
     margin-top: 5px;
     display: flex;
     flex-wrap: wrap;

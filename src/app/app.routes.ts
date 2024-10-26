@@ -1,9 +1,7 @@
 import { Routes } from '@angular/router';
 import { ComingSoonPageComponent } from './coming-soon-page/coming-soon-page.component';
-import { DiceComponent } from './personal/dice/dice.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TestComponent } from './test/test.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { GridViewItemComponent } from './components/grid-view-item/grid-view-item.component';
 import { SliderComponent } from './components/slider/slider.component';
@@ -46,7 +44,7 @@ export const routes: Routes = [
     {path:'password', component:ForgotPasswordPageComponent},
     {path:'otp', component:OTPPageComponent},
     {path:'coupon', component:CouponCodePageComponent},
-    {path:'information', component:InformationPageComponent},
+    {path:'information', loadComponent: () => import('./Customer/information-page/information-page.component').then(m => m.InformationPageComponent)},
 
     {path:'profile', component:CustomerProfileComponent},
     {path:'details', component:CustomerPersonalDetailsComponent},
@@ -65,8 +63,5 @@ export const routes: Routes = [
     {path:'pop-page', component:PopPageComponent},
 
     
-    {path:'dice', component:DiceComponent},
-    
-    
-    {path:'test',component:TestComponent},
+    {path:'dice', loadComponent: () => import('./personal/dice/dice.component').then(m => m.DiceComponent) },
 ];
