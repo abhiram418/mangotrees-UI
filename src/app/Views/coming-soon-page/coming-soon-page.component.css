@@ -1,0 +1,79 @@
+.small-page{
+    display: none;
+    padding: 25%;
+    text-align: center;
+    font-size: small;
+}
+.page{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-image: url('../../../assets/Pictures/CommingSoon.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ComingSoonPage{
+    height: 50%;
+    width: 55%;
+    text-align: center;
+}
+.blur{
+    background-color: rgba(240, 248, 255, 0.858);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ComingSoonPage h5{
+    font-size: 75%;
+    margin-top: 1px;
+    margin-inline: 3px;
+}
+.ComingSoonPage h1{
+    font-size: 200%;
+    margin-bottom: 8px;
+    margin-inline: 3px;
+}
+.blur:hover .roboto-bold{
+    color:goldenrod;
+    transition: color 1s;
+}
+.blur:not(:focus) .roboto-bold{
+    transition: color 2s;
+}
+
+
+
+@media (max-width: 500px) {
+    .ComingSoonPage{
+        height: 25%;
+        width: 75%;
+    }
+    .blur{
+        height: 100%;
+        width: 100%;
+    }
+    .ComingSoonPage h1{
+        font-size: 100%;
+        margin-bottom: 8px;
+    }
+    .ComingSoonPage h5{
+        font-size: xx-small;
+    }
+}
+
+@media (max-width: 260px){
+    .small-page{
+        display: flex;
+    }
+    .page{
+        display: none;
+    }
+}
