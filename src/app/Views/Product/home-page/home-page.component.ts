@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { NavBarData } from '../../../Models/navBarData';
+import { NavBarData } from '@models/navBarData';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { GridViewItemComponent } from '../../components/grid-view-item/grid-view-item.component';
 import { SliderComponent } from '../../components/slider/slider.component';
 import { NgFor, NgIf } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { ProductViewItemData } from '../../../Models/ProductViewItemData';
-import { HomePageDataService } from '../../../Services/Product/home-page-data.service';
+import { ProductViewItemData } from '@models/ProductViewItemData';
+import { HomePageDataService } from '@services/Product/home-page-data.service';
 
 
 @Component({

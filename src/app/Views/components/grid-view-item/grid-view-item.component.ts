@@ -1,6 +1,6 @@
 import { NgClass, NgFor, NgForOf, NgIf } from '@angular/common';
 import { Component,EventEmitter, Input, Output } from '@angular/core';
-import { ProductViewItemData } from '../../../Models/ProductViewItemData';
+import { ProductViewItemData } from '@models/ProductViewItemData';
 
 
 @Component({

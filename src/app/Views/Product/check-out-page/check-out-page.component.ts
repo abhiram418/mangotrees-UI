@@ -5,8 +5,8 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 import { Router } from '@angular/router';
-import { ProductViewItemData } from '../../../Models/ProductViewItemData';
-import { AddressDesc } from '../../../Models/CustomerProfileData';
+import { ProductViewItemData } from '@models/ProductViewItemData';
+import { AddressDesc } from '@models/CustomerProfileData';
 
 @Component({
   selector: 'app-check-out-page',

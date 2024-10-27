@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
-import { NavBarData } from '../../../Models/navBarData';
+import { NavBarData } from '@models/navBarData';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { Router } from '@angular/router';
 import { PopPageComponent } from "../../components/pop-page/pop-page.component";
-import { CustomerData } from '../../../Models/CustomerData';
-import { AddressDesc } from '../../../Models/CustomerProfileData';
-import { ProductInfo, ProductReviewData, ProductViewItemData, RipenessLevel } from '../../../Models/ProductViewItemData';
+import { CustomerData } from '@models/CustomerData';
+import { AddressDesc } from '@models/CustomerProfileData';
+import { ProductInfo, ProductReviewData, ProductViewItemData, RipenessLevel } from '@models/ProductViewItemData';
 
 @Component({
     selector: 'app-product-view',

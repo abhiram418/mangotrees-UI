@@ -1,12 +1,12 @@
 import { Component, HostListener } from '@angular/core';
 import { GridViewItemComponent } from "../../components/grid-view-item/grid-view-item.component";
-import { NavBarData } from '../../../Models/navBarData';
+import { NavBarData } from '@models/navBarData';
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { FooterComponent } from "../../components/footer/footer.component";
-import { ProductViewItemData } from '../../../Models/ProductViewItemData';
-import { HomePageDataService } from '../../../Services/Product/home-page-data.service';
+import { ProductViewItemData } from '@models/ProductViewItemData';
+import { HomePageDataService } from '@services/Product/home-page-data.service';
 
 @Component({
   selector: 'app-collections-page',

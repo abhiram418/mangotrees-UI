@@ -4,7 +4,7 @@ import { NgIf } from '@angular/common';
 import { OTPPageComponent } from "../../Customer/otp-page/otp-page.component";
 import { CouponCodePageComponent } from "../../Product/coupon-code-page/coupon-code-page.component";
 import { AddressSelectComponent } from "../../Customer/address-select/address-select.component";
-import { AddressDesc } from '../../../Models/CustomerProfileData';
+import { AddressDesc } from '@models/CustomerProfileData';
 
 @Component({
   selector: 'app-pop-page',

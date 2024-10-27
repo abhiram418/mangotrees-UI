@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NavBarData } from '../../../Models/navBarData';
+import { NavBarData } from '@models/navBarData';
 import { Router, RouterLink } from '@angular/router';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 import { NgFor, NgIf } from '@angular/common';
 import { LoaderComponent } from "../../components/loader/loader.component";
-import { AddressDesc } from '../../../Models/CustomerProfileData';
+import { AddressDesc } from '@models/CustomerProfileData';
 
 @Component({
   selector: 'app-customer-address',

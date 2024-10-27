@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NavBarData } from '../../../Models/navBarData';
+import { NavBarData } from '@models/navBarData';
 
 
 @Component({

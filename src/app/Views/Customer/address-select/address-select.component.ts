@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import { AddressDesc } from '../../../Models/CustomerProfileData';
+import { AddressDesc } from '@models/CustomerProfileData';
 
 @Component({
   selector: 'app-address-select',

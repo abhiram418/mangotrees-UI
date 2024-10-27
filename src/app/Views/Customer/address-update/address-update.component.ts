@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AddressDesc } from '../../../Models/CustomerProfileData';
+import { AddressDesc } from '@models/CustomerProfileData';
 
 @Component({
   selector: 'app-address-update',

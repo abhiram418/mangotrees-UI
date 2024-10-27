@@ -3,7 +3,7 @@ import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DeliveryType, PackagingType, PopUpData } from '../../../Models/PopUpData';
+import { DeliveryType, PackagingType, PopUpData } from '@models/PopUpData';
 
 @Component({
   selector: 'app-review-delivery-page',

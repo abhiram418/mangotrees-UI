@@ -2,9 +2,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
-import { NavBarData } from '../../../Models/navBarData';
+import { NavBarData } from '@models/navBarData';
 import { FooterComponent } from "../../components/footer/footer.component";
-import { OrderDesc, OrderItem, OrderStatus } from '../../../Models/OrderData';
+import { OrderDesc, OrderItem, OrderStatus } from '@models/OrderData';
 
 @Component({
   selector: 'app-order-page',

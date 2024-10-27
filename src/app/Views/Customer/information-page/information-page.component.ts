@@ -3,8 +3,8 @@ import { NgFor } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { FooterComponent } from "../../components/footer/footer.component";
-import { NavBarData } from '../../../Models/navBarData';
-import { InformationData, InformationPageData } from '../../../Models/InformationPageData';
+import { NavBarData } from '@models/navBarData';
+import { InformationData, InformationPageData } from '@models/InformationPageData';
 
 @Component({
   selector: 'app-information-page',
