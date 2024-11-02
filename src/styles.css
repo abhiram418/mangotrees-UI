@@ -1,9 +1,6 @@
 * {
   -webkit-tap-highlight-color: transparent;
 }
-html, body {
-  scrollbar-width: none;
-}
 
 .roboto-thin {
   font-family: "Roboto", sans-serif;

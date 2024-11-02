@@ -13,10 +13,13 @@
     font-weight: 390;
 }
 
-
+.home-page-context{
+    max-width: 1300px;
+    margin: auto;
+}
 
 .main-image-view{
-    height: calc(100% - 70px);
+    height: calc(100vh - 70px);
     width: 100%;
     margin-top: 65px;
     margin-bottom: 3px;
@@ -88,7 +91,7 @@
 
 @media (max-width: 874px){
     .main-image-view{
-        height: calc(100% - 130px);
+        height: calc(100vh - 130px);
         margin-top: 121px;
     }
 
@@ -125,5 +128,6 @@
 @media (max-width: 418px){
     .main-image-view{
         height: 75%;
+        height: 75vh;
     }
 }

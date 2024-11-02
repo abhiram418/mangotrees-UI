@@ -9,13 +9,14 @@ import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 import { CustomerData } from '@models/CustomerData';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { ProductInfo, ProductReviewData, ProductViewItemData, RipenessLevel } from '@models/ProductViewItemData';
+import { SliderComponent } from "../../components/slider/slider.component";
 
 @Component({
     selector: 'app-product-view',
     standalone: true,
     templateUrl: './product-view.component.html',
     styleUrl: './product-view.component.css',
-    imports: [NgFor, NgIf, DatePipe, FormsModule, FooterComponent, NavBarComponent, PopPageComponent]
+    imports: [NgFor, NgIf, DatePipe, FormsModule, FooterComponent, NavBarComponent, PopPageComponent, SliderComponent]
 })
 export class ProductViewComponent {
   navBarData = new NavBarData();
