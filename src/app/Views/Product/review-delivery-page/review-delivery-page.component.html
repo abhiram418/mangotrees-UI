@@ -72,7 +72,7 @@
             </div>
         </div>
     </form>
-    <div class="proceed-forward-button" (click)="proceedButtonClicked()">
+    <div class="proceed-forward-button" [class.proceed-forward-button-disabled]="!this.ReviewForm.valid" (click)="proceedButtonClicked()">
         <p style="margin: 0px;">Proceed Forward</p>
     </div>
 

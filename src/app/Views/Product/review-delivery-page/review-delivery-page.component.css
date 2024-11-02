@@ -166,15 +166,17 @@ input:checked::before{
     transition: box-shadow 0.3s ease; 
     background-color: #f0f2f2;
 }
+.proceed-forward-button-disabled{
+    background-color: #f7f7f7;
+}
 .proceed-forward-button:hover{
     background-color: #edf0f0;
 }
 .proceed-forward-button:active{
     transform: scale(0.99);
     transition: box-shadow 0.3s ease; 
+    background-color: #e7eaea;
 }
-
-
 
 
 .review-delivery-info{
