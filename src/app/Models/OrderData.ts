@@ -12,7 +12,7 @@ export class OrderDesc {
     TotalAmount: number = 0;
     PaymentMethod: string = '';
     OrderStatus: OrderStatus = OrderStatus.Paid;
-    DeliveryDate?: Date | null;
+    DeliveryMethod!: String;
     TrackingNumber?: string;  // Optional, tracking number for shipment
     Notes?: string;  // Optional, additional order notes
     IsGift?: boolean = false;  // Whether the order is a gift

@@ -10,6 +10,17 @@ export class CustomerData{
     Occupation:string | null = null;
 }
 
+export class LoginRequestModel{
+    UserName!:string;
+    Password!:string;
+}
+
+export class ResetPasswordModel{
+    PhoneNumber!:number;
+    Password!:string;
+    OTP!:string;
+}
+
 // export class AddressDesc{
 //     AddressTitle?:string='Default';
 //     Address:string | null = null;

@@ -23,5 +23,5 @@ export class AddressDesc{
     State:string='';
     IsEditable:boolean = true;
     IsDeleteable:boolean = true;
-    isPrimary:boolean = false;
+    IsPrimary:boolean = false;
 }

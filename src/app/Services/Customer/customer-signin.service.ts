@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CustomerProfileData } from '../Models/CustomerProfileData';
+import { LoginRequestModel, ResetPasswordModel } from '@models/CustomerData';
+import { CustomerProfileData } from '@models/CustomerProfileData';
+import { ApiRequestsService } from '@services/api-requests.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,25 +10,41 @@ export class CustomerSigninService {
   CustomerData:CustomerProfileData = null!;
   OTP:number = null!;
 
-  constructor() { }
+  constructor(private apiRequests: ApiRequestsService) { }
 
   UserNameAvailability(UserName:string){
-    //check is the username is available
-    return(true);
+    const endpoint = `/Authentication/UserName?userName=${encodeURIComponent(UserName)}`;
+    return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 
-  PhoneNumberAvailability(phoneNumber:number){
-    // post Customer Number and get the otp
-    this.OTP = 123456; // assine the otp
-    return(this.OTP);
+  UserLogin(UserLoginData: LoginRequestModel){
+    const endpoint = 'Authentication/Login';
+    return this.apiRequests.sendRequest(endpoint, 'POST', UserLoginData);
   }
 
-  GetOTP(){
-    return(this.OTP);
+  RequestOTP(phoneNumber:number){
+    const endpoint = `/Authentication/Request/OTP?phoneNumber=${encodeURIComponent(phoneNumber)}`;
+    return this.apiRequests.sendRequest(endpoint, 'POST');
   }
 
+  SignupCustomer(customerData: any, OTP:string){
+    const endpoint = `/Authentication/Signup?otp=${encodeURIComponent(OTP)}`;
+    return this.apiRequests.sendRequest(endpoint, 'POST', customerData);
+  }
+
+  ResetCustomerPasswordRequest(phoneNumber:number){
+    const endpoint = `/Authentication/Password/Request/OTP?phoneNumber=${encodeURIComponent(phoneNumber)}`;
+    return this.apiRequests.sendRequest(endpoint, 'POST');
+  }
+
+  ResetCustomerPassword(resetPasswordModel:ResetPasswordModel){
+    const endpoint = '/Authentication/Password';
+    return this.apiRequests.sendRequest(endpoint, 'POST', resetPasswordModel);
+  }
+///////////////////////
   GetUserData(){
-    return(this.CustomerData);
+    const endpoint = '/Customer';
+    return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 
   StoreUserData(Data:any){

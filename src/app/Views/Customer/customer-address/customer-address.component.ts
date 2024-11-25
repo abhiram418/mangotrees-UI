@@ -54,9 +54,9 @@ export class CustomerAddressComponent {
     this.editButtonClickedBy = index;
   }
   deleteButtonClicked(index:number){
-    if(this.addressesList[index].isPrimary && this.addressesList.length>1){
+    if(this.addressesList[index].IsPrimary && this.addressesList.length>1){
       this.addressesList.splice(index, 1);
-      this.addressesList[0].isPrimary = true;
+      this.addressesList[0].IsPrimary = true;
     }
     else{
       this.addressesList.splice(index, 1);
@@ -64,7 +64,7 @@ export class CustomerAddressComponent {
   }
   setPrimaryButtonClicked(index:number){
     this.addressesList.forEach((address, i) => {
-      address.isPrimary = i === index;
+      address.IsPrimary = i === index;
     });
   }
 
@@ -80,7 +80,7 @@ export class CustomerAddressComponent {
     if(this.editButtonClickedBy == -1){
       var add = new AddressDesc();
       add = data;
-      add.isPrimary = false;
+      add.IsPrimary = false;
       add.IsEditable = true;
       add.IsDeleteable = true;
       this.addressesList.push(add);

@@ -52,7 +52,7 @@ export class ProductViewComponent {
     tempAddress1.Address = "House no :- 7/263/1 banginapalli thota";
     tempAddress1.City = "NUZVID";
     tempAddress1.State = "ANDHRA PRADESH";
-    tempAddress1.isPrimary = true;
+    tempAddress1.IsPrimary = true;
     this.addressesList.push(tempAddress1);
     var tempAddress2 = new AddressDesc();
     tempAddress2.AddressTitle = "Abhiram1";

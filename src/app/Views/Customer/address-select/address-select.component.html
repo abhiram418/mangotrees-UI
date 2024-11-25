@@ -4,7 +4,7 @@
         <div *ngFor="let address of addressesList; let i = index" (click)="SelectedAddress(i)" class="address blur">
             <p class="customer-address rubik">
                 <a style="font-weight: 600;">{{addressesList[i].AddressTitle}}</a>
-                <a class="address-status rubik" *ngIf="address.isPrimary">
+                <a class="address-status rubik" *ngIf="address.IsPrimary">
                     Default
                 </a>
                 <br>

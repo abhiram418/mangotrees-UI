@@ -27,8 +27,8 @@
                     </div><div class="delete-button blur" (click)="deleteButtonClicked(i)" [class.disabled]="!addressesList[i].IsDeleteable">
                         <p>Delete</p>
                     </div>
-                    <div [class.disabled_2]="addressesList[i].isPrimary">
-                        <div class="set-button blur" [class.disabled]="addressesList[i].isPrimary" (click)="setPrimaryButtonClicked(i)">
+                    <div [class.disabled_2]="addressesList[i].IsPrimary">
+                        <div class="set-button blur" [class.disabled]="addressesList[i].IsPrimary" (click)="setPrimaryButtonClicked(i)">
                             <p>Set as Primary</p>
                         </div>
                     </div>

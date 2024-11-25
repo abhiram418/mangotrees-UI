@@ -21,13 +21,13 @@ export class AuthenticationService {
   private handleRequest(requestData: { endpoint: string; method: string; body?: any; headers?: any }): Observable<any> {
     switch (requestData.method.toUpperCase()) {
       case 'GET':
-        return this.apiService.get(requestData.endpoint);
+        return this.apiService.get(requestData.endpoint, requestData.headers);
       case 'POST':
-        return this.apiService.post(requestData.endpoint, requestData.body);
+        return this.apiService.post(requestData.endpoint, requestData.body, requestData.headers);
       case 'PUT':
-        return this.apiService.put(requestData.endpoint, requestData.body);
+        return this.apiService.put(requestData.endpoint, requestData.body, requestData.headers);
       case 'DELETE':
-        return this.apiService.delete(requestData.endpoint);
+        return this.apiService.delete(requestData.endpoint, requestData.headers);
       default:
         throw new Error('Unsupported request method');
     }

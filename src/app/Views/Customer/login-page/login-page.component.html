@@ -15,19 +15,19 @@
                     <h1 class="logo">
                         <img src="../../../assets/Pictures/MangoTrees-logo.png">
                     </h1>
-                    <form style="width: 80%;">
+                    <form [formGroup]="loginForm" (ngSubmit)="SubmitLoginData()" style="width: 80%;">
                         <div class="login-text">
                             <label class="login-text-input_label" for="Username">
-                                Email/ Phone-number
+                                Phone-number
                                 <span>or Username</span> 
                             </label>
-                            <input class="login-text-input" id="Username" type="text">
+                            <input class="login-text-input" [class.red]="loginForm.get('UserName')?.invalid && loginForm.get('UserName')?.touched" formControlName="UserName" id="Username" type="text">
                         </div>
                         <div class="login-text">
                             <label class="login-text-input_label" for="Password">
                                 <span>Password</span> 
                             </label>
-                            <input class="login-text-input" id="Password" type="password">
+                            <input class="login-text-input" formControlName="Password" id="Password" type="password">
                         </div>
                         <button class="login-button rubik" type="submit"><p>Sign in</p></button>
                     </form>
@@ -50,4 +50,8 @@
         </div>
     </div>
 
+</div>
+
+<div *ngIf="loader">
+    <app-loader></app-loader>
 </div>
