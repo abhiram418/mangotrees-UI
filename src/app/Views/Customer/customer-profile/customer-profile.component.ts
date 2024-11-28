@@ -3,6 +3,7 @@ import { FooterComponent } from "../../components/footer/footer.component";
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { NavBarData } from '@models/navBarData';
 import { Router } from '@angular/router';
+import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
 
 @Component({
   selector: 'app-customer-profile',
@@ -14,7 +15,12 @@ import { Router } from '@angular/router';
 export class CustomerProfileComponent {
   navBarData:NavBarData= new NavBarData();
 
-  constructor(private router: Router){}
+  constructor(private customerAuthenticationService: CustomerAuthenticationService, private router: Router){}
+
+  LogOutOfMangoTrees(){
+    this.customerAuthenticationService.ClearToken();
+    this.RedirectTo("login");
+  }
 
   RedirectTo(to:string){
     alert("to: "+to);

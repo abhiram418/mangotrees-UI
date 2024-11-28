@@ -1,31 +1,37 @@
 <div class="signup-page">
 
     <div class="signup-page-context roboto-regular">
-        <div class="signup-context">
+        <form [formGroup]="signupForm" (ngSubmit)="SubmitSignupFormOTP()" class="signup-context">
             <div class="signup-fields rubik">
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="FirstName">
                         <span>First Name</span> 
                     </label>
-                    <input class="signup-text-input" id="FirstName" type="text">
+                    <input class="signup-text-input" [class.red]="signupForm.get('FirstName')?.invalid && signupForm.get('FirstName')?.touched" formControlName="FirstName" id="FirstName" type="text">
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="LastName">
                         <span>Last Name</span> 
                     </label>
-                    <input class="signup-text-input" id="LastName" type="text">
+                    <input class="signup-text-input" [class.red]="signupForm.get('LastName')?.invalid && signupForm.get('LastName')?.touched" formControlName="LastName" id="LastName" type="text">
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="Occupation">
                         <span>Occupation</span> 
                     </label>
-                    <input class="signup-text-input" id="Occupation" type="password">
+                    <input class="signup-text-input" [class.red]="signupForm.get('Occupation')?.invalid && signupForm.get('Occupation')?.touched" formControlName="Occupation" id="Occupation" type="text">
                 </div>
+                <div class="signup-text">
+                    <label class="signup-text-input_label" for="DateOfBirth">
+                        <span>Date of Birth</span> 
+                    </label>
+                    <input class="signup-text-input" [class.red]="signupForm.get('DateOfBirth')?.invalid && signupForm.get('DateOfBirth')?.touched" formControlName="DateOfBirth" id="DateOfBirth" type="date" style="text-align: center;">
+                </div>                
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="Gender">
                         <span>Gender</span> 
                     </label>
-                    <select class="signup-text-select rubik" id="Gender">
+                    <select class="signup-text-select rubik" [class.red]="signupForm.get('Gender')?.invalid && signupForm.get('Gender')?.touched" formControlName="Gender" id="Gender">
                         <option value="">Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -35,57 +41,60 @@
                     <label class="signup-text-input_label" for="PhoneNumber">
                         <span>Phone Number</span> 
                     </label>
-                    <input class="signup-text-input" id="PhoneNumber" type="text">
+                    <input class="signup-text-input" [class.red]="signupForm.get('PhoneNumber')?.invalid && signupForm.get('PhoneNumber')?.touched" formControlName="PhoneNumber" maxlength="10" id="PhoneNumber" type="text">
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="Email">
                         <span>Email (Optional)</span> 
                     </label>
-                    <input class="signup-text-input" id="Email" type="text">
+                    <input class="signup-text-input" [class.red]="signupForm.get('Email')?.invalid && signupForm.get('Email')?.touched" formControlName="Email" id="Email" type="text">
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="UserName">
                         <span>User Name</span> 
                     </label>
-                    <input class="signup-text-input" id="UserName" type="text">
+                    <input class="signup-text-input" [class.red]="signupForm.get('UserName')?.invalid && signupForm.get('UserName')?.touched" formControlName="UserName" id="UserName" type="text">
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="Password">
                         <span>Password</span> 
                     </label>
-                    <input class="signup-text-input" id="Password" type="password">
+                    <input class="signup-text-input" [class.red]="signupForm.get('Password')?.invalid && signupForm.get('Password')?.touched" formControlName="Password" id="Password" type="password">
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="Address">
                         <span>Address</span> 
                     </label>
-                    <textarea class="signup-textarea-input" id="Address"></textarea>
+                    <textarea class="signup-textarea-input" [class.red]="signupForm.get('Address')?.invalid && signupForm.get('Address')?.touched" formControlName="Address" id="Address"></textarea>
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="Pincode">
                         <span>Pincode</span> 
                     </label>
-                    <input class="signup-text-input" id="Pincode" type="text">
+                    <input class="signup-text-input" [class.red]="signupForm.get('Pincode')?.invalid && signupForm.get('Pincode')?.touched" formControlName="Pincode" maxlength="6" id="Pincode" type="text">
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="City">
                         <span>City</span> 
                     </label>
-                    <input class="signup-text-input" id="City" type="text">
+                    <input class="signup-text-input" [class.red]="signupForm.get('City')?.invalid && signupForm.get('City')?.touched" formControlName="City" id="City" type="text">
                 </div>
                 <div class="signup-text">
                     <label class="signup-text-input_label" for="State">
                         <span>State</span> 
                     </label>
-                    <input class="signup-text-input" id="State" type="text">
+                    <input class="signup-text-input" [class.red]="signupForm.get('State')?.invalid && signupForm.get('State')?.touched" formControlName="State" id="State" type="text">
                 </div>
             </div>
-            <button (click)="signup()" class="signup-button rubik" type="submit"><p>Sign up</p></button>
-        </div>
+            <button class="signup-button rubik" type="submit"><p>Sign up</p></button>
+        </form>
     </div>
 
 </div>
 
+<div *ngIf="loader">
+    <app-loader></app-loader>
+</div>
 <div *ngIf="popPage">
     <app-pop-page [pageToDisplay]="'otp'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
 </div>

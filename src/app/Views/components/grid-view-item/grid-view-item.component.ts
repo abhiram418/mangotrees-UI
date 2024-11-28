@@ -1,25 +1,23 @@
 import { NgClass, NgFor, NgForOf, NgIf } from '@angular/common';
 import { Component,EventEmitter, Input, Output } from '@angular/core';
+import { ProductApiData, ProductItemApiData } from '@models/ApiModels/ProductData';
 import { ProductViewItemData } from '@models/ProductViewItemData';
 
 
 @Component({
   selector: 'app-grid-view-item',
   standalone: true,
-  imports: [NgForOf, NgClass, NgIf],
+  imports: [NgForOf, NgIf],
   templateUrl: './grid-view-item.component.html',
   styleUrl: './grid-view-item.component.css'
 })
 export class GridViewItemComponent {
 
-  @Input() product: ProductViewItemData = new ProductViewItemData();  
+  @Input() product: ProductItemApiData = new ProductItemApiData();  
   @Output() AddtoCart = new EventEmitter<any>();
   @Output() ViewProduct = new EventEmitter<string>();
 
-  constructor(){
-    this.product.Title = "Mangoes Banginapalli ";
-    this.product.Desc = "These are the Mangoes Banginapalli with very good taste and exelent quality These are the Mangoes Banginapalli with very good taste and quality";
-  }
+  constructor(){}
 
   AddtoCartClicked(IteamId:any, event: Event){
     event.stopPropagation();

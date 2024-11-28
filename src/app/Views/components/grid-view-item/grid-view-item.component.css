@@ -65,11 +65,12 @@
     margin: auto;
 }
 .title{
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
 }
 .desc{
-    font-size: 16px;
+    margin-top: 5px;
+    font-size: 15px;
     text-align: center;
 }
 
@@ -191,10 +192,10 @@
         width: 195px;
     }
     .title{
-        font-size: 15px;
+        font-size: 17px;
     }
     .desc{
-        font-size: 15px;
+        font-size: 14.5px;
     }
 
 
@@ -240,10 +241,10 @@
         width: 180px;
     }
     .title{
-        font-size: 14.5px;
+        font-size: 16.5px;
     }
     .desc{
-        font-size: 14.5px;
+        font-size: 14px;
     }
 
 
@@ -289,10 +290,10 @@
         width: 170px;
     }
     .title{
-        font-size: 14px;
+        font-size: 16px;
     }
     .desc{
-        font-size: 14px;
+        font-size: 13.5px;
     }
 
 
@@ -343,10 +344,10 @@
         width: 160px;
     }
     .title{
-        font-size: 13.5px;
+        font-size: 15.5px;
     }
     .desc{
-        font-size: 13.5px;
+        font-size: 13px;
     }
 
 
@@ -395,10 +396,10 @@
         width: 145px;
     }
     .title{
-        font-size: 13px;
+        font-size: 15px;
     }
     .desc{
-        font-size: 13px;
+        font-size: 12.5px;
     }
 
 
@@ -447,10 +448,10 @@
         width: 135px;
     }
     .title{
-        font-size: 12.5px;
+        font-size: 14.5px;
     }
     .desc{
-        font-size: 12.5px;
+        font-size: 12px;
     }
 
 
@@ -497,10 +498,10 @@
         width: 125px;
     }
     .title{
-        font-size: 12px;
+        font-size: 14px;
     }
     .desc{
-        font-size: 12px;
+        font-size: 11.5px;
     }
 
 
@@ -549,10 +550,10 @@
         width: 110px;
     }
     .title{
-        font-size: 11.5px;
+        font-size: 13.5px;
     }
     .desc{
-        font-size: 11.5px;
+        font-size: 11px;
     }
 
 

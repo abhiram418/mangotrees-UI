@@ -19,7 +19,7 @@ import { HomePageDataService } from '@services/Product/home-page-data.service';
 })
 export class HomePageComponent {
   navBarData = new NavBarData();
-  PinchData:ProductViewItemData[]= null!;
+  PinchData:any[]= null!;
 
   constructor(private router: Router, private homePageDataService:HomePageDataService){
     this.PinchData = homePageDataService.GetNewPinchData();

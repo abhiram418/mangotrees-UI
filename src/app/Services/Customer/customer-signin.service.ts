@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { LoginRequestModel, ResetPasswordModel } from '@models/CustomerData';
-import { CustomerProfileData } from '@models/CustomerProfileData';
+import { LoginRequestModel, ResetPasswordModel, UserRequestModel } from '@models/CustomerData';
+import { AddressDesc, CustomerProfileData } from '@models/CustomerProfileData';
 import { ApiRequestsService } from '@services/api-requests.service';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class CustomerSigninService {
   constructor(private apiRequests: ApiRequestsService) { }
 
   UserNameAvailability(UserName:string){
-    const endpoint = `/Authentication/UserName?userName=${encodeURIComponent(UserName)}`;
+    const endpoint = `Authentication/UserName?userName=${encodeURIComponent(UserName)}`;
     return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 
@@ -23,25 +23,35 @@ export class CustomerSigninService {
   }
 
   RequestOTP(phoneNumber:number){
-    const endpoint = `/Authentication/Request/OTP?phoneNumber=${encodeURIComponent(phoneNumber)}`;
+    const endpoint = `Authentication/Request/OTP?phoneNumber=${encodeURIComponent(phoneNumber)}`;
     return this.apiRequests.sendRequest(endpoint, 'POST');
   }
 
-  SignupCustomer(customerData: any, OTP:string){
-    const endpoint = `/Authentication/Signup?otp=${encodeURIComponent(OTP)}`;
+  SignupCustomer(customerData: UserRequestModel, OTP:string){
+    const endpoint = `Authentication/Signup?otp=${encodeURIComponent(OTP)}`;
     return this.apiRequests.sendRequest(endpoint, 'POST', customerData);
   }
 
   ResetCustomerPasswordRequest(phoneNumber:number){
-    const endpoint = `/Authentication/Password/Request/OTP?phoneNumber=${encodeURIComponent(phoneNumber)}`;
+    const endpoint = `Authentication/Password/Request/OTP?phoneNumber=${encodeURIComponent(phoneNumber)}`;
     return this.apiRequests.sendRequest(endpoint, 'POST');
   }
 
   ResetCustomerPassword(resetPasswordModel:ResetPasswordModel){
-    const endpoint = '/Authentication/Password';
+    const endpoint = 'Authentication/Password';
     return this.apiRequests.sendRequest(endpoint, 'POST', resetPasswordModel);
   }
 ///////////////////////
+
+
+
+//////////////////////
+
+  Test(){
+    const endpoint = '';
+    return this.apiRequests.sendRequest(endpoint, 'GET');
+  }
+
   GetUserData(){
     const endpoint = '/Customer';
     return this.apiRequests.sendRequest(endpoint, 'GET');

@@ -4,7 +4,7 @@ import { Component, ElementRef, ViewChild} from '@angular/core';
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [NgIf, NgForOf, NgStyle],
+  imports: [NgForOf],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.css'
 })

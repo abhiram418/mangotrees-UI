@@ -1,12 +1,12 @@
 <div class="view roboto-regular" (click)="ViewProductClicked(product.ProductId)">
     <div class="view-item">
         <div class="view-item-image">
-            <img src="https://www.paperboatfoods.com/cdn/shop/products/1_1_150x.jpg" alt="">
+            <img src="{{product.Image}}" alt="">
         </div>
         <div class="view-item-desc">
             <div class="view-item-desc-title">
-                <div style="height: fit-content;" class="roboto-bold title multi-line-2">{{product.Title}}</div>
-                <div class="single-line desc roboto-light">{{product.Desc}}</div>
+                <div style="height: fit-content;" class="serif title multi-line-2">{{product.Title}}</div>
+                <div class="multi-line-3 desc roboto-light">{{product.Desc}}</div>
             </div>
             <div class="view-item-desc-rating" >
                 <div class="stars">

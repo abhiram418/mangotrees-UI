@@ -21,6 +21,23 @@ export class ResetPasswordModel{
     OTP!:string;
 }
 
+export class UserRequestModel
+{
+    FirstName!: string;
+    LastName!: string;
+    Gender!: string;
+    DateOfBirth!: Date;
+    PhoneNumber!: string;
+    Email?: string | null;
+    Role: string = "";
+    UserName!: string;
+    Password!: string;
+    Occupation!: string;
+    JoinDate!: Date;
+    Conditions!: boolean;
+    Address!: AddressDesc;
+}
+
 // export class AddressDesc{
 //     AddressTitle?:string='Default';
 //     Address:string | null = null;

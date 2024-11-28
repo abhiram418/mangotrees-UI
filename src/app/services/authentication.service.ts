@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
+import { AppConstants } from '@models/StaticValues/GeneralStaticValues';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +12,13 @@ export class AuthenticationService {
   constructor(private apiService: ApiService) { }
 
   getToken(): string {
-    return '';
+    const Token = sessionStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? localStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? "";
+    
+    return Token;
   }
 
   addToken(requestData: { endpoint: string; method: string; body: any; headers: any }) {
-    requestData.headers['Authorization'] = `Bearer ${this.getToken()}`;
+    requestData.headers = new HttpHeaders().set('Authorization', `Bearer ${this.getToken()}`);;
     return this.handleRequest(requestData);
   }
 

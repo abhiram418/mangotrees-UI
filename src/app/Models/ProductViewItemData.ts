@@ -1,20 +1,20 @@
 export class ProductViewItemData{
     ProductId?: string;
     Images:any[] = [];
-    Title:string='Whereas recognition of the inherent dignity';
-    Desc:string='dmasjndflsnflksdmdmasjndflsnflksdmdmasjndflsnflksdm';
+    Title!:string;
+    Desc!:string;
     ProductInfo!:ProductInfo;
-    NutritionFacts?:string[];
-    Price:number | null = 1000;
+    NutritionFacts?:string[] | null;
+    Price!:number;
     InventoryId!: string;
-    Availability:boolean | null = true;
-    Available:string = "In stock"
-    Stars: number = 3;
-    NumberOfRating:number = 2398;
-    ProductReviewData!:ProductReviewData[];
-    DealTitle?:string | null='Limited time deal';
-    Discount?:number | null=-35;
-    SalePrice?:number | null=650;
+    Availability!:boolean;
+    AvailabilityTitle!:string;
+    Stars!: number;
+    NumberOfRating!:number;
+    ProductReviewData!:ProductReviewData[] | null;
+    DealTitle?:string | null;
+    Discount?:number | null;
+    SalePrice?:number | null;
 }
 
 
@@ -33,9 +33,9 @@ export enum RipenessLevel{
 }
 
 export class ProductReviewData{
-    ReviewerName:string = "Guest";
-    Rating:number = 5;
-    Title:string = "Product Review Title";
+    ReviewerName!:string;
+    Rating!:number;
+    Title!:string;
     Date:Date = new Date();
-    Review:string = "The packaging is excellent, ensuring the figs stay fresh and flavorful. I appreciate that they are free from any additives or preservatives, making them a healthy choice for anyone looking to incorporate more natural foods into their diet.";
+    Review!:string;
 }

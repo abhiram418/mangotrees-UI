@@ -15,12 +15,12 @@ export class CustomerProfileData{
 }
 
 export class AddressDesc{
-    AddressID?:number;
-    AddressTitle?:string='Default';
-    Address:string='';
-    Pincode:number=521201;
-    City:string='Nuzivid';
-    State:string='';
+    AddressID?:string;
+    AddressTitle?:string;
+    Address!:string;
+    Pincode!:number;
+    City!:string;
+    State!:string;
     IsEditable:boolean = true;
     IsDeleteable:boolean = true;
     IsPrimary:boolean = false;

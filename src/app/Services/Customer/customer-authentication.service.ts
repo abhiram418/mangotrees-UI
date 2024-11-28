@@ -8,14 +8,19 @@ export class CustomerAuthenticationService {
 
   constructor() { }
 
-  TokenHandler(result:any){
-    const token = result?.token;
-    if (token) {
-      sessionStorage.setItem(AppConstants.AUTH_TOKEN_KEY, token);
-      localStorage.setItem(AppConstants.AUTH_TOKEN_KEY, token);
-    } 
-    else {
-      alert(result?.message);
-    }
+  SaveToken(token:any){
+    sessionStorage.setItem(AppConstants.AUTH_TOKEN_KEY, token);
+    localStorage.setItem(AppConstants.AUTH_TOKEN_KEY, token);
   }
+
+  GetToken(): string{
+    const Token = sessionStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? localStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? "";
+    return Token;
+  }
+
+  ClearToken(){
+    sessionStorage.removeItem(AppConstants.AUTH_TOKEN_KEY);
+    localStorage.removeItem(AppConstants.AUTH_TOKEN_KEY);
+  }
+  
 }
