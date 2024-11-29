@@ -1,15 +1,19 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { DatePipe, NgFor, NgIf } from '@angular/common';
+import { DatePipe, Location, NgFor, NgIf } from '@angular/common';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { NavBarData } from '@models/navBarData';
 import { FooterComponent } from "../../components/footer/footer.component";
-import { OrderDesc, OrderItem, OrderStatus } from '@models/OrderData';
+import { OrderItem, OrderStatus } from '@models/OrderData';
+import { CustomerOrderService } from '@services/Customer/customer-order.service';
+import { LoaderComponent } from "../../components/loader/loader.component";
+import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
+import { OrderDescApiData } from '@models/ApiModels/ProductData';
 
 @Component({
   selector: 'app-order-page',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink, NavBarComponent, FooterComponent],
+  imports: [NgFor, NgIf, RouterLink, NavBarComponent, FooterComponent, LoaderComponent],
   providers: [DatePipe],
   templateUrl: './order-page.component.html',
   styleUrl: './order-page.component.css'
@@ -17,28 +21,94 @@ import { OrderDesc, OrderItem, OrderStatus } from '@models/OrderData';
 export class OrderPageComponent {
   navBarData:NavBarData = new NavBarData();
   @ViewChild('orderScroll') scrollableDiv!: ElementRef;
-  currentDate: string;
-  status:OrderStatus = OrderStatus.Paid;
-  ordersList:OrderDesc[] = [new OrderDesc('324353443'),new OrderDesc('324353443')];
+  ordersList:OrderDescApiData[] = [];
+  loader: boolean = true;
 
-  constructor(private router: Router, private datePipe: DatePipe) {
-    this.currentDate = this.datePipe.transform(new Date(), 'MMM d, yyyy') || '';
-
-    this.ordersList[0].OrderItems.push(new OrderItem("324353443"),new OrderItem("324353443"),new OrderItem("324353443"),new OrderItem("324353443"));
-    this.ordersList[1].OrderItems.push(new OrderItem("324353443"));
+  constructor(private customerOrderService: CustomerOrderService, private customerAuthenticationService: CustomerAuthenticationService, private location: Location, private router: Router, private datePipe: DatePipe) {
+    this.GetAllTheCustomerOrders();
   }
 
-  ViewReceipt(id:any){
-    this.router.navigate(["../receipt",{id}]);
+  GetAllTheCustomerOrders(){
+    
+    this.customerOrderService.GetCustomerOrders().subscribe(
+      result =>{
+        this.ordersList = this.BuildCustomerOrdersListData(result);
+        this.loader = false;
+      },
+      error =>{
+        this.loader = false;
+        if(error?.status == 401){
+          this.customerAuthenticationService.ClearToken();
+        }
+        alert("Failed to Get Addresses. Please try again.");
+        if (window.history.length > 1) {
+          this.location.back()
+        } else {
+          this.router.navigate(["profile"]);
+        }
+      }
+    )
   }
 
+
+  BuildCustomerOrdersListData(ordersListData: any): OrderDescApiData[]{
+    var orderList = [];
+
+    for (let index = 0; index < ordersListData.length; index++) {
+      var order = new OrderDescApiData();
+
+      order.OrderId = ordersListData[index].orderId;
+      order.OrderDate = this.datePipe.transform(ordersListData[index].orderDate, 'MMM d, yyyy') || '';
+      order.ShippingAddress = ordersListData[index].shippingAddress;
+      order.OrderItems = this.BuildCustomerOrderItemsData(ordersListData[index].orderItems);
+      order.TotalAmount = ordersListData[index].totalAmount;
+      order.PaymentMethod = ordersListData[index].paymentMethod;
+      order.OrderStatus = Object.values(OrderStatus)[ordersListData[index].orderStatus] as OrderStatus;
+      order.DeliveryMethod = ordersListData[index].deliveryMethod;
+      order.TrackingNumber = ordersListData[index]?.trackingNumber;
+      order.Notes = ordersListData[index]?.notes;
+      order.IsGift = ordersListData[index]?.isGift;
+      order.GiftMessage = ordersListData[index]?.giftMessage;
+      order.DiscountedAmount = ordersListData[index]?.discountedAmount;
+      order.PromotionApplied = ordersListData[index]?.promotionApplied;
+
+      orderList[index] = order;
+    }
+
+    return orderList;
+  }
+
+  BuildCustomerOrderItemsData(orderItemsData: any): OrderItem[]{
+    var orderItemsListData = [];
+
+    for (let index = 0; index < orderItemsData.length; index++) {
+      var orderItem = new OrderItem();
+
+      orderItem.ProductId = orderItemsData[index].productId;
+      orderItem.ProductTitle = orderItemsData[index].productTitle;
+      orderItem.ProductDesc = orderItemsData[index].productDesc;
+      orderItem.Price = orderItemsData[index].price;
+      orderItem.Quantity = orderItemsData[index].quantity;
+      orderItem.TotalPrice = orderItemsData[index].totalPrice;
+
+      orderItemsListData[index] = orderItem;
+    }
+    return orderItemsListData;
+  }
+
+  ViewReceipt(orderId:any, status:OrderStatus){
+    if(status == OrderStatus.AwaitingPayment || status == OrderStatus.PaymentFailed){
+      alert("The receipt for this order is not available as payment has not been completed or has failed. Please try again after completing the payment");
+    }
+    else{
+      this.router.navigate(["../receipt",{orderId}]);
+    }
+  }
   ViewProduct(IteamId:string){
-    alert("View: "+IteamId);
     this.router.navigate(['/product/'+IteamId]);
   }
 
   RedirectTo(to:string){
-    alert("to: "+to);
     this.router.navigate(['../'+to]);
   }
   Search(word:string){

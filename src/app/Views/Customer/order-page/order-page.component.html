@@ -21,10 +21,10 @@
         </div>
         <div class="orders-list" #orderScroll>
             <div *ngFor="let order of ordersList; let ind = index" class="orders">
-                <div *ngFor="let item of order.OrderItems; let i = index" (click)="ViewReceipt(order.OrderId)" class="order rubik">
+                <div *ngFor="let item of order.OrderItems; let i = index" (click)="ViewReceipt(order.OrderId, order.OrderStatus)" class="order rubik">
                     <div class="order-top">
                         <p>ID&nbsp;</p>
-                        <a>{{order.OrderId}}</a>
+                        <a>{{order.OrderId.split('-').pop()}}</a>
                     </div>
                     <div class="order-context">
                         <div class="order-middle">
@@ -34,10 +34,13 @@
                                 </div>
                                 <div class="order-info">
                                     <a class="single-line">{{item.ProductTitle}}</a>
-                                    <p>{{currentDate}}</p>
+                                    <p>{{order.OrderDate}}</p>
                                 </div>
                             </div>
                             <div class="order-middle-bottom">
+                                <div class="order-status" *ngIf="order.OrderStatus == 'AwaitingPayment'" style="color: orange;background-color: rgba(255, 166, 0, 0.235);">
+                                    AWAITING
+                                </div>
                                 <div class="order-status" *ngIf="order.OrderStatus == 'Paid'" style="color:cornflowerblue;background-color: rgba(100, 148, 237, 0.235)">
                                     PAID
                                 </div>
@@ -54,7 +57,7 @@
                         </div>
                         <hr>
                         <div class="order-bottom">
-                            <p class="single-line">{{order.ShippingAddress?.AddressTitle}}</p>
+                            <p class="single-line">{{order.ShippingAddress}}</p>
                             <p>₹{{item.TotalPrice}}</p>
                         </div>
                     </div>
@@ -72,4 +75,8 @@
         <app-footer></app-footer>
     </div>
 
+</div>
+
+<div *ngIf="loader">
+    <app-loader></app-loader>
 </div>

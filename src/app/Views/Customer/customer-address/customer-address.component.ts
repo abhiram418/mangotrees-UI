@@ -171,7 +171,6 @@ export class CustomerAddressComponent {
   }
 
   RedirectTo(to:string){
-    alert("to: "+to);
     this.router.navigate(['../'+to]);
   }
   Search(word:string){

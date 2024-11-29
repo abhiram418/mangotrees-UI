@@ -1,17 +1,14 @@
 import { AddressDesc, CustomerProfileData } from "./CustomerProfileData";
 
 export class OrderDesc {
-    constructor(id:string){
-        this.OrderId = id;
-    }
     OrderId: string = '';
     OrderDate: Date = new Date();
     Customer?: CustomerProfileData | null;
     ShippingAddress?: AddressDesc;
     OrderItems: OrderItem[] = [];
     TotalAmount: number = 0;
-    PaymentMethod: string = '';
-    OrderStatus: OrderStatus = OrderStatus.Paid;
+    PaymentMethod!: string;
+    OrderStatus: OrderStatus = OrderStatus.AwaitingPayment;
     DeliveryMethod!: String;
     TrackingNumber?: string;  // Optional, tracking number for shipment
     Notes?: string;  // Optional, additional order notes
@@ -20,11 +17,8 @@ export class OrderDesc {
 }
 
 export class OrderItem {
-    constructor(id:string){
-        this.ProductId = id;
-    }
     ProductId?: string;
-    ProductTitle: string = 'Product Title';
+    ProductTitle!: string;
     ProductDesc:string= '';
     Quantity: number = 1;
     Price: number = 0;
@@ -32,7 +26,9 @@ export class OrderItem {
 }
 
 export enum OrderStatus {
+    AwaitingPayment = "AwaitingPayment",
     Paid = 'Paid',
+    PaymentFailed = "PaymentFailed",
     Pending = 'Pending',
     Shipped = 'Shipped',
     Delivered = 'Delivered'

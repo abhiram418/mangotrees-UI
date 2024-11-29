@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FooterComponent } from "../../components/footer/footer.component";
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { NavBarData } from '@models/navBarData';
 import { Router } from '@angular/router';
@@ -10,7 +9,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 @Component({
   selector: 'app-customer-personal-details',
   standalone: true,
-  imports: [NgIf, RouterLink, ReactiveFormsModule, FooterComponent, NavBarComponent],
+  imports: [NgIf, RouterLink, ReactiveFormsModule, NavBarComponent],
   templateUrl: './customer-personal-details.component.html',
   styleUrl: './customer-personal-details.component.css'
 })
@@ -46,7 +45,6 @@ export class CustomerPersonalDetailsComponent {
   }
 
   RedirectTo(to:string){
-    alert("to: "+to);
     this.router.navigate(['/'+to]);
   }
   Search(word:string){

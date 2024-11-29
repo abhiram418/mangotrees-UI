@@ -1,41 +1,45 @@
 <div class="receipt-page">
 
     <div class="receipt-page-context">
-        <div class="receipt rubik">
+        <div *ngIf="!loader" class="receipt rubik">
             <div class="receipt-top">
                 <video #myVideo (contextmenu)="disableRightClick($event)" autoplay muted>
                     <source src="../../../assets/Pictures/Success.mp4" type="video/mp4">
                 </video>      
                 <p class="receipt-title">Payment success!</p>
-                <p class="receipt-amount">INR 10000</p>
+                <p class="receipt-amount">INR {{receiptData.Amount}}</p>
             </div>
             <div class="receipt-middle">
                 <hr class="simple">
                 <div class="details">
                     <p class="details-title">Ref Number</p>
-                    <p class="details-amount">221322434565</p>
+                    <p class="details-amount">{{receiptData.TransactionId.split('-').pop()}}</p>
                 </div>
                 <div class="details">
-                    <p class="details-title">Ref Number</p>
-                    <p class="details-amount">221322434565</p>
+                    <p class="details-title">Transaction Date</p>
+                    <p class="details-amount">{{receiptData.TransactionDate}}</p>
                 </div>
                 <div class="details">
-                    <p class="details-title">Ref Number</p>
-                    <p class="details-amount">221322434565</p>
+                    <p class="details-title">Payment Method</p>
+                    <p class="details-amount">{{receiptData.PaymentMethod}}</p>
                 </div>
                 <hr class="dashed">
             </div>
             <div class="receipt-bottom">
                 <div class="details">
-                    <p class="details-title">Ref Number</p>
-                    <p class="details-amount">221322434565</p>
+                    <p class="details-title">Status</p>
+                    <p class="details-amount">{{receiptData.Status}}</p>
                 </div>
                 <div class="details">
                     <p class="details-title">Ref Number</p>
-                    <p class="details-amount">221322434565</p>
+                    <p class="details-amount">{{receiptData.PaymentMethod}}</p>
                 </div>
             </div>
         </div>
     </div>
 
+</div>
+
+<div *ngIf="loader">
+    <app-loader></app-loader>
 </div>
