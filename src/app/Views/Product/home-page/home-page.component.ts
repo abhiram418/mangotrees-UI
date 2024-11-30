@@ -18,7 +18,6 @@ import { HomePageDataService } from '@services/Product/home-page-data.service';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  navBarData = new NavBarData();
   PinchData:any[]= null!;
 
   constructor(private router: Router, private homePageDataService:HomePageDataService){
@@ -28,7 +27,6 @@ export class HomePageComponent {
 
   AddedtoCart(IteamId:any){
     alert(IteamId);
-    this.navBarData.CartCount++;
   }
   ViewProduct(IteamId:string){
     alert("View: "+IteamId);
@@ -36,7 +34,6 @@ export class HomePageComponent {
   }
 
   RedirectTo(to:string){
-    alert("to: "+to);
     this.router.navigate(['/'+to]);
   }
   Search(word:string){

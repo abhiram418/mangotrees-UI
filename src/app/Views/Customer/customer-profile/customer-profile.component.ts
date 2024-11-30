@@ -13,7 +13,6 @@ import { CustomerAuthenticationService } from '@services/Customer/customer-authe
   styleUrl: './customer-profile.component.css'
 })
 export class CustomerProfileComponent {
-  navBarData:NavBarData= new NavBarData();
 
   constructor(private customerAuthenticationService: CustomerAuthenticationService, private router: Router){}
 

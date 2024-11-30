@@ -7,12 +7,12 @@ import { LoaderComponent } from "../loader/loader.component";
     standalone: true,
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.css',
-    imports: [RouterLink, LoaderComponent]
+    imports: []
 })
 export class FooterComponent {
 
     scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    }
       
 }

@@ -22,7 +22,6 @@ import { LoaderComponent } from "../../components/loader/loader.component";
     imports: [NgFor, NgIf, DatePipe, FormsModule, FooterComponent, NavBarComponent, PopPageComponent, SliderComponent, LoaderComponent]
 })
 export class ProductViewComponent {
-  navBarData = new NavBarData();
   test = true;
   info:any = [{Product_Info:false},{Product_Review:false},{Nutrition_Facts:false}];
   customerData:CustomerData = new CustomerData();

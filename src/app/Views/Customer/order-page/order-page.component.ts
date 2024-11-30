@@ -19,7 +19,6 @@ import { OrderDescApiData } from '@models/ApiModels/ProductData';
   styleUrl: './order-page.component.css'
 })
 export class OrderPageComponent {
-  navBarData:NavBarData = new NavBarData();
   @ViewChild('orderScroll') scrollableDiv!: ElementRef;
   ordersList:OrderDescApiData[] = [];
   loader: boolean = true;

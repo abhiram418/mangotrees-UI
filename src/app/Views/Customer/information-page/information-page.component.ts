@@ -14,7 +14,6 @@ import { InformationData, InformationPageData } from '@models/InformationPageDat
   styleUrl: './information-page.component.css'
 })
 export class InformationPageComponent {
-  navBarData:NavBarData= new NavBarData();
   DateList:InformationPageData = new InformationPageData();
   page:string = '';
 

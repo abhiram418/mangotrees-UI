@@ -21,7 +21,6 @@ import { ProductDataService } from '@services/Product/product-data.service';
 })
 export class CollectionsPageComponent {
   loader:boolean = false;
-  navBarData = new NavBarData();
   PinchData:ProductItemApiData[]= [];
   allProductData:ProductApiData[]= null!;
   price:boolean = false;
@@ -94,8 +93,7 @@ export class CollectionsPageComponent {
   }
 
   AddedtoCart(IteamId:any){
-    // alert(IteamId);
-    this.navBarData.CartCount++;
+    alert(IteamId);
   }
   ViewProduct(IteamId:string){
     this.router.navigate(['/product/'+IteamId]);

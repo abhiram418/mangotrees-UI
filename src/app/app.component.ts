@@ -11,7 +11,5 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   
-  // constructor(router: Router){
-  //   router.navigate(['comingSoon']);
-  // }
+  constructor(){}
 }

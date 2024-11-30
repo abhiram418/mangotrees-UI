@@ -15,7 +15,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class CustomerPersonalDetailsComponent {
   customerDetailsForm!: FormGroup;
-  navBarData:NavBarData= new NavBarData();
   Editable:boolean = false;
 
   constructor(private router: Router){}

@@ -69,6 +69,8 @@ export class LoginPageComponent {
     }
 
     TheCustomerIsLogedin(){
+      this.customerAuthenticationService.RetrieveCustomerData();
+      
       const returnUrl = this.route.snapshot.queryParams['returnUrl'] ?? '/home';
       this.router.navigate([returnUrl]);
     }

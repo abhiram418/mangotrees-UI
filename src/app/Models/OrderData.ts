@@ -1,9 +1,10 @@
-import { AddressDesc, CustomerProfileData } from "./CustomerProfileData";
+import { CustomerDetailsApiData } from "./ApiModels/CustomerData";
+import { AddressDesc } from "./CustomerProfileData";
 
 export class OrderDesc {
     OrderId: string = '';
     OrderDate: Date = new Date();
-    Customer?: CustomerProfileData | null;
+    Customer?: CustomerDetailsApiData | null;
     ShippingAddress?: AddressDesc;
     OrderItems: OrderItem[] = [];
     TotalAmount: number = 0;

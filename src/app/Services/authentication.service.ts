@@ -12,9 +12,11 @@ export class AuthenticationService {
   constructor(private apiService: ApiService) { }
 
   getToken(): string {
-    const Token = sessionStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? localStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? "";
-    
-    return Token;
+    try {
+      const Token = sessionStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? localStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? "";
+      return Token;
+    } catch (error) {}
+    return "";
   }
 
   addToken(requestData: { endpoint: string; method: string; body: any; headers: any }) {

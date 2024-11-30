@@ -18,7 +18,6 @@ import { CustomerAuthenticationService } from '@services/Customer/customer-authe
   styleUrl: './customer-address.component.css'
 })
 export class CustomerAddressComponent {
-  navBarData:NavBarData = new NavBarData();
   popPage:boolean = false;
   loader:boolean = true;
   editButtonClickedBy:number = 0;
