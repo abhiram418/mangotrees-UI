@@ -40,7 +40,6 @@ export class CollectionsPageComponent {
       result =>{
         this.loader = false;
         this.PinchData = this.BuildProductItemData(result);
-        console.log(this.PinchData);
       },
       error =>{
         this.loader = false;

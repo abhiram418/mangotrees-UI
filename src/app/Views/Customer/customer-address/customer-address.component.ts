@@ -47,7 +47,7 @@ export class CustomerAddressComponent {
           this.router.navigate(["profile"]);
         }
       }
-    )
+    );
   }
   AddCustomerAddress(CustomerAddress: AddressDesc){
     this.customerAddressService.PostCustomerAddress(CustomerAddress).subscribe(

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavBarData } from '@models/navBarData';
+import { CustomerCartService } from '@services/Customer/customer-cart.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -9,7 +10,16 @@ export class NavBarService {
   private navBarDataSubject = new BehaviorSubject<NavBarData | null>(null);
   navBarData$ = this.navBarDataSubject.asObservable()
 
-  constructor() { }
+  constructor(private customerCartService: CustomerCartService) { }
+
+  GetCartCount(cartId: string){
+    this.customerCartService.GetUserCartData(cartId).subscribe(
+      result=>{
+        let count = result.length;
+        this.SetCartCount(count);
+      }
+    );
+  }
 
   SetCartCount(count: number){
     const currentData = this.navBarDataSubject.value;
@@ -20,15 +30,17 @@ export class NavBarService {
       };
       this.navBarDataSubject.next(updatedData);
     } else {
-      console.warn("No NavBarData found to update CartCount.");
+      console.log("No NavBarData found to update CartCount.");
     }
   }
 
   StoreUserData(data: any){
+    const primaryAddress = data.addressList.find((address: any) => address.isPrimary === true);
+
     const navBarData: NavBarData = {
       UserName: data.firstName,
-      CityName: data.addressList[0].city,
-      Pincode: data.addressList[0].pincode,
+      CityName: primaryAddress.city,
+      Pincode: primaryAddress.pincode,
       CartCount: 0
     };
     this.navBarDataSubject.next(navBarData);

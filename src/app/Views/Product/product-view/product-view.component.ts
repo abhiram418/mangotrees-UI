@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { DatePipe, Location, NgFor, NgIf } from '@angular/common';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
-import { NavBarData } from '@models/navBarData';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { ActivatedRoute, Router } from '@angular/router';
 import { PopPageComponent } from "../../components/pop-page/pop-page.component";
-import { CustomerData } from '@models/CustomerData';
 import { AddressDesc } from '@models/CustomerProfileData';
-import { ProductInfo, ProductReviewData, ProductViewItemData, RipenessLevel } from '@models/ProductViewItemData';
+import { ProductInfo, ProductReviewData, ProductViewItemData } from '@models/ProductViewItemData';
 import { SliderComponent } from "../../components/slider/slider.component";
 import { ProductDataService } from '@services/Product/product-data.service';
 import { ProductApiData } from '@models/ApiModels/ProductData';
 import { LoaderComponent } from "../../components/loader/loader.component";
+import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
+import { CustomerDetailsApiData } from '@models/ApiModels/CustomerData';
 
 @Component({
     selector: 'app-product-view',
@@ -22,20 +22,16 @@ import { LoaderComponent } from "../../components/loader/loader.component";
     imports: [NgFor, NgIf, DatePipe, FormsModule, FooterComponent, NavBarComponent, PopPageComponent, SliderComponent, LoaderComponent]
 })
 export class ProductViewComponent {
-  test = true;
   info:any = [{Product_Info:false},{Product_Review:false},{Nutrition_Facts:false}];
-  customerData:CustomerData = new CustomerData();
-  addressesList:AddressDesc[] =[];
-
+  customerData:CustomerDetailsApiData | null = new CustomerDetailsApiData();
+  address!:AddressDesc;
   productId: string = '';
   productViewItemData!:ProductViewItemData;
   ProductApiData!: ProductApiData;
   largeImage!: string;
   popPage:boolean = false;
   loader:boolean = true;
-  
-
-  temp:number | undefined;
+  count:number | undefined;
 
   options = [
     { id: 0, value: "QTY", disabled: true },
@@ -53,24 +49,17 @@ export class ProductViewComponent {
     { id: 12, value: 12 }
   ];
 
-  constructor(private productDataService: ProductDataService, private location: Location, private route: ActivatedRoute, private router: Router){
+  constructor(private productDataService: ProductDataService, private customerAuthenticationService: CustomerAuthenticationService , private location: Location, private route: ActivatedRoute, private router: Router){
     this.GetProductFullData();
+    this.count = this.options[0].id;
+  }
+  ngOnInit(): void {
+    this.customerAuthenticationService.GetCustomerData().subscribe((data) => {
+      this.customerData = data!;
 
-    var tempAddress1 = new AddressDesc();
-    tempAddress1.AddressTitle = "Abhiram";
-    tempAddress1.Address = "House no :- 7/263/1 banginapalli thota";
-    tempAddress1.City = "NUZVID";
-    tempAddress1.State = "ANDHRA PRADESH";
-    tempAddress1.IsPrimary = true;
-    this.addressesList.push(tempAddress1);
-    var tempAddress2 = new AddressDesc();
-    tempAddress2.AddressTitle = "Abhiram1";
-    tempAddress2.Address = "House no :- 7/263/1 banginapalli thota";
-    tempAddress2.City = "NUZVID";
-    tempAddress2.State = "ANDHRA PRADESH";
-    this.addressesList.push(tempAddress2);
-
-    this.temp = this.options[0].id;
+      const primaryAddress = this.customerData?.AddressList.find((address) => address?.IsPrimary == true);
+      this.address = primaryAddress!;
+    });
   }
 
   GetProductFullData(){
@@ -196,7 +185,7 @@ export class ProductViewComponent {
   }
 
   popPageData(data:any){
-    console.log(data);
+    this.address = data;
   }
   ClosePopPage(close:boolean){
     this.popPage = false;
@@ -206,7 +195,6 @@ export class ProductViewComponent {
 
 
   RedirectTo(to:string){
-    alert("to: "+to);
     this.router.navigate(['/'+to]);
   }
   Search(word:string){

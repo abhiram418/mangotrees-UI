@@ -6,6 +6,7 @@ import { CustomerCartService } from '@services/Customer/customer-cart.service';
 import { CartData } from '@models/CartData';
 import { LoaderComponent } from "../../components/loader/loader.component";
 import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
+import { NavBarService } from '@services/General/nav-bar.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -25,7 +26,7 @@ export class CartPageComponent {
   // templist1:any[] = [1,2,3];
   // templist0:any[] = [];
 
-  constructor(private customerCartService: CustomerCartService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){
+  constructor(private customerCartService: CustomerCartService,private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){
     this.cartId = customerCartService.GetCartIdFromStorage();
     this.GetCartData();
   }
@@ -35,6 +36,7 @@ export class CartPageComponent {
     this.customerCartService.GetUserCartData(this.cartId).subscribe(
       result=>{
         this.BuildCartData(result);
+        this.navBarService.SetCartCount(result.length);
       },
       error=>{
         this.loader = false;
@@ -43,12 +45,13 @@ export class CartPageComponent {
         }
         alert("Failed to load your Cart. Please try again.");
       }
-    )
+    );
   }
   GetMaxValueData(InventoryList:string[]){
     this.customerCartService.GetInventoryData(InventoryList).subscribe(
       result=>{
         this.BuildMaxValueData(result);
+        this.navBarService.SetCartCount(result.length);
         this.loader = false;
       },
       error=>{
@@ -58,12 +61,13 @@ export class CartPageComponent {
         }
         alert("Failed to load your Cart. Please try again.");
       }
-    )
+    );
   }
-  PostInventoryData(ItemList: string[]){
-    this.customerCartService.PostInventoryData(this.cartId, ItemList).subscribe(
+  PostUserCartData(ItemList: string[]){
+    this.customerCartService.PostUserCartData(this.cartId, ItemList).subscribe(
       result=>{
         this.loader = false;
+        this.navBarService.SetCartCount(result.length);
       },
       error =>{
         this.loader = false;
@@ -123,7 +127,7 @@ export class CartPageComponent {
   clearCart(){
     this.loader = true;
     this.CartList = [];
-    this.PostInventoryData([]);
+    this.PostUserCartData([]);
   }
 
   GetTheCartUpdateDataReady(productId: string){
@@ -133,7 +137,7 @@ export class CartPageComponent {
     if (cartIndex != -1) {
       this.ProductIdList.splice(index, 1);
       this.CartList.splice(cartIndex, 1);
-      this.PostInventoryData(this.ProductIdList);
+      this.PostUserCartData(this.ProductIdList);
     }
   }
 

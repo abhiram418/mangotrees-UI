@@ -5,12 +5,15 @@ import { CustomerSigninService } from './customer-signin.service';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { NavBarService } from '@services/General/nav-bar.service';
 import { CustomerCartService } from './customer-cart.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerAuthenticationService {
   CustomerData!:CustomerDetailsApiData;
+  private CustomerDataSubject = new BehaviorSubject<CustomerDetailsApiData | null>(null);
+  CustomerData$ = this.CustomerDataSubject.asObservable()
 
   constructor(private customerCartService: CustomerCartService, private customerSigninService: CustomerSigninService, private navBarService: NavBarService) {
     this.RetrieveCustomerData();
@@ -63,13 +66,14 @@ export class CustomerAuthenticationService {
         this.StoreUserData(result);
         this.navBarService.StoreUserData(result);
         this.customerCartService.SetCartIdToStorage(result.cart);
+        this.navBarService.GetCartCount(result.cart);
       },
       error =>{
         if(error.status == 401){
           this.ClearToken();
         }
       }
-    )
+    );
   }
 
   StoreUserData(Data:any){
@@ -97,7 +101,11 @@ export class CustomerAuthenticationService {
       this.CustomerData.AddressList[index].IsDeleteable = Data.addressList[index].isDeleteable;
       this.CustomerData.AddressList[index].IsPrimary = Data.addressList[index].isPrimary;
     }
+    this.CustomerDataSubject.next(this.CustomerData);
+  }
 
+  GetCustomerData(): Observable<CustomerDetailsApiData | null> {
+    return this.CustomerData$;
   }
   
 }

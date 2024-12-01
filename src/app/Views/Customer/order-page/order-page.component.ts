@@ -46,7 +46,7 @@ export class OrderPageComponent {
           this.router.navigate(["profile"]);
         }
       }
-    )
+    );
   }
 
 

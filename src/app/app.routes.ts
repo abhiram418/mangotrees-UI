@@ -19,7 +19,7 @@ import { OrderPageComponent } from './Views/Customer/order-page/order-page.compo
 import { authenticationGuard } from '@services/Guard/authentication.guard';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'login', pathMatch:'full'},
+    {path:'', redirectTo:'home', pathMatch:'full'},
     {path:'comingSoon', component:ComingSoonPageComponent},
 
     {path:'home', component:HomePageComponent},

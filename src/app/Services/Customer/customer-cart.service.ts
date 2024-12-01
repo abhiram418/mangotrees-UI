@@ -20,7 +20,7 @@ export class CustomerCartService {
     return this.apiRequests.sendRequest(endpoint, 'POST', InventoryList);
   }
 
-  PostInventoryData(CartId:string, ProductId:string[]){
+  PostUserCartData(CartId:string, ProductId:string[]){
     const endpoint = `Customer/Cart?cartId=${encodeURIComponent(CartId)}`;
     return this.apiRequests.sendRequest(endpoint, 'POST', ProductId);
   }

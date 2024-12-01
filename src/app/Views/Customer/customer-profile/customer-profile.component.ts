@@ -4,6 +4,7 @@ import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { NavBarData } from '@models/navBarData';
 import { Router } from '@angular/router';
 import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
+import { CustomerCartService } from '@services/Customer/customer-cart.service';
 
 @Component({
   selector: 'app-customer-profile',
@@ -14,10 +15,11 @@ import { CustomerAuthenticationService } from '@services/Customer/customer-authe
 })
 export class CustomerProfileComponent {
 
-  constructor(private customerAuthenticationService: CustomerAuthenticationService, private router: Router){}
+  constructor(private customerCartService: CustomerCartService, private customerAuthenticationService: CustomerAuthenticationService, private router: Router){}
 
   LogOutOfMangoTrees(){
     this.customerAuthenticationService.ClearToken();
+    this.customerCartService.ClearCartIdFromStorage();
     this.RedirectTo("login");
   }
 

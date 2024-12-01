@@ -25,12 +25,10 @@ export class InformationPageComponent {
   ngOnInit() {
     this.pageInfo.queryParams.subscribe(params => {
       this.page = params['page'] || null;
-      console.log(this.page); 
     });
   }
 
   RedirectTo(to:string){
-    alert("to: "+to);
     this.router.navigate(['/'+to]);
   }
   Search(word:string){

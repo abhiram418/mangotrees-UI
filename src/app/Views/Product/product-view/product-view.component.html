@@ -55,7 +55,8 @@
                     </div>
                     <div class="delivery-location" (click)="SelectAddress()">
                         <span class="material-symbols-outlined">where_to_vote</span>
-                        <p>Deliver to {{customerData.FirstName? customerData.FirstName:"Guest"}} - {{customerData.AddressList!=null? customerData.AddressList[0].City:"Nuzivid"}} {{customerData.AddressList!=null? customerData.AddressList[0].Pincode:"521201"}}</p>
+                        <p class="single-line" style="max-width: 160px;">Deliver to {{address? address.AddressTitle:""}}</p>
+                        <p class="single-line">- {{address? address.City:"Nuzivid"}} {{address? address.Pincode:"521201"}}</p>
                     </div>
                     <div class="use-by roboto-light">
                         <p>We usually deliver mangoes within 1-7 working days. For deliveries within Andhra Pradesh, the delivery time is 1-3 working days.</p>
@@ -64,7 +65,7 @@
                         <a *ngIf="productViewItemData.Availability">{{productViewItemData.AvailabilityTitle}}</a>
                     </div>
                     <div class="quantity">
-                        <select [(ngModel)]="temp">
+                        <select [(ngModel)]="count">
                             <option *ngFor="let option of options" [value]="option.id" [disabled]="option.disabled">
                               {{ option.value }}
                             </option>
@@ -89,7 +90,7 @@
                     </div>
                     <div class="delivery-location-bottom">
                         <span class="material-symbols-outlined">where_to_vote</span>
-                        <p onclick="window.location.href='https://maps.app.goo.gl/fyG3wCJ7ME2nkpty7'">Pick-up from {{customerData.AddressList!=null? customerData.AddressList[0].City:"Nuzivid"}} {{customerData.AddressList!=null? customerData.AddressList[0].Pincode:"521201"}}</p>
+                        <p onclick="window.location.href='https://maps.app.goo.gl/fyG3wCJ7ME2nkpty7'">Pick-up from Nuzivid 521201</p>
                     </div>
                 </div>
     
@@ -197,5 +198,5 @@
     <app-loader></app-loader>
 </div>
 <div *ngIf="popPage">
-    <app-pop-page  [addressesList]="addressesList" [pageToDisplay]="'address-select'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
+    <app-pop-page  [addressesList]="customerData?.AddressList!" [pageToDisplay]="'address-select'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
 </div>
