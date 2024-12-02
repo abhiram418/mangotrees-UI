@@ -55,4 +55,6 @@ export const routes: Routes = [
 
     
     {path:'dice', loadComponent: () => import('./Views/personal/dice/dice.component').then(m => m.DiceComponent) },
+
+    { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
