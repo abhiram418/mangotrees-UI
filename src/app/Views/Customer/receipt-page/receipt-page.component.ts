@@ -26,7 +26,7 @@ export class ReceiptPageComponent {
   }
 
   GetTheOrderReceiptData(){
-    this.orderId = this.route.snapshot.paramMap.get('orderId') || '';
+    this.orderId = this.route.snapshot.queryParamMap.get('OrderID') || '';
     
     if(this.orderId != null || this.orderId != ""){
       this.CallTheOrderReceiptData();

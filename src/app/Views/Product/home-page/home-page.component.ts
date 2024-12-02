@@ -29,8 +29,7 @@ export class HomePageComponent {
     alert(IteamId);
   }
   ViewProduct(IteamId:string){
-    alert("View: "+IteamId);
-    this.router.navigate(['/product/'+IteamId]);
+    this.router.navigate(['/product'], { queryParams: { ProductID: IteamId } });
   }
 
   RedirectTo(to:string){

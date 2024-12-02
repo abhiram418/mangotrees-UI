@@ -63,7 +63,7 @@ export class ProductViewComponent {
   }
 
   GetProductFullData(){
-    this.productId = this.route.snapshot.paramMap.get('ProductID')?? "";
+    this.productId = this.route.snapshot.queryParamMap.get('ProductID')?? "";
 
     if(this.productId != null || this.productId != ""){
       this.CallTheProductData();

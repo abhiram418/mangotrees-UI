@@ -95,7 +95,7 @@ export class CollectionsPageComponent {
     alert(IteamId);
   }
   ViewProduct(IteamId:string){
-    this.router.navigate(['/product/'+IteamId]);
+    this.router.navigate(['/product'], { queryParams: { ProductID: IteamId } });
   }
 
   RedirectTo(to:string){

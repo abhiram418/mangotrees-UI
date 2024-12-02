@@ -13,7 +13,7 @@
                 <hr class="simple">
                 <div class="details">
                     <p class="details-title">Ref Number</p>
-                    <p class="details-amount">{{receiptData.TransactionId.split('-').pop()}}</p>
+                    <p class="details-amount">{{receiptData.TransactionId? receiptData.TransactionId.split('-').pop():""}}</p>
                 </div>
                 <div class="details">
                     <p class="details-title">Transaction Date</p>
