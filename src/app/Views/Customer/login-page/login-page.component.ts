@@ -37,7 +37,6 @@ export class LoginPageComponent {
         this.customerSigninService.UserLogin(this.loginForm.value).subscribe(
           result => {
             this.loader = false;
-            console.log(result);
             if(result?.token != null){
               this.customerAuthenticationService.SaveToken(result.token);
               this.TheCustomerIsLogedin();

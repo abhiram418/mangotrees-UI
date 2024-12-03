@@ -1,16 +1,13 @@
 import { Component, HostListener } from '@angular/core';
 import { GridViewItemComponent } from "../../components/grid-view-item/grid-view-item.component";
-import { NavBarData } from '@models/navBarData';
 import { Location, NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { FooterComponent } from "../../components/footer/footer.component";
-import { ProductViewItemData } from '@models/ProductViewItemData';
-import { HomePageDataService } from '@services/Product/home-page-data.service';
 import { LoaderComponent } from "../../components/loader/loader.component";
 import { ProductApiData, ProductItemApiData } from '@models/ApiModels/ProductData';
-import { ApiRequestsService } from '@services/api-requests.service';
 import { ProductDataService } from '@services/Product/product-data.service';
+import { CustomerCartSharedService } from '@services/Customer/customer-cart-shared.service';
 
 @Component({
   selector: 'app-collections-page',
@@ -26,7 +23,7 @@ export class CollectionsPageComponent {
   price:boolean = false;
   availability:boolean = false;
 
-  constructor(private router: Router, private location: Location, private productDataService:ProductDataService){
+  constructor(private customerCartSharedService: CustomerCartSharedService, private router: Router, private location: Location, private productDataService:ProductDataService){
     this.getTheProductData();
   }
 
@@ -92,14 +89,13 @@ export class CollectionsPageComponent {
   }
 
   AddedtoCart(IteamId:any){
-    alert(IteamId);
+    this.customerCartSharedService.AddProductToTheCart(IteamId);
   }
   ViewProduct(IteamId:string){
     this.router.navigate(['/product'], { queryParams: { ProductID: IteamId } });
   }
 
   RedirectTo(to:string){
-    alert("to: "+to);
     this.router.navigate(['/'+to]);
   }
   Search(word:string){

@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { NavBarData } from '@models/navBarData';
 import { CustomerCartService } from '@services/Customer/customer-cart.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavBarService {
   private navBarDataSubject = new BehaviorSubject<NavBarData | null>(null);
-  navBarData$ = this.navBarDataSubject.asObservable()
+  navBarData$ = this.navBarDataSubject.asObservable();
 
   constructor(private customerCartService: CustomerCartService) { }
 
@@ -17,6 +17,7 @@ export class NavBarService {
       result=>{
         let count = result.length;
         this.SetCartCount(count);
+        this.customerCartService.StoreCartList(null, result);
       }
     );
   }
@@ -48,5 +49,9 @@ export class NavBarService {
 
   GetNavBarData(): Observable<NavBarData | null> {
     return this.navBarData$; // Provide Observable for components
+  }
+
+  ClearNavBarData() {
+    this.navBarDataSubject.next(null);
   }
 }

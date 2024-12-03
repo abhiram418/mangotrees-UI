@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="view-item-button" [class.disabled]="!product.Availability" [attr.aria-disabled]="!product.Availability" (click)="AddtoCartClicked('Some ID', $event)">
+        <div class="view-item-button" [class.disabled]="!product.Availability" [attr.aria-disabled]="!product.Availability" (click)="AddtoCartClicked(product.ProductId , $event)">
             <p *ngIf="product.Availability" style="margin: 0px;">Add to Cart</p>
             <p *ngIf="!product.Availability" style="margin: 0px;">Sold Out</p>
         </div>  

@@ -7,6 +7,7 @@ import { CartData } from '@models/CartData';
 import { LoaderComponent } from "../../components/loader/loader.component";
 import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
 import { NavBarService } from '@services/General/nav-bar.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart-page',
@@ -16,36 +17,44 @@ import { NavBarService } from '@services/General/nav-bar.service';
   styleUrl: './cart-page.component.css'
 })
 export class CartPageComponent {
+  private subscription!: Subscription;
+
   cartId: string = "";
   CartList: CartData[] = [];
   ProductIdList: string[] = [];
   loader: boolean = true;
 
-  // count:number = 1;
-  // templist:any[] = [1,23,4,5,5,6,7,8,8,9,9,99,2,9,9];
-  // templist1:any[] = [1,2,3];
-  // templist0:any[] = [];
-
-  constructor(private customerCartService: CustomerCartService,private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){
-    this.cartId = customerCartService.GetCartIdFromStorage();
-    this.GetCartData();
+  constructor(private customerCartService: CustomerCartService, private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){ }
+  ngOnInit(): void {
+    this.subscription = this.customerAuthenticationService.greenSignalToGetCartData$.subscribe(() => {
+      this.GetCartData();
+    });
+  }
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
 
   GetCartData(){
-    this.customerCartService.GetUserCartData(this.cartId).subscribe(
-      result=>{
-        this.BuildCartData(result);
-        this.navBarService.SetCartCount(result.length);
-      },
-      error=>{
-        this.loader = false;
-        if(error?.status == 401){
-          this.customerAuthenticationService.ClearToken();
+    this.cartId = this.customerCartService.GetCartIdFromStorage();
+    if(this.cartId != ""){
+      this.customerCartService.GetUserCartData(this.cartId).subscribe(
+        result=>{
+          this.BuildCartData(result);
+          this.navBarService.SetCartCount(result.length);
+          this.customerCartService.StoreCartList(null, result);
+        },
+        error=>{
+          this.loader = false;
+          if(error?.status == 401){
+            this.customerAuthenticationService.ClearToken();
+          }
+          alert("Failed to load your Cart. Please try again.");
         }
-        alert("Failed to load your Cart. Please try again.");
-      }
-    );
+      );
+    }
   }
   GetMaxValueData(InventoryList:string[]){
     this.customerCartService.GetInventoryData(InventoryList).subscribe(
@@ -68,6 +77,7 @@ export class CartPageComponent {
       result=>{
         this.loader = false;
         this.navBarService.SetCartCount(result.length);
+        this.customerCartService.StoreCartList(result, null);
       },
       error =>{
         this.loader = false;

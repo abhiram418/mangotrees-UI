@@ -181,7 +181,9 @@ export class ProductViewComponent {
   }
 
   SelectAddress(){
-    this.popPage = true;
+    if(this.customerData?.AddressList != null){
+      this.popPage = true;
+    }
   }
 
   popPageData(data:any){

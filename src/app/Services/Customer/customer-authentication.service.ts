@@ -5,7 +5,7 @@ import { CustomerSigninService } from './customer-signin.service';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { NavBarService } from '@services/General/nav-bar.service';
 import { CustomerCartService } from './customer-cart.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,9 @@ export class CustomerAuthenticationService {
   CustomerData!:CustomerDetailsApiData;
   private CustomerDataSubject = new BehaviorSubject<CustomerDetailsApiData | null>(null);
   CustomerData$ = this.CustomerDataSubject.asObservable()
+
+  private greenSignalToGetCartDataSubject = new Subject<boolean>();
+  greenSignalToGetCartData$ = this.greenSignalToGetCartDataSubject.asObservable();
 
   constructor(private customerCartService: CustomerCartService, private customerSigninService: CustomerSigninService, private navBarService: NavBarService) {
     this.RetrieveCustomerData();
@@ -39,6 +42,9 @@ export class CustomerAuthenticationService {
       sessionStorage.removeItem(AppConstants.AUTH_TOKEN_KEY);
       localStorage.removeItem(AppConstants.AUTH_TOKEN_KEY);
     } catch (error) {}
+
+    this.ClearCustomerData();
+    this.navBarService.ClearNavBarData();
   }
 
 
@@ -67,6 +73,7 @@ export class CustomerAuthenticationService {
         this.navBarService.StoreUserData(result);
         this.customerCartService.SetCartIdToStorage(result.cart);
         this.navBarService.GetCartCount(result.cart);
+        this.greenSignalToGetCartDataSubject.next(true);
       },
       error =>{
         if(error.status == 401){
@@ -106,6 +113,10 @@ export class CustomerAuthenticationService {
 
   GetCustomerData(): Observable<CustomerDetailsApiData | null> {
     return this.CustomerData$;
+  }
+
+  ClearCustomerData(){
+    this.CustomerDataSubject.next(null);
   }
   
 }
