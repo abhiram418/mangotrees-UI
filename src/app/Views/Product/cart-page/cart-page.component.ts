@@ -18,15 +18,19 @@ import { Subscription } from 'rxjs';
 })
 export class CartPageComponent {
   private subscription!: Subscription;
-
+  greenSignalToGetCartData:boolean = false;
+  
   cartId: string = "";
   CartList: CartData[] = [];
   ProductIdList: string[] = [];
   loader: boolean = true;
 
-  constructor(private customerCartService: CustomerCartService, private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){ }
+  constructor(private customerCartService: CustomerCartService, private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){
+    this.GetCartData();
+  }
   ngOnInit(): void {
     this.subscription = this.customerAuthenticationService.greenSignalToGetCartData$.subscribe(() => {
+      this.customerCartService.setGreenSignal(true);
       this.GetCartData();
     });
   }
@@ -39,7 +43,8 @@ export class CartPageComponent {
 
   GetCartData(){
     this.cartId = this.customerCartService.GetCartIdFromStorage();
-    if(this.cartId != ""){
+    this.greenSignalToGetCartData = this.customerCartService.getGreenSignal();
+    if(this.cartId != "" && this.greenSignalToGetCartData){
       this.customerCartService.GetUserCartData(this.cartId).subscribe(
         result=>{
           this.BuildCartData(result);

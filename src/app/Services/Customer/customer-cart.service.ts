@@ -6,7 +6,8 @@ import { ApiRequestsService } from '@services/api-requests.service';
   providedIn: 'root'
 })
 export class CustomerCartService {
-
+  greenSignalToGetCartData: boolean = false;
+  
   constructor(private apiRequests: ApiRequestsService) { }
 
 
@@ -74,6 +75,16 @@ export class CustomerCartService {
       const productIdsString = sessionStorage.getItem(AppConstants.CART_PRODUCT_ID_LIST)?? localStorage.getItem(AppConstants.CART_PRODUCT_ID_LIST);
       return productIdsString ? JSON.parse(productIdsString) : [];
     } catch (error) { }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  setGreenSignal(value: boolean) {
+    this.greenSignalToGetCartData = value;
+  }
+
+  getGreenSignal(): boolean {
+    return this.greenSignalToGetCartData;
   }
 
 }
