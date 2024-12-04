@@ -38,7 +38,7 @@ export class CustomerCartService {
 
   GetCartIdFromStorage(): string{
     try {
-      const Token = sessionStorage.getItem(AppConstants.CART_KEY) ?? localStorage.getItem(AppConstants.AUTH_TOKEN_KEY) ?? "";
+      const Token = sessionStorage.getItem(AppConstants.CART_KEY) ?? localStorage.getItem(AppConstants.CART_KEY) ?? "";
       return Token;
     } catch (error) {}
     return "";

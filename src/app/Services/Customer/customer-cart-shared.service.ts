@@ -22,9 +22,10 @@ export class CustomerCartSharedService {
       result=>{
         this.navBarService.SetCartCount(result.length);
         this.customerCartService.StoreCartList(result, null);
+        alert("The product is added to your cart")
       },
       error =>{
-        alert("Failed to add to your Cart. Please try again.");
+        alert("The product is already in your cart");
       }
     );
   }

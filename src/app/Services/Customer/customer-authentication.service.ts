@@ -5,7 +5,7 @@ import { CustomerSigninService } from './customer-signin.service';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { NavBarService } from '@services/General/nav-bar.service';
 import { CustomerCartService } from './customer-cart.service';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class CustomerAuthenticationService {
   private CustomerDataSubject = new BehaviorSubject<CustomerDetailsApiData | null>(null);
   CustomerData$ = this.CustomerDataSubject.asObservable()
 
-  private greenSignalToGetCartDataSubject = new Subject<boolean>();
+  private greenSignalToGetCartDataSubject = new BehaviorSubject<boolean>(false);
   greenSignalToGetCartData$ = this.greenSignalToGetCartDataSubject.asObservable();
 
   constructor(private customerCartService: CustomerCartService, private customerSigninService: CustomerSigninService, private navBarService: NavBarService) {

@@ -26,11 +26,11 @@ export class CartPageComponent {
   loader: boolean = true;
 
   constructor(private customerCartService: CustomerCartService, private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){
-    this.GetCartData();
+    // this.GetCartData();
   }
   ngOnInit(): void {
-    this.subscription = this.customerAuthenticationService.greenSignalToGetCartData$.subscribe(() => {
-      this.customerCartService.setGreenSignal(true);
+    this.subscription = this.customerAuthenticationService.greenSignalToGetCartData$.subscribe((message) => {
+      this.customerCartService.setGreenSignal(message);
       this.GetCartData();
     });
   }
@@ -44,6 +44,7 @@ export class CartPageComponent {
   GetCartData(){
     this.cartId = this.customerCartService.GetCartIdFromStorage();
     this.greenSignalToGetCartData = this.customerCartService.getGreenSignal();
+
     if(this.cartId != "" && this.greenSignalToGetCartData){
       this.customerCartService.GetUserCartData(this.cartId).subscribe(
         result=>{

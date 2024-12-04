@@ -10,7 +10,7 @@ export class CustomerSigninService {
   constructor(private apiRequests: ApiRequestsService) { }
 
   GetUserData(){
-    const endpoint = '/Customer';
+    const endpoint = 'Customer';
     return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 
