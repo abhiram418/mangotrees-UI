@@ -92,6 +92,7 @@ export class CustomerAddressComponent {
         if(this.addressesList.length == 1 || CustomerAddress.IsPrimary){
           this.addressesList[0].IsPrimary = true;
           this.UpdateCustomerAddress(this.addressesList[0], 0);
+          this.customerAuthenticationService.RetrieveCustomerData();
         }
         else{
           this.loader = false;

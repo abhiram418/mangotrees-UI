@@ -43,6 +43,12 @@ export class CustomerSigninService {
     const endpoint = 'Authentication/Password';
     return this.apiRequests.sendRequest(endpoint, 'POST', resetPasswordModel);
   }
+
+  UpdateCustomerDetailsData(customerDetails: any){
+    const endpoint = 'Customer/EditCustomerDetails';
+    return this.apiRequests.sendRequest(endpoint, 'POST', customerDetails);
+  }
+
 ///////////////////////
 
 

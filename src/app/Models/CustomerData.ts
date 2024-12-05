@@ -37,11 +37,3 @@ export class UserRequestModel
     Conditions!: boolean;
     Address!: AddressDesc;
 }
-
-// export class AddressDesc{
-//     AddressTitle?:string='Default';
-//     Address:string | null = null;
-//     Pincode:number | null = null;
-//     City:string | null = null;
-//     State:string | null = null;
-// }

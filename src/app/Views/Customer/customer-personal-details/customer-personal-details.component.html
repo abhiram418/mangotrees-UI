@@ -15,8 +15,13 @@
         </div>
         <div class="customer-details-context blur">
             <div class="customer-details-values">
-                <p>Name : </p>
-                <input type="text" [class.red]="customerDetailsForm.get('Name')?.errors" formControlName="Name">
+                <p>First Name : </p>
+                <input type="text" [class.red]="customerDetailsForm.get('FirstName')?.errors" formControlName="FirstName">
+            </div>
+            <hr>
+            <div class="customer-details-values">
+                <p>Last Name : </p>
+                <input type="text" [class.red]="customerDetailsForm.get('LastName')?.errors" formControlName="LastName">
             </div>
             <hr>
             <div class="customer-details-values">
@@ -31,11 +36,11 @@
                 <p>Email : </p>
                 <input type="email" [class.red]="customerDetailsForm.get('Email')?.errors" formControlName="Email">
             </div>
-            <hr>
+            <!-- <hr>
             <div class="customer-details-values">
                 <p>Password : </p>
                 <input type="password" [class.red]="customerDetailsForm.get('Password')?.errors" formControlName="Password">
-            </div>
+            </div> -->
         </div>
         <div class="buttons-div">
             <div [class.disabled_2]="Editable">
@@ -44,7 +49,7 @@
                 </div>
             </div>
             <div [class.disabled_2]="!Editable">
-                <div class="save-button" (click)="saveButtonClicked()" [class.disabled]="!Editable">
+                <div class="save-button" (click)="saveButtonClicked()" [class.disabled]="!Editable" [ngStyle]="{'background-color': Editable? '' : '#f0f0f0', 'color': Editable? '' : 'gray'}">
                     <p>Save</p>
                 </div>
             </div>
@@ -56,4 +61,8 @@
         <app-footer></app-footer>
     </div> -->
 
+</div>
+
+<div *ngIf="loader">
+    <app-loader></app-loader>
 </div>
