@@ -39,7 +39,7 @@
                                 <div class="review-item-bottom-with">
                                     <a class="price">₹{{items.Price}}</a>
                                     <div class="quantity">
-                                        <select [(ngModel)]="items.Quantity" (click)="BuildTheDeliveryData()">
+                                        <select [(ngModel)]="items.Quantity" (change)="BuildTheDeliveryData()">
                                             <option *ngFor="let option of options" [value]="option.id" [disabled]="option.disabled">
                                             {{ option.value }}
                                             </option>
@@ -59,7 +59,7 @@
             <div class="proceed-to-check-out blur">
                 <div class="proceed-to-payment">
                     <div>
-                        <div class="proceed-to-payment-button" (click)="PayAndPlaceOrder()">
+                        <div class="proceed-to-payment-button" (change)="PayAndPlaceOrder()">
                             <p>Place Your Order and Pay</p>
                         </div>
                         <div class="proceed-to-payment-info">
