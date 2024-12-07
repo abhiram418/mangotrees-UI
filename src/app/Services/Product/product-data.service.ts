@@ -26,6 +26,11 @@ export class ProductDataService {
     return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 
+  GetProductInfoListData(productIds: string[]){
+    const endpoint = '/Product/ProductInfoList';
+    return this.apiRequests.sendRequest(endpoint, 'POST', productIds);
+  }
+
   // #######################################################
 
   getProductApiData(productId: string){

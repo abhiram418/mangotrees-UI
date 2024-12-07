@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 import { CustomerOrder, OrderItem } from '@models/OrderData';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { OrderService } from '@services/Product/order.service';
+import { ProductDataService } from '@services/Product/product-data.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-cart-page',
@@ -27,11 +29,10 @@ export class CartPageComponent {
   cartId: string = "";
   CartList: CartData[] = [];
   ProductIdList: string[] = [];
+  ProductInfoList: any[] = [];
   loader: boolean = true;
 
-  constructor(private customerCartService: CustomerCartService, private orderService: OrderService, private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){
-    // this.GetCartData();
-  }
+  constructor(private customerAuthenticationService: CustomerAuthenticationService, private customerCartService: CustomerCartService, private orderService: OrderService, private productDataService: ProductDataService, private navBarService: NavBarService, private router:Router){}
   ngOnInit(): void {
     this.subscription = this.customerAuthenticationService.greenSignalToGetCartData$.subscribe((message) => {
       this.customerCartService.setGreenSignal(message);
@@ -73,8 +74,23 @@ export class CartPageComponent {
   GetMaxValueData(InventoryList:string[]){
     this.customerCartService.GetInventoryData(InventoryList).subscribe(
       result=>{
-        this.BuildMaxValueData(result);
+        this.BuildMaxValueData(result.inventoryData);
         this.navBarService.SetCartCount(result.length);
+      },
+      error=>{
+        this.loader = false;
+        if(error?.status == 401){
+          this.customerAuthenticationService.ClearToken();
+        }
+        alert("Failed to load your Cart. Please try again.");
+      }
+    );
+  }
+  GetProductInfoListData(){
+    var idList = this.customerCartService.GetCartList();
+    this.productDataService.GetProductInfoListData(idList).subscribe(
+      result=>{
+        this.BuildProductInfoData(result);
         this.loader = false;
       },
       error=>{
@@ -103,14 +119,19 @@ export class CartPageComponent {
     );
   }
 
+
+  BuildProductInfoData(productInfoData: any){
+    this.ProductInfoList = productInfoData;
+  }
   BuildMaxValueData(inventoryData: any){
     for (const inventory of inventoryData) {
-      const matchingCartItem = this.CartList.find(cartItem => cartItem.ProductId === inventory.productId);
+      const matchingCartItem = this.CartList.find(cartItem => cartItem.ProductId == inventory.productId);
   
       if (matchingCartItem) {
         matchingCartItem.ItemMaxCount = inventory.stockQuantity;
       }
     }
+    this.GetProductInfoListData();
   }
   BuildCartData(cartData: any){
     var InventoryList = [];
@@ -147,10 +168,16 @@ export class CartPageComponent {
       ItemData.ProductId = ItemList[index].ProductId;
       ItemData.ProductTitle = ItemList[index].ItemTitle;
       ItemData.ProductDesc = ItemList[index].ItemDesc;
+      ItemData.Image = ItemList[index].ItemImage;
       ItemData.Quantity = Number(ItemList[index].ItemCount);
       ItemData.Price = ItemList[index].ItemPrice;
       ItemData.TotalPrice = ItemList[index].ItemCount * ItemList[index].ItemPrice;
 
+      let productInfo = this.ProductInfoList.find(
+        (data: any) => data.productId === ItemList[index].ProductId
+      );
+      ItemData.Units = productInfo.numberOfMangoes;
+      ItemData.Weight = productInfo.weight;
       ItemsListData.push(ItemData);
     }
     return ItemsListData;

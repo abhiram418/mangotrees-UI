@@ -1,35 +1,67 @@
 import { Component } from '@angular/core';
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
-import { NgIf } from '@angular/common';
+import { Location, NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DeliveryType, PackagingType, PopUpData } from '@models/PopUpData';
+import { OrderService } from '@services/Product/order.service';
+import { CustomerOrder, DeliveryMethodModel } from '@models/OrderData';
+import { LoaderComponent } from "../../components/loader/loader.component";
 
 @Component({
   selector: 'app-review-delivery-page',
   standalone: true,
-  imports: [PopUpComponent,ReactiveFormsModule , NgIf],
+  imports: [PopUpComponent, ReactiveFormsModule, NgIf, LoaderComponent],
   templateUrl: './review-delivery-page.component.html',
   styleUrl: './review-delivery-page.component.css'
 })
 export class ReviewDeliveryPageComponent {
-  popUp:boolean=false;
+  loader: boolean = true;
+  popUp:boolean = false;
   popUpData:PopUpData = new PopUpData();
   popUpHeading:string="";
   popUpText:string="";
   ReviewForm!: FormGroup;
+  CustomerOrderData!: CustomerOrder;
 
-  constructor(private router: Router){}
+  constructor(private orderService: OrderService, private location: Location, private router: Router){
+    this.GetTheOrderHalfFilledData();
+  }
   ngOnInit(): void {
     this.ReviewForm = new FormGroup({
-      deliveryOption: new FormControl('', [Validators.required]),
-      packageOption: new FormControl('', [Validators.required])
+      deliveryOption: new FormControl("Third-Party", [Validators.required]),
+      packageOption: new FormControl("Premium", [Validators.required])
     });
+  }
+
+
+  GetTheOrderHalfFilledData(){
+    var orderData = this.orderService.GetCustomerOrderData();
+    if(orderData != null){
+      this.loader = false;
+      this.CustomerOrderData = orderData;
+    }
+    else{
+      if (window.history.length > 1) {
+        this.location.back()
+      } else {
+        this.router.navigate(["cart"]);
+      }
+    }
+  }
+
+  BuildOrderReviewData(){
+    this.CustomerOrderData.PackagingMethod = this.ReviewForm.get('packageOption')?.value;
+    this.CustomerOrderData.DeliveryMethod = new DeliveryMethodModel();
+    this.CustomerOrderData.DeliveryMethod.DeliveryMethod = this.ReviewForm.get('deliveryOption')?.value;
+    this.CustomerOrderData.DeliveryMethod.Cost = 0;
+
+    this.orderService.SetCustomerOrderData(this.CustomerOrderData);
   }
 
   proceedButtonClicked(){
     if(this.ReviewForm.valid){
-      console.log(this.ReviewForm.value);
+      this.BuildOrderReviewData();
       this.router.navigate(["../checkout"]);
     }
     else{

@@ -14,7 +14,7 @@ import { LoaderComponent } from "../../components/loader/loader.component";
 import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
 import { CustomerDetailsApiData } from '@models/ApiModels/CustomerData';
 import { CustomerCartSharedService } from '@services/Customer/customer-cart-shared.service';
-import { CustomerOrder, OrderDesc, OrderItem } from '@models/OrderData';
+import { CustomerOrder, DeliveryMethodModel, OrderDesc, OrderItem } from '@models/OrderData';
 import { OrderService } from '@services/Product/order.service';
 
 @Component({
@@ -30,7 +30,7 @@ export class ProductViewComponent {
   address!:AddressDesc;
   productId: string = '';
   productViewItemData!:ProductViewItemData;
-  CustomerOrderData!: CustomerOrder;
+  CustomerOrderData: CustomerOrder = new CustomerOrder();
   largeImage!: string;
   popPage:boolean = false;
   loader:boolean = true;
@@ -45,7 +45,7 @@ export class ProductViewComponent {
     { id: 5, value: 5 }
   ];
 
-  constructor(private productDataService: ProductDataService, private orderService: OrderService, private customerCartSharedService: CustomerCartSharedService, private customerAuthenticationService: CustomerAuthenticationService , private location: Location, private route: ActivatedRoute, private router: Router){
+  constructor(private productDataService: ProductDataService, private orderService: OrderService, private customerCartSharedService: CustomerCartSharedService, private customerAuthenticationService: CustomerAuthenticationService, private location: Location, private route: ActivatedRoute, private router: Router){
     this.GetProductFullData();
     this.count = this.options[0].id;
   }
@@ -152,8 +152,6 @@ export class ProductViewComponent {
   }
 
   BuildCustomerOrderData(){
-    this.CustomerOrderData = new CustomerOrder();
-
     this.CustomerOrderData.OrderDate = new Date();
     this.CustomerOrderData.ShippingAddress = this.address.AddressID;
     
@@ -161,14 +159,25 @@ export class ProductViewComponent {
     ItemData.ProductId = this.productId;
     ItemData.ProductTitle = this.productViewItemData.Title;
     ItemData.ProductDesc = this.productViewItemData.Desc;
+    ItemData.Image = this.productViewItemData.Images[0];
     ItemData.Quantity = Number(this.count);
     ItemData.Price = this.productViewItemData.Price;
     ItemData.TotalPrice = this.count * this.productViewItemData.Price;
+    ItemData.Units = this.productViewItemData.ProductInfo.NumberOfMangoes;
+    ItemData.Weight = this.productViewItemData.ProductInfo.Weight;
 
     this.CustomerOrderData.OrderItems = [ItemData];
     this.CustomerOrderData.TotalAmount = ItemData.TotalPrice;
     
     this.orderService.SetCustomerOrderData(this.CustomerOrderData);
+  }
+  setDeliveryMethod(selectedValue: string) {
+    this.CustomerOrderData.DeliveryMethod = new DeliveryMethodModel();
+    this.CustomerOrderData.DeliveryMethod.Cost = 0;
+    this.CustomerOrderData.DeliveryMethod.DeliveryMethod = selectedValue;
+  }
+  setDeliveryMethodToNull(){
+    this.CustomerOrderData.DeliveryMethod = new DeliveryMethodModel();
   }
 
   ImageSelectedForLargeView(src: string){
@@ -179,7 +188,12 @@ export class ProductViewComponent {
   BuyNow(){
     if(this.productId && this.count>0){
       this.BuildCustomerOrderData();
-      this.router.navigate(["../review"]);
+      if(this.CustomerOrderData?.DeliveryMethod?.DeliveryMethod != null){
+        this.router.navigate(["../checkout"]);
+      }
+      else{
+        this.router.navigate(["../review"]);
+      }
     }
     else{
       alert("Please select the QTY");

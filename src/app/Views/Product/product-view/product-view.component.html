@@ -37,7 +37,7 @@
     
                 <div class="product-payment-view-top">
                     <div class="select-product-payment">
-                        <input type="radio" name="deliveryOption" value="delivery" [defaultChecked]="true">
+                        <input type="radio" name="deliveryOption" value="delivery" (click)="setDeliveryMethodToNull()" [defaultChecked]="true">
                     </div>
                     <div class="delivery-title">
                         <h5 style="margin: 0px;margin-bottom: 16px;color: rgba(0, 0, 0, 0.888);">You may choose the delivery option:</h5>
@@ -83,7 +83,7 @@
     
                 <div class="product-payment-view-bottom">
                     <div class="select-product-payment">
-                        <input type="radio" name="deliveryOption" value="pickUp">
+                        <input type="radio" name="deliveryOption" value="pickUp" (click)="setDeliveryMethod('PickUp')">
                     </div>
                     <div class="delivery-title">
                         <h5 style="margin: 0px;">You may choose the pick-up option:</h5>

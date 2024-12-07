@@ -23,6 +23,7 @@ export class CustomerOrder {
     OrderItems: OrderItem[] = [];
     TotalAmount: number = 0;
     PaymentMethod!: string;
+    PackagingMethod!: string;
     DeliveryMethod!: DeliveryMethodModel;
     Notes?: string;  // Optional, additional order notes
     IsGift?: boolean;  // Whether the order is a gift
@@ -35,7 +36,10 @@ export class OrderItem {
     ProductId?: string;
     ProductTitle!: string;
     ProductDesc:string= '';
+    Image!: string;
     Quantity!: number;
+    Units!: number;
+    Weight!: number;
     Price: number = 0;
     TotalPrice: number = 0;  // Derived from Price * Quantity
 }
@@ -52,4 +56,13 @@ export enum OrderStatus {
 export class DeliveryMethodModel{
     DeliveryMethod!: string;
     Cost!: number;
+}
+
+export class ChargesModel{
+    Premium!: number;
+    PocketFriendly!: number;
+    Basic!: number;
+    Dedicated!: number;
+    ThirdParty!: number;
+    APSRTC!: number;
 }

@@ -1,4 +1,4 @@
-<div class="check-out-page roboto-regular">
+<div class="check-out-page roboto-regular" *ngIf="!loader">
     
     <div class="check-out-title">
         <h2 style="margin: auto;">Purchase Summary</h2>
@@ -11,7 +11,7 @@
                     <h3>Delivery address</h3>
                 </div>
                 <div class="check-out-delivery-address-content blur">
-                    <p class="roboto-regular multi-line-5">Abhiram <br>House no :- 7/263/1, banginapalli thota, NUZVID, ANDHRA PRADESH 521201</p>
+                    <p class="roboto-regular multi-line-5">{{address.AddressTitle??""}} <br>{{address.Address}}, {{address.City}}, {{address.State}} {{address.Pincode}}</p>
                     <div class="change-button" (click)="SelectAddress()">
                         <a>Change</a>
                     </div>
@@ -23,23 +23,23 @@
                     <h3>Review items</h3>
                 </div>
                 <div class="review-items-list">
-                    <div class="review-item blur" *ngFor="let items of options">
+                    <div class="review-item blur" *ngFor="let items of CustomerOrderData.OrderItems">
                         <div class="item">
                             <div class="review-item-top">
                                 <div class="review-item-image">
-                                    <img [src]="image">
+                                    <img [src]="items.Image">
                                 </div>
                                 <div class="review-item-text">
-                                    <p class="single-line review-item-top-title">{{data.Title}}</p>
-                                    <p class="multi-line-3 review-item-top-desc">{{data.Desc}}</p>
+                                    <p class="single-line review-item-top-title">{{items.ProductTitle}}</p>
+                                    <p class="multi-line-3 review-item-top-desc">{{items.ProductDesc}}</p>
                                 </div>
                             </div>
                             <hr style="margin: 0px;border-top: 1px dashed #acabab;">
                             <div class="review-item-bottom">
                                 <div class="review-item-bottom-with">
-                                    <a class="price">₹{{data.Discount? data.SalePrice:data.Price}}</a>
+                                    <a class="price">₹{{items.Price}}</a>
                                     <div class="quantity">
-                                        <select [(ngModel)]="temp">
+                                        <select [(ngModel)]="items.Quantity" (click)="BuildTheDeliveryData()">
                                             <option *ngFor="let option of options" [value]="option.id" [disabled]="option.disabled">
                                             {{ option.value }}
                                             </option>
@@ -75,19 +75,19 @@
                         <tbody>
                             <tr>
                                 <td>Items:</td>
-                                <td class="order-summary-value">₹37,998.00</td>
+                                <td class="order-summary-value">₹{{CustomerOrderData.TotalAmount | number:'1.2-2' }}{{CustomerOrderData.TotalAmount? "":0 | number:'1.2-2'}}</td>
                             </tr>
                             <tr>
                                 <td>Packing:</td>
-                                <td class="order-summary-value">₹0.00</td>
+                                <td class="order-summary-value">₹{{PackingCost | number:'1.2-2' }}{{PackingCost? "":0 | number:'1.2-2'}}</td>
                             </tr>
                             <tr>
                                 <td>Delivery:</td>
-                                <td class="order-summary-value">₹0.00</td>
+                                <td class="order-summary-value">₹{{CustomerOrderData.DeliveryMethod.Cost | number:'1.2-2' }}{{CustomerOrderData.DeliveryMethod.Cost? "":0 | number:'1.2-2'}}</td>
                             </tr>
                             <tr>
                                 <td>Discount:</td>
-                                <td class="order-summary-value">₹0.00</td>
+                                <td class="order-summary-value">₹{{CustomerOrderData.DiscountedAmount | number:'1.2-2' }}{{CustomerOrderData.DiscountedAmount? "":0 | number:'1.2-2'}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -96,7 +96,7 @@
                         <tbody>
                             <tr class="order-total">
                                 <td>Order Total:</td>
-                                <td class="order-summary-value">₹37,998.00</td>
+                                <td class="order-summary-value">₹{{TotalPrice | number:'1.2-2'}}{{TotalPrice? "":1 | number:'1.2-2'}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -120,6 +120,9 @@
     <br>
 </div>
 
+<div *ngIf="loader">
+    <app-loader></app-loader>
+</div>
 <div *ngIf="popPage">
     <app-pop-page *ngIf="addressSelectPage" [addressesList]="addressesList" [pageToDisplay]="'address-select'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
     <app-pop-page *ngIf="couponPage" [pageToDisplay]="'coupon'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>

@@ -1,5 +1,5 @@
 <form class="coupon-page roboto-regular">
-    <input type="text" placeholder="Enter Coupon">
+    <input type="text" [(ngModel)]="couponCode" [ngModelOptions]="{standalone: true}" placeholder="Enter Coupon">
     
     <button (click)="saveData()" class="save-button" type="submit"><p>Submit</p></button>
 </form>
