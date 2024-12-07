@@ -98,7 +98,7 @@ export class CustomerAuthenticationService {
     
     for (let index = 0; index < Data.addressList.length; index++) {
       this.CustomerData.AddressList[index] = new AddressDesc();
-      this.CustomerData.AddressList[index].AddressID = Data.addressList[index].addressID;
+      this.CustomerData.AddressList[index].AddressID = Data.addressList[index].addressId;
       this.CustomerData.AddressList[index].AddressTitle = Data.addressList[index].addressTitle;
       this.CustomerData.AddressList[index].Address = Data.addressList[index].address;
       this.CustomerData.AddressList[index].City = Data.addressList[index].city;      

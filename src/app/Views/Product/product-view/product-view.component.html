@@ -72,7 +72,7 @@
                         </select>
                     </div>
                     <div class="buttons" [class.disabled+2]="!productViewItemData.Availability">
-                        <div class="top-button" (click)="AddToCart()" [class.disabled]="!productViewItemData.Availability">
+                        <div class="top-button" (click)="AddToCart(productViewItemData.ProductId!)" [class.disabled]="!productViewItemData.Availability">
                             <p>Add to Cart</p>
                         </div>
                         <div class="bottom-button" (click)="BuyNow()" [class.disabled]="!productViewItemData.Availability">

@@ -17,11 +17,25 @@ export class OrderDesc {
     GiftMessage?: string;
 }
 
+export class CustomerOrder {
+    OrderDate: Date = new Date();
+    ShippingAddress?: string;
+    OrderItems: OrderItem[] = [];
+    TotalAmount: number = 0;
+    PaymentMethod!: string;
+    DeliveryMethod!: DeliveryMethodModel;
+    Notes?: string;  // Optional, additional order notes
+    IsGift?: boolean;  // Whether the order is a gift
+    GiftMessage?: string;
+    DiscountedAmount?: number;
+    PromotionApplied?: string;
+}
+
 export class OrderItem {
     ProductId?: string;
     ProductTitle!: string;
     ProductDesc:string= '';
-    Quantity: number = 1;
+    Quantity!: number;
     Price: number = 0;
     TotalPrice: number = 0;  // Derived from Price * Quantity
 }
@@ -33,4 +47,9 @@ export enum OrderStatus {
     Pending = 'Pending',
     Shipped = 'Shipped',
     Delivered = 'Delivered'
+}
+
+export class DeliveryMethodModel{
+    DeliveryMethod!: string;
+    Cost!: number;
 }

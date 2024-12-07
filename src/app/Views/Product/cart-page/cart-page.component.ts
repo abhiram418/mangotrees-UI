@@ -8,6 +8,9 @@ import { LoaderComponent } from "../../components/loader/loader.component";
 import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
 import { NavBarService } from '@services/General/nav-bar.service';
 import { Subscription } from 'rxjs';
+import { CustomerOrder, OrderItem } from '@models/OrderData';
+import { AddressDesc } from '@models/CustomerProfileData';
+import { OrderService } from '@services/Product/order.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -19,19 +22,24 @@ import { Subscription } from 'rxjs';
 export class CartPageComponent {
   private subscription!: Subscription;
   greenSignalToGetCartData:boolean = false;
-  
+  CustomerOrderData!: CustomerOrder;
+  address!:AddressDesc;
   cartId: string = "";
   CartList: CartData[] = [];
   ProductIdList: string[] = [];
   loader: boolean = true;
 
-  constructor(private customerCartService: CustomerCartService, private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){
+  constructor(private customerCartService: CustomerCartService, private orderService: OrderService, private navBarService: NavBarService, private customerAuthenticationService: CustomerAuthenticationService, private router:Router){
     // this.GetCartData();
   }
   ngOnInit(): void {
     this.subscription = this.customerAuthenticationService.greenSignalToGetCartData$.subscribe((message) => {
       this.customerCartService.setGreenSignal(message);
       this.GetCartData();
+    });
+    this.customerAuthenticationService.GetCustomerData().subscribe((data) => {
+      const primaryAddress = data?.AddressList.find((address) => address?.IsPrimary == true);
+      this.address = primaryAddress!;
     });
   }
   ngOnDestroy() {
@@ -122,6 +130,38 @@ export class CartPageComponent {
     }
     this.GetMaxValueData(InventoryList);
   }
+  BuildCustomerOrderData(){
+    this.CustomerOrderData = new CustomerOrder();
+
+    this.CustomerOrderData.OrderDate = new Date();
+    this.CustomerOrderData.ShippingAddress = this.address.AddressID;
+    this.CustomerOrderData.OrderItems = this.BuildCartListItemData(this.CartList);
+    this.CustomerOrderData.TotalAmount = this.BuildItemTotalPriceData(this.CustomerOrderData.OrderItems);
+    
+    this.orderService.SetCustomerOrderData(this.CustomerOrderData);
+  }
+  BuildCartListItemData(ItemList: any): OrderItem[]{
+    var ItemsListData: OrderItem[] = [];
+    for (let index = 0; index < ItemList.length; index++) {
+      var ItemData = new OrderItem();
+      ItemData.ProductId = ItemList[index].ProductId;
+      ItemData.ProductTitle = ItemList[index].ItemTitle;
+      ItemData.ProductDesc = ItemList[index].ItemDesc;
+      ItemData.Quantity = Number(ItemList[index].ItemCount);
+      ItemData.Price = ItemList[index].ItemPrice;
+      ItemData.TotalPrice = ItemList[index].ItemCount * ItemList[index].ItemPrice;
+
+      ItemsListData.push(ItemData);
+    }
+    return ItemsListData;
+  }
+  BuildItemTotalPriceData(orderItems: any): number{
+    var TotalPrice = 0;
+    for (let index = 0; index < orderItems.length; index++) {
+      TotalPrice = TotalPrice + orderItems[index].TotalPrice;
+    }
+    return TotalPrice;
+  }
 
   countIncrease(index: number){
     if(this.CartList[index].ItemCount == this.CartList[index].ItemMaxCount){
@@ -160,7 +200,10 @@ export class CartPageComponent {
 
 
   ContinueButtonClicked(){
-    this.router.navigate(["../review"]);
+    if(this.address != null && this.CartList.length > 0){
+      this.BuildCustomerOrderData();
+      this.router.navigate(["../review"]);
+    }
   }
 
   RedirectTo(to:string){

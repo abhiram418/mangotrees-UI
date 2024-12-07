@@ -13,6 +13,9 @@ import { ProductApiData } from '@models/ApiModels/ProductData';
 import { LoaderComponent } from "../../components/loader/loader.component";
 import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
 import { CustomerDetailsApiData } from '@models/ApiModels/CustomerData';
+import { CustomerCartSharedService } from '@services/Customer/customer-cart-shared.service';
+import { CustomerOrder, OrderDesc, OrderItem } from '@models/OrderData';
+import { OrderService } from '@services/Product/order.service';
 
 @Component({
     selector: 'app-product-view',
@@ -27,11 +30,11 @@ export class ProductViewComponent {
   address!:AddressDesc;
   productId: string = '';
   productViewItemData!:ProductViewItemData;
-  ProductApiData!: ProductApiData;
+  CustomerOrderData!: CustomerOrder;
   largeImage!: string;
   popPage:boolean = false;
   loader:boolean = true;
-  count:number | undefined;
+  count:number;
 
   options = [
     { id: 0, value: "QTY", disabled: true },
@@ -39,17 +42,10 @@ export class ProductViewComponent {
     { id: 2, value: 2 },
     { id: 3, value: 3 },
     { id: 4, value: 4 },
-    { id: 5, value: 5 },
-    { id: 6, value: 6 },
-    { id: 7, value: 7 },
-    { id: 8, value: 8 },
-    { id: 9, value: 9 },
-    { id: 10, value: 10 },
-    { id: 11, value: 11 },
-    { id: 12, value: 12 }
+    { id: 5, value: 5 }
   ];
 
-  constructor(private productDataService: ProductDataService, private customerAuthenticationService: CustomerAuthenticationService , private location: Location, private route: ActivatedRoute, private router: Router){
+  constructor(private productDataService: ProductDataService, private orderService: OrderService, private customerCartSharedService: CustomerCartSharedService, private customerAuthenticationService: CustomerAuthenticationService , private location: Location, private route: ActivatedRoute, private router: Router){
     this.GetProductFullData();
     this.count = this.options[0].id;
   }
@@ -155,16 +151,42 @@ export class ProductViewComponent {
     return reviewsList;
   }
 
+  BuildCustomerOrderData(){
+    this.CustomerOrderData = new CustomerOrder();
+
+    this.CustomerOrderData.OrderDate = new Date();
+    this.CustomerOrderData.ShippingAddress = this.address.AddressID;
+    
+    var ItemData = new OrderItem();
+    ItemData.ProductId = this.productId;
+    ItemData.ProductTitle = this.productViewItemData.Title;
+    ItemData.ProductDesc = this.productViewItemData.Desc;
+    ItemData.Quantity = Number(this.count);
+    ItemData.Price = this.productViewItemData.Price;
+    ItemData.TotalPrice = this.count * this.productViewItemData.Price;
+
+    this.CustomerOrderData.OrderItems = [ItemData];
+    this.CustomerOrderData.TotalAmount = ItemData.TotalPrice;
+    
+    this.orderService.SetCustomerOrderData(this.CustomerOrderData);
+  }
+
   ImageSelectedForLargeView(src: string){
     this.largeImage = src;
   }
 
 
   BuyNow(){
-    this.router.navigate(["../review"]);
+    if(this.productId && this.count>0){
+      this.BuildCustomerOrderData();
+      this.router.navigate(["../review"]);
+    }
+    else{
+      alert("Please select the QTY");
+    }
   }
-  AddToCart(){
-    this.router.navigate(["../cart"]);
+  AddToCart(IteamId: string){
+    this.customerCartSharedService.AddProductToTheCart(IteamId);
   }
 
 
