@@ -66,8 +66,8 @@
                     </div>
                     <div class="quantity" [class.disabled_2]="!productViewItemData.Availability">
                         <select [(ngModel)]="count" [class.disabled]="!productViewItemData.Availability">
-                            <option *ngFor="let option of options" [value]="option.id" [disabled]="option.disabled">
-                              {{ option.value }}
+                            <option *ngFor="let option of generateRange(ItemMaxCount)" [value]="option">
+                              {{ option }}
                             </option>
                         </select>
                     </div>

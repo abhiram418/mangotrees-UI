@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from "../../components/footer/footer.component";
-import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { Location, NgFor, NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +6,7 @@ import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 import { Router } from '@angular/router';
 import { ProductViewItemData } from '@models/ProductViewItemData';
 import { AddressDesc } from '@models/CustomerProfileData';
-import { ChargesModel, CustomerOrder, DeliveryMethodModel } from '@models/OrderData';
+import { ChargesModel, CustomerOrder } from '@models/OrderData';
 import { OrderService } from '@services/Product/order.service';
 import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
 import { LoaderComponent } from "../../components/loader/loader.component";
@@ -45,14 +43,9 @@ export class CheckOutPageComponent {
       }
     });
   }
-  options = [
-    { id: 0, value: "QTY", disabled: true },
-    { id: 1, value: 1 },
-    { id: 2, value: 2 },
-    { id: 3, value: 3 },
-    { id: 4, value: 4 },
-    { id: 5, value: 5 }
-  ];
+  generateRange(count: number): number[] {
+    return Array.from({ length: count }, (_, i) => i + 1); // Creates an array [1, 2, ..., count]
+  }
 
   GetChargesDataFromApi(){
     this.loader = true;
@@ -80,17 +73,13 @@ export class CheckOutPageComponent {
 
   GetTheOrderHalfFilledData(){
     var orderData = this.orderService.GetCustomerOrderData();
-    if(orderData != null){
+    if(orderData != null && orderData.OrderItems.length != 0||null){
       this.CustomerOrderData = orderData;
       this.address = this.addressesList.find((address) => address?.AddressID == this.CustomerOrderData.ShippingAddress)!;
       this.BuildTheDeliveryData();
     }
     else{
-      if (window.history.length > 1) {
-        this.location.back()
-      } else {
-        this.router.navigate(["cart"]);
-      }
+      this.router.navigate(["cart"]);
     }
   }
 
@@ -154,6 +143,16 @@ export class CheckOutPageComponent {
         alert("Unfortunately, the coupon is invalid or expired. Please check the code and try again.");
       }
     );
+  }
+
+  deleteOrderItem(index: number): void {
+    if (index > -1) {
+      this.CustomerOrderData.OrderItems.splice(index, 1);
+      this.BuildTheDeliveryData();
+    }
+    if(this.CustomerOrderData.OrderItems.length == 0){
+      this.router.navigate(["cart"]);
+    }
   }
 
   PayAndPlaceOrder(){

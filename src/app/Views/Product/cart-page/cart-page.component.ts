@@ -12,7 +12,6 @@ import { CustomerOrder, OrderItem } from '@models/OrderData';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { OrderService } from '@services/Product/order.service';
 import { ProductDataService } from '@services/Product/product-data.service';
-import { error } from 'console';
 
 @Component({
   selector: 'app-cart-page',
@@ -74,7 +73,7 @@ export class CartPageComponent {
   GetMaxValueData(InventoryList:string[]){
     this.customerCartService.GetInventoryData(InventoryList).subscribe(
       result=>{
-        this.BuildMaxValueData(result.inventoryData);
+        this.BuildMaxValueData(result);
         this.navBarService.SetCartCount(result.length);
       },
       error=>{
@@ -170,6 +169,7 @@ export class CartPageComponent {
       ItemData.ProductDesc = ItemList[index].ItemDesc;
       ItemData.Image = ItemList[index].ItemImage;
       ItemData.Quantity = Number(ItemList[index].ItemCount);
+      ItemData.ItemMaxCount = ItemList[index].ItemMaxCount;
       ItemData.Price = ItemList[index].ItemPrice;
       ItemData.TotalPrice = ItemList[index].ItemCount * ItemList[index].ItemPrice;
 

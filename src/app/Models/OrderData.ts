@@ -40,6 +40,7 @@ export class OrderItem {
     Quantity!: number;
     Units!: number;
     Weight!: number;
+    ItemMaxCount!: number;
     Price: number = 0;
     TotalPrice: number = 0;  // Derived from Price * Quantity
 }
