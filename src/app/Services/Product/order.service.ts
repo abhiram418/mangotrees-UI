@@ -10,8 +10,8 @@ export class OrderService {
 
   constructor(private apiRequests: ApiRequestsService) { }
 
-  GetTheDeliveryAndPackagingCostData(chargesId: string){
-    const endpoint = `Product/Charges?ChargesId=${encodeURIComponent(chargesId)}`;
+  GetTheDeliveryAndPackagingCostData(Pincode: number){
+    const endpoint = `Product/Charges?Pincode=${encodeURIComponent(Pincode)}`;
     return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 

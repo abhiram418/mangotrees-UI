@@ -32,9 +32,7 @@ export class CheckOutPageComponent {
   charges: ChargesModel = new ChargesModel();
   TotalPrice: number = 0;
 
-  constructor(private customerAuthenticationService: CustomerAuthenticationService, private orderService: OrderService, private location: Location, private router:Router){
-    this.GetChargesDataFromApi();
-  }
+  constructor(private customerAuthenticationService: CustomerAuthenticationService, private orderService: OrderService, private location: Location, private router:Router){}
   ngOnInit(): void {
     this.customerAuthenticationService.GetCustomerData().subscribe((data) => {
       if(data != null){
@@ -49,7 +47,7 @@ export class CheckOutPageComponent {
 
   GetChargesDataFromApi(){
     this.loader = true;
-    this.orderService.GetTheDeliveryAndPackagingCostData("1").subscribe(
+    this.orderService.GetTheDeliveryAndPackagingCostData(this.address.Pincode).subscribe(
       result=>{
         this.charges.APSRTC = result.apsrtc;
         this.charges.ThirdParty = result.thirdParty;
@@ -77,6 +75,7 @@ export class CheckOutPageComponent {
       this.CustomerOrderData = orderData;
       this.address = this.addressesList.find((address) => address?.AddressID == this.CustomerOrderData.ShippingAddress)!;
       this.BuildTheDeliveryData();
+      this.GetChargesDataFromApi();
     }
     else{
       this.router.navigate(["cart"]);
@@ -174,6 +173,7 @@ export class CheckOutPageComponent {
     if(this.addressSelectPage){
       this.address = data;
       this.CustomerOrderData.ShippingAddress = this.address.AddressID;
+      this.GetChargesDataFromApi();
     }
     else{
       this.GetCouponCodeData(data);

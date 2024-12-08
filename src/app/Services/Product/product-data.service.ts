@@ -17,17 +17,17 @@ export class ProductDataService {
   }
 
   GetProductData(productId: string){
-    const endpoint = `/Product/Data?productInfoId=${encodeURIComponent(productId)}`;
+    const endpoint = `Product/Data?productInfoId=${encodeURIComponent(productId)}`;
     return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 
   GetProductInfoData(productId: string){
-    const endpoint = `/Product/ProductInfo?productId=${encodeURIComponent(productId)}`;
+    const endpoint = `Product/ProductInfo?productId=${encodeURIComponent(productId)}`;
     return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 
   GetProductInfoListData(productIds: string[]){
-    const endpoint = '/Product/ProductInfoList';
+    const endpoint = 'Product/ProductInfoList';
     return this.apiRequests.sendRequest(endpoint, 'POST', productIds);
   }
 
