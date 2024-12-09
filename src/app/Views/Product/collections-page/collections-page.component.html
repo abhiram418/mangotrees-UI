@@ -19,13 +19,13 @@
                             <ul>
                                 <li>
                                     <label for="Filter-Availability-1" class="facet-checkbox">
-                                        <input type="checkbox" name="availability" value="1">
+                                        <input type="checkbox" [(ngModel)]="inStockSelected" (change)="FilterByAvailability()">
                                         In stock
                                     </label>
                                 </li>
                                 <li>
                                     <label for="Filter-Availability-2" class="facet-checkbox">
-                                        <input type="checkbox" name="availability" value="0">
+                                        <input type="checkbox" [(ngModel)]="outOfStockSelected" (change)="FilterByAvailability()">
                                         Out of stock
                                     </label>
                                 </li>
@@ -41,16 +41,16 @@
                     <div class="price-content" *ngIf="price">
                         <div class="price-content-div">
                             <div class="price-content-info">
-                                <p>The Highest Price is Rs. 1,899</p>
+                                <p>The Highest Price is Rs. {{highestPrice | number}}</p>
                             </div>
                             <div class="price-content-info-content">
                                 <div class="price-content-from">
                                     <p>₹</p>
-                                    <input type="number" placeholder="From" min="0" max="1899">
+                                    <input type="number" placeholder="From" min="0" max="1899" [(ngModel)]="minPrice" (change)="FilterByPriceRange()">
                                 </div>
                                 <div class="price-content-to">
                                     <p>₹</p>
-                                    <input type="number" placeholder="To" min="0" max="1899">
+                                    <input type="number" placeholder="To" min="0" max="1899" [(ngModel)]="maxPrice" (change)="FilterByPriceRange()">
                                 </div>
                             </div>
                         </div>
@@ -59,22 +59,22 @@
             </div>
             <div class="filter-right">
                 <div class="sort-by">
-                    <select>
+                    <select (change)="SortProductsBy()" [(ngModel)]="SortCriteria">
                         <option value="Featured">Featured</option>
-                        <option value="Alphabetically, A-Z">Alphabetically, A-Z</option>
-                        <option value="Alphabetically, Z-A">Alphabetically, Z-A</option>
-                        <option value="Price, low to high">Price, low to high</option>
-                        <option value="Price, high to low">Price, high to low</option>
+                        <option value="A-Z">Alphabetically, A-Z</option>
+                        <option value="Z-A">Alphabetically, Z-A</option>
+                        <option value="Price-low-high">Price, low to high</option>
+                        <option value="Price-high-low">Price, high to low</option>
                     </select>
                 </div>
                 <div class="products-count serif">
-                    <p>{{PinchData.length}} products</p>
+                    <p>{{SortedPinchData.length}} products</p>
                 </div>
             </div>
         </div>
         <div class="collections-content">
             <div class="collections-content-box">
-                <ng-container *ngFor="let item of PinchData; let ind = index">
+                <ng-container *ngFor="let item of SortedPinchData; let ind = index">
                     <app-grid-view-item class="product" [product]="item" (ViewProduct)="ViewProduct($event)" (AddtoCart)="AddedtoCart($event)"></app-grid-view-item> 
                 </ng-container> 
             </div>

@@ -1,25 +1,33 @@
 import { Component, HostListener } from '@angular/core';
 import { GridViewItemComponent } from "../../components/grid-view-item/grid-view-item.component";
-import { Location, NgFor, NgIf } from '@angular/common';
+import { CommonModule, Location, NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { LoaderComponent } from "../../components/loader/loader.component";
-import { ProductApiData, ProductItemApiData } from '@models/ApiModels/ProductData';
+import { ProductItemApiData } from '@models/ApiModels/ProductData';
 import { ProductDataService } from '@services/Product/product-data.service';
 import { CustomerCartSharedService } from '@services/Customer/customer-cart-shared.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-collections-page',
   standalone: true,
-  imports: [NgIf, NgFor, GridViewItemComponent, NavBarComponent, FooterComponent, LoaderComponent],
+  imports: [NgIf, NgFor, CommonModule, FormsModule, GridViewItemComponent, NavBarComponent, FooterComponent, LoaderComponent],
   templateUrl: './collections-page.component.html',
   styleUrl: './collections-page.component.css'
 })
 export class CollectionsPageComponent {
   loader:boolean = false;
   PinchData:ProductItemApiData[]= [];
-  allProductData:ProductApiData[]= null!;
+  SortedPinchData:ProductItemApiData[]= [];
+  inStockSelected: boolean = false;
+  outOfStockSelected: boolean = false;
+  SortCriteria: string = "Featured";
+  highestPrice: number = 0; 
+  minPrice: number = 0; 
+  maxPrice: number = 0;
+  // Filters Divs
   price:boolean = false;
   availability:boolean = false;
 
@@ -35,8 +43,10 @@ export class CollectionsPageComponent {
     this.loader = true;
     this.productDataService.GetAllTheData().subscribe(
       result =>{
+        this.SortedPinchData = this.BuildProductItemData(result);
+        this.PinchData = [...this.SortedPinchData];
+        this.highestPrice = this.calculateHighestPrice();
         this.loader = false;
-        this.PinchData = this.BuildProductItemData(result);
       },
       error =>{
         this.loader = false;
@@ -70,6 +80,57 @@ export class CollectionsPageComponent {
   }
 
 
+  SortProductsBy() {
+    switch (this.SortCriteria) {
+      case "Price-high-low":
+        this.SortedPinchData.sort((a, b) => b.Price - a.Price);
+        break;
+      case "Price-low-high":
+        this.SortedPinchData.sort((a, b) => a.Price - b.Price);
+        break;
+      case "A-Z":
+        this.SortedPinchData.sort((a, b) => a.Title.localeCompare(b.Title));
+        break;
+      case "Z-A":
+        this.SortedPinchData.sort((a, b) => b.Title.localeCompare(a.Title));
+        break;
+      case "Featured":
+        this.SortedPinchData = [...this.PinchData]; 
+        this.FilterByAvailability();
+        break;
+      default:
+        break;
+    }
+  }
+  FilterByAvailability() {
+    if (this.inStockSelected && this.outOfStockSelected) {
+      this.SortedPinchData = [...this.PinchData];
+      this.SortCriteria = "Featured";
+    } else if (this.inStockSelected) {
+      this.SortedPinchData = this.PinchData.filter(product => product.Availability === true);
+    } else if (this.outOfStockSelected) {
+      this.SortedPinchData = this.PinchData.filter(product => product.Availability === false);
+    } else {
+      this.SortedPinchData = [...this.PinchData];
+      this.SortCriteria = "Featured";
+    }
+  }
+  FilterByPriceRange() {
+    this.SortedPinchData = [...this.PinchData];
+
+    this.SortedPinchData = this.SortedPinchData.filter(product => {
+      return product.Price >= this.minPrice && product.Price <= this.maxPrice;
+    });
+
+    this.SortCriteria = "Featured";
+    this.inStockSelected = false;
+    this.outOfStockSelected = false;
+  }
+
+  calculateHighestPrice(): number {
+    this.maxPrice = Math.max(...this.PinchData.map(product => product.Price));
+    return this.maxPrice;
+  }
 
   showTheDiv(show:string){
     if(show == "price"){
