@@ -107,7 +107,9 @@
     width: 102px;
     max-height: 102px;
     max-width: 102px;
+    border-radius: 5px;
     user-select: none;
+    -moz-user-select: none;
 }
 .items-info div{
     width: 60%;

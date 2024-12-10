@@ -171,6 +171,7 @@
     width: 102px;
     margin-top: 10px;
     aspect-ratio: 1 / 1;
+    border-radius: 5px;
     overflow: hidden;
     background-color: lightgreen;
 }
@@ -187,7 +188,7 @@
     margin-inline: 10px;
 }
 .review-item-top-title{
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -402,7 +403,9 @@ td{
         font-size: 10px;
     }
 
-    .review-item-top-title,
+    .review-item-top-title{
+        font-size: 13px;
+    }
     .review-item-top-desc {
         font-size: 12px;
     }
