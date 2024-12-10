@@ -12,12 +12,12 @@
                 <p class="deliver-to-bottom">{{navBarData?.CityName? navBarData?.CityName:'Nuzivid'}} {{navBarData?.Pincode? navBarData?.Pincode:'521201'}}</p>
             </div>
         </div>
-        <div class="search-bar">
-            <input type="search"  placeholder="Search Mangoes">
+        <form class="search-bar" [formGroup]="searchForm" (ngSubmit)="Search()">
+            <input type="search" formControlName="searchWord" placeholder="Search Mangoes">
             <div class="search-icon">
                 <span class="material-symbols-outlined" (click)="Search()">search</span>
             </div>
-        </div>
+        </form>
         <div class="account-mobile" (click)="RedirectTo('profile')">
             <img src="../../../assets/Pictures/user.png">
             <p>Account</p>
@@ -42,11 +42,11 @@
         </div>
     </div>
     <div class="nav-belt-mobile">
-        <div class="search-bar-mobile">
-            <input type="search" placeholder="Search Mangoes">
+        <form class="search-bar-mobile" [formGroup]="searchForm" (ngSubmit)="Search()">
+            <input type="search" formControlName="searchWord" placeholder="Search Mangoes">
             <div class="search-icon">
                 <span class="material-symbols-outlined" (click)="Search()">search</span>
             </div>
-        </div>
+        </form>
     </div>
 </div>

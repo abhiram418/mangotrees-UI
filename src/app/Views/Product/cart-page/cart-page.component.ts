@@ -237,7 +237,7 @@ export class CartPageComponent {
     this.router.navigate(['/'+to]);
   }
   Search(word:string){
-    alert("search: "+ word);
+    this.router.navigate(['/collections'], { queryParams: { search: word } });
   }
 
 }

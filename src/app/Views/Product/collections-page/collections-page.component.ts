@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { GridViewItemComponent } from "../../components/grid-view-item/grid-view-item.component";
 import { CommonModule, Location, NgFor, NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { LoaderComponent } from "../../components/loader/loader.component";
@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class CollectionsPageComponent {
   loader:boolean = false;
+  searchWord: string | null = null;
   PinchData:ProductItemApiData[]= [];
   SortedPinchData:ProductItemApiData[]= [];
   inStockSelected: boolean = false;
@@ -31,8 +32,11 @@ export class CollectionsPageComponent {
   price:boolean = false;
   availability:boolean = false;
 
-  constructor(private customerCartSharedService: CustomerCartSharedService, private router: Router, private location: Location, private productDataService:ProductDataService){
+  constructor(private customerCartSharedService: CustomerCartSharedService, private route: ActivatedRoute, private router: Router, private location: Location, private productDataService:ProductDataService){
     this.getTheProductData();
+  }
+  ngOnInit() {
+    this.searchWord = this.route.snapshot.queryParamMap.get('search');
   }
 
   getTheProductData(){
@@ -45,6 +49,9 @@ export class CollectionsPageComponent {
       result =>{
         this.SortedPinchData = this.BuildProductItemData(result);
         this.PinchData = [...this.SortedPinchData];
+        if(this.searchWord){
+          this.FilterBySearchWord(this.searchWord);
+        }
         this.highestPrice = this.calculateHighestPrice();
         this.loader = false;
       },
@@ -126,6 +133,16 @@ export class CollectionsPageComponent {
     this.inStockSelected = false;
     this.outOfStockSelected = false;
   }
+  FilterBySearchWord(word: string) {
+    const lowerCaseWord = word.toLowerCase();
+    
+    this.SortedPinchData = this.PinchData.filter(product => {
+      return (
+        product.Title.toLowerCase().includes(lowerCaseWord) ||
+        product.Desc.toLowerCase().includes(lowerCaseWord)
+      );
+    });
+  }
 
   calculateHighestPrice(): number {
     this.maxPrice = Math.max(...this.PinchData.map(product => product.Price));
@@ -160,7 +177,8 @@ export class CollectionsPageComponent {
     this.router.navigate(['/'+to]);
   }
   Search(word:string){
-    alert("search: "+ word);
+    this.router.navigate(['/collections'], { queryParams: { search: word } });
+    this.FilterBySearchWord(word);
   }
 
   @HostListener('document:click', ['$event'])

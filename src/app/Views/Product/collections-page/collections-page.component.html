@@ -7,7 +7,7 @@
             <a>Product Collections</a>
             <p class="lora">" At MangoTrees, we believe that everyone deserves the perfect summer with mangoes. Do you know what’s better than regular mangoes? Nuzividu mangoes. So, we have mangoes for everyone - there’s mangoes for nanis wanting to see their grandchildrens smile, mangoes to share with close friends and cousins, and mangoes for those who simply love them "</p>
         </div>
-        <div class="collections-filter">
+        <div *ngIf="!searchWord" class="collections-filter">
             <div class="filter-left">
                 <div class="availability" (click)="showTheDiv('availability')">
                     <p class="availability-title serif">
@@ -77,6 +77,9 @@
                 <ng-container *ngFor="let item of SortedPinchData; let ind = index">
                     <app-grid-view-item class="product" [product]="item" (ViewProduct)="ViewProduct($event)" (AddtoCart)="AddedtoCart($event)"></app-grid-view-item> 
                 </ng-container> 
+                <p *ngIf="SortedPinchData.length == 0" style="color: #D4A373;">
+                    No products found. Please adjust your filters or try searching for a different term.
+                </p>
             </div>
         </div>
         <div class="shade"></div>

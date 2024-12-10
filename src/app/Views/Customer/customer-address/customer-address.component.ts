@@ -174,7 +174,7 @@ export class CustomerAddressComponent {
     this.router.navigate(['../'+to]);
   }
   Search(word:string){
-    alert("search: "+ word);
+    this.router.navigate(['/collections'], { queryParams: { search: word } });
   }
 
   popPageData(data:any){
