@@ -286,6 +286,13 @@ option {
   margin-bottom: 40px;
 }
 
+.NoProductsFound{
+    font-size: 16px;
+    padding-inline: 16px;
+    text-align: center;
+    color: #D4A373;
+}
+
 
 @media (max-width: 874px){
     .collections-page-content{
@@ -300,5 +307,9 @@ option {
     }
     .products-count, .sort-by-title, .availability{
         display: none;
+    }
+    .NoProductsFound{
+        font-size: 14px;
+        padding-inline: 14px;
     }
 }

@@ -77,7 +77,7 @@
                 <ng-container *ngFor="let item of SortedPinchData; let ind = index">
                     <app-grid-view-item class="product" [product]="item" (ViewProduct)="ViewProduct($event)" (AddtoCart)="AddedtoCart($event)"></app-grid-view-item> 
                 </ng-container> 
-                <p *ngIf="SortedPinchData.length == 0" style="color: #D4A373;">
+                <p *ngIf="SortedPinchData.length == 0" class="NoProductsFound">
                     No products found. Please adjust your filters or try searching for a different term.
                 </p>
             </div>
