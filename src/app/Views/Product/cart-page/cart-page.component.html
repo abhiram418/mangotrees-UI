@@ -1,4 +1,4 @@
-<div class="cart-page roboto-regular">
+<div class="cart-page roboto-regular" (document:click)="onDocumentClick($event)">
 
     <app-nav-bar (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
 
@@ -36,10 +36,10 @@
                     </div>
                 </div>
                 <div>
-                    <div class="special-request" (click)="SpecialRequestButtonClicked()">
+                    <div class="special-request" (click)="SpecialRequestButtonClicked($event)">
                         <p class="multi-line-4 rubik blur" style="padding: 5px;margin: 0px;">Special requests</p>
                     </div>
-                    <div class="special-request-input" *ngIf="specialRequest" (focusout)="SpecialRequestButtonClicked()">
+                    <div class="special-request-input" *ngIf="specialRequest" (click)="$event.stopPropagation()">
                         <input type="text" placeholder="Type your requests" [(ngModel)]="Notes">
                     </div>
                 </div>

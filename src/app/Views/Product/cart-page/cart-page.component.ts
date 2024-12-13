@@ -1,5 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { CustomerCartService } from '@services/Customer/customer-cart.service';
@@ -237,8 +237,15 @@ export class CartPageComponent {
     }
   }
 
-  SpecialRequestButtonClicked(){
+  SpecialRequestButtonClicked(event: Event){
     this.specialRequest = !this.specialRequest;
+    event.stopPropagation();
+  }
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (this.specialRequest) {
+      this.specialRequest = false;
+    }
   }
 
   RedirectTo(to:string){

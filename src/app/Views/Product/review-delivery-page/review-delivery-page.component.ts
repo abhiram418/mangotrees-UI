@@ -61,7 +61,9 @@ export class ReviewDeliveryPageComponent {
     this.CustomerOrderData.DeliveryMethod.DeliveryMethod = this.ReviewForm.get('deliveryOption')?.value;
     this.CustomerOrderData.DeliveryMethod.Cost = 0;
     this.CustomerOrderData.IsGift = this.IsGift;
-    this.CustomerOrderData.GiftMessage = this.GiftMessage;
+    if(this.IsGift){
+      this.CustomerOrderData.GiftMessage = this.GiftMessage;
+    }
 
     this.orderService.SetCustomerOrderData(this.CustomerOrderData);
   }
@@ -126,7 +128,6 @@ export class ReviewDeliveryPageComponent {
 
   popPageData(data:any){
     this.GiftMessage = data;
-    console.log(data);
   }
   ClosePopPage(close:boolean){
     this.popPage = false;
