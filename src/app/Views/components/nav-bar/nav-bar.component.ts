@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavBarData } from '@models/navBarData';

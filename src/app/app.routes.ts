@@ -35,7 +35,7 @@ export const routes: Routes = [
     {path:'password', component:ForgotPasswordPageComponent},
     // {path:'otp', component:OTPPageComponent},
     // {path:'coupon', component:CouponCodePageComponent},
-    {path:'information', loadComponent: () => import('./Views/Customer/information-page/information-page.component').then(m => m.InformationPageComponent), canActivate: [authenticationGuard]},
+    {path:'information', loadComponent: () => import('./Views/Customer/information-page/information-page.component').then(m => m.InformationPageComponent)},
 
     {path:'profile', component:CustomerProfileComponent, canActivate: [authenticationGuard]},
     {path:'details', component:CustomerPersonalDetailsComponent, canActivate: [authenticationGuard]},
