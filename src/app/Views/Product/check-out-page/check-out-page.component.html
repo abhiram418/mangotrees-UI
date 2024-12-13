@@ -125,5 +125,5 @@
 </div>
 <div *ngIf="popPage">
     <app-pop-page *ngIf="addressSelectPage" [addressesList]="addressesList" [pageToDisplay]="'address-select'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
-    <app-pop-page *ngIf="couponPage" [pageToDisplay]="'coupon'"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
+    <app-pop-page *ngIf="couponPage" [pageToDisplay]="'coupon'" [Title]="popPageTitle"  (data)="popPageData($event)" (close)="ClosePopPage($event)"></app-pop-page>
 </div>

@@ -12,11 +12,12 @@ import { CustomerOrder, OrderItem } from '@models/OrderData';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { OrderService } from '@services/Product/order.service';
 import { ProductDataService } from '@services/Product/product-data.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [NgIf, NgFor, RouterLink, NavBarComponent, LoaderComponent],
+  imports: [NgIf, NgFor, RouterLink, NavBarComponent, LoaderComponent, FormsModule],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.css'
 })
@@ -29,6 +30,8 @@ export class CartPageComponent {
   CartList: CartData[] = [];
   ProductIdList: string[] = [];
   ProductInfoList: any[] = [];
+  specialRequest: boolean = false;
+  Notes?: string;
   loader: boolean = true;
 
   constructor(private customerAuthenticationService: CustomerAuthenticationService, private customerCartService: CustomerCartService, private orderService: OrderService, private productDataService: ProductDataService, private navBarService: NavBarService, private router:Router){}
@@ -65,7 +68,7 @@ export class CartPageComponent {
           if(error?.status == 401){
             this.customerAuthenticationService.ClearToken();
           }
-          alert("Failed to load your Cart. Please try again.");
+          // alert("Failed to load your Cart. Please try again.");
         }
       );
     }
@@ -157,6 +160,7 @@ export class CartPageComponent {
     this.CustomerOrderData.ShippingAddress = this.address.AddressID;
     this.CustomerOrderData.OrderItems = this.BuildCartListItemData(this.CartList);
     this.CustomerOrderData.TotalAmount = this.BuildItemTotalPriceData(this.CustomerOrderData.OrderItems);
+    this.CustomerOrderData.Notes = this.Notes;
     
     this.orderService.SetCustomerOrderData(this.CustomerOrderData);
   }
@@ -231,6 +235,10 @@ export class CartPageComponent {
       this.BuildCustomerOrderData();
       this.router.navigate(["../review"]);
     }
+  }
+
+  SpecialRequestButtonClicked(){
+    this.specialRequest = !this.specialRequest;
   }
 
   RedirectTo(to:string){

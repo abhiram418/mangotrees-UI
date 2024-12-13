@@ -15,11 +15,12 @@ import { AddressDesc } from '@models/CustomerProfileData';
 })
 export class PopPageComponent {
   @Input() pageToDisplay: string = '';
+  @Input() Title: string = '';
   @Input() addressData: AddressDesc = new AddressDesc();
   @Input() addressesList: AddressDesc[] = [];
   @Output() close = new EventEmitter<any>();
   @Output() data = new EventEmitter<any>();
-  ViewsList: { [key: string]: {value:boolean} } = { "address-update": { value: false }, "otp": { value: false }, "coupon": { value: false}, "address-select": { value: false}};
+  ViewsList: { [key: string]: {value:boolean} } = { "address-update": { value: false }, "otp": { value: false }, "coupon": { value: false}, "address-select": { value: false}, "gift-message": { value: false}};
 
   constructor(){
     this.addressData.AddressTitle = "";

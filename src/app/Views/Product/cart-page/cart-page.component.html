@@ -35,6 +35,14 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div class="special-request" (click)="SpecialRequestButtonClicked()">
+                        <p class="multi-line-4 rubik blur" style="padding: 5px;margin: 0px;">Special requests</p>
+                    </div>
+                    <div class="special-request-input" *ngIf="specialRequest" (focusout)="SpecialRequestButtonClicked()">
+                        <input type="text" placeholder="Type your requests" [(ngModel)]="Notes">
+                    </div>
+                </div>
             </div>
     
             <div class="to-add-more rubik">

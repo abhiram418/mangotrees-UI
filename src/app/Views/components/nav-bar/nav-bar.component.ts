@@ -21,7 +21,7 @@ export class NavBarComponent {
 
   constructor(private navBarService:NavBarService, private customerAuthenticationService: CustomerAuthenticationService){
     this.searchForm = new FormGroup({
-      searchWord: new FormControl("", [Validators.required])
+      searchWord: new FormControl("")
     });
   }
 

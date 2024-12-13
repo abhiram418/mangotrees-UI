@@ -21,6 +21,7 @@ import { LoaderComponent } from "../../components/loader/loader.component";
 export class CheckOutPageComponent {
   loader: boolean = true;
   popPage:boolean = false;
+  popPageTitle: string = "Enter Coupon"
   couponPage:boolean = false;
   addressSelectPage:boolean = false;
   data = new ProductViewItemData();
@@ -59,6 +60,7 @@ export class CheckOutPageComponent {
         this.BuildTheDeliveryData();
       },
       error=>{
+        alert("We’re sorry! Mangoes cannot be delivered to the selected Primary address at the moment. Please choose a different location and refresh the page or contact our support for assistance.");
         this.loader = false;
         if (window.history.length > 1) {
           this.location.back()

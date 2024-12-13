@@ -9,6 +9,7 @@ import { LoaderComponent } from "../../components/loader/loader.component";
 import { AddressDesc } from '@models/CustomerProfileData';
 import { CustomerAddressService } from '@services/Customer/customer-address.service';
 import { CustomerAuthenticationService } from '@services/Customer/customer-authentication.service';
+import { OrderService } from '@services/Product/order.service';
 
 @Component({
   selector: 'app-customer-address',
@@ -24,7 +25,7 @@ export class CustomerAddressComponent {
   addressData:AddressDesc = new AddressDesc();;
   addressesList:AddressDesc[] = [];
 
-  constructor(private customerAddressService: CustomerAddressService, private customerAuthenticationService: CustomerAuthenticationService, private location: Location, private router: Router){
+  constructor(private customerAddressService: CustomerAddressService, private customerAuthenticationService: CustomerAuthenticationService, private orderService: OrderService, private location: Location, private router: Router){
     this.GetAllTheCustomerAddresses();
   }
 
@@ -107,6 +108,28 @@ export class CustomerAddressComponent {
       }
     );
   }
+  GetChargesDataFromApi(CustomerAddress: AddressDesc, index: number | null, method: "UPDATE" | "ADD"){
+    this.loader = true;
+    this.orderService.GetTheDeliveryAndPackagingCostData(CustomerAddress.Pincode).subscribe(
+      result=>{
+        if(method == "ADD"){
+          this.AddCustomerAddress(CustomerAddress);
+        }
+        else if(method == "UPDATE"){
+          this.UpdateCustomerAddress(CustomerAddress, index!);
+        }
+      },
+      error=>{
+        alert("We’re sorry! We are not delivering to this area yet. You cannot add or update the address with this pincode. Please try another location or pincode.");
+        this.loader = false;
+        if (window.history.length > 1) {
+          this.location.back()
+        } else {
+          this.router.navigate(["review"]);
+        }
+      }
+    );
+  }
 
   BuildCustomerAddressData(AddressData: any): AddressDesc{
     var Address = new AddressDesc();
@@ -184,7 +207,7 @@ export class CustomerAddressComponent {
       data.IsPrimary = false;
       data.IsEditable = true;
       data.IsDeleteable = true;
-      this.AddCustomerAddress(data);
+      this.GetChargesDataFromApi(data, null, "ADD");
     }
     else{
       data.AddressID = this.addressesList[this.editButtonClickedBy].AddressID;
@@ -192,7 +215,7 @@ export class CustomerAddressComponent {
       data.IsEditable = this.addressesList[this.editButtonClickedBy].IsEditable;
       data.IsDeleteable = this.addressesList[this.editButtonClickedBy].IsDeleteable;
       var address = this.BuildCustomerAddressData(data);
-      this.UpdateCustomerAddress(address, this.editButtonClickedBy);
+      this.GetChargesDataFromApi(address, this.editButtonClickedBy, "UPDATE");
     }
   }
   ClosePopPage(close:boolean){

@@ -1,28 +1,33 @@
 import { Component } from '@angular/core';
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 import { Location, NgIf } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DeliveryType, PackagingType, PopUpData } from '@models/PopUpData';
 import { OrderService } from '@services/Product/order.service';
 import { CustomerOrder, DeliveryMethodModel } from '@models/OrderData';
 import { LoaderComponent } from "../../components/loader/loader.component";
+import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 
 @Component({
   selector: 'app-review-delivery-page',
   standalone: true,
-  imports: [PopUpComponent, ReactiveFormsModule, NgIf, LoaderComponent],
+  imports: [PopUpComponent, ReactiveFormsModule, FormsModule, NgIf, LoaderComponent, PopPageComponent],
   templateUrl: './review-delivery-page.component.html',
   styleUrl: './review-delivery-page.component.css'
 })
 export class ReviewDeliveryPageComponent {
   loader: boolean = true;
   popUp:boolean = false;
+  popPage:boolean = false;
+  popPageTitle: string = "Enter Gift Message"
   popUpData:PopUpData = new PopUpData();
   popUpHeading:string="";
   popUpText:string="";
   ReviewForm!: FormGroup;
   CustomerOrderData!: CustomerOrder;
+  IsGift?: boolean;
+  GiftMessage?: string;
 
   constructor(private orderService: OrderService, private location: Location, private router: Router){
     this.GetTheOrderHalfFilledData();
@@ -55,6 +60,8 @@ export class ReviewDeliveryPageComponent {
     this.CustomerOrderData.DeliveryMethod = new DeliveryMethodModel();
     this.CustomerOrderData.DeliveryMethod.DeliveryMethod = this.ReviewForm.get('deliveryOption')?.value;
     this.CustomerOrderData.DeliveryMethod.Cost = 0;
+    this.CustomerOrderData.IsGift = this.IsGift;
+    this.CustomerOrderData.GiftMessage = this.GiftMessage;
 
     this.orderService.SetCustomerOrderData(this.CustomerOrderData);
   }
@@ -107,9 +114,21 @@ export class ReviewDeliveryPageComponent {
         this.popUpText = this.popUpData.Basic;
         break;
       }
+      case "Gift":{
+        this.popPage = true;
+        break;
+      }
     }
   }
   closePopUp(event:any){
     this.popUp = event;
+  }
+
+  popPageData(data:any){
+    this.GiftMessage = data;
+    console.log(data);
+  }
+  ClosePopPage(close:boolean){
+    this.popPage = false;
   }
 }

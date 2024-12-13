@@ -136,12 +136,17 @@ export class CollectionsPageComponent {
   FilterBySearchWord(word: string) {
     const lowerCaseWord = word.toLowerCase();
     
-    this.SortedPinchData = this.PinchData.filter(product => {
-      return (
-        product.Title.toLowerCase().includes(lowerCaseWord) ||
-        product.Desc.toLowerCase().includes(lowerCaseWord)
-      );
-    });
+    if(word == null){
+      this.SortedPinchData = this.PinchData;
+    }
+    else{
+      this.SortedPinchData = this.PinchData.filter(product => {
+        return (
+          product.Title.toLowerCase().includes(lowerCaseWord) ||
+          product.Desc.toLowerCase().includes(lowerCaseWord)
+        );
+      });
+    }
   }
 
   calculateHighestPrice(): number {
@@ -177,8 +182,10 @@ export class CollectionsPageComponent {
     this.router.navigate(['/'+to]);
   }
   Search(word:string){
+    console.log(word);
     this.router.navigate(['/collections'], { queryParams: { search: word } });
     this.FilterBySearchWord(word);
+    this.searchWord = word;
   }
 
   @HostListener('document:click', ['$event'])

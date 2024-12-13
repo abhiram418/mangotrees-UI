@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class CouponCodePageComponent {
   @Output() data = new EventEmitter<any>();
+  @Input() title: string = '';
   couponCode: string = '';
 
 
