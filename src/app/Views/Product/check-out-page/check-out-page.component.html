@@ -27,11 +27,11 @@
                         <div class="item">
                             <div class="review-item-top">
                                 <div class="review-item-image">
-                                    <img [src]="items.Image">
+                                    <img [src]="items.Image" (click)="ViewProduct(items.ProductId!)">
                                 </div>
                                 <div class="review-item-text">
-                                    <p class="single-line review-item-top-title">{{items.ProductTitle}}</p>
-                                    <p class="multi-line-3 review-item-top-desc">{{items.ProductDesc}}</p>
+                                    <p class="single-line review-item-top-title" (click)="ViewProduct(items.ProductId!)">{{items.ProductTitle}}</p>
+                                    <p class="multi-line-3 review-item-top-desc" (click)="ViewProduct(items.ProductId!)">{{items.ProductDesc}}</p>
                                 </div>
                             </div>
                             <hr style="margin: 0px;border-top: 1px dashed #acabab;">
@@ -87,7 +87,7 @@
                             </tr>
                             <tr>
                                 <td>Discount:</td>
-                                <td class="order-summary-value">₹{{CustomerOrderData.DiscountedAmount | number:'1.2-2' }}{{CustomerOrderData.DiscountedAmount? "":0 | number:'1.2-2'}}</td>
+                                <td class="order-summary-value">₹{{CustomerOrderData.DiscountedAmount ? (CustomerOrderData.DiscountedAmount | number:'1.2-2') : '0.00'}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -113,9 +113,9 @@
     <hr style="max-width: 1333px;">
 
     <div class="check-out-info">
-        <p>Need help? Check our <a href="../help">help</a> page or <a href="../contact-us">contact us</a></p>
+        <p>Need help? Check our <a href="../help">help</a> page or <a (click)="RedirectToInformation('5382cd00-6215-4b10-8739-8566a5ec1e36')">contact us</a></p>
         <p>Upon placing your order, you will receive an email confirmation acknowledging receipt of your order. If you select an electronic payment method (credit card, debit card, or net banking), you will be redirected to your bank’s website to complete the transaction. Your purchase contract will be finalized once we have received your electronic payment and dispatched your item.</p>
-        <p>Need to add more items to your order? Continue shopping on the <a href="../home">MangoTrees.in homepage.</a></p>
+        <p>Need to add more items to your order? Continue shopping on the <a routerLink="../home">MangoTrees.in homepage.</a></p>
     </div>
     <br>
 </div>

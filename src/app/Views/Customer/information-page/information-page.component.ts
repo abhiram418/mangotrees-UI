@@ -1,31 +1,61 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Location, NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 import { FooterComponent } from "../../components/footer/footer.component";
-import { NavBarData } from '@models/navBarData';
 import { InformationData, InformationPageData } from '@models/InformationPageData';
+import { GeneralService } from '@services/General/general.service';
+import { LoaderComponent } from "../../components/loader/loader.component";
 
 @Component({
   selector: 'app-information-page',
   standalone: true,
-  imports: [NgFor, NavBarComponent, FooterComponent],
+  imports: [NgFor, NgIf, NavBarComponent, FooterComponent, LoaderComponent],
   templateUrl: './information-page.component.html',
   styleUrl: './information-page.component.css'
 })
 export class InformationPageComponent {
-  DateList:InformationPageData = new InformationPageData();
+  DataList:InformationPageData = new InformationPageData();
   page:string = '';
+  loader: boolean = true;
 
-  constructor(private pageInfo: ActivatedRoute,private router: Router){
-    this.DateList.Information.push(new InformationData());
-    // this.DateList.Information.push(new InformationData());
-  }
+  constructor(private generalService:GeneralService, private pageInfo: ActivatedRoute, private location: Location,private router: Router){ }
 
   ngOnInit() {
     this.pageInfo.queryParams.subscribe(params => {
       this.page = params['page'] || null;
+      if(this.page != null){
+        this.GetInformationData();
+      }
     });
+  }
+
+  GetInformationData(){
+    this.generalService.GetInformation(this.page).subscribe(
+      result=>{
+        this.loader = false;
+        this.BuildInformationData(result);
+      },
+      error=>{
+        this.loader = false;
+        if (window.history.length > 1) {
+          this.location.back()
+        } else {
+          this.router.navigate(["home"]);
+        }
+      }
+    )
+  }
+
+  BuildInformationData(informationData: any){
+    this.DataList.InformationTitle = informationData.informationTitle;
+
+    for (let index = 0; index < informationData.details.length; index++) {
+      var data = new InformationData();
+      data.Title = informationData.details[index].title;
+      data.Description = informationData.details[index].description;
+      this.DataList.Details[index] = data;
+    }
   }
 
   RedirectTo(to:string){

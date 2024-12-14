@@ -180,6 +180,7 @@
     width: 100%;
     user-select: none;
     -webkit-user-select: none;
+    cursor: pointer;
 }
 .review-item-text{
     max-width: calc(100% - 20px);    
@@ -192,6 +193,7 @@
     font-weight: 500;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    cursor: pointer;
 }
 .review-item-top-desc{
     height: fit-content;
@@ -199,6 +201,7 @@
     font-weight: 300;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    cursor: pointer;
 }
 
 .review-item-bottom{

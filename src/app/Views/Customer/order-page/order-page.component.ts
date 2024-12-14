@@ -100,7 +100,7 @@ export class OrderPageComponent {
       alert("The receipt for this order is not available as payment has not been completed or has failed. Please try again after completing the payment");
     }
     else{
-      this.router.navigate(["../receipt",{queryParams: {OrderID: orderId}}]);
+      this.router.navigate(['../receipt'],{ queryParams: { OrderID: orderId } });
     }
   }
   ViewProduct(IteamId:string){

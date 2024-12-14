@@ -17,9 +17,9 @@
                 </div>
                 <div *ngFor="let item of CartList; let i = index" class="items">
                     <div class="items-info">
-                        <img src="{{item.ItemImage}}">
+                        <img src="{{item.ItemImage}}" (click)="ViewProduct(item.ProductId)">
                         <div>
-                            <p class="multi-line-4 rubik">{{item.ItemTitle}}</p>
+                            <p class="multi-line-4 rubik" (click)="ViewProduct(item.ProductId)">{{item.ItemTitle}}</p>
                         </div>
                     </div>
                     <div style="width: 50%;display: flex;justify-content: space-around;">

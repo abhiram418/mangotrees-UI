@@ -248,6 +248,10 @@ export class CartPageComponent {
     }
   }
 
+  ViewProduct(IteamId:string){
+    this.router.navigate(['/product'], { queryParams: { ProductID: IteamId } });
+  }
+  
   RedirectTo(to:string){
     this.router.navigate(['/'+to]);
   }

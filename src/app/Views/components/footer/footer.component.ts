@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import  { RouterLink } from '@angular/router'
+import  { Router, RouterLink } from '@angular/router'
 import { LoaderComponent } from "../loader/loader.component";
 
 @Component({
@@ -11,8 +11,15 @@ import { LoaderComponent } from "../loader/loader.component";
 })
 export class FooterComponent {
 
+    constructor(private router: Router){}
+
     scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    RedirectTo(word:string){
+        this.scrollToTop();
+        this.router.navigate(['/information'], { queryParams: { page: word } });
     }
       
 }

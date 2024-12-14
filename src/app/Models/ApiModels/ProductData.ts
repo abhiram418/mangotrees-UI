@@ -58,6 +58,7 @@ export class TransactionData {
     UserId!: string;
     TransactionId!: string;
     TransactionDate!: string;
+    TrackingNumber!: string;
     PaymentMethod!: string;
     Status!: OrderStatus;
     Amount!: number;

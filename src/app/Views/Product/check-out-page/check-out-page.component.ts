@@ -3,7 +3,7 @@ import { Location, NgFor, NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PopPageComponent } from "../../components/pop-page/pop-page.component";
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ProductViewItemData } from '@models/ProductViewItemData';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { ChargesModel, CustomerOrder } from '@models/OrderData';
@@ -14,7 +14,7 @@ import { LoaderComponent } from "../../components/loader/loader.component";
 @Component({
   selector: 'app-check-out-page',
   standalone: true,
-  imports: [NgFor, NgIf, CommonModule, FormsModule, PopPageComponent, LoaderComponent],
+  imports: [NgFor, NgIf, RouterLink, CommonModule, FormsModule, PopPageComponent, LoaderComponent],
   templateUrl: './check-out-page.component.html',
   styleUrl: './check-out-page.component.css'
 })
@@ -137,6 +137,9 @@ export class CheckOutPageComponent {
           alert("Congratulations! Your coupon has been successfully applied.");
         }
         else{
+          this.DiscountPercentage = 0;
+          this.CustomerOrderData.PromotionApplied = null!;
+          this.BuildTheDeliveryData();
           alert("Unfortunately, the coupon is invalid or expired. Please check the code and try again.");
         }
       },
@@ -160,6 +163,13 @@ export class CheckOutPageComponent {
     this.loader = true;
     this.CustomerOrderData.TotalAmount = this.TotalPrice;
     console.log(this.CustomerOrderData);
+  }
+
+  ViewProduct(IteamId:string){
+    this.router.navigate(['/product'], { queryParams: { ProductID: IteamId } });
+  }
+  RedirectToInformation(word:string){
+    this.router.navigate(['/information'], { queryParams: { page: word } });
   }
 
   GetCouponCodes(){

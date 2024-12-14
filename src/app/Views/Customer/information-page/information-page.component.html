@@ -5,15 +5,15 @@
 
     <div class="information-context roboto-regular">
         <div class="information-title rubik">
-            <p>{{DateList.PageTitle}}</p>
+            <p>{{DataList.InformationTitle}}</p>
         </div>
         <div class="information">
-            <div *ngFor="let information of DateList.Information" class="div-information rubik">
+            <div *ngFor="let information of DataList.Details" class="div-information rubik">
                 <div class="div-information-title">
                     <p>{{information.Title}}</p>
                 </div>
                 <div class="div-information-context">
-                    <p>{{information.Desc}}</p>
+                    <p>{{information.Description}}</p>
                 </div>
             </div>
         </div>
@@ -23,4 +23,8 @@
         <app-footer></app-footer>
     </div>
 
+</div>
+
+<div *ngIf="loader">
+    <app-loader></app-loader>
 </div>
