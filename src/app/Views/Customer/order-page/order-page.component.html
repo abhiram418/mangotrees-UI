@@ -1,4 +1,4 @@
-<div class="order-page">
+<div class="order-page" *ngIf="!loader">
 
     <app-nav-bar (redirectTo)="RedirectTo($event)" (search)="Search($event)"></app-nav-bar>
 
@@ -59,6 +59,23 @@
                         <div class="order-bottom">
                             <p class="single-line">{{order.ShippingAddress}}</p>
                             <p>₹{{item.TotalPrice}}</p>
+                        </div>
+                    </div>
+                    <div class="review-container rubik" *ngIf="!item.IsReviewed && order.OrderStatus == 'Delivered'" (click)="$event.stopPropagation()" style="display: flex;flex-direction: column;">
+                        <input type="text" [(ngModel)]="item.Title" placeholder="Review Title" class="review-title rubik">
+                        <textarea placeholder="Review" [(ngModel)]="item.Review" class="rubik review-text"></textarea>
+                            <div class="rating-container">
+                                <div class="stars">
+                                    <span *ngFor="let star of [1, 2, 3, 4, 5]; let revIndex = index" (click)="setRating(revIndex + 1, ind, i)" [class.selected]="revIndex < item.Rating!" class="star">
+                                        ★
+                                    </span>
+                                </div>
+                            </div>
+                        <button class="submit-button rubik" (click)="ValidatePostReviewData(item, i, ind)">Submit</button>
+                    </div>
+                    <div *ngIf="item.IsReviewed && order.OrderStatus == 'Delivered'" class="review-container rubik" >
+                        <div class="review-summary">
+                            <p>Thank You for Your Review!</p>
                         </div>
                     </div>
                 </div>

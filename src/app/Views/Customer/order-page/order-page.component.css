@@ -106,7 +106,6 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-    justify-content: space-between;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     background-color: #e0f0e4;
@@ -205,6 +204,81 @@
     color: black;
 }
 
+
+.review-container {
+    width: calc(100% - 34px);
+    padding: 17px;
+    margin-top: 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #E1F0DA;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.review-title, .review-text {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+} 
+.review-title {
+    height: 16px;
+} 
+.review-text {
+    height: 48px;
+    resize: none;
+}
+.rating-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.stars {
+    display: flex;
+    gap: 5px;
+}
+.star {
+    font-size: 20px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.2s;
+}
+.star.selected {
+    color: #F4BB44;
+}
+.submit-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #3a4a32;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.submit-button:hover {
+    background-color: #44563a;
+}
+.submit-button:active {
+    transition: 0.3s;
+    transform: scale(0.99);
+} 
+.review-summary {
+    background-color: #f0f9e8;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #d4e6c8;
+    text-align: left;
+    margin-top: 10px;
+    text-align: center;
+}  
+.review-summary p {
+    color: green;
+    margin-bottom: 5px;
+}
 
 
 .empty{

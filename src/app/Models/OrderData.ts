@@ -32,7 +32,16 @@ export class CustomerOrder {
     PromotionApplied?: string;
 }
 
-export class OrderItem {
+class ReviewData{
+    // just for the Review code 
+    Rating?: number = 0;
+    Title?: string = "";
+    Review?: string = "";
+    IsReviewed!: boolean;
+}
+
+export class OrderItem extends ReviewData{
+    OrderItemId!: string;
     ProductId?: string;
     ProductTitle!: string;
     ProductDesc:string= '';

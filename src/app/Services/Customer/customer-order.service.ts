@@ -23,4 +23,9 @@ export class CustomerOrderService {
     return this.apiRequests.sendRequest(endpoint, 'GET');
   }
 
+  PostReviewData(productId: string, orderItemId: string, ReviewData: any){
+    const endpoint = `Product/Review?productId=${encodeURIComponent(productId)}&orderItemId=${encodeURIComponent(orderItemId)}`;
+    return this.apiRequests.sendRequest(endpoint, 'POST', ReviewData);
+  }
+
 }
