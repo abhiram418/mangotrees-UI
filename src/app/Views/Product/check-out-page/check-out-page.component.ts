@@ -31,6 +31,8 @@ export class CheckOutPageComponent {
   DiscountPercentage!: number;
   PackingCost!: number;
   charges: ChargesModel = new ChargesModel();
+  mangoesCount = 0;
+  mangoesWeight = 0;
   TotalPrice: number = 0;
 
   constructor(private customerAuthenticationService: CustomerAuthenticationService, private orderService: OrderService, private location: Location, private router:Router){}
@@ -87,34 +89,14 @@ export class CheckOutPageComponent {
 
   BuildTheDeliveryData(){
     this.loader = false;
-    var mangoesCount = 0;
-    var mangoesWeight = 0;
+    this.mangoesWeight = 0;
+    this.mangoesCount = 0;
     this.CustomerOrderData.TotalAmount = 0;
 
-    for (let index = 0; index < this.CustomerOrderData.OrderItems.length; index++) {
-      mangoesCount += Number(this.CustomerOrderData.OrderItems[index].Quantity * this.CustomerOrderData.OrderItems[index].Units);
-      mangoesWeight += Number(this.CustomerOrderData.OrderItems[index].Quantity * this.CustomerOrderData.OrderItems[index].Weight);
-      this.CustomerOrderData.OrderItems[index].TotalPrice = this.CustomerOrderData.OrderItems[index].Quantity * this.CustomerOrderData.OrderItems[index].Price;
-      this.CustomerOrderData.TotalAmount += this.CustomerOrderData.OrderItems[index].TotalPrice;
-    }
-
-    if (this.CustomerOrderData.PackagingMethod === 'Premium') {
-      this.PackingCost = this.charges.Premium * (mangoesCount); 
-    } else if (this.CustomerOrderData.PackagingMethod === 'Pocket-Friendly') {
-      this.PackingCost = this.charges.PocketFriendly * (mangoesCount); 
-    } else if (this.CustomerOrderData.PackagingMethod === 'Basic') {
-      this.PackingCost = this.charges.Basic * (mangoesCount); 
-    }
-
-    if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'Dedicated') {
-      this.CustomerOrderData.DeliveryMethod.Cost = this.charges.Dedicated * (mangoesWeight); 
-    } else if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'Third-Party') {
-      this.CustomerOrderData.DeliveryMethod.Cost = this.charges.ThirdParty * (mangoesWeight); 
-    } else if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'APSRTC') {
-      this.CustomerOrderData.DeliveryMethod.Cost = this.charges.APSRTC * (mangoesWeight); 
-    }
+    this.CalculateCountAndWeightOfMangoes();
+    this.CalculatePackagingMethodCost();
+    this.CalculateDeliveryMethodCost();
     
-    this.CustomerOrderData.DiscountedAmount = this.CustomerOrderData.TotalAmount * (this.DiscountPercentage / 100);
     this.CustomerOrderData.PaymentMethod = "Online";
     if(this.CustomerOrderData.DeliveryMethod.DeliveryMethod == "PickUp"){
       this.TotalPrice = this.CustomerOrderData.TotalAmount;
@@ -123,6 +105,8 @@ export class CheckOutPageComponent {
     else{
       this.TotalPrice = (this.CustomerOrderData.TotalAmount + this.CustomerOrderData.DeliveryMethod.Cost + this.PackingCost);
     }
+    
+    this.CustomerOrderData.DiscountedAmount = this.CustomerOrderData.TotalAmount * (this.DiscountPercentage / 100);
     if(this.CustomerOrderData.DiscountedAmount){
       this.TotalPrice = this.TotalPrice - this.CustomerOrderData.DiscountedAmount;
     }
@@ -156,6 +140,32 @@ export class CheckOutPageComponent {
     }
     if(this.CustomerOrderData.OrderItems.length == 0){
       this.router.navigate(["cart"]);
+    }
+  }
+  CalculateCountAndWeightOfMangoes(){
+    for (let index = 0; index < this.CustomerOrderData.OrderItems.length; index++) {
+      this.mangoesCount += Number(this.CustomerOrderData.OrderItems[index].Quantity * this.CustomerOrderData.OrderItems[index].Units);
+      this.mangoesWeight += Number(this.CustomerOrderData.OrderItems[index].Quantity * this.CustomerOrderData.OrderItems[index].Weight);
+      this.CustomerOrderData.OrderItems[index].TotalPrice = this.CustomerOrderData.OrderItems[index].Quantity * this.CustomerOrderData.OrderItems[index].Price;
+      this.CustomerOrderData.TotalAmount += this.CustomerOrderData.OrderItems[index].TotalPrice;
+    }
+  }
+  CalculatePackagingMethodCost(){
+    if (this.CustomerOrderData.PackagingMethod === 'Premium') {
+      this.PackingCost = this.charges.Premium * (this.mangoesCount); 
+    } else if (this.CustomerOrderData.PackagingMethod === 'Pocket-Friendly') {
+      this.PackingCost = this.charges.PocketFriendly * (this.mangoesCount); 
+    } else if (this.CustomerOrderData.PackagingMethod === 'Basic') {
+      this.PackingCost = this.charges.Basic * (this.mangoesCount); 
+    }
+  }
+  CalculateDeliveryMethodCost(){
+    if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'Dedicated') {
+      this.CustomerOrderData.DeliveryMethod.Cost = this.charges.Dedicated * (this.mangoesWeight); 
+    } else if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'Third-Party') {
+      this.CustomerOrderData.DeliveryMethod.Cost = this.charges.ThirdParty * (this.mangoesWeight); 
+    } else if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'APSRTC') {
+      this.CustomerOrderData.DeliveryMethod.Cost = this.charges.APSRTC * (this.mangoesWeight); 
     }
   }
 
