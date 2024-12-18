@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { AddressDesc } from '@models/CustomerProfileData';
 import { AppConstants } from '@models/StaticValues/GeneralStaticValues';
 import { LoaderComponent } from "../../components/loader/loader.component";
+import { OrderService } from '@services/Product/order.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -22,7 +23,7 @@ export class SignupPageComponent {
   signupForm!: FormGroup;
   userRequestModel!: UserRequestModel;
 
-  constructor(private customerSigninService: CustomerSigninService, private router: Router){}
+  constructor(private customerSigninService: CustomerSigninService, private orderService: OrderService, private router: Router){}
     
   ngOnInit(): void {
     this.signupForm = new FormGroup({
@@ -42,13 +43,33 @@ export class SignupPageComponent {
     });
   }
 
-  SubmitSignupFormOTP(){
+  GetChargesDataFromApi(){
     if(this.loader){
       return;
     }
 
+    this.loader = true;
     if(this.signupForm.valid){
-      this.loader = true;
+      let Pincode = this.signupForm.get('Pincode')?.value;
+      this.orderService.GetTheDeliveryAndPackagingCostData(Pincode).subscribe(
+        result=>{
+          this.SubmitSignupFormOTP();
+        },
+        error=>{
+          alert("We’re sorry! We are not delivering to this area yet. You cannot add the address with this pincode. Please try another location or pincode.");
+          this.loader = false;
+        }
+      );
+    }
+    else{
+      alert("Please Validate the Fields");
+      this.loader = false;
+    }
+  }
+
+  SubmitSignupFormOTP(){
+
+    if(this.signupForm.valid){
 
       this.userRequestModel = new UserRequestModel();
       this.userRequestModel.FirstName = this.signupForm.get('FirstName')?.value;

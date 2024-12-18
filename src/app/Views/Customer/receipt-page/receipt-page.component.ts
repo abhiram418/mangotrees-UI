@@ -68,9 +68,10 @@ export class ReceiptPageComponent {
     this.receiptData.TransactionId = transactionData.transactionId;
     this.receiptData.Amount = transactionData.amount;
     this.receiptData.PaymentMethod = transactionData.paymentMethod;
+    this.receiptData.DeliveryMethod = transactionData.deliveryMethod;
+    this.receiptData.TrackingNumber = transactionData.trackingNumber;
     this.receiptData.TransactionDate = this.datePipe.transform(transactionData.transactionDate, 'MMM d, yyyy') || '';
     this.receiptData.Status = Object.values(OrderStatus)[transactionData.status] as OrderStatus;
-    console.log(this.receiptData);
   }
 
   disableRightClick(event: MouseEvent): void {

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavBarData } from '@models/navBarData';
 import { Router, RouterLink } from '@angular/router';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";

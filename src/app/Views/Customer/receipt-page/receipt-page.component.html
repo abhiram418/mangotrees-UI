@@ -23,6 +23,10 @@
                     <p class="details-title">Payment Method</p>
                     <p class="details-amount">{{receiptData.PaymentMethod}}</p>
                 </div>
+                <div class="details">
+                    <p class="details-title">Delivery Method</p>
+                    <p class="details-amount">{{ receiptData.DeliveryMethod }}</p>
+                </div>
                 <hr class="dashed">
             </div>
             <div class="receipt-bottom">
@@ -32,7 +36,7 @@
                 </div>
                 <div class="details">
                     <p class="details-title">Tracking Number</p>
-                    <p class="details-amount">{{ 'Tracking Number Not Available' }}</p>
+                    <p class="details-amount">{{ receiptData.TrackingNumber? receiptData.TrackingNumber:'Tracking Number Not Available' }}</p>
                 </div>
             </div>
         </div>
