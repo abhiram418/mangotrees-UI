@@ -84,7 +84,7 @@ export class CartPageComponent {
         if(error?.status == 401){
           this.customerAuthenticationService.ClearToken();
         }
-        alert("Failed to load your Cart. Please try again.");
+        // alert("Failed to load your Cart. Please try again.");
       }
     );
   }
