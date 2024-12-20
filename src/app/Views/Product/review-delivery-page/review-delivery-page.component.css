@@ -238,6 +238,7 @@ input[type="checkbox"]:checked::before {
     font-size: 12px;
 }
 .review-delivery-info a{
+    font-size: 12px;
     cursor: pointer;
     text-decoration: none;
     color: green;
@@ -255,7 +256,7 @@ input[type="checkbox"]:checked::before {
 }
 @media (max-width: 360px) {}
 @media (max-width: 474px){
-    .review-delivery-info p{
+    .review-delivery-info p,.review-delivery-info a{
         font-size: 10px;
     }
 }
