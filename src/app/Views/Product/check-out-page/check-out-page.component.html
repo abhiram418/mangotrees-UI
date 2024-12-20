@@ -78,12 +78,16 @@
                                 <td class="order-summary-value">₹{{CustomerOrderData.TotalAmount | number:'1.2-2' }}{{CustomerOrderData.TotalAmount? "":0 | number:'1.2-2'}}</td>
                             </tr>
                             <tr>
+                                <td>GST:</td>
+                                <td class="order-summary-value">₹{{CustomerOrderData.TotalAmount * 0.18 | number:'1.2-2' }}{{CustomerOrderData.TotalAmount? "":0 | number:'1.2-2'}}</td>
+                            </tr>
+                            <tr>
                                 <td>Packing:</td>
                                 <td class="order-summary-value">₹{{PackingCost | number:'1.2-2' }}{{PackingCost? "":0 | number:'1.2-2'}}</td>
                             </tr>
                             <tr>
                                 <td>Delivery:</td>
-                                <td class="order-summary-value">₹{{CustomerOrderData.DeliveryMethod.Cost | number:'1.2-2' }}{{CustomerOrderData.DeliveryMethod.Cost? "":0 | number:'1.2-2'}}</td>
+                                <td class="order-summary-value">₹{{CustomerOrderData.DeliveryMethod.Cost | number:'1.2-2' }}</td>
                             </tr>
                             <tr>
                                 <td>Discount:</td>

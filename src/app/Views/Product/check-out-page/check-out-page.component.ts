@@ -99,11 +99,11 @@ export class CheckOutPageComponent {
     
     this.CustomerOrderData.PaymentMethod = "Online";
     if(this.CustomerOrderData.DeliveryMethod.DeliveryMethod == "PickUp"){
-      this.TotalPrice = this.CustomerOrderData.TotalAmount;
+      this.TotalPrice = this.CustomerOrderData.TotalAmount + (this.CustomerOrderData.TotalAmount * 0.18 );
       this.CustomerOrderData.PaymentMethod = "Cash";
     }
     else{
-      this.TotalPrice = (this.CustomerOrderData.TotalAmount + this.CustomerOrderData.DeliveryMethod.Cost + this.PackingCost);
+      this.TotalPrice = (this.CustomerOrderData.TotalAmount + this.CustomerOrderData.DeliveryMethod.Cost + this.PackingCost) + (this.CustomerOrderData.TotalAmount * 0.18 );
     }
     
     this.CustomerOrderData.DiscountedAmount = this.CustomerOrderData.TotalAmount * (this.DiscountPercentage / 100);

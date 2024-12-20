@@ -244,6 +244,9 @@ select {
     -webkit-user-select: none;
     outline: none;
     color: #333;
+    -webkit-appearance: none; /* Chrome, Safari, and Opera */
+    -moz-appearance: none; /* Firefox */
+    appearance: none;
 }
 option[value=""] {
     color: #888;

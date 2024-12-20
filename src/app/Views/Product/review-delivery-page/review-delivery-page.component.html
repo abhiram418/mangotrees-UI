@@ -28,21 +28,21 @@
                             <img style="max-width: 28px;" src="../../../assets/Pictures/APSRTC.ico">
                         </div>
                         <span style="user-select: none;">&nbsp;&nbsp;</span>
-                        <a (click)="showPopUp('APSRTC')">?</a>
+                        <a (click)="showPopUp('APSRTC')">Info?</a>
                     </div>
                     <div class="review-delivery-type-options">
                         <input type="radio" value="Third-Party" formControlName="deliveryOption">
                         <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                         <p>Third-Party Delivery Services</p>
                         <span style="user-select: none;">&nbsp;&nbsp;</span>
-                        <a (click)="showPopUp('Third-Party')">?</a>
+                        <a (click)="showPopUp('Third-Party')">Info?</a>
                     </div>
                     <div class="review-delivery-type-options">
                         <input type="radio" value="Dedicated" formControlName="deliveryOption">
                         <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                         <p>Dedicated Truck Delivery</p>
                         <span style="user-select: none;">&nbsp;&nbsp;</span>
-                        <a (click)="showPopUp('Dedicated')">?</a>
+                        <a (click)="showPopUp('Dedicated')">Info?</a>
                     </div>
                 </div>
             </div>
@@ -57,21 +57,21 @@
                         <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                         <p>Premium Packaging</p>
                         <span style="user-select: none;">&nbsp;&nbsp;</span>
-                        <a (click)="showPopUp('Premium')">?</a>
+                        <a (click)="showPopUp('Premium')">Info?</a>
                     </div>
                     <div class="review-package-type-options">
                         <input type="radio" value="Pocket-Friendly" formControlName="packageOption">
                         <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                         <p>Pocket-Friendly Packaging</p>
                         <span style="user-select: none;">&nbsp;&nbsp;</span>
-                        <a (click)="showPopUp('Pocket-Friendly')">?</a>
+                        <a (click)="showPopUp('Pocket-Friendly')">Info?</a>
                     </div>
                     <div class="review-package-type-options">
                         <input type="radio" value="Basic" formControlName="packageOption">
                         <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                         <p>Basic Packaging</p>
                         <span style="user-select: none;">&nbsp;&nbsp;</span>
-                        <a (click)="showPopUp('Basic')">?</a>
+                        <a (click)="showPopUp('Basic')">Info?</a>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                         <span style="user-select: none;">&nbsp;&nbsp;&nbsp;</span>
                         <p>Gift Package</p>
                         <span style="user-select: none;">&nbsp;&nbsp;</span>
-                        <a (click)="showPopUp('Gift')">+</a>
+                        <a (click)="showPopUp('Gift')"> Add Message</a>
                     </div>
                 </div>
             </div>
@@ -101,9 +101,9 @@
     <hr style="max-width: 1333px;">
 
     <div class="review-delivery-info">
-        <p>Need help? Check our <a href="../help">help</a> page or <a href="../contact-us">contact us</a></p>
+        <p>Need help? Check our <a href="../help">help</a> page or <a (click)="RedirectToInformation('5382cd00-6215-4b10-8739-8566a5ec1e36')">contact us</a></p>
         <p>Upon placing your order, you will receive an email confirmation acknowledging receipt of your order. If you select an electronic payment method (credit card, debit card, or net banking), you will be redirected to your bank’s website to complete the transaction. Your purchase contract will be finalized once we have received your electronic payment and dispatched your item.</p>
-        <p>Need to add more items to your order? Continue shopping on the <a href="../home">MangoTrees.in homepage.</a></p>
+        <p>Need to add more items to your order? Continue shopping on the <a routerLink="../home">MangoTrees.in homepage.</a></p>
     </div>
     <br>
 </div>

@@ -10,10 +10,13 @@
     border: 1.5px solid rgb(237, 237, 237);
 }
 a{
-    /* text-decoration: underline; */
     cursor: pointer;
     user-select: none;
+    font-size: 14px;
     color: rgb(114, 144, 64);
+}
+a:hover{
+    text-decoration: underline;
 }
 a:active{
     color: rgb(151, 3, 3);

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PopUpComponent } from "../../components/pop-up/pop-up.component";
 import { Location, NgIf } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { DeliveryType, PackagingType, PopUpData } from '@models/PopUpData';
 import { OrderService } from '@services/Product/order.service';
 import { CustomerOrder, DeliveryMethodModel } from '@models/OrderData';
@@ -12,7 +12,7 @@ import { PopPageComponent } from "../../components/pop-page/pop-page.component";
 @Component({
   selector: 'app-review-delivery-page',
   standalone: true,
-  imports: [PopUpComponent, ReactiveFormsModule, FormsModule, NgIf, LoaderComponent, PopPageComponent],
+  imports: [PopUpComponent, ReactiveFormsModule, FormsModule, RouterModule, NgIf, LoaderComponent, PopPageComponent],
   templateUrl: './review-delivery-page.component.html',
   styleUrl: './review-delivery-page.component.css'
 })
@@ -76,6 +76,9 @@ export class ReviewDeliveryPageComponent {
     else{
       alert("Please Validate the Fields");
     }
+  }
+  RedirectToInformation(word:string){
+    this.router.navigate(['/information'], { queryParams: { page: word } });
   }
 
   showPopUp(service:string){
