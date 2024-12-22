@@ -64,11 +64,11 @@ export class CheckOutPageComponent {
       error=>{
         alert("We’re sorry! Mangoes cannot be delivered to the selected Primary address at the moment. Please choose a different location and refresh the page or contact our support for assistance.");
         this.loader = false;
-        if (window.history.length > 1) {
-          this.location.back()
-        } else {
-          this.router.navigate(["review"]);
+        let SelectAddress = this.addressesList[0].AddressID==this.address.AddressID? this.addressesList[1]:this.addressesList[0];
+        if(SelectAddress != null){
+          this.address =  SelectAddress; 
         }
+        this.GetChargesDataFromApi();
       }
     );
   }
@@ -163,7 +163,12 @@ export class CheckOutPageComponent {
     if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'Dedicated') {
       this.CustomerOrderData.DeliveryMethod.Cost = this.charges.Dedicated * (this.mangoesWeight); 
     } else if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'Third-Party') {
-      this.CustomerOrderData.DeliveryMethod.Cost = this.charges.ThirdParty * (this.mangoesWeight); 
+      if(this.mangoesWeight <= 17){
+        this.CustomerOrderData.DeliveryMethod.Cost = this.charges.ThirdParty * (this.mangoesWeight) * 2; 
+      }
+      else{
+        this.CustomerOrderData.DeliveryMethod.Cost = this.charges.ThirdParty * (this.mangoesWeight); 
+      }
     } else if (this.CustomerOrderData.DeliveryMethod.DeliveryMethod === 'APSRTC') {
       this.CustomerOrderData.DeliveryMethod.Cost = this.charges.APSRTC * (this.mangoesWeight); 
     }
